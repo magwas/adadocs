@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="ASCII"?>
+<zenta:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zenta="http://magwas.rulez.org/zenta" name="Ada" id="d3202427" version="2.2.1">
+  <folder name="Metamodel" id="c77845ef">
+    <element xsi:type="zenta:BasicObject" name="Basic Object" id="basicobject" children="238bb246 9be97204 4e990e8d"/>
+    <element xsi:type="zenta:BasicRelationship" name="Basic Relation" id="basicrelation" children="0f27eeaa 35f04eeb" source="basicobject" target="basicobject"/>
+    <element xsi:type="zenta:ZentaDiagramModel" name="Metamodel" id="9f17e235">
+      <child xsi:type="zenta:DiagramObject" id="11fb86ec" fillColor="#1e90ff" elementShape="ellipseShape" zentaElement="238bb246">
+        <bounds x="362" y="91" width="-1" height="-1"/>
+        <sourceConnection xsi:type="zenta:Connection" id="bbf4a052" source="11fb86ec" target="4960017f" lineDecoration="SmallEndArrowDecoration" relationship="0f27eeaa"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="c5fa547f" targetConnections="c062d285" fillColor="#1e90ff" elementShape="ellipseShape" zentaElement="f362356f">
+        <bounds x="199" y="188" width="-1" height="-1"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="23d9816a" fillColor="#1e90ff" elementShape="ellipseShape" zentaElement="32181c01">
+        <bounds x="336" y="188" width="-1" height="-1"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="b0320ab4" fillColor="#1e90ff" elementShape="ellipseShape" zentaElement="fe465fff">
+        <bounds x="504" y="188" width="-1" height="-1"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="4960017f" targetConnections="bbf4a052" zentaElement="9be97204">
+        <bounds x="455" y="312" width="-1" height="-1"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="8e893154" fillColor="#1e90ff" elementShape="ellipseShape" zentaElement="4e990e8d">
+        <bounds x="72" y="24" width="-1" height="-1"/>
+        <sourceConnection xsi:type="zenta:Connection" id="c062d285" source="8e893154" target="c5fa547f" lineDecoration="BigArrowTargetDecoration" relationship="35f04eeb"/>
+      </child>
+      <property key="Template"/>
+    </element>
+    <element xsi:type="zenta:BasicObject" name="Environment Element" id="238bb246" ancestor="basicobject" children="f362356f 32181c01 fe465fff">
+      <property key="fillColor" value="#1e90ff"/>
+      <property key="elementShape" value="ellipseShape"/>
+      <property key="textAlignment" value="2"/>
+      <property key="fontColor"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicObject" name="Policy" id="f362356f" ancestor="238bb246" children="a4e3fe24 d6bf51d0 154474db df567ba2 2531fed2">
+      <documentation>Security policy. It is also a &quot;User benefit/Concept&quot; in the value tree model.</documentation>
+      <property key="fillColor" value="#1e90ff"/>
+      <property key="elementShape" value="ellipseShape"/>
+      <property key="textAlignment" value="2"/>
+      <property key="fontColor"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicObject" name="Threat" id="32181c01" ancestor="238bb246">
+      <property key="fillColor" value="#1e90ff"/>
+      <property key="elementShape" value="ellipseShape"/>
+      <property key="textAlignment" value="2"/>
+      <property key="fontColor"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicObject" name="Assumption" id="fe465fff" ancestor="238bb246">
+      <property key="fillColor" value="#1e90ff"/>
+      <property key="elementShape" value="ellipseShape"/>
+      <property key="textAlignment" value="2"/>
+      <property key="fontColor"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicObject" name="Objective" id="9be97204" ancestor="basicobject" children="327c03c1 59ab009c 5ea41df1 4b3d8522">
+      <property key="fillColor"/>
+      <property key="elementShape"/>
+      <property key="textAlignment" value="2"/>
+      <property key="fontColor"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="Influences" id="0f27eeaa" ancestor="basicrelation" children="54a41fe1 a3073298 c66f1858 33b2ee9b" source="238bb246" target="9be97204">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="SmallEndArrowDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicObject" name="vision" id="4e990e8d" ancestor="basicobject" children="674bd734 6395d5ce 5b7f4355">
+      <documentation>Basic visions of a product. It is a concept from the value tree model where the levels are:
+- Vision/Rationale
+- User benefit/Concept
+- Feature
+- Realization</documentation>
+      <property key="fillColor" value="#1e90ff"/>
+      <property key="elementShape" value="ellipseShape"/>
+      <property key="textAlignment" value="2"/>
+      <property key="fontColor"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="defines" id="35f04eeb" ancestor="basicrelation" children="069a63c2 e4257f27 66dc5806 5d868a03 174a972b eaeeca4b" source="4e990e8d" target="f362356f">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="BigArrowTargetDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+  </folder>
+  <folder name="Security Environment" id="e2e64608">
+    <element xsi:type="zenta:ZentaDiagramModel" name="Security Environment" id="505a29f2">
+      <child xsi:type="zenta:DiagramObject" id="6279cee9" zentaElement="674bd734">
+        <bounds x="172" y="58" width="177" height="63"/>
+        <sourceConnection xsi:type="zenta:Connection" id="504d8722" source="6279cee9" target="44543795" relationship="174a972b"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="55690709" zentaElement="6395d5ce">
+        <bounds x="496" y="75" width="189" height="58"/>
+        <sourceConnection xsi:type="zenta:Connection" id="e37f0ef2" source="55690709" target="a217b9ea" relationship="e4257f27"/>
+        <sourceConnection xsi:type="zenta:Connection" id="f38e6315" source="55690709" target="5316ce88" relationship="66dc5806"/>
+        <sourceConnection xsi:type="zenta:Connection" id="f20ca52f" source="55690709" target="1049ee89" relationship="5d868a03"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="2b965842" zentaElement="5b7f4355">
+        <bounds x="336" y="144" width="196" height="84"/>
+        <sourceConnection xsi:type="zenta:Connection" id="62aedf6c" source="2b965842" target="84b90c0e" relationship="eaeeca4b"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="a217b9ea" targetConnections="e37f0ef2" zentaElement="a4e3fe24">
+        <bounds x="624" y="300" width="-1" height="-1"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="5316ce88" targetConnections="f38e6315" zentaElement="d6bf51d0">
+        <bounds x="827" y="303" width="158" height="70"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="1049ee89" targetConnections="f20ca52f" zentaElement="154474db">
+        <bounds x="480" y="276" width="-1" height="-1"/>
+        <sourceConnection xsi:type="zenta:Connection" id="0105b875" source="1049ee89" target="026fefef" relationship="54a41fe1"/>
+        <sourceConnection xsi:type="zenta:Connection" id="bb046181" source="1049ee89" target="4fa8da0e" relationship="a3073298"/>
+        <sourceConnection xsi:type="zenta:Connection" id="e1c52170" source="1049ee89" target="e7af9c75" relationship="c66f1858"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="026fefef" targetConnections="0105b875" zentaElement="59ab009c">
+        <bounds x="504" y="421" width="137" height="88"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="4fa8da0e" targetConnections="bb046181" zentaElement="5ea41df1">
+        <bounds x="336" y="421" width="131" height="77"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="e7af9c75" targetConnections="e1c52170" zentaElement="4b3d8522">
+        <bounds x="688" y="421" width="153" height="108"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="44543795" targetConnections="504d8722" zentaElement="df567ba2">
+        <bounds x="24" y="267" width="176" height="74"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="84b90c0e" targetConnections="62aedf6c" zentaElement="2531fed2">
+        <bounds x="240" y="267" width="168" height="71"/>
+      </child>
+    </element>
+    <element xsi:type="zenta:BasicObject" name="Provide anonymous and reliable voter database for NGOs." id="674bd734" ancestor="4e990e8d"/>
+    <element xsi:type="zenta:BasicObject" name="Provide easy, secure and private login to all NGO services for activists" id="6395d5ce" ancestor="4e990e8d"/>
+    <element xsi:type="zenta:BasicObject" name="A tool to bring political activists of all views to a common technical platform, making broad discurse possible" id="5b7f4355" ancestor="4e990e8d"/>
+    <element xsi:type="zenta:BasicObject" name="Intuitive UI" id="a4e3fe24" ancestor="f362356f"/>
+    <element xsi:type="zenta:BasicRelationship" id="e4257f27" ancestor="35f04eeb" source="6395d5ce" target="a4e3fe24"/>
+    <element xsi:type="zenta:BasicObject" name="Simple procedures without unnecessary steps" id="d6bf51d0" ancestor="f362356f"/>
+    <element xsi:type="zenta:BasicRelationship" id="66dc5806" ancestor="35f04eeb" source="6395d5ce" target="d6bf51d0"/>
+    <element xsi:type="zenta:BasicObject" name="Privacy is paramount" id="154474db" ancestor="f362356f"/>
+    <element xsi:type="zenta:BasicRelationship" id="5d868a03" ancestor="35f04eeb" source="6395d5ce" target="154474db"/>
+    <element xsi:type="zenta:BasicObject" name="Only those data are kept which are absolutely necessary (email, hash)" id="59ab009c" ancestor="9be97204"/>
+    <element xsi:type="zenta:BasicRelationship" id="54a41fe1" ancestor="0f27eeaa" source="154474db" target="59ab009c"/>
+    <element xsi:type="zenta:BasicObject" name="We store only the one-way hash of personal identifiers" id="5ea41df1" ancestor="9be97204"/>
+    <element xsi:type="zenta:BasicObject" name="The data which can lead to the real person is stored encrypted in the database." id="4b3d8522" ancestor="9be97204">
+      <documentation>This includes:
+- hash
+- email address
+- identifiers of other login services used (facebook, google, ...)
+</documentation>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" id="a3073298" ancestor="0f27eeaa" source="154474db" target="5ea41df1"/>
+    <element xsi:type="zenta:BasicRelationship" id="c66f1858" ancestor="0f27eeaa" source="154474db" target="4b3d8522"/>
+    <element xsi:type="zenta:BasicObject" name="There is a subset of the user base which contains only existing, different individuals" id="df567ba2" ancestor="f362356f"/>
+    <element xsi:type="zenta:BasicRelationship" id="174a972b" ancestor="35f04eeb" source="674bd734" target="df567ba2"/>
+    <element xsi:type="zenta:BasicObject" name="Everyone is welcome to use the services, both NGOs and individuals. " id="2531fed2" ancestor="f362356f"/>
+    <element xsi:type="zenta:BasicRelationship" id="eaeeca4b" ancestor="35f04eeb" source="5b7f4355" target="2531fed2"/>
+  </folder>
+</zenta:model>
