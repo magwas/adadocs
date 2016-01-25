@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:archimate="http://www.bolton.ac.uk/archimate"
+        name="Generated Policy (new style)">
+   <objectClass name="Policy" abstract="" definition="52c4eaea">
+      <description/>
+      <property name="consists of"
+                type="xs:string"
+                minOccurs=""
+                maxOccurs=""
+                structural="">
+         <description/>
+         <default select="property['key'='Policy:consists of']/@value" multi="true">
+            <description>A property for the object named Policy:consists of</description>
+         </default>
+         <default select="//element[@id=//element[@source=$id]/@target]" multi="true">
+            <description/>
+         </default>
+      </property>
+      <property name="realizes"
+                type="xs:string"
+                minOccurs=""
+                maxOccurs=""
+                structural="">
+         <description/>
+         <default select="property['key'='Policy:realizes']/@value" multi="true">
+            <description>A property for the object named Policy:realizes</description>
+         </default>
+         <default select="//element[@id=//element[@source=$id]/@target]" multi="true">
+            <description/>
+         </default>
+      </property>
+      <property name="consists of"
+                type="xs:string"
+                minOccurs=""
+                maxOccurs=""
+                structural="">
+         <description/>
+         <default select="property['key'='Policy:consists of']/@value" multi="true">
+            <description>A property for the object named Policy:consists of</description>
+         </default>
+         <default select="//element[@id=//element[@target=$id]/@source]" multi="true">
+            <description/>
+         </default>
+      </property>
+      <property name="realizes"
+                type="xs:string"
+                minOccurs=""
+                maxOccurs=""
+                structural="">
+         <description/>
+         <default select="property['key'='Policy:realizes']/@value" multi="true">
+            <description>A property for the object named Policy:realizes</description>
+         </default>
+         <default select="//element[@id=//element[@target=$id]/@source]" multi="true">
+            <description/>
+         </default>
+      </property>
+   </objectClass>
+   <objectClass name="Threat" abstract="" definition="b06f7046">
+      <description/>
+      <property name="counters"
+                type="xs:string"
+                minOccurs=""
+                maxOccurs=""
+                structural="">
+         <description/>
+         <default select="property['key'='Threat:counters']/@value" multi="true">
+            <description>A property for the object named Threat:counters</description>
+         </default>
+         <default select="//element[@id=//element[@source=$id]/@target]" multi="true">
+            <description/>
+         </default>
+      </property>
+      <property name="counters"
+                type="xs:string"
+                minOccurs=""
+                maxOccurs=""
+                structural="">
+         <description/>
+         <default select="property['key'='Threat:counters']/@value" multi="true">
+            <description>A property for the object named Threat:counters</description>
+         </default>
+         <default select="//element[@id=//element[@target=$id]/@source]" multi="true">
+            <description/>
+         </default>
+      </property>
+   </objectClass>
+   <objectClass name="Objective" abstract="" definition="3e119b11">
+      <description/>
+   </objectClass>
+   <objectClass name="Assumption" abstract="" definition="a8615043">
+      <description/>
+      <property name="caters for"
+                type="xs:string"
+                minOccurs=""
+                maxOccurs=""
+                structural="">
+         <description/>
+         <default select="property['key'='Assumption:caters for']/@value" multi="true">
+            <description>A property for the object named Assumption:caters for</description>
+         </default>
+         <default select="//element[@id=//element[@source=$id]/@target]" multi="true">
+            <description/>
+         </default>
+      </property>
+      <property name="caters for"
+                type="xs:string"
+                minOccurs=""
+                maxOccurs=""
+                structural="">
+         <description/>
+         <default select="property['key'='Assumption:caters for']/@value" multi="true">
+            <description>A property for the object named Assumption:caters for</description>
+         </default>
+         <default select="//element[@id=//element[@target=$id]/@source]" multi="true">
+            <description/>
+         </default>
+      </property>
+   </objectClass>
+   <objectClass name="TOE Objective" abstract="" definition="2dc26267">
+      <description/>
+      <ancestor class="Objective" byspec="true"/>
+      <property name="Objective"
+                type="xs:string"
+                minOccurs=""
+                maxOccurs=""
+                structural="">
+         <description/>
+         <default select="property['key'='TOE Objective:Objective']/@value" multi="true">
+            <description>A property for the object named TOE Objective:Objective</description>
+         </default>
+         <default select="//element[@id=//element[@source=$id]/@target]" multi="true">
+            <description/>
+         </default>
+      </property>
+      <property name="TOE Objective"
+                type="xs:string"
+                minOccurs=""
+                maxOccurs=""
+                structural="">
+         <description/>
+         <default select="property['key'='TOE Objective:TOE Objective']/@value"
+                  multi="true">
+            <description>A property for the object named TOE Objective:TOE Objective</description>
+         </default>
+         <default select="//element[@id=//element[@target=$id]/@source]" multi="true">
+            <description/>
+         </default>
+      </property>
+   </objectClass>
+</policy>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+               xmlns:functx="http://www.functx.com"
+			   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			   xmlns:archimate="http://www.archimatetool.com/archimate"
+			   xmlns:zenta="http://magwas.rulez.org/zenta"
+               stylesheet="../enrich.xslt">
+
+	<x:variable name="testData">
+      	<zenta:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zenta="http://magwas.rulez.org/zenta" name="Ada" id="d3202427" version="2.2.1">
+		    <element xsi:type="zenta:BasicObject" 
+		    	name="Basic Object"
+		    	id="basicobject" children="238bb246"/>
+		    <element xsi:type="zenta:BasicRelationship" 
+		    	name="Basic Relation"
+		    	id="basicrelation" children="0f27eeaa" source="basicobject" target="basicobject"/>
+		    <element xsi:type="zenta:BasicObject" 
+		    	name="Objective"
+		    	id="objectiveClass" ancestor="basicobject"/>
+		    <element xsi:type="zenta:BasicObject" 
+		    	name="Environment Element"
+		    	id="envElementClass" ancestor="basicobject" children=""/>
+		    <element xsi:type="zenta:BasicRelationship" 
+		    	name="defines"
+		    	id="definesClass" ancestor="basicrelation" source="238bb246" target="f362356f">
+		    </element>
+		    <element xsi:type="zenta:BasicObject" 
+		    	name="an Objective"
+		    	id="anObjective" ancestor="objectiveClass"/>
+		    <element xsi:type="zenta:BasicObject" 
+		    	name="an Environment Element"
+		    	id="anElement" ancestor="envElementClass"/>
+		    <element xsi:type="zenta:BasicRelationship" 
+		    	name=""
+		    	id="aDefines" ancestor="definesClass" source="anElement" target="anObjective"/>
+	    </zenta:model>
+	</x:variable>
+
+   <x:scenario label="changetype mode changes element types">
+      <x:context mode="changetype">
+      	<zenta:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zenta="http://magwas.rulez.org/zenta" name="Ada" id="d3202427" version="2.2.1">
+		    <element xsi:type="zenta:BasicObject" name="Basic Object" id="basicobject" children="238bb246"/>
+		    <element xsi:type="zenta:BasicObject" name="Environment Element" id="238bb246" ancestor="basicobject" children="f362356f 32181c01 fe465fff"/>
+		    <element xsi:type="zenta:BasicObject" name="an Environment element" id="f362356f" ancestor="238bb246"/>
+	    </zenta:model>
+      </x:context>
+      <x:expect label="The root object remains zenta:BasicObject"
+      	test="//element[@id='basicobject']/@xsi:type = 'zenta:BasicObject'"/>
+      <x:expect label="A Basic Object will be 'Ada:Basic Object'"
+      	test="//element[@id='238bb246']/@xsi:type = 'Ada:Basic Object'"/>
+      <x:expect label="A Environment Element will be 'Ada:Environment Element'"
+      	test="//element[@id='f362356f']/@xsi:type = 'Ada:Environment Element'"/>
+   </x:scenario>
+
+<x:pending label="needs infrastructure">
+   <x:scenario label="enrich mode insert value for connections">
+      <x:context mode="enrich" select="$testData"/>
+      <x:expect label="objects get 'value' subelements for each of the connections of the ancestor"
+      	test="//element[@id='anObjective']/value/@referenced='anElement'"
+      />
+   </x:scenario>
+</x:pending>
+
+   <x:scenario label="getneighbourdefs returns a list of neighbours defined by the ancestor class">
+      <x:call function="zenta:getNeighbourDefs">
+      	<x:param name="elemId" select="'anObjective'"/>
+         <x:param name="doc" select="$testData"/>
+      </x:call>
+      <x:expect label="result contains the id of the other side in a targetId attribute"
+                test="count(//*[@targetId='anElement']) = 1"/>
+   </x:scenario>
+
+</x:description>

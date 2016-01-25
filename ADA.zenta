@@ -55,20 +55,21 @@
       <property key="fontColor"/>
       <property key="font"/>
     </element>
-    <element xsi:type="zenta:BasicObject" name="Objective" id="9be97204" ancestor="basicobject" children="327c03c1 59ab009c 5ea41df1 4b3d8522">
+    <element xsi:type="zenta:BasicObject" name="Objective" id="9be97204" ancestor="basicobject">
       <property key="fillColor"/>
       <property key="elementShape"/>
       <property key="textAlignment" value="2"/>
       <property key="fontColor"/>
       <property key="font"/>
     </element>
-    <element xsi:type="zenta:BasicRelationship" name="Influences" id="0f27eeaa" ancestor="basicrelation" children="54a41fe1 a3073298 c66f1858 33b2ee9b" source="238bb246" target="9be97204">
+    <element xsi:type="zenta:BasicRelationship" name="Influences" id="0f27eeaa" ancestor="basicrelation" children="54a41fe1 a3073298 c66f1858" source="238bb246" target="9be97204">
       <property key="textPosition" value="1"/>
       <property key="lineDecoration" value="SmallEndArrowDecoration"/>
       <property key="lineColor"/>
       <property key="fontColor"/>
       <property key="lineWidth" value="1"/>
       <property key="font"/>
+      <property key="minOccurs" value="/1"/>
     </element>
     <element xsi:type="zenta:BasicObject" name="vision" id="4e990e8d" ancestor="basicobject" children="674bd734 6395d5ce 5b7f4355">
       <documentation>Basic visions of a product. It is a concept from the value tree model where the levels are:
@@ -82,13 +83,14 @@
       <property key="fontColor"/>
       <property key="font"/>
     </element>
-    <element xsi:type="zenta:BasicRelationship" name="defines" id="35f04eeb" ancestor="basicrelation" children="069a63c2 e4257f27 66dc5806 5d868a03 174a972b eaeeca4b" source="4e990e8d" target="f362356f">
+    <element xsi:type="zenta:BasicRelationship" name="defines" id="35f04eeb" ancestor="basicrelation" source="4e990e8d" target="f362356f">
       <property key="textPosition" value="1"/>
       <property key="lineDecoration" value="BigArrowTargetDecoration"/>
       <property key="lineColor"/>
       <property key="fontColor"/>
       <property key="lineWidth" value="1"/>
       <property key="font"/>
+      <property key="minOccurs" value="/1"/>
     </element>
   </folder>
   <folder name="Security Environment" id="e2e64608">
@@ -139,15 +141,15 @@
     <element xsi:type="zenta:BasicObject" name="Provide easy, secure and private login to all NGO services for activists" id="6395d5ce" ancestor="4e990e8d"/>
     <element xsi:type="zenta:BasicObject" name="A tool to bring political activists of all views to a common technical platform, making broad discurse possible" id="5b7f4355" ancestor="4e990e8d"/>
     <element xsi:type="zenta:BasicObject" name="Intuitive UI" id="a4e3fe24" ancestor="f362356f"/>
-    <element xsi:type="zenta:BasicRelationship" id="e4257f27" ancestor="35f04eeb" source="6395d5ce" target="a4e3fe24"/>
+    <element xsi:type="zenta:BasicRelationship" id="e4257f27" source="6395d5ce" target="a4e3fe24"/>
     <element xsi:type="zenta:BasicObject" name="Simple procedures without unnecessary steps" id="d6bf51d0" ancestor="f362356f"/>
-    <element xsi:type="zenta:BasicRelationship" id="66dc5806" ancestor="35f04eeb" source="6395d5ce" target="d6bf51d0"/>
+    <element xsi:type="zenta:BasicRelationship" id="66dc5806" source="6395d5ce" target="d6bf51d0"/>
     <element xsi:type="zenta:BasicObject" name="Privacy is paramount" id="154474db" ancestor="f362356f"/>
-    <element xsi:type="zenta:BasicRelationship" id="5d868a03" ancestor="35f04eeb" source="6395d5ce" target="154474db"/>
-    <element xsi:type="zenta:BasicObject" name="Only those data are kept which are absolutely necessary (email, hash)" id="59ab009c" ancestor="9be97204"/>
+    <element xsi:type="zenta:BasicRelationship" id="5d868a03" source="6395d5ce" target="154474db"/>
+    <element xsi:type="zenta:BasicObject" name="Only those data are kept which are absolutely necessary (email, hash)" id="59ab009c"/>
     <element xsi:type="zenta:BasicRelationship" id="54a41fe1" ancestor="0f27eeaa" source="154474db" target="59ab009c"/>
-    <element xsi:type="zenta:BasicObject" name="We store only the one-way hash of personal identifiers" id="5ea41df1" ancestor="9be97204"/>
-    <element xsi:type="zenta:BasicObject" name="The data which can lead to the real person is stored encrypted in the database." id="4b3d8522" ancestor="9be97204">
+    <element xsi:type="zenta:BasicObject" name="We store only the one-way hash of personal identifiers" id="5ea41df1"/>
+    <element xsi:type="zenta:BasicObject" name="The data which can lead to the real person is stored encrypted in the database." id="4b3d8522">
       <documentation>This includes:
 - hash
 - email address
@@ -157,8 +159,8 @@
     <element xsi:type="zenta:BasicRelationship" id="a3073298" ancestor="0f27eeaa" source="154474db" target="5ea41df1"/>
     <element xsi:type="zenta:BasicRelationship" id="c66f1858" ancestor="0f27eeaa" source="154474db" target="4b3d8522"/>
     <element xsi:type="zenta:BasicObject" name="There is a subset of the user base which contains only existing, different individuals" id="df567ba2" ancestor="f362356f"/>
-    <element xsi:type="zenta:BasicRelationship" id="174a972b" ancestor="35f04eeb" source="674bd734" target="df567ba2"/>
+    <element xsi:type="zenta:BasicRelationship" id="174a972b" source="674bd734" target="df567ba2"/>
     <element xsi:type="zenta:BasicObject" name="Everyone is welcome to use the services, both NGOs and individuals. " id="2531fed2" ancestor="f362356f"/>
-    <element xsi:type="zenta:BasicRelationship" id="eaeeca4b" ancestor="35f04eeb" source="5b7f4355" target="2531fed2"/>
+    <element xsi:type="zenta:BasicRelationship" id="eaeeca4b" source="5b7f4355" target="2531fed2"/>
   </folder>
 </zenta:model>
