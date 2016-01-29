@@ -7,35 +7,7 @@
 			   xmlns:zenta="http://magwas.rulez.org/zenta"
                stylesheet="../enrich.xslt">
 
-	<x:variable name="testData">
-      	<zenta:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zenta="http://magwas.rulez.org/zenta" name="Ada" id="d3202427" version="2.2.1">
-		    <element xsi:type="zenta:BasicObject" 
-		    	name="Basic Object"
-		    	id="basicobject" children="238bb246"/>
-		    <element xsi:type="zenta:BasicRelationship" 
-		    	name="Basic Relation"
-		    	id="basicrelation" children="0f27eeaa" source="basicobject" target="basicobject"/>
-		    <element xsi:type="zenta:BasicObject" 
-		    	name="Objective"
-		    	id="objectiveClass" ancestor="basicobject"/>
-		    <element xsi:type="zenta:BasicObject" 
-		    	name="Environment Element"
-		    	id="envElementClass" ancestor="basicobject" children=""/>
-		    <element xsi:type="zenta:BasicRelationship" 
-		    	name="defines"
-		    	id="definesClass" ancestor="basicrelation" source="238bb246" target="f362356f">
-		    </element>
-		    <element xsi:type="zenta:BasicObject" 
-		    	name="an Objective"
-		    	id="anObjective" ancestor="objectiveClass"/>
-		    <element xsi:type="zenta:BasicObject" 
-		    	name="an Environment Element"
-		    	id="anElement" ancestor="envElementClass"/>
-		    <element xsi:type="zenta:BasicRelationship" 
-		    	name=""
-		    	id="aDefines" ancestor="definesClass" source="anElement" target="anObjective"/>
-	    </zenta:model>
-	</x:variable>
+	<x:variable name="testData" href="testData.xml"/>
 
    <x:scenario label="changetype mode changes element types">
       <x:context mode="changetype">
@@ -53,22 +25,98 @@
       	test="//element[@id='f362356f']/@xsi:type = 'Ada:Environment Element'"/>
    </x:scenario>
 
-<x:pending label="needs infrastructure">
    <x:scenario label="enrich mode insert value for connections">
       <x:context mode="enrich" select="$testData"/>
       <x:expect label="objects get 'value' subelements for each of the connections of the ancestor"
-      	test="//element[@id='anObjective']/value/@referenced='anElement'"
+      	test="count(//element[@id='anObjective']/value) >=1 "
+      />
+      <x:expect label="value have a target attribute with the id of the target element"
+      	test="//element[@id='anObjective']/value/@target='anElement'"
+      />
+      <x:expect label="there is a value for forward relations"
+      	test="//element[@id='anElement']/value/@target='anObjective'"
+      />
+      <x:expect label="there is a value for backward relations"
+      	test="//element[@id='anObjective']/value/@target='anElement'"
+      />
+      <x:expect label="value have the target name in the 'name' attribute"
+      	test="//element[@id='anObjective']/value/@name='an Environment Element'"
+      />
+      <x:expect label="number of values corresponds to relations of the object (case 2)"
+      	test="count(//element[@id='anObjective']/value)=2"
+      />
+      <x:expect label="number of values corresponds to relations of the object"
+      	test="count(//element[@id='anElement']/value)=1"
+      />
+      <x:expect label="there is an error if there are less than minOccurs instances of values of a relation type to an element"
+      	test="//error[@element='anElement']/@type='less than minOccurs values'"
+      />
+      <x:expect label="the error message contains the id of the defining relation"
+      	test="//error[@element='anElement']/@relationId='influencesClass'"
+      />
+      <x:expect label="the error message contains the name of the defining relation"
+      	test="//error[@element='anElement']/@relationName='Ada:influences'"
+      />
+      <x:expect label="the minOccurs error message works backward as well"
+      	test="//error[@element='aVision']/@relationName='Ada:influences'"
+      />
+      <x:pending label="refactor"><x:expect label="the minOccurs error message contains the minOccurs value forwards"
+      	test="//error[@element='anElement']/@minOccurs=2"
+      />
+      </x:pending>
+      <x:expect label="the minOccurs error message contains the minOccurs value backwards"
+      	test="//error[@element='aVision']/@minOccurs=1"
       />
    </x:scenario>
-</x:pending>
 
-   <x:scenario label="getneighbourdefs returns a list of neighbours defined by the ancestor class">
-      <x:call function="zenta:getNeighbourDefs">
-      	<x:param name="elemId" select="'anObjective'"/>
+   <x:scenario label="meta mode adds metamodel related info to the model">
+   	<x:context mode="meta" select="$testData"/>
+   	<x:expect label="there is one metamodel tag in the result"
+   		test="count(//metamodel) = 1" />
+   	<x:expect label="there are elements under the model"
+   		test="count(/zenta:model/element) &gt; 1"/>
+   	<x:expect label="there are connections under the metamodel"
+   		test="count(//metamodel/connection) &gt; 1"/>
+   	<x:expect label="there are connections with sourceClass attribute for relation sources"
+   		test="//connection/@sourceClass='envElementClass'"/>
+   	<x:expect label="the targetClass attribute contains the target class for forward connections"
+   		test="//connection[@sourceClass='envElementClass']/@targetClass='objectiveClass'" />
+   	<x:expect label="the direction attribute is 1 for forward connections"
+   		test="//connection[@sourceClass='envElementClass']/@direction=1" />
+   	<x:expect label="the direction attribute is 1 for forward connections"
+   		test="//connection[@sourceClass='envElementClass']/@direction=1" />
+   	<x:expect label="there is a minOccurs attribute for connections"
+   		test="exists(//connection[@sourceClass='envElementClass']/@minOccurs)" />
+   	<x:expect label="minOccurs is zero for relations without minOccurs property"
+   		test="//connection[@sourceClass='envElementClass']/@minOccurs='0'" />
+   	<x:expect label="minOccurs is the part before '/' of the minOccurs property if that exists"
+   		test="//connection[@sourceClass='visionClass']/@minOccurs='2'" />
+
+   	<x:expect label="there are connections with sourceClass attribute for relation targets"
+   		test="//connection/@sourceClass='objectiveClass'"/>
+   	<x:expect label="the targetClass attribute contains the target class for backward connections"
+   		test="//connection[@sourceClass='objectiveClass']/@targetClass='envElementClass'" />
+   	<x:expect label="the direction attribute is 2 for backward connections"
+   		test="//connection[@sourceClass='objectiveClass']/@direction=2" />
+   	<x:expect label="there is a minOccurs attribute for backward connections"
+   		test="exists(//connection[@sourceClass='objectiveClass']/@minOccurs)" />
+   	<x:expect label="minOccurs is zero for relations without minOccurs property"
+   		test="//connection[@sourceClass='objectiveClass']/@minOccurs='0'" />
+   	<x:expect label="minOccurs is the part before '/' of the minOccurs property if that exists"
+   		test="//connection[@targetClass='visionClass']/@minOccurs='1'" />
+   	<x:expect label="connections have the ancestor attribute for the defining relation"
+   		test="//connection[@sourceClass='anElement']/@ancestor='definesClass'" />
+   	<x:expect label="connections have the id attribute for the defining relation"
+   		test="//connection[@sourceClass='anElement']/@id='aDefines'" />
+   </x:scenario>
+
+   <x:scenario label="getRelations gets the correct relation for a target and an element">
+      <x:call function="zenta:getRelationsnew">
+      	<x:param name="element" select="$testData//element[@id='anElement']"/>
          <x:param name="doc" select="$testData"/>
       </x:call>
-      <x:expect label="result contains the id of the other side in a targetId attribute"
-                test="count(//*[@targetId='anElement']) = 1"/>
+      <x:expect label="result is the defines relation" test="connection/@id='aDefines'"/>
    </x:scenario>
+
 
 </x:description>
