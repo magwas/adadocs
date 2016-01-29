@@ -5,6 +5,7 @@
 			   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			   xmlns:archimate="http://www.archimatetool.com/archimate"
 			   xmlns:zenta="http://magwas.rulez.org/zenta"
+			   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                stylesheet="../enrich.xslt">
 
 	<x:variable name="testData" href="testData.xml"/>
@@ -52,13 +53,13 @@
       	test="//error[@element='anElement']/@type='less than minOccurs values'"
       />
       <x:expect label="the error message contains the id of the defining relation"
-      	test="//error[@element='anElement']/@relationId='influencesClass'"
+      	test="//error[@element='anElement']/@id='influencesClass'"
       />
       <x:expect label="the error message contains the name of the defining relation"
-      	test="//error[@element='anElement']/@relationName='Ada:influences'"
+      	test="//error[@element='anElement']/@name='influences'"
       />
       <x:expect label="the minOccurs error message works backward as well"
-      	test="//error[@element='aVision']/@relationName='Ada:influences'"
+      	test="//error[@element='aVision']/@name='influences'"
       />
       <x:pending label="refactor"><x:expect label="the minOccurs error message contains the minOccurs value forwards"
       	test="//error[@element='anElement']/@minOccurs=2"
@@ -69,53 +70,39 @@
       />
    </x:scenario>
 
-   <x:scenario label="meta mode adds metamodel related info to the model">
-   	<x:context mode="meta" select="$testData"/>
-   	<x:expect label="there is one metamodel tag in the result"
-   		test="count(//metamodel) = 1" />
-   	<x:expect label="there are elements under the model"
-   		test="count(/zenta:model/element) &gt; 1"/>
-   	<x:expect label="there are connections under the metamodel"
-   		test="count(//metamodel/connection) &gt; 1"/>
-   	<x:expect label="there are connections with sourceClass attribute for relation sources"
-   		test="//connection/@sourceClass='envElementClass'"/>
-   	<x:expect label="the targetClass attribute contains the target class for forward connections"
-   		test="//connection[@sourceClass='envElementClass']/@targetClass='objectiveClass'" />
+   <x:scenario label="relationships are broken to two unidirectional connections">
+   	<x:context mode="enrich" select="$testData"/>
+   	<x:expect label="there are connections with source attribute for relation sources"
+   		test="//connection/@source='envElementClass'"/>
+   	<x:expect label="the target attribute contains the target class for forward connections"
+   		test="//connection[@source='envElementClass']/@target='objectiveClass'" />
    	<x:expect label="the direction attribute is 1 for forward connections"
-   		test="//connection[@sourceClass='envElementClass']/@direction=1" />
+   		test="//connection[@source='envElementClass']/@direction=1" />
    	<x:expect label="the direction attribute is 1 for forward connections"
-   		test="//connection[@sourceClass='envElementClass']/@direction=1" />
+   		test="//connection[@source='envElementClass']/@direction=1" />
    	<x:expect label="there is a minOccurs attribute for connections"
-   		test="exists(//connection[@sourceClass='envElementClass']/@minOccurs)" />
+   		test="exists(//connection[@source='envElementClass']/@minOccurs)" />
    	<x:expect label="minOccurs is zero for relations without minOccurs property"
-   		test="//connection[@sourceClass='envElementClass']/@minOccurs='0'" />
+   		test="//connection[@source='envElementClass']/@minOccurs='0'" />
    	<x:expect label="minOccurs is the part before '/' of the minOccurs property if that exists"
-   		test="//connection[@sourceClass='visionClass']/@minOccurs='2'" />
+   		test="//connection[@source='visionClass']/@minOccurs='2'" />
 
-   	<x:expect label="there are connections with sourceClass attribute for relation targets"
-   		test="//connection/@sourceClass='objectiveClass'"/>
-   	<x:expect label="the targetClass attribute contains the target class for backward connections"
-   		test="//connection[@sourceClass='objectiveClass']/@targetClass='envElementClass'" />
+   	<x:expect label="there are connections with source attribute for relation targets"
+   		test="//connection/@source='objectiveClass'"/>
+   	<x:expect label="the target attribute contains the target class for backward connections"
+   		test="//connection[@source='objectiveClass']/@target='envElementClass'" />
    	<x:expect label="the direction attribute is 2 for backward connections"
-   		test="//connection[@sourceClass='objectiveClass']/@direction=2" />
+   		test="//connection[@source='objectiveClass']/@direction=2" />
    	<x:expect label="there is a minOccurs attribute for backward connections"
-   		test="exists(//connection[@sourceClass='objectiveClass']/@minOccurs)" />
+   		test="exists(//connection[@source='objectiveClass']/@minOccurs)" />
    	<x:expect label="minOccurs is zero for relations without minOccurs property"
-   		test="//connection[@sourceClass='objectiveClass']/@minOccurs='0'" />
+   		test="//connection[@source='objectiveClass']/@minOccurs='0'" />
    	<x:expect label="minOccurs is the part before '/' of the minOccurs property if that exists"
-   		test="//connection[@targetClass='visionClass']/@minOccurs='1'" />
+   		test="//connection[@target='visionClass']/@minOccurs='1'" />
    	<x:expect label="connections have the ancestor attribute for the defining relation"
-   		test="//connection[@sourceClass='anElement']/@ancestor='definesClass'" />
+   		test="//connection[@source='anElement']/@ancestor='definesClass'" />
    	<x:expect label="connections have the id attribute for the defining relation"
-   		test="//connection[@sourceClass='anElement']/@id='aDefines'" />
-   </x:scenario>
-
-   <x:scenario label="getRelations gets the correct relation for a target and an element">
-      <x:call function="zenta:getRelationsnew">
-      	<x:param name="element" select="$testData//element[@id='anElement']"/>
-         <x:param name="doc" select="$testData"/>
-      </x:call>
-      <x:expect label="result is the defines relation" test="connection/@id='aDefines'"/>
+   		test="//connection[@source='anElement']/@id='aDefines'" />
    </x:scenario>
 
 
