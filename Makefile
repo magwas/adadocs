@@ -1,6 +1,9 @@
 
 all: tests tmp/enriched.xml
 
+clean:
+	git clean -fdx
+
 tmp:
 	mkdir -p tmp
 
