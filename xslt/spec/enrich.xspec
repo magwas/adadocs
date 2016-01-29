@@ -61,12 +61,11 @@
       <x:expect label="the minOccurs error message works backward as well"
       	test="//error[@element='aVision']/@name='influences'"
       />
-      <x:pending label="refactor"><x:expect label="the minOccurs error message contains the minOccurs value forwards"
-      	test="//error[@element='anElement']/@minOccurs=2"
-      />
-      </x:pending>
       <x:expect label="the minOccurs error message contains the minOccurs value backwards"
-      	test="//error[@element='aVision']/@minOccurs=1"
+      	test="//error[@element='anElement' and @id='influencesClass']/@minOccurs=5"
+      />
+      <x:expect label="the minOccurs error message contains the minOccurs value forwards"
+      	test="//error[@element='aVision' and @id='influencesClass']/@minOccurs=3"
       />
    </x:scenario>
 
@@ -85,7 +84,7 @@
    	<x:expect label="minOccurs is zero for relations without minOccurs property"
    		test="//connection[@source='envElementClass']/@minOccurs='0'" />
    	<x:expect label="minOccurs is the part before '/' of the minOccurs property if that exists"
-   		test="//connection[@source='visionClass']/@minOccurs='2'" />
+   		test="//connection[@source='visionClass']/@minOccurs='3'" />
 
    	<x:expect label="there are connections with source attribute for relation targets"
    		test="//connection/@source='objectiveClass'"/>
@@ -95,11 +94,11 @@
    		test="//connection[@source='objectiveClass']/@direction=2" />
    	<x:expect label="there is a minOccurs attribute for backward connections"
    		test="exists(//connection[@source='objectiveClass']/@minOccurs)" />
-   	<x:expect label="minOccurs is zero for relations without minOccurs property"
+   	<x:expect label="minOccurs is zero for relations without minOccurs property also for backwards relations"
    		test="//connection[@source='objectiveClass']/@minOccurs='0'" />
-   	<x:expect label="minOccurs is the part before '/' of the minOccurs property if that exists"
-   		test="//connection[@target='visionClass']/@minOccurs='1'" />
-   	<x:expect label="connections have the ancestor attribute for the defining relation"
+   	<x:expect label="minOccurs is the part after '/' of the minOccurs property if that exists for backward relations"
+   		test="//connection[@target='visionClass']/@minOccurs='5'" />
+   	<x:expect label="connections have the ancestor attribute for the defining relation for backward relations"
    		test="//connection[@source='anElement']/@ancestor='definesClass'" />
    	<x:expect label="connections have the id attribute for the defining relation"
    		test="//connection[@source='anElement']/@id='aDefines'" />

@@ -23,7 +23,7 @@
 		    <element xsi:type="zenta:BasicRelationship" 
 		    	name="influences"
 		    	id="influencesClass" ancestor="basicrelation" source="visionClass" target="envElementClass">
-		    	<property key="minOccurs" value="2/1"/>
+		    	<property key="minOccurs" value="3/5"/>
 		    </element>
 		    <element xsi:type="zenta:BasicObject" 
 		    	name="Realities"
@@ -50,5 +50,5 @@
 		    	id="aDefines2" ancestor="definesClass" source="anotherElement" target="anObjective"/>
 		    <element xsi:type="zenta:BasicObject" 
 		    	name="a Vision"
-		    	id="aVision" ancestor="envElementClass"/>
+		    	id="aVision" ancestor="visionClass"/>
 	    </zenta:model>
