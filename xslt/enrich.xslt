@@ -64,38 +64,29 @@
 		</xsl:if>
 	</xsl:function>
 
-	<xsl:function name="zenta:getRelations">
-		<xsl:param name="element"/>
-		<xsl:param name="doc"/>
-		<xsl:copy-of select="$doc//connection"/>
-	</xsl:function>
-
-	<xsl:function name="zenta:createValueFromRelation">
-		<xsl:param name="relation"/>
-		<xsl:param name="doc"/>
+	<xsl:template match="connection" mode="createValue">
 		<value>
-			<xsl:copy-of select="$relation/@*"/>
-			<xsl:attribute name="name" select="$doc//element[@id=$relation/@target]/@name"/>
+			<xsl:copy-of select="@*"/>
+			<xsl:attribute name="name" select="//element[@id=current()/@target]/@name"/>
 		</value>
-	</xsl:function>
+	</xsl:template>
 
-	<xsl:function name="zenta:createValuesForElement">
-		<xsl:param name="element"/>
-		<xsl:param name="doc"/>
-		<xsl:variable name="definingRelations" select="$doc//connection[@source=$element/@ancestor]"/>
+	<xsl:template match="element" mode="createValue">
+		<xsl:variable name="element" select="."/>
+		<xsl:variable name="definingRelations" select="//connection[@source=$element/@ancestor]"/>
 		<xsl:for-each select="$definingRelations">
-			<xsl:variable name="relations" select="$doc//connection[@source=$element/@id and @ancestor=current()/@id]"/>
+			<xsl:variable name="relations" select="//connection[@source=$element/@id and @ancestor=current()/@id]"/>
 			<xsl:copy-of select="zenta:checkRelationCount($element,.,$relations)"/>
 			<xsl:for-each select="$relations">
-				<xsl:copy-of select="zenta:createValueFromRelation(.,$doc)"/>
+				<xsl:apply-templates select="." mode="createValue" />
 			</xsl:for-each>
 		</xsl:for-each>
-	</xsl:function>
+	</xsl:template>
 
 	<xsl:template match="element" mode="enrich_run2">
 	  <xsl:copy>
 	    <xsl:apply-templates select="*|@*|text()|processing-instruction()|comment()" mode="#current"/>
-	    <xsl:copy-of select="zenta:createValuesForElement(.,/)"/>
+	    <xsl:apply-templates select="." mode="createValue"/>
 	  </xsl:copy>
 	</xsl:template>
 
@@ -103,7 +94,6 @@
 		<xsl:copy-of select="zenta:buildConnection(.,1)"/>
 		<xsl:copy-of select="zenta:buildConnection(.,2)"/>
 	</xsl:template>
-
 
 	<xsl:function name="zenta:buildConnection">
 		<xsl:param name="element"/>
