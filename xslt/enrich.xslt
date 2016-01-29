@@ -15,43 +15,6 @@
 		<xsl:copy-of select="$input"/>
 	</xsl:function>
 	
-	<xsl:function name="zenta:compileTarget">
-		<xsl:param name="target"/>
-		<xsl:param name="via"/>
-		<xsl:param name="direction"/>
-		<target>
-			<xsl:attribute name="targetId" select="$target/@id" />
-			<xsl:attribute name="targetName" select="concat('Ada:',$target/@name)" />
-			<xsl:attribute name="relationId" select="$via/@id" />
-			<xsl:attribute name="relationName" select="concat('Ada:',$via/@name)" />
-			<xsl:attribute name="minOccurs" select="tokenize($via/property[@key='minOccurs']/@value,'/')[$direction]"/>
-			<xsl:attribute name="direction" select="$direction" />
-		</target>
-	</xsl:function>
-
-	<xsl:function name="zenta:getNeighbourDefs">
-		<xsl:param name="elemId"/>
-		<xsl:param name="doc"/>
-		<xsl:variable name="backVias" select="$doc//element[@target=$elemId]"/>
-		<xsl:variable name="fwdVias" select="$doc//element[@source=$elemId]"/>
-		<targetlist>
-			<xsl:for-each select="$fwdVias">
-				<xsl:copy-of select="zenta:compileTarget(
-					$doc//element[@id=current()/@target],
-					.,
-					1
-				)"/>
-			</xsl:for-each>
-			<xsl:for-each select="$backVias">
-				<xsl:copy-of select="zenta:compileTarget(
-					$doc//element[@id=current()/@source],
-					.,
-					2
-				)"/>
-			</xsl:for-each>
-		</targetlist>
-	</xsl:function>
-	
 	<xsl:template match="zenta:model" mode="enrich">
 		<xsl:variable name="changetypeResult">
 			<xsl:apply-templates select="." mode="changetype"/>
@@ -77,19 +40,6 @@
 				'zenta:BasicObject'"/>
 	</xsl:template>
 	
-	<xsl:function name="zenta:getTargetThroughRelation">
-		<xsl:param name="doc"/>
-		<xsl:param name="relation"/>
-		<xsl:param name="direction"/>
-		<xsl:variable name="targetId" select="
-			if($direction=1)
-			then
-				$relation/@target
-			else
-				$relation/@source
-		"/>
-		<xsl:copy-of select="$doc//element[@id=$targetId]"/>
-	</xsl:function>
 
 	<xsl:function name="zenta:occursNumber">
 		<xsl:param name="theString"/>
