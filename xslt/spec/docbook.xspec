@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+               xmlns:functx="http://www.functx.com"
+			   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			   xmlns:archimate="http://www.archimatetool.com/archimate"
+			   xmlns:zenta="http://magwas.rulez.org/zenta"
+			   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+               stylesheet="../docbook.xslt">
+
+	<x:variable name="testData" href="enriched.xml"/>
+
+   <x:scenario label="output is a docbook article">
+      <x:context select="$testData"/>
+      <x:expect label="The root tag is article"
+      	test="count(/article) = 1 "/>
+      <x:expect label="article version is 5.0"
+      	test="/article/@version='5.0'"/>
+      <x:expect label="folders become sections"
+      	test="//*[@id='metaModel']/local-name()='section'"/>
+      <x:expect label="sections have titles"
+      	test="count(//section) = count(//section/title)"/>
+      <x:expect label="section title is the name of the folder"
+      	test="//section[@id='metaModel']/title='Metamodel'"/>
+      <x:expect label="the first para of the section is the documentation for the folder"
+      	test="//section[@id='metaModel']/para[1]='Metamodel documentation'"/>
+      <x:expect label="there is a table in the folder if it contains anything documentable"
+      	test="count(//section[@id='metaModel']/table)=1"/>
+      <x:expect label="if there are diagrams, the first rows of the table contain the diagrams"
+      	test="//section[@id='metaModel']/table/tgroup/tbody/row[1]//figure/title='Metamodel diagram'"/>
+      <x:expect label="diagram remark is the diagram documentation"
+        test="//figure[title='Metamodel diagram']/remark='Metamodel diagram documentation'"/>
+      <x:expect label="document contains the picture of the diagram"
+        test="//figure[title='Metamodel diagram']/mediaobject/imageobject/imagedata/@fileref='pics/9f17e235.png'"/>
+   </x:scenario>
+
+</x:description>

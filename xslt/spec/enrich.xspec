@@ -15,11 +15,19 @@
       	<zenta:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zenta="http://magwas.rulez.org/zenta" name="Ada" id="d3202427" version="2.2.1">
 		    <element xsi:type="zenta:BasicObject" name="Basic Object" id="basicobject" children="238bb246"/>
 		    <element xsi:type="zenta:BasicObject" name="Environment Element" id="238bb246" ancestor="basicobject" children="f362356f 32181c01 fe465fff"/>
+			<element xsi:type="zenta:ZentaDiagramModel" name="Metamodel" id="9f17e235">
+			      <child xsi:type="zenta:DiagramObject" id="11fb86ec" fillColor="#1e90ff" elementShape="ellipseShape" zentaElement="238bb246">
+			        <bounds x="362" y="91" width="-1" height="-1"/>
+			        <sourceConnection xsi:type="zenta:Connection" id="bbf4a052" source="11fb86ec" target="4960017f" lineDecoration="SmallEndArrowDecoration" relationship="0f27eeaa"/>
+			      </child>
+			</element>
 		    <element xsi:type="zenta:BasicObject" name="an Environment element" id="f362356f" ancestor="238bb246"/>
 	    </zenta:model>
       </x:context>
       <x:expect label="The root object remains zenta:BasicObject"
       	test="//element[@id='basicobject']/@xsi:type = 'zenta:BasicObject'"/>
+      <x:expect label="objects without ancestor remain the same type"
+      	test="//element[@id='9f17e235']/@xsi:type = 'zenta:ZentaDiagramModel'"/>
       <x:expect label="A Basic Object will be 'Ada:Basic Object'"
       	test="//element[@id='238bb246']/@xsi:type = 'Ada:Basic Object'"/>
       <x:expect label="A Environment Element will be 'Ada:Environment Element'"

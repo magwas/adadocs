@@ -3,6 +3,7 @@
 		    <element xsi:type="zenta:BasicObject" 
 		    	name="Basic Object"
 		    	id="basicobject" children="238bb246"/>
+
 		    <element xsi:type="zenta:BasicRelationship" 
 		    	name="Basic Relation"
 		    	id="basicrelation" children="0f27eeaa" source="basicobject" target="basicobject"/>
