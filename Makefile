@@ -1,5 +1,5 @@
 
-all: tests tmp/ADA.html
+all: tests tmp/ADA.html tmp/static
 
 clean:
 	git clean -fdx
@@ -32,3 +32,10 @@ tmp/ADA.html: tmp tmp/ADA.docbook pics tmp/structured.css
 
 tmp/structured.css: tmp static/structured.css
 	cp static/* tmp/
+
+pdoauth:
+	scp -P 22022 -r shippable@demokracia.rulez.org:/var/www/adadocs/PDOauth/master pdoauth
+
+tmp/static: pdoauth
+	cp -r pdoauth/html/ pdoauth/static/ tmp/
+
