@@ -7,4 +7,4 @@ before_install:
 script:
 - set
 - make
-- scp -P 22022 -r tmp/* demokracia.rulez.org:/var/www/adadocs
+- scp -P 22022 -r tmp/* shippable@demokracia.rulez.org:/var/www/adadocs
