@@ -30,5 +30,5 @@ tmp/ADA.docbook: tmp tmp/ADA.rich xslt/docbook.xslt
 tmp/ADA.html: tmp tmp/ADA.docbook pics tmp/structured.css
 	saxon9 -xsl:xslt/docbook2html.xslt -s:tmp/ADA.docbook >tmp/ADA.html
 
-tmp/structured.css: tmp xslt/structured.css
-	cp xslt/structured.css tmp/structured.css
+tmp/structured.css: tmp static/structured.css
+	cp static/* tmp/
