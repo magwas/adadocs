@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <zenta:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zenta="http://magwas.rulez.org/zenta" name="Ada" id="d3202427" version="2.2.1">
   <folder name="Metamodel" id="c77845ef">
-    <element xsi:type="zenta:BasicObject" name="Basic Object" id="basicobject" children="238bb246 9be97204 4e990e8d"/>
+    <element xsi:type="zenta:BasicObject" name="Basic Object" id="basicobject" children="238bb246 objectiveID 4e990e8d"/>
     <element xsi:type="zenta:BasicRelationship" name="Basic Relation" id="basicrelation" children="0f27eeaa 35f04eeb" source="basicobject" target="basicobject"/>
     <element xsi:type="zenta:ZentaDiagramModel" name="Metamodel" id="9f17e235">
       <child xsi:type="zenta:DiagramObject" id="11fb86ec" fillColor="#1e90ff" elementShape="ellipseShape" zentaElement="238bb246">
@@ -17,7 +17,7 @@
       <child xsi:type="zenta:DiagramObject" id="b0320ab4" fillColor="#1e90ff" elementShape="ellipseShape" zentaElement="fe465fff">
         <bounds x="504" y="188" width="-1" height="-1"/>
       </child>
-      <child xsi:type="zenta:DiagramObject" id="4960017f" targetConnections="bbf4a052" zentaElement="9be97204">
+      <child xsi:type="zenta:DiagramObject" id="4960017f" targetConnections="bbf4a052" zentaElement="objectiveID">
         <bounds x="481" y="312" width="-1" height="-1"/>
       </child>
       <child xsi:type="zenta:DiagramObject" id="8e893154" fillColor="#1e90ff" elementShape="ellipseShape" zentaElement="4e990e8d">
@@ -55,14 +55,14 @@
       <property key="fontColor"/>
       <property key="font"/>
     </element>
-    <element xsi:type="zenta:BasicObject" name="Objective" id="9be97204" ancestor="basicobject">
+    <element xsi:type="zenta:BasicObject" name="Objective" id="objectiveID" ancestor="basicobject" children="obj1 obj2 obj3">
       <property key="fillColor"/>
       <property key="elementShape"/>
       <property key="textAlignment" value="2"/>
       <property key="fontColor"/>
       <property key="font"/>
     </element>
-    <element xsi:type="zenta:BasicRelationship" name="Influences" id="0f27eeaa" ancestor="basicrelation" children="54a41fe1 a3073298 c66f1858" source="238bb246" target="9be97204">
+    <element xsi:type="zenta:BasicRelationship" name="Influences" id="0f27eeaa" ancestor="basicrelation" children="54a41fe1 a3073298 c66f1858" source="238bb246" target="objectiveID">
       <property key="textPosition" value="1"/>
       <property key="lineDecoration" value="SmallEndArrowDecoration"/>
       <property key="lineColor"/>
@@ -121,13 +121,13 @@
         <sourceConnection xsi:type="zenta:Connection" id="bb046181" source="1049ee89" target="4fa8da0e" relationship="a3073298"/>
         <sourceConnection xsi:type="zenta:Connection" id="e1c52170" source="1049ee89" target="e7af9c75" relationship="c66f1858"/>
       </child>
-      <child xsi:type="zenta:DiagramObject" id="026fefef" targetConnections="0105b875" zentaElement="59ab009c">
+      <child xsi:type="zenta:DiagramObject" id="026fefef" targetConnections="0105b875" zentaElement="obj3">
         <bounds x="504" y="421" width="137" height="88"/>
       </child>
-      <child xsi:type="zenta:DiagramObject" id="4fa8da0e" targetConnections="bb046181" zentaElement="5ea41df1">
+      <child xsi:type="zenta:DiagramObject" id="4fa8da0e" targetConnections="bb046181" zentaElement="obj1">
         <bounds x="336" y="421" width="131" height="77"/>
       </child>
-      <child xsi:type="zenta:DiagramObject" id="e7af9c75" targetConnections="e1c52170" zentaElement="4b3d8522">
+      <child xsi:type="zenta:DiagramObject" id="e7af9c75" targetConnections="e1c52170" zentaElement="obj1">
         <bounds x="688" y="421" width="153" height="108"/>
       </child>
       <child xsi:type="zenta:DiagramObject" id="44543795" targetConnections="504d8722" zentaElement="df567ba2">
@@ -146,18 +146,18 @@
     <element xsi:type="zenta:BasicRelationship" id="66dc5806" source="6395d5ce" target="d6bf51d0"/>
     <element xsi:type="zenta:BasicObject" name="Privacy is paramount" id="154474db" ancestor="f362356f"/>
     <element xsi:type="zenta:BasicRelationship" id="5d868a03" source="6395d5ce" target="154474db"/>
-    <element xsi:type="zenta:BasicObject" name="Only those personal data are kept which are absolutely necessary (email, hash)" id="59ab009c"/>
-    <element xsi:type="zenta:BasicRelationship" id="54a41fe1" ancestor="0f27eeaa" source="154474db" target="59ab009c"/>
-    <element xsi:type="zenta:BasicObject" name="We store only the one-way hash of personal identifiers" id="5ea41df1"/>
-    <element xsi:type="zenta:BasicObject" name="The data which can lead to the real person is stored encrypted in the database." id="4b3d8522">
+    <element xsi:type="zenta:BasicObject" name="Only those personal data are kept which are absolutely necessary (email, hash)" id="obj3" ancestor="objectiveID"/>
+    <element xsi:type="zenta:BasicRelationship" id="54a41fe1" ancestor="0f27eeaa" source="154474db" target="obj3"/>
+    <element xsi:type="zenta:BasicObject" name="We store only the one-way hash of personal identifiers" id="obj1" ancestor="objectiveID"/>
+    <element xsi:type="zenta:BasicObject" name="The data which can lead to the real person is stored encrypted in the database." id="obj2" ancestor="objectiveID">
       <documentation>This includes:
 - hash
 - email address
 - identifiers of other login services used (facebook, google, ...)
 </documentation>
     </element>
-    <element xsi:type="zenta:BasicRelationship" id="a3073298" ancestor="0f27eeaa" source="154474db" target="5ea41df1"/>
-    <element xsi:type="zenta:BasicRelationship" id="c66f1858" ancestor="0f27eeaa" source="154474db" target="4b3d8522"/>
+    <element xsi:type="zenta:BasicRelationship" id="a3073298" ancestor="0f27eeaa" source="154474db" target="obj1"/>
+    <element xsi:type="zenta:BasicRelationship" id="c66f1858" ancestor="0f27eeaa" source="154474db" target="obj1"/>
     <element xsi:type="zenta:BasicObject" name="There is a subset of the user base which contains only existing, different individuals" id="df567ba2" ancestor="f362356f"/>
     <element xsi:type="zenta:BasicRelationship" id="174a972b" source="674bd734" target="df567ba2"/>
     <element xsi:type="zenta:BasicObject" name="Everyone is welcome to use the services, both NGOs and individuals. " id="2531fed2" ancestor="f362356f"/>
