@@ -41,6 +41,7 @@
 	<xsl:function name="zenta:buildConnection">
 		<xsl:param name="element"/>
 		<xsl:param name="direction"/>
+		<xsl:param name="doc"/>
 			<xsl:variable name="mO" select="$element/property[@key='minOccurs']/@value"/>
 			<connection>
 				<xsl:choose>
@@ -54,8 +55,9 @@
 					</xsl:otherwise>
 				</xsl:choose>
 				<xsl:attribute name="direction" select="$direction"/>
-				<xsl:copy-of select="$element/@ancestor|$element/@id|$element/@name"/>
 				<xsl:attribute name="minOccurs" select="zenta:occursNumber(tokenize($mO,'/')[$direction])"/>
+				<xsl:attribute name="ancestorName" select="$doc//element[@id=$element/@ancestor]/@name"/>
+				<xsl:copy-of select="$element/@ancestor|$element/@id|$element/@name|$element/documentation"/>
 			</connection>
 	</xsl:function>
 

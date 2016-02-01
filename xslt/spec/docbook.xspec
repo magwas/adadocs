@@ -32,6 +32,26 @@
         test="//figure[title='Metamodel diagram']/remark='Metamodel diagram documentation'"/>
       <x:expect label="document contains the picture of the diagram"
         test="//figure[title='Metamodel diagram']/mediaobject/imageobject/imagedata/@fileref='pics/9f17e235.png'"/>
+      <x:expect label="elements follow the diagrams in the table"
+        test="//section[@id='metaModel']/table/tgroup/tbody/row//anchor/@id='environmentElementClassID'"/>
+      <x:expect label="element name is in the starter cell"
+        test="contains(//section[@id='metaModel']/table//entry[@class='starter' and anchor[@id='environmentElementClassID']]/text(),'Environment Element')"/>
+      <x:expect label="element type is in the starter cell"
+        test="contains(//section[@id='metaModel']/table//entry[@class='starter' and anchor[@id='environmentElementClassID']]/text(),'Ada:Basic Object')"/>
+      <x:expect label="element documentation is in the documentation cell"
+        test="contains(//section[@id='metaModel']/table//entry[@class='documentation' and ../entry/anchor[@id='environmentElementClassID']]/text(),'An element of the Security Environment')"/>
+      <x:expect label="named conections are documented"
+      	test="//section[@id='metaModel']/table/tgroup/tbody/row//anchor/@id='influencesConnectionID'"/>
+      <x:expect label="unnamed conections are not documented"
+      	test="count(//anchor[@id='anUnnamedConnectionID']) = 0"/>
+      <x:expect label="named conections are documented only once"
+      	test="count(//anchor[@id='influencesConnectionID']) = 1"/>
+      <x:expect label="connection name is in the starter cell"
+        test="contains(//section[@id='metaModel']/table//entry[@class='starter' and anchor[@id='influencesConnectionID']]/text(),'Influences')"/>
+      <x:expect label="connection type is in the starter cell"
+        test="contains(//section[@id='metaModel']/table//entry[@class='starter' and anchor[@id='influencesConnectionID']]/text(),'Basic Relation')"/>
+      <x:expect label="connection documentation is in the documentation cell"
+        test="contains(//section[@id='metaModel']/table//entry[@class='documentation' and ../entry/anchor[@id='influencesConnectionID']]/text(),'The influences relation')"/>
    </x:scenario>
 
 </x:description>

@@ -42,7 +42,9 @@
 		    	id="anElement" ancestor="envElementClass"/>
 		    <element xsi:type="zenta:BasicRelationship" 
 		    	name=""
-		    	id="aDefines" ancestor="definesClass" source="anElement" target="anObjective"/>
+		    	id="aDefines" ancestor="definesClass" source="anElement" target="anObjective">
+		    	<documentation>This is a defines relation</documentation>
+		    </element>
 		    <element xsi:type="zenta:BasicObject" 
 		    	name="another Environment Element"
 		    	id="anotherElement" ancestor="envElementClass"/>

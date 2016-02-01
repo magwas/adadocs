@@ -7,7 +7,7 @@
       <element xsi:type="zenta:BasicObject"
                name="Basic Object"
                id="basicobject"
-               children="238bb246 9be97204 4e990e8d"/>
+               children="environmentElementClassID 9be97204 4e990e8d"/>
       <connection source="basicobject"
                   target="basicobject"
                   direction="1"
@@ -25,21 +25,21 @@
                 id="11fb86ec"
                 fillColor="#1e90ff"
                 elementShape="ellipseShape"
-                zentaElement="238bb246">
+                zentaElement="environmentElementClassID">
             <bounds x="362" y="91" width="-1" height="-1"/>
             <sourceConnection xsi:type="zenta:Connection"
                               id="bbf4a052"
                               source="11fb86ec"
                               target="4960017f"
                               lineDecoration="SmallEndArrowDecoration"
-                              relationship="0f27eeaa"/>
+                              relationship="influencesConnectionID"/>
          </child>
          <child xsi:type="zenta:DiagramObject"
                 id="c5fa547f"
                 targetConnections="c062d285"
                 fillColor="#9ec7ef"
                 elementShape="ellipseShape"
-                zentaElement="f362356f">
+                zentaElement="policyClassElementID">
             <bounds x="199" y="188" width="-1" height="-1"/>
          </child>
          <child xsi:type="zenta:DiagramObject"
@@ -80,33 +80,34 @@
       </element>
       <element xsi:type="Ada:Basic Object"
                name="Environment Element"
-               id="238bb246"
+               id="environmentElementClassID"
                ancestor="basicobject"
-               children="f362356f 32181c01 fe465fff">
+               children="policyClassElementID 32181c01 fe465fff">
          <property key="fillColor" value="#1e90ff"/>
          <property key="elementShape" value="ellipseShape"/>
          <property key="textAlignment" value="2"/>
          <property key="fontColor"/>
          <property key="font"/>
-         <value source="238bb246"
+         <value source="environmentElementClassID"
                 target="9be97204"
                 direction="1"
                 name="Objective"
-                id="0f27eeaa"
+                id="influencesConnectionID"
                 ancestor="basicrelation"
                 minOccurs="NaN"/>
-         <value source="238bb246"
+         <value source="environmentElementClassID"
                 target="9be97204"
                 direction="1"
                 name="Objective"
-                id="0f27eeaa"
+                id="influencesConnectionID"
                 ancestor="basicrelation"
                 minOccurs="NaN"/>
+         <documentation>An element of the Security Environment</documentation>
       </element>
       <element xsi:type="Ada:Environment Element"
                name="Policy"
-               id="f362356f"
-               ancestor="238bb246"
+               id="policyClassElementID"
+               ancestor="environmentElementClassID"
                children="a4e3fe24 d6bf51d0 154474db df567ba2 2531fed2">
          <documentation>Security policy. It is also a "User benefit/Concept" in the value tree model.</documentation>
          <property key="fillColor" value="#9ec7ef"/>
@@ -118,7 +119,7 @@
       <element xsi:type="Ada:Environment Element"
                name="Threat"
                id="32181c01"
-               ancestor="238bb246">
+               ancestor="environmentElementClassID">
          <property key="fillColor" value="#1e90ff"/>
          <property key="elementShape" value="ellipseShape"/>
          <property key="textAlignment" value="2"/>
@@ -128,7 +129,7 @@
       <element xsi:type="Ada:Environment Element"
                name="Assumption"
                id="fe465fff"
-               ancestor="238bb246">
+               ancestor="environmentElementClassID">
          <property key="fillColor" value="#1e90ff"/>
          <property key="elementShape" value="ellipseShape"/>
          <property key="textAlignment" value="2"/>
@@ -145,32 +146,35 @@
          <property key="fontColor"/>
          <property key="font"/>
          <value source="9be97204"
-                target="238bb246"
+                target="environmentElementClassID"
                 direction="2"
                 name="Environment Element"
-                id="0f27eeaa"
+                id="influencesConnectionID"
                 ancestor="basicrelation"
                 minOccurs="1"/>
          <value source="9be97204"
-                target="238bb246"
+                target="environmentElementClassID"
                 direction="2"
                 name="Environment Element"
-                id="0f27eeaa"
+                id="influencesConnectionID"
                 ancestor="basicrelation"
                 minOccurs="1"/>
       </element>
-      <connection source="238bb246"
+      <connection source="environmentElementClassID"
                   target="9be97204"
                   direction="1"
                   name="Influences"
-                  id="0f27eeaa"
+                  id="influencesConnectionID"
                   ancestor="basicrelation"
-                  minOccurs="NaN"/>
+                  ancestorName="Basic Relation"
+                  minOccurs="NaN">
+                  <documentation>The influences relation</documentation>
+      </connection>
       <connection source="9be97204"
-                  target="238bb246"
+                  target="environmentElementClassID"
                   direction="2"
                   name="Influences"
-                  id="0f27eeaa"
+                  id="influencesConnectionID"
                   ancestor="basicrelation"
                   minOccurs="1"/>
       <element xsi:type="Ada:Basic Object"
@@ -189,14 +193,14 @@
          <property key="fontColor"/>
          <property key="font"/>
          <value source="4e990e8d"
-                target="f362356f"
+                target="policyClassElementID"
                 direction="1"
                 name="Policy"
                 id="35f04eeb"
                 ancestor="basicrelation"
                 minOccurs="NaN"/>
          <value source="4e990e8d"
-                target="f362356f"
+                target="policyClassElementID"
                 direction="1"
                 name="Policy"
                 id="35f04eeb"
@@ -204,13 +208,13 @@
                 minOccurs="NaN"/>
       </element>
       <connection source="4e990e8d"
-                  target="f362356f"
+                  target="policyClassElementID"
                   direction="1"
                   name="defines"
                   id="35f04eeb"
                   ancestor="basicrelation"
                   minOccurs="NaN"/>
-      <connection source="f362356f"
+      <connection source="policyClassElementID"
                   target="4e990e8d"
                   direction="2"
                   name="defines"
@@ -289,7 +293,7 @@
                               id="bb046181"
                               source="1049ee89"
                               target="4fa8da0e"
-                              relationship="a3073298"/>
+                              relationship="anUnnamedConnectionID"/>
             <sourceConnection xsi:type="zenta:Connection"
                               id="e1c52170"
                               source="1049ee89"
@@ -342,10 +346,10 @@
       <element xsi:type="Ada:Policy"
                name="Intuitive UI"
                id="a4e3fe24"
-               ancestor="f362356f">
+               ancestor="policyClassElementID">
          <error type="less than minOccurs values"
                 element="a4e3fe24"
-                source="f362356f"
+                source="policyClassElementID"
                 target="4e990e8d"
                 name="defines"
                 id="35f04eeb"
@@ -364,10 +368,10 @@
       <element xsi:type="Ada:Policy"
                name="Simple procedures without unnecessary steps"
                id="d6bf51d0"
-               ancestor="f362356f">
+               ancestor="policyClassElementID">
          <error type="less than minOccurs values"
                 element="d6bf51d0"
-                source="f362356f"
+                source="policyClassElementID"
                 target="4e990e8d"
                 name="defines"
                 id="35f04eeb"
@@ -386,10 +390,10 @@
       <element xsi:type="Ada:Policy"
                name="Privacy is paramount"
                id="154474db"
-               ancestor="f362356f">
+               ancestor="policyClassElementID">
          <error type="less than minOccurs values"
                 element="154474db"
-                source="f362356f"
+                source="policyClassElementID"
                 target="4e990e8d"
                 name="defines"
                 id="35f04eeb"
@@ -412,13 +416,13 @@
                   target="59ab009c"
                   direction="1"
                   id="54a41fe1"
-                  ancestor="0f27eeaa"
+                  ancestor="influencesConnectionID"
                   minOccurs="0"/>
       <connection source="59ab009c"
                   target="154474db"
                   direction="2"
                   id="54a41fe1"
-                  ancestor="0f27eeaa"
+                  ancestor="influencesConnectionID"
                   minOccurs="0"/>
       <element xsi:type="zenta:BasicObject"
                name="We store only the one-way hash of personal identifiers"
@@ -435,34 +439,34 @@
       <connection source="154474db"
                   target="5ea41df1"
                   direction="1"
-                  id="a3073298"
-                  ancestor="0f27eeaa"
+                  id="anUnnamedConnectionID"
+                  ancestor="influencesConnectionID"
                   minOccurs="0"/>
       <connection source="5ea41df1"
                   target="154474db"
                   direction="2"
-                  id="a3073298"
-                  ancestor="0f27eeaa"
+                  id="anUnnamedConnectionID"
+                  ancestor="influencesConnectionID"
                   minOccurs="0"/>
       <connection source="154474db"
                   target="4b3d8522"
                   direction="1"
                   id="c66f1858"
-                  ancestor="0f27eeaa"
+                  ancestor="influencesConnectionID"
                   minOccurs="0"/>
       <connection source="4b3d8522"
                   target="154474db"
                   direction="2"
                   id="c66f1858"
-                  ancestor="0f27eeaa"
+                  ancestor="influencesConnectionID"
                   minOccurs="0"/>
       <element xsi:type="Ada:Policy"
                name="There is a subset of the user base which contains only existing, different individuals"
                id="df567ba2"
-               ancestor="f362356f">
+               ancestor="policyClassElementID">
          <error type="less than minOccurs values"
                 element="df567ba2"
-                source="f362356f"
+                source="policyClassElementID"
                 target="4e990e8d"
                 name="defines"
                 id="35f04eeb"
@@ -481,10 +485,10 @@
       <element xsi:type="Ada:Policy"
                name="Everyone is welcome to use the services, both NGOs and individuals. "
                id="2531fed2"
-               ancestor="f362356f">
+               ancestor="policyClassElementID">
          <error type="less than minOccurs values"
                 element="2531fed2"
-                source="f362356f"
+                source="policyClassElementID"
                 target="4e990e8d"
                 name="defines"
                 id="35f04eeb"

@@ -61,8 +61,8 @@
 	</xsl:template>
 
 	<xsl:template match="element[@source]" mode="enrich_run1">
-		<xsl:copy-of select="zenta:buildConnection(.,1)"/>
-		<xsl:copy-of select="zenta:buildConnection(.,2)"/>
+		<xsl:copy-of select="zenta:buildConnection(.,1,/)"/>
+		<xsl:copy-of select="zenta:buildConnection(.,2,/)"/>
 	</xsl:template>
 
 	<xsl:template match="@*|*|processing-instruction()|comment()" mode="#all">

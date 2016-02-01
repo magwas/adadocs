@@ -34,6 +34,26 @@
 					</figure>
 				</para></entry></row>
 				</xsl:for-each>
+				<xsl:for-each select="element[@xsi:type!='zenta:ZentaDiagramModel']">
+				<row>
+					<entry class="starter">
+						<anchor id="{@id}"/>
+						<xsl:value-of select="@name"/> (<xsl:value-of select="@xsi:type"/>)
+					</entry>
+					<entry class="documentation"><xsl:value-of select="documentation"/>
+					</entry>
+				</row>
+				</xsl:for-each>
+				<xsl:for-each select="connection[@name and @direction='1']">
+				<row>
+					<entry class="starter">
+						<anchor id="{@id}"/>
+						<xsl:value-of select="@name"/> (<xsl:value-of select="@ancestorName"/>)
+					</entry>
+					<entry class="documentation"><xsl:value-of select="documentation"/>
+					</entry>
+				</row>
+				</xsl:for-each>
 			</tbody>
 			</tgroup>
 			</table>

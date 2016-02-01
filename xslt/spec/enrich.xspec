@@ -110,6 +110,10 @@
    		test="//connection[@source='anElement']/@ancestor='definesClass'" />
    	<x:expect label="connections have the id attribute for the defining relation"
    		test="//connection[@source='anElement']/@id='aDefines'" />
+   	<x:expect label="connections have the documentation of the relation"
+   		test="//connection[@id='aDefines']/documentation/text()='This is a defines relation'" />
+   	<x:expect label="connections have the ancestor name as ancestorName attribute"
+   		test="//connection[@id='aDefines']/@ancestorName='defines'" />
    </x:scenario>
 
 
