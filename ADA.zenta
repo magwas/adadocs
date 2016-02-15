@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <zenta:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zenta="http://magwas.rulez.org/zenta" name="Ada" id="d3202427" version="2.2.1">
   <folder name="Metamodel" id="c77845ef">
-    <element xsi:type="zenta:BasicObject" name="Basic Object" id="basicobject" children="238bb246 objectiveID 4e990e8d"/>
-    <element xsi:type="zenta:BasicRelationship" name="Basic Relation" id="basicrelation" children="0f27eeaa 35f04eeb" source="basicobject" target="basicobject"/>
+    <element xsi:type="zenta:BasicObject" name="Basic Object" id="basicobject"/>
+    <element xsi:type="zenta:BasicRelationship" name="Basic Relation" id="basicrelation" source="basicobject" target="basicobject"/>
     <element xsi:type="zenta:ZentaDiagramModel" name="Metamodel" id="9f17e235">
       <child xsi:type="zenta:DiagramObject" id="11fb86ec" fillColor="#1e90ff" elementShape="ellipseShape" zentaElement="238bb246">
         <bounds x="362" y="91" width="-1" height="-1"/>
@@ -26,14 +26,14 @@
       </child>
       <property key="Template"/>
     </element>
-    <element xsi:type="zenta:BasicObject" name="Environment Element" id="238bb246" ancestor="basicobject" children="f362356f 32181c01 fe465fff">
+    <element xsi:type="zenta:BasicObject" name="Environment Element" id="238bb246" ancestor="basicobject">
       <property key="fillColor" value="#1e90ff"/>
       <property key="elementShape" value="ellipseShape"/>
       <property key="textAlignment" value="2"/>
       <property key="fontColor"/>
       <property key="font"/>
     </element>
-    <element xsi:type="zenta:BasicObject" name="Policy" id="f362356f" ancestor="238bb246" children="a4e3fe24 d6bf51d0 154474db df567ba2 2531fed2">
+    <element xsi:type="zenta:BasicObject" name="Policy" id="f362356f" ancestor="238bb246">
       <documentation>Security policy. It is also a &quot;User benefit/Concept&quot; in the value tree model.</documentation>
       <property key="fillColor" value="#9ec7ef"/>
       <property key="elementShape" value="ellipseShape"/>
@@ -55,14 +55,14 @@
       <property key="fontColor"/>
       <property key="font"/>
     </element>
-    <element xsi:type="zenta:BasicObject" name="Objective" id="objectiveID" ancestor="basicobject" children="obj1 obj2 obj3">
+    <element xsi:type="zenta:BasicObject" name="Objective" id="objectiveID" ancestor="basicobject">
       <property key="fillColor"/>
       <property key="elementShape"/>
       <property key="textAlignment" value="2"/>
       <property key="fontColor"/>
       <property key="font"/>
     </element>
-    <element xsi:type="zenta:BasicRelationship" name="Influences" id="0f27eeaa" ancestor="basicrelation" children="54a41fe1 a3073298 c66f1858" source="238bb246" target="objectiveID">
+    <element xsi:type="zenta:BasicRelationship" name="Influences" id="0f27eeaa" ancestor="basicrelation" source="238bb246" target="objectiveID">
       <property key="textPosition" value="1"/>
       <property key="lineDecoration" value="SmallEndArrowDecoration"/>
       <property key="lineColor"/>
@@ -71,7 +71,7 @@
       <property key="font"/>
       <property key="minOccurs" value="/1"/>
     </element>
-    <element xsi:type="zenta:BasicObject" name="vision" id="4e990e8d" ancestor="basicobject" children="674bd734 6395d5ce 5b7f4355">
+    <element xsi:type="zenta:BasicObject" name="vision" id="4e990e8d" ancestor="basicobject">
       <documentation>Basic visions of a product. It is a concept from the value tree model where the levels are:
 - Vision/Rationale
 - User benefit/Concept
@@ -125,10 +125,10 @@
         <bounds x="504" y="421" width="137" height="88"/>
       </child>
       <child xsi:type="zenta:DiagramObject" id="4fa8da0e" targetConnections="bb046181" zentaElement="obj1">
-        <bounds x="336" y="421" width="131" height="77"/>
+        <bounds x="336" y="411" width="131" height="77"/>
       </child>
       <child xsi:type="zenta:DiagramObject" id="e7af9c75" targetConnections="e1c52170" zentaElement="obj1">
-        <bounds x="688" y="421" width="153" height="108"/>
+        <bounds x="696" y="411" width="153" height="108"/>
       </child>
       <child xsi:type="zenta:DiagramObject" id="44543795" targetConnections="504d8722" zentaElement="df567ba2">
         <bounds x="24" y="267" width="176" height="74"/>
@@ -141,11 +141,11 @@
     <element xsi:type="zenta:BasicObject" name="Citizen customer gateway: Provide easy, secure and private login to all NGO-provided services for activists" id="6395d5ce" ancestor="4e990e8d"/>
     <element xsi:type="zenta:BasicObject" name="A tool to bring citizens of all views and of any community to a common technical platform, making broad discurse possible" id="5b7f4355" ancestor="4e990e8d"/>
     <element xsi:type="zenta:BasicObject" name="Intuitive UI" id="a4e3fe24" ancestor="f362356f"/>
-    <element xsi:type="zenta:BasicRelationship" id="e4257f27" source="6395d5ce" target="a4e3fe24"/>
+    <element xsi:type="zenta:BasicRelationship" id="e4257f27" ancestor="35f04eeb" source="6395d5ce" target="a4e3fe24"/>
     <element xsi:type="zenta:BasicObject" name="Simple procedures without unnecessary steps" id="d6bf51d0" ancestor="f362356f"/>
-    <element xsi:type="zenta:BasicRelationship" id="66dc5806" source="6395d5ce" target="d6bf51d0"/>
+    <element xsi:type="zenta:BasicRelationship" id="66dc5806" ancestor="35f04eeb" source="6395d5ce" target="d6bf51d0"/>
     <element xsi:type="zenta:BasicObject" name="Privacy is paramount" id="154474db" ancestor="f362356f"/>
-    <element xsi:type="zenta:BasicRelationship" id="5d868a03" source="6395d5ce" target="154474db"/>
+    <element xsi:type="zenta:BasicRelationship" id="5d868a03" ancestor="35f04eeb" source="6395d5ce" target="154474db"/>
     <element xsi:type="zenta:BasicObject" name="Only those personal data are kept which are absolutely necessary (email, hash)" id="obj3" ancestor="objectiveID"/>
     <element xsi:type="zenta:BasicRelationship" id="54a41fe1" ancestor="0f27eeaa" source="154474db" target="obj3"/>
     <element xsi:type="zenta:BasicObject" name="We store only the one-way hash of personal identifiers" id="obj1" ancestor="objectiveID"/>
@@ -159,8 +159,8 @@
     <element xsi:type="zenta:BasicRelationship" id="a3073298" ancestor="0f27eeaa" source="154474db" target="obj1"/>
     <element xsi:type="zenta:BasicRelationship" id="c66f1858" ancestor="0f27eeaa" source="154474db" target="obj1"/>
     <element xsi:type="zenta:BasicObject" name="There is a subset of the user base which contains only existing, different individuals" id="df567ba2" ancestor="f362356f"/>
-    <element xsi:type="zenta:BasicRelationship" id="174a972b" source="674bd734" target="df567ba2"/>
+    <element xsi:type="zenta:BasicRelationship" id="174a972b" ancestor="35f04eeb" source="674bd734" target="df567ba2"/>
     <element xsi:type="zenta:BasicObject" name="Everyone is welcome to use the services, both NGOs and individuals. " id="2531fed2" ancestor="f362356f"/>
-    <element xsi:type="zenta:BasicRelationship" id="eaeeca4b" source="5b7f4355" target="2531fed2"/>
+    <element xsi:type="zenta:BasicRelationship" id="eaeeca4b" ancestor="35f04eeb" source="5b7f4355" target="2531fed2"/>
   </folder>
 </zenta:model>

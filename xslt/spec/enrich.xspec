@@ -9,6 +9,7 @@
                stylesheet="../enrich.xslt">
 
 	<x:variable name="testData" href="testData.xml"/>
+	<x:variable name="virtRelationTestData" href="relationtovirtual.xml"/>
 
    <x:scenario label="changetype mode changes element types">
       <x:context mode="changetype">
@@ -43,10 +44,10 @@
       	test="//element[@id='anObjective']/value/@target='anElement'"
       />
       <x:expect label="there is a value for forward relations"
-      	test="//element[@id='anElement']/value/@target='anObjective'"
+      	test="//element[@id='anElement']/value[@target='anObjective']/@direction = 1"
       />
       <x:expect label="there is a value for backward relations"
-      	test="//element[@id='anObjective']/value/@target='anElement'"
+      	test="//element[@id='anObjective']/value[@target='anElement']/@direction = 2"
       />
       <x:expect label="value have the target name in the 'name' attribute"
       	test="//element[@id='anObjective']/value/@name='an Environment Element'"
@@ -85,7 +86,7 @@
    		test="//connection[@source='envElementClass']/@target='objectiveClass'" />
    	<x:expect label="the direction attribute is 1 for forward connections"
    		test="//connection[@source='envElementClass']/@direction=1" />
-   	<x:expect label="the direction attribute is 1 for forward connections"
+   	<x:expect label="the direction attribute is 2 for backward connections"
    		test="//connection[@source='envElementClass']/@direction=1" />
    	<x:expect label="there is a minOccurs attribute for connections"
    		test="exists(//connection[@source='envElementClass']/@minOccurs)" />
@@ -116,5 +117,23 @@
    		test="//connection[@id='aDefines']/@ancestorName='defines'" />
    </x:scenario>
 
+   <x:scenario label="enrich mode insert value for connections for indirect relations">
+      <x:context mode="enrich" select="$virtRelationTestData"/>
+      <x:expect label="connections are created for defining relationships"
+      	test="//connection[@id='OSrelationID']/@source='machineID'"
+      />
+      <x:expect label="ancestry contains ancestor"
+      	test="zenta:getAncestry(//element[@id='virtMachineInstanceID'],/)/@id = 'machineID'"
+      />
+      <x:expect label="ancestry contains basic object"
+      	test="zenta:getAncestry(//element[@id='virtMachineInstanceID'],/)/@id = 'basicobject'"
+      />
+      <x:expect label="defining relations contain ones for ancestors"
+      	test="zenta:getDefiningRelations(//element[@id='virtMachineInstanceID'],/)/@id = 'OSrelationID'"
+      />
+      <x:expect label="value is created for descendants"
+      	test="//element[@id='virtMachineInstanceID']/value[@target='OSObjectInstanceID']/@name = 'linux'"
+      />
+    </x:scenario>
 
 </x:description>

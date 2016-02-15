@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<zenta:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zenta="http://magwas.rulez.org/zenta" name="AdaNarancs" id="d7f1a48a" version="2.2.1">
+  <folder name="Meta" id="f3d246c0">
+    <element xsi:type="zenta:BasicObject" name="Basic Object" id="basicobject"/>
+    <element xsi:type="zenta:BasicRelationship" name="Basic Relation" id="basicrelation" source="basicobject" target="basicobject"/>
+    <element xsi:type="zenta:BasicObject" name="Machine" id="machineID" ancestor="basicobject"/>
+    <element xsi:type="zenta:BasicObject" name="Virtual Machine" id="virtMachineID" ancestor="machineID"/>
+    <element xsi:type="zenta:BasicObject" name="OS" id="osObjectID" ancestor="basicobject"/>
+    <element xsi:type="zenta:BasicRelationship" name="OS" id="OSrelationID" ancestor="basicrelation" source="machineID" target="osObjectID"/>
+  </folder>
+  <folder name="narancsmta" id="33c4f20b">
+    <element xsi:type="zenta:BasicObject" name="narancsmta" id="virtMachineInstanceID" ancestor="virtMachineID"/>
+    <element xsi:type="zenta:BasicRelationship" id="OSRelationInstanceID" ancestor="OSrelationID"
+    	source="virtMachineInstanceID" target="OSObjectInstanceID"/>
+  </folder>
+  <element xsi:type="zenta:BasicObject" name="linux" id="OSObjectInstanceID" ancestor="osObjectID"/>
+</zenta:model>

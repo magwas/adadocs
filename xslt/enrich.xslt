@@ -41,11 +41,29 @@
 		</value>
 	</xsl:template>
 
+	<xsl:function name="zenta:getAncestry">
+		<xsl:param name="element"/>
+		<xsl:param name="doc"/>
+		<xsl:if test="$element">
+			<xsl:copy-of select="zenta:getAncestry($doc//element[@id=$element/@ancestor],$doc)"/>
+			<xsl:copy-of select="$element"/>
+		</xsl:if>
+	</xsl:function>
+
+	<xsl:function name="zenta:getDefiningRelations">
+		<xsl:param name="element"/>
+		<xsl:param name="doc"/>
+		<xsl:for-each select="zenta:getAncestry($element,$doc)">
+			<xsl:copy-of select="$doc//connection[@source=current()/@ancestor]"/>
+		</xsl:for-each>
+	</xsl:function>
+
 	<xsl:template match="element" mode="createValue">
 		<xsl:variable name="element" select="."/>
-		<xsl:variable name="definingRelations" select="//connection[@source=$element/@ancestor]"/>
+		<xsl:variable name="doc" select="/"/>		
+		<xsl:variable name="definingRelations" select="zenta:getDefiningRelations($element,/)"/>
 		<xsl:for-each select="$definingRelations">
-			<xsl:variable name="relations" select="//connection[@source=$element/@id and @ancestor=current()/@id]"/>
+			<xsl:variable name="relations" select="$doc//connection[@source=$element/@id and @ancestor=current()/@id]"/>
 			<xsl:copy-of select="zenta:checkRelationCount($element,.,$relations)"/>
 			<xsl:for-each select="$relations">
 				<xsl:apply-templates select="." mode="createValue" />
