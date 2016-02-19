@@ -17,10 +17,22 @@
 		    <element xsi:type="zenta:BasicObject" name="Basic Object" id="basicobject" children="238bb246"/>
 		    <element xsi:type="zenta:BasicObject" name="Environment Element" id="238bb246" ancestor="basicobject" children="f362356f 32181c01 fe465fff"/>
 			<element xsi:type="zenta:ZentaDiagramModel" name="Metamodel" id="9f17e235">
+			    <child>
 			      <child xsi:type="zenta:DiagramObject" id="11fb86ec" fillColor="#1e90ff" elementShape="ellipseShape" zentaElement="238bb246">
 			        <bounds x="362" y="91" width="-1" height="-1"/>
 			        <sourceConnection xsi:type="zenta:Connection" id="bbf4a052" source="11fb86ec" target="4960017f" lineDecoration="SmallEndArrowDecoration" relationship="0f27eeaa"/>
 			      </child>
+			    </child>
+			    <properties>
+			     <property name="Template" value="yes"/>
+			    </properties>
+			</element>
+			<element xsi:type="zenta:ZentaDiagramModel" name="non-Metamodel" id="9f17e235">
+			    <child>
+			      <child xsi:type="zenta:DiagramObject" id="11fb86ec" fillColor="#1e90ff" elementShape="ellipseShape" zentaElement="f362356f">
+			        <bounds x="362" y="91" width="-1" height="-1"/>
+			      </child>
+			    </child>
 			</element>
 		    <element xsi:type="zenta:BasicObject" name="an Environment element" id="f362356f" ancestor="238bb246"/>
 	    </zenta:model>
@@ -33,6 +45,10 @@
       	test="//element[@id='238bb246']/@xsi:type = 'Ada:Basic Object'"/>
       <x:expect label="A Environment Element will be 'Ada:Environment Element'"
       	test="//element[@id='f362356f']/@xsi:type = 'Ada:Environment Element'"/>
+      <x:expect label="Template elements have a template attribute"
+      	test="//element[@id='238bb246']/@template = 'yes'"/>
+      <x:expect label="Non-template elements have no template attribute"
+      	test="not(//element[@id='f362356f']/@template)"/>
    </x:scenario>
 
    <x:scenario label="enrich mode insert value for connections">
@@ -60,6 +76,9 @@
       />
       <x:expect label="there is an error if there are less than minOccurs instances of values of a relation type to an element"
       	test="//error[@element='anElement']/@type='less than minOccurs values'"
+      />
+      <x:expect label="template elements have no errors for minOccurs"
+      	test="not(//error[@element='anElement2']/@type='less than minOccurs values')"
       />
       <x:expect label="the error message contains the id of the defining relation"
       	test="//error[@element='anElement']/@id='influencesClass'"

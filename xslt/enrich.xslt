@@ -33,6 +33,15 @@
 				."/>
 	</xsl:template>
 
+	<xsl:template match="element" mode="changetype">
+		<xsl:copy>
+			<xsl:if test="//child[@zentaElement=current()/@id]/ancestor::*/properties/property/@name='Template'">
+				<xsl:attribute name="template" select="'yes'"/>
+			</xsl:if>
+		    <xsl:apply-templates select="@*|*|text()|processing-instruction()|comment()" mode="changetype"/>
+		</xsl:copy>
+	</xsl:template>
+
 
 	<xsl:template match="connection" mode="createValue">
 		<value>
@@ -64,7 +73,9 @@
 		<xsl:variable name="definingRelations" select="zenta:getDefiningRelations($element,/)"/>
 		<xsl:for-each select="$definingRelations">
 			<xsl:variable name="relations" select="$doc//connection[@source=$element/@id and @ancestor=current()/@id]"/>
-			<xsl:copy-of select="zenta:checkRelationCount($element,.,$relations)"/>
+			<xsl:if test="not($element/@template)">
+				<xsl:copy-of select="zenta:checkRelationCount($element,.,$relations)"/>
+			</xsl:if>
 			<xsl:for-each select="$relations">
 				<xsl:apply-templates select="." mode="createValue" />
 			</xsl:for-each>

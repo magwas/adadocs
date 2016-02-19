@@ -40,6 +40,10 @@
 		    <element xsi:type="zenta:BasicObject" 
 		    	name="an Environment Element"
 		    	id="anElement" ancestor="envElementClass"/>
+		    <element xsi:type="zenta:BasicObject" 
+		    	name="an Environment Element"
+		    	id="anElement2" ancestor="envElementClass"
+		    	template="yes"/>
 		    <element xsi:type="zenta:BasicRelationship" 
 		    	name=""
 		    	id="aDefines" ancestor="definesClass" source="anElement" target="anObjective">
