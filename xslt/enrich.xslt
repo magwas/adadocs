@@ -35,7 +35,7 @@
 
 	<xsl:template match="element" mode="changetype">
 		<xsl:copy>
-			<xsl:if test="//child[@zentaElement=current()/@id]/ancestor::*/properties/property/@key='Template'">
+			<xsl:if test="//child[@zentaElement=current()/@id]/ancestor::*/property/@key='Template'">
 				<xsl:attribute name="template" select="'yes'"/>
 			</xsl:if>
 		    <xsl:apply-templates select="@*|*|text()|processing-instruction()|comment()" mode="changetype"/>

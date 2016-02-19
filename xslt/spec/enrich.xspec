@@ -23,9 +23,7 @@
 			        <sourceConnection xsi:type="zenta:Connection" id="bbf4a052" source="11fb86ec" target="4960017f" lineDecoration="SmallEndArrowDecoration" relationship="0f27eeaa"/>
 			      </child>
 			    </child>
-			    <properties>
-			     <property key="Template" value="yes"/>
-			    </properties>
+			    <property key="Template" value="yes"/>
 			</element>
 			<element xsi:type="zenta:ZentaDiagramModel" name="non-Metamodel" id="9f17e235">
 			    <child>
