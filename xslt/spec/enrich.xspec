@@ -24,7 +24,7 @@
 			      </child>
 			    </child>
 			    <properties>
-			     <property name="Template" value="yes"/>
+			     <property key="Template" value="yes"/>
 			    </properties>
 			</element>
 			<element xsi:type="zenta:ZentaDiagramModel" name="non-Metamodel" id="9f17e235">
