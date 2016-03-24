@@ -21,7 +21,7 @@
 				<xsl:value-of select="@name"/>
 			</title>
 			<para>
-				<xsl:value-of select="documentation"/>
+				<xsl:copy-of select="documentation/(*|text())"/>
 			</para>
 			<table class="elementtable"><tgroup cols="2"><colspec colname="c1"/><colspec colname="c2"/>
 			<tbody>
@@ -29,7 +29,7 @@
 				<row><entry namest="c1" nameend="c2"><para>
 					<figure>
 						<title><xsl:value-of select="@name"/></title>
-						<remark><xsl:value-of select="documentation"/></remark>
+						<remark><xsl:copy-of select="documentation/(*|text())"/></remark>
 						<mediaobject><imageobject><imagedata fileref="pics/{@id}.png"/></imageobject></mediaobject>
 					</figure>
 				</para></entry></row>
@@ -40,7 +40,7 @@
 						<anchor id="{@id}"/>
 						<xsl:value-of select="@name"/> (<xsl:value-of select="@xsi:type"/>)
 					</entry>
-					<entry class="documentation"><xsl:value-of select="documentation"/>
+					<entry class="documentation"><xsl:copy-of select="documentation/(*|text())"/>
 					</entry>
 				</row>
 				</xsl:for-each>
@@ -50,7 +50,7 @@
 						<anchor id="{@id}"/>
 						<xsl:value-of select="@name"/> (<xsl:value-of select="@ancestorName"/>)
 					</entry>
-					<entry class="documentation"><xsl:value-of select="documentation"/>
+					<entry class="documentation"><xsl:copy-of select="documentation/(*|text())"/>
 					</entry>
 				</row>
 				</xsl:for-each>

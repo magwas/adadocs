@@ -40,11 +40,15 @@
         test="contains(//section[@id='metaModel']/table//entry[@class='starter' and anchor[@id='environmentElementClassID']]/text(),'Ada:Basic Object')"/>
       <x:expect label="element documentation is in the documentation cell"
         test="contains(//section[@id='metaModel']/table//entry[@class='documentation' and ../entry/anchor[@id='environmentElementClassID']]/text(),'An element of the Security Environment')"/>
-      <x:expect label="named conections are documented"
+      <x:expect label="element documentation is in the documentation cell"
+        test="contains(//section[@id='metaModel']/table//entry[@class='documentation' and ../entry/anchor[@id='environmentElementClassID']]/text(),'An element of the Security Environment')"/>
+      <x:expect label="element documentation unquotes simple html tags"
+        test="contains(zenta:log(zenta:log(//section[@id='metaModel']/table,'=')//entry[@class='documentation' and ../entry/anchor[@id='policyClassElementID']],'+')/ul/li,'item1')"/>
+      <x:expect label="named connections are documented"
       	test="//section[@id='metaModel']/table/tgroup/tbody/row//anchor/@id='influencesConnectionID'"/>
-      <x:expect label="unnamed conections are not documented"
+      <x:expect label="unnamed connections are not documented"
       	test="count(//anchor[@id='anUnnamedConnectionID']) = 0"/>
-      <x:expect label="named conections are documented only once"
+      <x:expect label="named connections are documented only once"
       	test="count(//anchor[@id='influencesConnectionID']) = 1"/>
       <x:expect label="connection name is in the starter cell"
         test="contains(//section[@id='metaModel']/table//entry[@class='starter' and anchor[@id='influencesConnectionID']]/text(),'Influences')"/>

@@ -109,7 +109,13 @@
                id="policyClassElementID"
                ancestor="environmentElementClassID"
                children="a4e3fe24 d6bf51d0 154474db df567ba2 2531fed2">
-         <documentation>Security policy. It is also a "User benefit/Concept" in the value tree model.</documentation>
+         <documentation>Security policy.
+         It is also a "User benefit/Concept" in the value tree model.
+         &lt;ul>
+         &lt;li>item1&lt;/li>
+         &lt;li>item2&lt;/li>
+         &lt;/ul>
+         </documentation>
          <property key="fillColor" value="#9ec7ef"/>
          <property key="elementShape" value="ellipseShape"/>
          <property key="textAlignment" value="2"/>
