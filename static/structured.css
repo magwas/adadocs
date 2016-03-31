@@ -3,6 +3,8 @@
 .emptytd {width:4px;background:#eeeeee;}
 .diagramtable {width:100%; border-width: 1px;  border-color: gray;}
 
+.term { font-weight: bold;}
+.objectClass {font-weight: normal;font-size: 50%;};
 .propertytr td {
     border-width: 1px;
     border-style: outset;

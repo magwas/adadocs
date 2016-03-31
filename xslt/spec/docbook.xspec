@@ -37,7 +37,7 @@
       <x:expect label="element name is in the starter cell"
         test="contains(//section[@id='metaModel']/table//entry[@class='starter' and anchor[@id='environmentElementClassID']]/text(),'Environment Element')"/>
       <x:expect label="element type is in the starter cell"
-        test="contains(//section[@id='metaModel']/table//entry[@class='starter' and anchor[@id='environmentElementClassID']]/text(),'Ada:Basic Object')"/>
+        test="contains(//section[@id='metaModel']/table//entry[@class='starter' and anchor[@id='environmentElementClassID']]/emphasis/text(),'Ada:Basic Object')"/>
       <x:expect label="element documentation is in the documentation cell"
         test="contains(//section[@id='metaModel']/table//entry[@class='documentation' and ../entry/anchor[@id='environmentElementClassID']]/text(),'An element of the Security Environment')"/>
       <x:expect label="element documentation is in the documentation cell"
@@ -51,9 +51,55 @@
       <x:expect label="connection name is in the starter cell"
         test="contains(//section[@id='metaModel']/table//entry[@class='starter' and anchor[@id='influencesConnectionID']]/text(),'Influences')"/>
       <x:expect label="connection type is in the starter cell"
-        test="contains(//section[@id='metaModel']/table//entry[@class='starter' and anchor[@id='influencesConnectionID']]/text(),'Basic Relation')"/>
+        test="contains(//section[@id='metaModel']/table//entry[@class='starter' and anchor[@id='influencesConnectionID']]/emphasis/text(),'Basic Relation')"/>
       <x:expect label="connection documentation is in the documentation cell"
         test="contains(//section[@id='metaModel']/table//entry[@class='documentation' and ../entry/anchor[@id='influencesConnectionID']]/text(),'The influences relation')"/>
+      <x:expect label="subfolders are documented"
+      	test="contains(//section[@id='e2e64608']/section[@id='subfolderID'],'policy in subfolder')"/>
+   </x:scenario>
+
+   <x:scenario label="listmode is varlist">
+      <x:context select="$testData" mode="varlist"/>
+      <x:expect label="The root tag is article"
+      	test="count(/article) = 1 "/>
+      <x:expect label="article version is 5.0"
+      	test="/article/@version='5.0'"/>
+      <x:expect label="folders become sections"
+      	test="//*[@id='metaModel']/local-name()='section'"/>
+      <x:expect label="sections have titles"
+      	test="count(//section) = count(//section/title)"/>
+      <x:expect label="section title is the name of the folder"
+      	test="//section[@id='metaModel']/title='Metamodel'"/>
+      <x:expect label="the first para of the section is the documentation for the folder"
+      	test="//section[@id='metaModel']/para[1]='Metamodel documentation'"/>
+      <x:expect label="the second para of the section contains a variablelist if it contains anything documentable"
+      	test="count(//section[@id='metaModel']/para[2]/variablelist)=1"/>
+      <x:expect label="if there are diagrams, the second para contain the diagrams"
+      	test="//section[@id='metaModel']/para[2]//figure/title='Metamodel diagram'"/>
+      <x:expect label="diagram remark is the diagram documentation"
+        test="//figure[title='Metamodel diagram']/remark='Metamodel diagram documentation'"/>
+      <x:expect label="document contains the picture of the diagram"
+        test="//figure[title='Metamodel diagram']/mediaobject/imageobject/imagedata/@fileref='pics/9f17e235.png'"/>
+      <x:expect label="elements follow the diagrams"
+        test="//section[@id='metaModel']/para[2]/variablelist/varlistentry/term/anchor/@id='environmentElementClassID'"/>
+      <x:expect label="element name is in the term"
+        test="//section[@id='metaModel']/para[2]/variablelist/varlistentry/term/text()='Environment Element'"/>
+      <x:expect label="element type is in the term"
+        test="normalize-space(//section[@id='metaModel']/para[2]/variablelist/varlistentry[2]/term/emphasis/text())='(Ada:Basic Object)'"/>
+      <x:expect label="element documentation is in the documentation cell"
+        test="contains(//section[@id='metaModel']/para/variablelist/varlistentry[2]/listitem/para/text(),'An element of the Security Environment')"/>
+      <x:expect label="named connections are documented"
+      	test="//section[@id='metaModel']//varlistentry/term/anchor/@id='influencesConnectionID'"/>
+      <x:expect label="unnamed connections are not documented"
+      	test="count(//anchor[@id='anUnnamedConnectionID']) = 0"/>
+      <x:expect label="named connections are documented only once"
+      	test="count(//anchor[@id='influencesConnectionID']) = 1"/>
+      <x:expect label="connection name is in the term"
+        test="//section[@id='metaModel']/para[2]/variablelist/varlistentry/term/text()='Influences'"/>
+      <x:expect label="connection type is in the term"
+        test="normalize-space(//section[@id='metaModel']/para[2]/variablelist/varlistentry[9]/term/emphasis/text())='(Basic Relation)'"/>
+      <x:expect label="connection documentation is in listitem"
+        test="contains(//section[@id='metaModel']/para/variablelist/varlistentry[9]/listitem/para/text(),'The influences relation')"/>
       <x:expect label="subfolders are documented"
       	test="contains(//section[@id='e2e64608']/section[@id='subfolderID'],'policy in subfolder')"/>
    </x:scenario>
