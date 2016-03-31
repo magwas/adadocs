@@ -337,6 +337,13 @@
             <bounds x="240" y="267" width="168" height="71"/>
          </child>
       </element>
+      <folder name="subfolder" id="subfolderID">
+      	<element xsi:type="Ada:Policy"
+      		name="policy in subfolder"
+      		id="policyinsubfolderID"
+      		ancestor="policyClassElementID">
+      	</element>
+      </folder>
       <element xsi:type="Ada:vision"
                name="Provide anonymous and reliable user database for NGOs, also useable as a voter database."
                id="674bd734"

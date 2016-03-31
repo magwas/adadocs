@@ -42,8 +42,6 @@
         test="contains(//section[@id='metaModel']/table//entry[@class='documentation' and ../entry/anchor[@id='environmentElementClassID']]/text(),'An element of the Security Environment')"/>
       <x:expect label="element documentation is in the documentation cell"
         test="contains(//section[@id='metaModel']/table//entry[@class='documentation' and ../entry/anchor[@id='environmentElementClassID']]/text(),'An element of the Security Environment')"/>
-      <x:expect label="element documentation unquotes simple html tags"
-        test="contains(zenta:log(zenta:log(//section[@id='metaModel']/table,'=')//entry[@class='documentation' and ../entry/anchor[@id='policyClassElementID']],'+')/ul/li,'item1')"/>
       <x:expect label="named connections are documented"
       	test="//section[@id='metaModel']/table/tgroup/tbody/row//anchor/@id='influencesConnectionID'"/>
       <x:expect label="unnamed connections are not documented"
@@ -56,6 +54,8 @@
         test="contains(//section[@id='metaModel']/table//entry[@class='starter' and anchor[@id='influencesConnectionID']]/text(),'Basic Relation')"/>
       <x:expect label="connection documentation is in the documentation cell"
         test="contains(//section[@id='metaModel']/table//entry[@class='documentation' and ../entry/anchor[@id='influencesConnectionID']]/text(),'The influences relation')"/>
+      <x:expect label="subfolders are documented"
+      	test="contains(//section[@id='e2e64608']/section[@id='subfolderID'],'policy in subfolder')"/>
    </x:scenario>
 
 </x:description>

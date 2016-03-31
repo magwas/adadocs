@@ -23,6 +23,7 @@
 			<para>
 				<xsl:copy-of select="documentation/(*|text())"/>
 			</para>
+			<xsl:apply-templates select="folder"/>
 			<table class="elementtable"><tgroup cols="2"><colspec colname="c1"/><colspec colname="c2"/>
 			<tbody>
 				<xsl:for-each select="element[@xsi:type='zenta:ZentaDiagramModel']">
