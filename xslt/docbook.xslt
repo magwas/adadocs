@@ -94,10 +94,12 @@
 	<xsl:template match="folder" mode="varlistList">
 		<para>
 			<xsl:apply-templates select="element[@xsi:type='zenta:ZentaDiagramModel']" mode="figure"/>
-			<variablelist>
-				<xsl:apply-templates select="element[@xsi:type!='zenta:ZentaDiagramModel']" mode="varlistentry"/>
-				<xsl:apply-templates select="connection[@name and @direction='1']" mode="varlistentry"/>
-			</variablelist>
+			<xsl:if test="element[@xsi:type!='zenta:ZentaDiagramModel']|connection[@name and @direction='1']">
+				<variablelist>
+					<xsl:apply-templates select="element[@xsi:type!='zenta:ZentaDiagramModel']" mode="varlistentry"/>
+					<xsl:apply-templates select="connection[@name and @direction='1']" mode="varlistentry"/>
+				</variablelist>
+			</xsl:if>
 		</para>
 	</xsl:template>
 
