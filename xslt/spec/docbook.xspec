@@ -74,6 +74,8 @@
       	test="//section[@id='metaModel']/para[1]='Metamodel documentation'"/>
       <x:expect label="the second para of the section contains a variablelist if it contains anything documentable"
       	test="count(//section[@id='metaModel']/para[2]/variablelist)=1"/>
+      <x:expect label="the second para of the section does not contain a variablelist if there is nothing documentable"
+      	test="count(//section[@id='emptyFolderId']/para[2]/variablelist)=1"/>
       <x:expect label="if there are diagrams, the second para contain the diagrams"
       	test="//section[@id='metaModel']/para[2]//figure/title='Metamodel diagram'"/>
       <x:expect label="diagram remark is the diagram documentation"

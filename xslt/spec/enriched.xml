@@ -518,4 +518,6 @@
                   id="eaeeca4b"
                   minOccurs="0"/>
   </folder>
+  <folder name="Empty folder" id="emptyFolderId">
+  </folder>
 </zenta:enriched>
