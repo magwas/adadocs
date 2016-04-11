@@ -120,6 +120,36 @@
 	<xsl:template match="zenta:enriched" mode="#all">
 		<article version="5.0">
 	    	<xsl:apply-templates select="*" mode="#current"/>
+	    	<section>
+	    		<title>Deviations</title>
+	    		<section>
+	    			<title>Model Errors</title>
+	    			<variablelist>
+	    			<xsl:for-each select="//error">
+		    			<varlistentry>
+		    				<term><xsl:value-of select="@type"/></term>
+		    				<listitem>
+		    					<variablelist>
+		    						<varlistentry>
+		    							<term>Offending element:</term>
+		    							<listitem>
+		    								<xsl:variable name="eid" select="@element"/>
+		    								<link linkend="{@element}"><xsl:value-of select="//element[@id=$eid]/@name"/></link>
+		    							</listitem>
+		    						</varlistentry>
+		    						<varlistentry>
+		    							<term>Relation:</term>
+		    							<listitem>
+		    								<link linkend="{@id}"><xsl:value-of select="@name"/></link>
+		    							</listitem>
+		    						</varlistentry>
+		    					</variablelist>
+		    				</listitem>
+		    			</varlistentry>
+	    			</xsl:for-each>
+	    			</variablelist>
+	    		</section>
+	    	</section>
 		</article>
 	</xsl:template>
 

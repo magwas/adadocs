@@ -106,4 +106,32 @@
       	test="contains(//section[@id='e2e64608']/section[@id='subfolderID'],'policy in subfolder')"/>
    </x:scenario>
 
+   <x:scenario label="docbook contains the errors in the model">
+      <x:context select="$testData"/>
+      <x:expect label="There is a section titled 'Deviations'"
+      	test="//section/title/text()='Deviations'"/>
+      <x:expect label="deviation contains a subsection for model errors"
+      	test="//section[title/text()='Deviations']/section/title/text()='Model Errors'"/>
+      <x:expect label="model errors is a variablelist"
+      	test="//section[title/text()='Deviations']/section/title/text()='Model Errors'"/>
+      <x:expect label="model errors is a variablelist"
+      	test="count(//section[title/text()='Deviations']/section[title/text()='Model Errors']/variablelist)=1"/>
+      <x:expect label="terms are the error messages"
+      	test="//section[title/text()='Deviations']/section[title/text()='Model Errors']/variablelist/varlistentry/term/text()='less than minOccurs values'"/>
+      <x:expect label="entries contain a variablelist with the problem's description"
+      	test="count(//section[title/text()='Model Errors']/variablelist/varlistentry/listitem/variablelist)>0"/>
+      <x:expect label="an item in the description is the name of the element"
+      	test="//section[title/text()='Model Errors']//varlistentry//varlistentry/term/text()='Offending element:'"/>
+      <x:expect label="the offending element is linked"
+      	test="//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Offending element:']//link/@linkend='d6bf51d0'"/>
+      <x:expect label="the offending element is named"
+      	test="//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Offending element:']//link[@linkend='d6bf51d0']/text()='Simple procedures without unnecessary steps'"/>
+      <x:expect label="an item in the description is the name of the relation:"
+      	test="//section[title/text()='Model Errors']//varlistentry//varlistentry/term/text()='Relation:'"/>
+      <x:expect label="the offending relation is linked"
+      	test="//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Relation:']//link/@linkend='35f04eeb'"/>
+      <x:expect label="the offending relationclass is named"
+      	test="//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Relation:']//link[@linkend='35f04eeb']/text()='defines'"/>
+   </x:scenario>
+
 </x:description>
