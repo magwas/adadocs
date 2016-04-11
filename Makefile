@@ -1,5 +1,10 @@
 
-all: tests tmp/ADA.html tmp/static
+all: zentaworkaround tests tmp/ADA.html tmp/static
+
+zentaworkaround:
+	mkdir -p ~/.zenta/.metadata/.plugins/org.eclipse.e4.workbench/
+	cp workbench.xmi ~/.zenta/.metadata/.plugins/org.eclipse.e4.workbench/
+	touch zentaworkaround
 
 clean:
 	git clean -fdx
