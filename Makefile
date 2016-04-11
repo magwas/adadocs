@@ -24,7 +24,7 @@ tmp/pics:
 	mkdir -p tmp/pics
 
 pics: tmp/pics
-	/opt/Zenta/Zenta -load $$(pwd)/ADA.zenta -targetdir $$(pwd)/tmp -runstyle $$(pwd)/diagrams.style -exit
+	/opt/Zenta/Zenta -data ~/.zenta -load $$(pwd)/ADA.zenta -targetdir $$(pwd)/tmp -runstyle $$(pwd)/diagrams.style -exit
 
 tmp/ADA.rich: tmp xslt/enrich.xslt ADA.zenta
 	saxon9 -xsl:xslt/enrich.xslt -s:ADA.zenta -im:enrich >tmp/ADA.rich
