@@ -124,30 +124,37 @@
 	    		<title>Deviations</title>
 	    		<section>
 	    			<title>Model Errors</title>
-	    			<variablelist>
-	    			<xsl:for-each select="//error">
-		    			<varlistentry>
-		    				<term><xsl:value-of select="@type"/></term>
-		    				<listitem>
-		    					<variablelist>
-		    						<varlistentry>
-		    							<term>Offending element:</term>
-		    							<listitem>
-		    								<xsl:variable name="eid" select="@element"/>
-		    								<link linkend="{@element}"><xsl:value-of select="//element[@id=$eid]/@name"/></link>
-		    							</listitem>
-		    						</varlistentry>
-		    						<varlistentry>
-		    							<term>Relation:</term>
-		    							<listitem>
-		    								<link linkend="{@id}"><xsl:value-of select="@name"/></link>
-		    							</listitem>
-		    						</varlistentry>
-		    					</variablelist>
-		    				</listitem>
-		    			</varlistentry>
-	    			</xsl:for-each>
-	    			</variablelist>
+	    			<xsl:choose>
+	    				<xsl:when test="//error">
+	    					<variablelist>
+			    			<xsl:for-each select="//error">
+				    			<varlistentry>
+				    				<term><xsl:value-of select="@type"/></term>
+				    				<listitem>
+				    					<variablelist>
+				    						<varlistentry>
+				    							<term>Offending element:</term>
+				    							<listitem>
+				    								<xsl:variable name="eid" select="@element"/>
+				    								<link linkend="{@element}"><xsl:value-of select="//element[@id=$eid]/@name"/></link>
+				    							</listitem>
+				    						</varlistentry>
+				    						<varlistentry>
+				    							<term>Relation:</term>
+				    							<listitem>
+				    								<link linkend="{@id}"><xsl:value-of select="@name"/></link>
+				    							</listitem>
+				    						</varlistentry>
+				    					</variablelist>
+				    				</listitem>
+				    			</varlistentry>
+			    			</xsl:for-each>
+			    			</variablelist>
+	    				</xsl:when>
+	    				<xsl:otherwise>
+	    					<para>No model errors</para>
+	    				</xsl:otherwise>
+	    			</xsl:choose>
 	    		</section>
 	    	</section>
 		</article>

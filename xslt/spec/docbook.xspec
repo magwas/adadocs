@@ -9,6 +9,7 @@
                stylesheet="../docbook.xslt">
 
 	<x:variable name="testData" href="enriched.xml"/>
+	<x:variable name="testDataNoerror" href="enriched_noerror.xml"/>
 
    <x:scenario label="output is a docbook article">
       <x:context select="$testData"/>
@@ -132,6 +133,19 @@
       	test="//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Relation:']//link/@linkend='35f04eeb'"/>
       <x:expect label="the offending relationclass is named"
       	test="//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Relation:']//link[@linkend='35f04eeb']/text()='defines'"/>
+   </x:scenario>
+
+
+   <x:scenario label="when there are no errors in the model">
+      <x:context select="$testDataNoerror"/>
+      <x:expect label="There is a section titled 'Deviations'"
+      	test="//section/title/text()='Deviations'"/>
+      <x:expect label="deviation contains a subsection for model errors"
+      	test="//section[title/text()='Deviations']/section/title/text()='Model Errors'"/>
+      <x:expect label="no variablelist in model errors section"
+      	test="count(//section[title/text()='Deviations']/section[title/text()='Model Errors']/variablelist)=0"/>
+      <x:expect label="'No model errors' in the model errors section"
+      	test="//section[title/text()='Deviations']/section[title/text()='Model Errors']/para/text()='No model errors'"/>
    </x:scenario>
 
 </x:description>
