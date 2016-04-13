@@ -119,16 +119,12 @@
         <bounds x="466" y="275" width="-1" height="-1"/>
         <sourceConnection xsi:type="zenta:Connection" id="0105b875" source="1049ee89" target="026fefef" relationship="54a41fe1"/>
         <sourceConnection xsi:type="zenta:Connection" id="bb046181" source="1049ee89" target="4fa8da0e" relationship="a3073298"/>
-        <sourceConnection xsi:type="zenta:Connection" id="e1c52170" source="1049ee89" target="e7af9c75" relationship="c66f1858"/>
       </child>
       <child xsi:type="zenta:DiagramObject" id="026fefef" targetConnections="0105b875" zentaElement="obj3">
         <bounds x="504" y="421" width="137" height="88"/>
       </child>
       <child xsi:type="zenta:DiagramObject" id="4fa8da0e" targetConnections="bb046181" zentaElement="obj1">
         <bounds x="336" y="411" width="131" height="77"/>
-      </child>
-      <child xsi:type="zenta:DiagramObject" id="e7af9c75" targetConnections="e1c52170" zentaElement="obj1">
-        <bounds x="696" y="411" width="153" height="108"/>
       </child>
       <child xsi:type="zenta:DiagramObject" id="44543795" targetConnections="504d8722" zentaElement="df567ba2">
         <bounds x="24" y="267" width="176" height="74"/>
@@ -157,7 +153,6 @@
 </documentation>
     </element>
     <element xsi:type="zenta:BasicRelationship" id="a3073298" ancestor="0f27eeaa" source="154474db" target="obj1"/>
-    <element xsi:type="zenta:BasicRelationship" id="c66f1858" ancestor="0f27eeaa" source="154474db" target="obj1"/>
     <element xsi:type="zenta:BasicObject" name="There is a subset of the user base which contains only existing, different individuals" id="df567ba2" ancestor="f362356f"/>
     <element xsi:type="zenta:BasicRelationship" id="174a972b" ancestor="35f04eeb" source="674bd734" target="df567ba2"/>
     <element xsi:type="zenta:BasicObject" name="Everyone is welcome to use the services, both NGOs and individuals. " id="2531fed2" ancestor="f362356f"/>

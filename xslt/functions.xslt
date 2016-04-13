@@ -15,6 +15,33 @@
 		<xsl:copy-of select="$input"/>
 	</xsl:function>
 
+	<xsl:function name="zenta:assertSequenceEquals">
+		<xsl:param name="expected"/>
+		<xsl:param name="result"/>
+		<xsl:copy-of select="
+		   	zenta:log(
+      			zenta:toStringSequence($expected,',')
+      		,'expected')
+      		 = 
+      		 zenta:log(
+      		 	zenta:toStringSequence($result,',')
+      		,'result')
+		"/>
+	</xsl:function>
+	<xsl:function name="zenta:toStringSequence">
+		<xsl:param name="input"/>
+		<xsl:param name="delimiter"/>
+		<xsl:variable name="sorted">
+			<xsl:for-each select="$input">
+				<xsl:sort select="."/>
+				<a><xsl:copy-of select="string(.)"/></a>
+			</xsl:for-each>
+		</xsl:variable>
+		<xsl:copy-of select="
+				string-join($sorted//a,$delimiter)
+		"/>
+	</xsl:function>
+
 	<xsl:function name="zenta:occursNumber">
 		<xsl:param name="theString"/>
 		<xsl:choose>

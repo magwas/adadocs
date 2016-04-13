@@ -12,13 +12,16 @@ clean:
 tmp:
 	mkdir -p tmp
 
-tests: enrichtest docbooktest
+tests: enrichtest docbooktest objlisttest
 
 enrichtest: xslt/spec/enrich.xspec
 	xspec.sh xslt/spec/enrich.xspec
 
 docbooktest: xslt/spec/docbook.xspec
 	xspec.sh xslt/spec/docbook.xspec
+
+objlisttest: xslt/spec/objlist.xspec
+	xspec.sh xslt/spec/objlist.xspec
 
 tmp/pics:
 	mkdir -p tmp/pics

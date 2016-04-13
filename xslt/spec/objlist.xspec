@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+               xmlns:functx="http://www.functx.com"
+			   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			   xmlns:archimate="http://www.archimatetool.com/archimate"
+			   xmlns:zenta="http://magwas.rulez.org/zenta"
+			   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+               stylesheet="../objlist.xslt">
+
+	<x:variable name="testData" href="ADA.rich"/>
+
+   <x:scenario label="output is an xml object list">
+      <x:context select="$testData"/>
+      <x:expect label="The root tag is objlist"
+      	test="count(/objlist) = 1 "/>
+      <x:expect label="There are objectClass elements under the root tag"
+      	test="count(/objlist/objectClass) > 1 "/>
+      <x:expect label="The objectClass elements have id of the occurring object classes"
+      	test="
+      		zenta:assertSequenceEquals(
+      			distinct-values($testData//element/@ancestor),
+      			/objlist/objectClass/@id
+      			)
+      		"/>
+      <x:expect label="The objectclasses have the name of the class"
+      	test="
+      		zenta:assertSequenceEquals(
+	      		$testData//element[@id=distinct-values($testData//element/@ancestor)]/@name,
+	      		/objlist/objectClass/@name
+      		)
+      		"/>
+
+      <x:expect label="The objectclasses have all objects of that class listed"
+      	test="
+      		zenta:assertSequenceEquals(
+      			$testData//element[@ancestor='objectiveID']/@id,
+      			/objlist/objectClass[@id='objectiveID']/object/@id
+      		)
+      		"/>
+      <x:expect label="The objectclasses have their names"
+      	test="
+      		zenta:assertSequenceEquals(
+      			$testData//element[@ancestor='objectiveID']/@name,
+      			/objlist/objectClass[@id='objectiveID']/object/@name
+      		)
+      		"/>
+
+      <x:expect label="The objects have value for each connection types in the objectclass"
+      	test="
+      		zenta:assertSequenceEquals(
+	      		$testData//element[@id='154474db']/value/@id,
+      			//object[@id='154474db']/value/@id
+	      	)
+      		"/>
+      <x:expect label="The values have name attribute for the relation"
+      	test="
+      		zenta:assertSequenceEquals(
+	      		$testData//element[@id='154474db']/value/@ancestorName,
+      			//object[@id='154474db']/value/@name
+	      	)
+      		"/>
+      <x:expect label="The values direction is in the direction attribute"
+      	test="
+      		zenta:assertSequenceEquals(
+	      		$testData//element[@id='154474db']/value/@direction,
+      			//object[@id='154474db']/value/@direction
+	      	)
+      		"/>
+      <x:expect label="The values text is the name of the pointed relation"
+      	test="
+      		zenta:assertSequenceEquals(
+	      		$testData//element[@id='154474db']/value/@name,
+      			//object[@id='154474db']/value/text()
+	      	)
+      		"/>
+      <x:expect label="fail" test="1=2"/>
+   </x:scenario>
+   
+	
+</x:description>
