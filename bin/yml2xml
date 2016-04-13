@@ -1,0 +1,27 @@
+#!/usr/bin/python
+import yaml
+import sys
+
+def toXML( tag ):
+    ret = ""
+    if isinstance(tag,dict):
+        for aTag,value in tag.items():
+            ret += "<{0}>{1}</{0}>".format(aTag,toXML(tag[aTag]))
+    elif isinstance(tag,list):
+        for aTag in tag:
+            ret += "<item>{0}</item>".format(toXML(aTag))
+    elif isinstance(tag,str):
+        ret=tag
+    elif isinstance(tag,bool) or isinstance(tag,int):
+        ret="{0}".format(tag)
+    else:
+        raise ValueError("{0}:{1}".format(tag.__class__, tag))
+    return ret
+
+f=open(sys.argv[1])
+data=f.read()
+f.close()
+doc = yaml.load(data)
+
+print toXML(dict(doc=doc))
+
