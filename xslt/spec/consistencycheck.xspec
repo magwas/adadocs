@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+               xmlns:functx="http://www.functx.com"
+			   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			   xmlns:archimate="http://www.archimatetool.com/archimate"
+			   xmlns:zenta="http://magwas.rulez.org/zenta"
+			   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+			   xmlns:saxon="http://saxon.sf.net/"
+               stylesheet="../consistencycheck.xslt">
+
+	<x:variable name="testData">
+      	<check
+      	modelfile="../ADA.objlist"
+      	modelbasepath="//objectClass[@name='Policy']/object"
+      	modelnamepath="@name"
+      	modelvaluepath="value[@name='defines']"
+      	inputfile="../adainput.xml"
+      	inputbasepath="//policy"
+      	inputnamepath="@name"
+      	inputvaluepath="@influences"/>
+	</x:variable>
+
+   <x:scenario label="getdata mode gets the data">
+      <x:context select="$testData" mode="getdata">
+      </x:context>
+      <x:expect label="inputdata is on data/input"
+      	test="count(//data/input/entry) > 1"/>
+      <x:expect label="input entries contain object names"
+      	test="//data/input/entry/@name = document('../adainput.xml')//policy/@name"/>
+      <x:expect label="input entries contain value names"
+      	test="//data/input/entry/@value = document('../adainput.xml')//policy/@influences"/>
+      <x:expect label="check object is in data/check"
+      	test="//data/check = $testData"/>
+      <x:expect label="modelobjects are in data/model"
+      	test="count(//data/model/entry) > 1"/>
+      <x:expect label="entries contain object names"
+      	test="//data/model/entry/@name = document('../adainput.xml')//policy/@name"/>
+      <x:expect label="entries contain value names"
+      	test="//data/model/entry/@value = document('../adainput.xml')//policy/@influences"/>
+      <x:expect label="entries which are only in the model are under data/onlymodel"
+      	test="//data/onlymodel/entry/@name='Everyone is welcome to use the services, both NGOs and individuals. '"/>
+      <x:expect label="entries which are only in the input are under data/onlymodel"
+      	test="//data/onlyinput/entry/@value='foo'"/>
+   </x:scenario>
+   
+	
+</x:description>

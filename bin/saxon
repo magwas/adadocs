@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "this saxon script is specially crafted to make xpspec able to use saxon 9 b"
+echo "not suitable for your average saxon usage!"
+shift
+shift
+shift
+java -cp /usr/share/java/tagsoup-1.2.1.jar -jar /usr/local/lib/saxon9.jar ${*} targetdir=$PWD
+

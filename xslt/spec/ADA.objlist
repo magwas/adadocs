@@ -1,0 +1,74 @@
+<objlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:archimate="http://www.archimatetool.com/archimate"
+         xmlns:zenta="http://magwas.rulez.org/zenta">
+   <objectClass name="Basic Object" id="basicobject">
+      <object name="Environment Element" id="238bb246">
+         <value direction="1" id="0f27eeaa" name="Basic Relation">Objective</value>
+         <value direction="1" id="0f27eeaa" name="Basic Relation">Objective</value>
+      </object>
+      <object name="Objective" id="objectiveID">
+         <value direction="2" id="0f27eeaa" name="Basic Relation">Environment Element</value>
+         <value direction="2" id="0f27eeaa" name="Basic Relation">Environment Element</value>
+      </object>
+      <object name="vision" id="4e990e8d">
+         <value direction="1" id="35f04eeb" name="Basic Relation">Policy</value>
+         <value direction="1" id="35f04eeb" name="Basic Relation">Policy</value>
+      </object>
+   </objectClass>
+   <objectClass name="Environment Element" id="238bb246">
+      <object name="Policy" id="f362356f">
+         <value direction="2" id="35f04eeb" name="Basic Relation">vision</value>
+         <value direction="2" id="35f04eeb" name="Basic Relation">vision</value>
+      </object>
+      <object name="Threat" id="32181c01"/>
+      <object name="Assumption" id="fe465fff"/>
+   </objectClass>
+   <objectClass name="Policy" id="f362356f">
+      <object name="Intuitive UI" id="a4e3fe24">
+         <value direction="2" id="e4257f27" name="defines">Citizen customer gateway: Provide easy, secure and private login to all NGO-provided services for activists</value>
+      </object>
+      <object name="Simple procedures without unnecessary steps" id="d6bf51d0">
+         <value direction="2" id="66dc5806" name="defines">Citizen customer gateway: Provide easy, secure and private login to all NGO-provided services for activists</value>
+      </object>
+      <object name="Privacy is paramount" id="154474db">
+         <value direction="1" id="54a41fe1" name="Influences">Only those personal data are kept which are absolutely necessary (email, hash)</value>
+         <value direction="1" id="a3073298" name="Influences">We store only the one-way hash of personal identifiers</value>
+         <value direction="2" id="5d868a03" name="defines">Citizen customer gateway: Provide easy, secure and private login to all NGO-provided services for activists</value>
+      </object>
+      <object name="There is a subset of the user base which contains only existing, different individuals"
+              id="df567ba2">
+         <value direction="2" id="174a972b" name="defines">Provide anonymous and reliable user database for NGOs, also useable as a voter database.</value>
+      </object>
+      <object name="Everyone is welcome to use the services, both NGOs and individuals. "
+              id="2531fed2">
+         <value direction="2" id="eaeeca4b" name="defines">A tool to bring citizens of all views and of any community to a common technical platform, making broad discurse possible</value>
+      </object>
+   </objectClass>
+   <objectClass name="Objective" id="objectiveID">
+      <object name="Only those personal data are kept which are absolutely necessary (email, hash)"
+              id="obj3">
+         <value direction="2" id="54a41fe1" name="Influences">Privacy is paramount</value>
+      </object>
+      <object name="We store only the one-way hash of personal identifiers" id="obj1">
+         <value direction="2" id="a3073298" name="Influences">Privacy is paramount</value>
+      </object>
+      <object name="The data which can lead to the real person is stored encrypted in the database."
+              id="obj2"/>
+   </objectClass>
+   <objectClass name="vision" id="4e990e8d">
+      <object name="Provide anonymous and reliable user database for NGOs, also useable as a voter database."
+              id="674bd734">
+         <value direction="1" id="174a972b" name="defines">There is a subset of the user base which contains only existing, different individuals</value>
+      </object>
+      <object name="Citizen customer gateway: Provide easy, secure and private login to all NGO-provided services for activists"
+              id="6395d5ce">
+         <value direction="1" id="e4257f27" name="defines">Intuitive UI</value>
+         <value direction="1" id="66dc5806" name="defines">Simple procedures without unnecessary steps</value>
+         <value direction="1" id="5d868a03" name="defines">Privacy is paramount</value>
+      </object>
+      <object name="A tool to bring citizens of all views and of any community to a common technical platform, making broad discurse possible"
+              id="5b7f4355">
+         <value direction="1" id="eaeeca4b" name="defines">Everyone is welcome to use the services, both NGOs and individuals. </value>
+      </object>
+   </objectClass>
+</objlist>
