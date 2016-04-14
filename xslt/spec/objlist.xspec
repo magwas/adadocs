@@ -74,7 +74,6 @@
       			//object[@id='154474db']/value/text()
 	      	)
       		"/>
-      <x:expect label="fail" test="1=2"/>
    </x:scenario>
    
 	

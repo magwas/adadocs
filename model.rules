@@ -1,8 +1,5 @@
 .PRECIOUS: %.xml %.rich %.objlist %.richescape %.docbook %.html %.pdf %.pics
 
-modelclean:
-	rm -rf *.rich *.objlist *.richescape *.docbook *.html *.pdf *.pics *.zip *.compiled
-
 %.xml: %.yml
 	$(ADADOCS)/bin/yml2xml $< |saxon9 -xsl:/home/mag/lib/identity.xslt -s:- >$@
 	
@@ -43,4 +40,7 @@ modelclean:
 	cp -r $(basename $@).pics $(basename $@)/pics
 	touch $@
 
+
+modelclean:
+	rm -rf *.rich *.objlist *.richescape *.docbook *.html *.pdf *.pics *.zip *.compiled
 
