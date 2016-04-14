@@ -1,0 +1,46 @@
+.PRECIOUS: %.xml %.rich %.objlist %.richescape %.docbook %.html %.pdf %.pics
+
+modelclean:
+	rm -rf *.rich *.objlist *.richescape *.docbook *.html *.pdf *.pics *.zip *.compiled
+
+%.xml: %.yml
+	$(ADADOCS)/bin/yml2xml $< |saxon9 -xsl:/home/mag/lib/identity.xslt -s:- >$@
+	
+%.rich: %.zenta $(ADADOCS)
+	saxon9 -xsl:$(ADADOCS)/xslt/enrich.xslt -s:$< -im:enrich -o:$@
+
+%.objlist: %.rich
+	saxon9 -xsl:$(ADADOCS)/xslt/objlist.xslt -s:$< -o:$@
+
+%.richescape: %.rich
+	saxon9 -xsl:$(ADADOCS)/xslt/unescape.xslt -s:$< -o:$@
+
+%.docbook: %.richescape %.objlist
+	saxon9 -xsl:docbook.xslt -im:varlist -s:$< -o:$@
+
+%.html: %.docbook
+	saxon9 -xsl:$(ADADOCS)/xslt/docbook2html.xslt -s:$< -o:$@
+
+%.pdf: %.docbook %.pics
+	sed 's/fileref="pics/fileref="$(basename $@).pics/g' <$(basename $@).docbook >$(basename $@).docbook.repic
+	dblatex $(basename $@).docbook.repic -o $@
+	rm $(basename $@).docbook.repic
+
+%.pics: %.zenta
+	rm -rf $@ pics
+	mkdir pics
+	/opt/Zenta/Zenta -data ~/.zenta -load $$(pwd)/$< -targetdir $$(pwd) -runstyle $(ADADOCS)/diagrams.style -exit
+	mv pics $@
+
+%.zip: %/index.html
+	zip -ro $@ $$(basename $@ .zip)
+
+%.compiled: %.html %.pdf %.pics
+	mkdir -p $(basename $@)
+	cp $(ADADOCS)/static/structured.css $(basename $@)
+	cp $(basename $@).html $(basename $@)/index.html
+	cp $(basename $@).pdf $(basename $@)
+	cp -r $(basename $@).pics $(basename $@)/pics
+	touch $@
+
+
