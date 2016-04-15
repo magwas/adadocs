@@ -29,7 +29,7 @@
 	</xsl:for-each>
 </xsl:function>
 
-  <xsl:template match="check" mode="getdata">
+  <xsl:template match="check">
   		<data>
   			<xsl:variable name="inmodel" select="zenta:createElemList(@modelfile,@modelnamepath,@modelbasepath,@modelvaluepath)"/>
   			<xsl:variable name="ininput" select="zenta:createElemList(@inputfile,@inputnamepath,@inputbasepath,@inputvaluepath)"/>
@@ -47,12 +47,14 @@
 	  				<xsl:if test="count($ininput[@name=current()/@name and @value=current()/@value]) =0 ">
 	  					<entry><xsl:copy-of select="@name|@value"/>
 	  					</entry>
+	  					<xsl:message>onlymodel:<xsl:value-of select="@name"/>/<xsl:value-of select="@value"/>.</xsl:message>
 	  				</xsl:if>
 	  			</xsl:for-each>
 	  		</onlymodel>
 	  		<onlyinput>
 	  			<xsl:for-each select="$ininput">
 	  				<xsl:if test="count($inmodel[@name=current()/@name and @value=current()/@value]) =0 ">
+	  					<xsl:message>onlyinput:<xsl:value-of select="@name"/>/<xsl:value-of select="@value"/>.</xsl:message>
 	  					<entry><xsl:copy-of select="@name|@value"/>
 	  					</entry>
 	  				</xsl:if>

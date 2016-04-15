@@ -22,7 +22,7 @@
 	</x:variable>
 
    <x:scenario label="getdata mode gets the data">
-      <x:context select="$testData" mode="getdata">
+      <x:context select="$testData">
       </x:context>
       <x:expect label="inputdata is on data/input"
       	test="count(//data/input/entry) > 1"/>

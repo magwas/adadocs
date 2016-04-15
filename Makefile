@@ -2,7 +2,7 @@
 ADADOCS=$(shell pwd)
 
 
-all: zentaworkaround tests ADA.compiled tmp/static
+all: zentaworkaround tests ADA.compiled ADA.checks tmp/static
 
 include model.rules
 
@@ -28,4 +28,5 @@ pdoauth:
 tmp/static: pdoauth
 	cp -r pdoauth/html/ pdoauth/static/ tmp/
 
-
+ADA.checks: check.config ADA.objlist
+	saxon9 -xsl:xslt/consistencycheck.xslt -s:check.config -o:ADA.checks
