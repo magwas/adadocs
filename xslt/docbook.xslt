@@ -34,7 +34,12 @@
 
 	<xsl:template match="element[@xsi:type!='zenta:ZentaDiagramModel']|connection[@name and @direction='1']"
 		mode="elementDetails">
-		<xsl:copy-of select="documentation/(*|text())"/>
+		<para>
+			<xsl:value-of select="concat('A(n) ', @name, ' is a(n) ', //element[@id=current()/@ancestor]/@name,'.')"/>
+		</para>
+		<para>
+			<xsl:copy-of select="documentation/(*|text())"/>
+		</para>
 	</xsl:template>
 
 	<xsl:template match="element[@xsi:type!='zenta:ZentaDiagramModel']|connection[@name and @direction='1']" mode="tablerow">
@@ -53,9 +58,9 @@
 			<term>
 				<xsl:apply-templates select="." mode="elementTitle"/>
 			</term>
-			<listitem><para>
+			<listitem>
 				<xsl:apply-templates select="." mode="elementDetails"/>
-			</para></listitem>
+			</listitem>
 		</varlistentry>
 	</xsl:template>
 

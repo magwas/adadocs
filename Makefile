@@ -19,8 +19,8 @@ tmp:
 
 tests: enrich.test docbook.test objlist.test
 
-%.test: xslt/spec/%.xspec
-	xspec.sh $<
+%.test: xslt/spec/%.xspec testmodel.%
+	 saxon9 -l -xsl:xslt/tester/test.xslt -s:testmodel.$(basename $@) tests=$$(pwd)/xslt/spec/$(basename $@).xspec
 
 pdoauth:
 	scp -P 22022 -r shippable@demokracia.rulez.org:/var/www/adadocs/PDOauth/master pdoauth

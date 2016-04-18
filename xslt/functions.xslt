@@ -15,6 +15,20 @@
 		<xsl:copy-of select="$input"/>
 	</xsl:function>
 
+	<xsl:function name="zenta:value-by-names">
+		<xsl:param name="doc"/>
+		<xsl:param name="source"/>
+		<xsl:param name="target"/>
+		<xsl:copy-of select="$doc//element[@name=$source]/value[@target=//element[@name=$target]/@id]"/>
+	</xsl:function>
+
+	<xsl:function name="zenta:connection-by-names">
+		<xsl:param name="doc"/>
+		<xsl:param name="source"/>
+		<xsl:param name="target"/>
+		<xsl:copy-of select="$doc//connection[@source=//element[$source]/@id and @target=//element[@name=$target]/@id]"/>
+	</xsl:function>
+
 	<xsl:function name="zenta:assertSequenceEquals">
 		<xsl:param name="expected"/>
 		<xsl:param name="result"/>
@@ -65,11 +79,27 @@
 		</xsl:if>
 	</xsl:function>
 
+	<xsl:function name="zenta:getMinOccurs">
+		<xsl:param name="doc"/>
+		<xsl:param name="element"/>
+		<xsl:choose>
+			<xsl:when test="$element/property[@key='minOccurs']">
+				<xsl:copy-of select="$element/property[@key='minOccurs']/@value"/>
+			</xsl:when>
+			<xsl:when test="$doc//element[@id=$element/@ancestor]">
+				<xsl:copy-of select="zenta:getMinOccurs($doc,$doc//element[@id=$element/@ancestor])"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:copy-of select="'0'"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:function>
+
 	<xsl:function name="zenta:buildConnection">
 		<xsl:param name="element"/>
 		<xsl:param name="direction"/>
 		<xsl:param name="doc"/>
-			<xsl:variable name="mO" select="$element/property[@key='minOccurs']/@value"/>
+			<xsl:variable name="mO" select="zenta:getMinOccurs($doc,$element)"/>
 			<connection>
 				<xsl:choose>
 					<xsl:when test="$direction=1">
@@ -86,6 +116,23 @@
 				<xsl:attribute name="ancestorName" select="$doc//element[@id=$element/@ancestor]/@name"/>
 				<xsl:copy-of select="$element/@ancestor|$element/@id|$element/@name|$element/documentation"/>
 			</connection>
+	</xsl:function>
+
+	<xsl:function name="zenta:getAncestry">
+		<xsl:param name="element"/>
+		<xsl:param name="doc"/>
+		<xsl:if test="$element">
+			<xsl:copy-of select="zenta:getAncestry($doc//element[@id=$element/@ancestor],$doc)"/>
+			<xsl:copy-of select="$element"/>
+		</xsl:if>
+	</xsl:function>
+
+	<xsl:function name="zenta:getDefiningRelations">
+		<xsl:param name="element"/>
+		<xsl:param name="doc"/>
+		<xsl:for-each select="zenta:getAncestry($element,$doc)">
+			<xsl:copy-of select="$doc//connection[@source=current()/@ancestor]"/>
+		</xsl:for-each>
 	</xsl:function>
 
 </xsl:stylesheet>

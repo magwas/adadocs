@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+               xmlns:functx="http://www.functx.com"
+			   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			   xmlns:archimate="http://www.archimatetool.com/archimate"
+			   xmlns:zenta="http://magwas.rulez.org/zenta"
+			   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+               stylesheet="../enrich.xslt">
+
+   <x:scenario label="changetype mode changes element types">
+      <x:expect label="The root object remains zenta:BasicObject"
+      	test="//element[@id='basicobject']/@xsi:type = 'zenta:BasicObject'"/>
+      	
+      <x:expect label="objects without ancestor remain the same type"
+      	test="//element[@name='Metamodel']/@xsi:type = 'zenta:ZentaDiagramModel'"/>
+      	
+      <x:expect label="A Basic Object will be 'Basic Object'"
+      	test="//element[@name='a basic object']/@xsi:type = 'Basic Object'"/>
+      	
+      <x:expect label="The type of instance of derived class will be the name of the class"
+      	test="//element[@name='second level instance']/@xsi:type = 'second level class'"/>
+      	
+      <x:expect label="Template elements have a template attribute"
+      	test="//element[@name='second level class']/@template = 'yes'"/>
+      	
+      <x:expect label="Non-template elements have no template attribute"
+      	test="not(//element[@name='second level instance']/@template)"/>
+      	
+   </x:scenario>
+
+   <x:scenario label="enrich mode insert value for connections">
+      <x:context mode="enrich" select="$testData"/>
+      
+      <x:expect label="objects get 'value' subelements for each of the connections of the ancestor"
+      	test="count(//element[@name='second level instance']/value) >=1 "
+      />
+      
+      <x:expect label="value have a target attribute with the id of the target element"
+      	test="zenta:value-by-names(/,'second level instance','third level instance')/@target=//element[@name='third level instance']/@id"
+      />
+	
+      <x:expect label="there is a value for forward relations"
+      	test="zenta:value-by-names(/,'second level instance','third level instance')/@direction = 1"
+      />
+
+      <x:expect label="there is a value for backward relations"
+      	test="zenta:value-by-names(/,'third level instance','second level instance')//@direction = 2"
+      />
+
+      <x:expect label="value have the target name in the 'name' attribute"
+      	test="zenta:value-by-names(/,'second level instance','third level instance')/@name='third level instance'"
+      />
+
+      <x:expect label="number of values corresponds to relations of the object (case 2)"
+      	test="count(//element[@name='third level instance']/value)=3"
+      />
+
+      <x:expect label="number of values corresponds to relations of the object"
+      	test="count(//element[@name='second level instance']/value)=1"
+      />
+
+      <x:expect label="there is an error if there are less than minOccurs instances of values of a relation type to an element"
+      	test="//element[@name='second2']/error/@type='less than minOccurs values'"
+      />
+
+      <x:expect label="template elements have no errors for minOccurs"
+      	test="//element[@name='second level class'] and not(//element[@name='second level class']/error/@type='less than minOccurs values')"
+      />
+
+      <x:expect label="the error message contains the id of the defining relation"
+      	test="//element[@name='second2']/error/@id=//connection[@name='second level relation']/@id"
+      />
+      
+      <x:expect label="the error message contains the name of the defining relation"
+      	test="//element[@name='second2']/error/@name='second level relation'"
+      />
+      
+      <x:expect label="the minOccurs error message works backward as well"
+      	test="//element[@name='fourth level instance']/error/@name='second level relation'"
+      />
+      
+      <x:expect label="the minOccurs error message contains the minOccurs value backwards"
+      	test="//element[@name='fourth level instance']/error/@minOccurs=5"
+      />
+      <x:expect label="the minOccurs error message contains the minOccurs value forwards"
+      	test="//element[@name='second2']/error/@minOccurs=3"
+      />
+   </x:scenario>
+
+   <x:scenario label="relationships are broken to two unidirectional connections">
+   	<x:context mode="enrich" select="$testData"/>
+
+   	<x:expect label="there are connections with source attribute for relation sources"
+   		test="//connection/@source=//element['second level instance']/@id"/>
+
+   	<x:expect label="the target attribute contains the target element for forward connections"
+   		test="//connection[@source=//element['second level instance']/@id]/@target=//element[@name='third level instance']/@id" />
+   		
+   	<x:expect label="the direction attribute is 1 for forward connections"
+   		test="zenta:connection-by-names(/,'second level instance','third level instance')/@direction=1" />
+
+   	<x:expect label="the direction attribute is 2 for backward connections"
+   		test="zenta:connection-by-names(/,'third level instance','second level instance')/@direction=2" />
+
+   	<x:expect label="there is a minOccurs attribute for connections"
+   		test="zenta:connection-by-names(/,'second3','fourth level instance')/@minOccurs=3" />
+
+   	<x:expect label="minOccurs is zero for relations without minOccurs property"
+   		test="zenta:connection-by-names(/,'a basic object','fourth level instance')/@minOccurs='0'" />
+   		
+   	<x:expect label="there are connections for backward direction. the direction attribute is 2 there"
+   		test="zenta:connection-by-names(/,'third level instance','second level instance')/@direction=2"/>
+
+   	<x:expect label="there is a minOccurs attribute for backward connections"
+   		test="exists(zenta:connection-by-names(/,'third level instance','second level instance')/@minOccurs)" />
+
+   	<x:expect label="minOccurs is zero for relations without minOccurs property also for backwards relations"
+   		test="zenta:connection-by-names(/,'fourth level instance','a basic object')/@minOccurs='0'" />
+   		
+   	<x:expect label="minOccurs is the part after '/' of the minOccurs property if that exists for backward relations"
+   		test="zenta:connection-by-names(/,'fourth level instance','second3')/@minOccurs='5'" />
+   		
+   	<x:expect label="connections have the ancestor attribute for the defining relation for backward relations"
+   		test="zenta:connection-by-names(/,'third level instance','second level instance')/@ancestor=
+   			//connection[@name='first level relation']/@id" />
+
+   	<x:expect label="connections have the id attribute for the defining relation"
+   		test="zenta:connection-by-names(/,'third level instance','second level instance')/@id='2411fe2d'" />
+
+   	<x:expect label="connections have the documentation of the relation"
+   		test="zenta:connection-by-names(/,'third level instance','second level instance')/documentation=
+   		   'This is an instance of a first level relation.'" />
+
+   	<x:expect label="connections have the ancestor name as ancestorName attribute"
+   		test="zenta:connection-by-names(/,'third level instance','second level instance')/@ancestorName='first level relation'" />
+   </x:scenario>
+
+   <x:scenario label="enrich mode insert value for connections for indirect relations">
+      <x:context mode="enrich" select="$virtRelationTestData"/>
+      
+      <x:expect label="connections are created for defining relationships"
+      	test="exists(zenta:connection-by-names(/,'first level class','second level class'))"
+      />
+      <x:expect label="ancestry contains ancestor"
+      	test="zenta:getAncestry(//element[@name='fourth level instance'],/)/@name = 'third level class'"
+      />
+      <x:expect label="ancestry contains ancestor of ancestor"
+      	test="zenta:getAncestry(//element[@name='fourth level instance'],/)/@name = 'second level class'"
+      />
+      <x:expect label="ancestry contains basic object"
+      	test="zenta:getAncestry(//element[@name='fourth level instance'],/)/@name = 'Basic Object'"
+      />
+      <x:expect label="defining relations contain ones for ancestors"
+      	test="zenta:getDefiningRelations(//element[@name='fourth level instance'],/)/@name = 'first level relation'"
+      />
+    </x:scenario>
+
+</x:description>

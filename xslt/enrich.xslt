@@ -28,7 +28,7 @@
 		<xsl:attribute name="xsi:type" select="
 			if(current()/../@ancestor)
 			then
-				concat('Ada:',//element[@id=current()/../@ancestor]/@name)
+				//element[@id=current()/../@ancestor]/@name
 			else
 				."/>
 	</xsl:template>
@@ -50,29 +50,12 @@
 		</value>
 	</xsl:template>
 
-	<xsl:function name="zenta:getAncestry">
-		<xsl:param name="element"/>
-		<xsl:param name="doc"/>
-		<xsl:if test="$element">
-			<xsl:copy-of select="zenta:getAncestry($doc//element[@id=$element/@ancestor],$doc)"/>
-			<xsl:copy-of select="$element"/>
-		</xsl:if>
-	</xsl:function>
-
-	<xsl:function name="zenta:getDefiningRelations">
-		<xsl:param name="element"/>
-		<xsl:param name="doc"/>
-		<xsl:for-each select="zenta:getAncestry($element,$doc)">
-			<xsl:copy-of select="$doc//connection[@source=current()/@ancestor]"/>
-		</xsl:for-each>
-	</xsl:function>
-
 	<xsl:template match="element" mode="createValue">
 		<xsl:variable name="element" select="."/>
 		<xsl:variable name="doc" select="/"/>		
 		<xsl:variable name="definingRelations" select="zenta:getDefiningRelations($element,/)"/>
 		<xsl:for-each select="$definingRelations">
-			<xsl:variable name="relations" select="$doc//connection[@source=$element/@id and @ancestor=current()/@id]"/>
+			<xsl:variable name="relations" select="$doc//connection[@source=$element/@id and @ancestor=current()/@id and @direction=current()/@direction]"/>
 			<xsl:if test="not($element/@template)">
 				<xsl:copy-of select="zenta:checkRelationCount($element,.,$relations)"/>
 			</xsl:if>
