@@ -1,4 +1,4 @@
-.PRECIOUS: %.xml %.rich %.objlist %.richescape %.docbook %.html %.pdf %.pics
+.PRECIOUS: %.xml %.rich %.objlist %.richescape %.docbook %.html %.pdf %.pics %.tabled.docbook
 
 %.xml: %.yml
 	$(ADADOCS)/bin/yml2xml $< |saxon9 -xsl:/home/mag/lib/identity.xslt -s:- >$@
@@ -21,6 +21,9 @@
 %.html: %.docbook
 	saxon9 -xsl:$(ADADOCS)/xslt/docbook2html.xslt -s:$< -o:$@
 
+%.tabled.html: %.tabled..docbook
+	saxon9 -xsl:$(ADADOCS)/xslt/docbook2html.xslt -s:$< -o:$@
+
 %.pdf: %.docbook %.pics
 	sed 's/fileref="pics/fileref="$(basename $@).pics/g' <$(basename $@).docbook >$(basename $@).docbook.repic
 	dblatex $(basename $@).docbook.repic -o $@
@@ -35,10 +38,11 @@
 %.zip: %/index.html
 	zip -ro $@ $$(basename $@ .zip)
 
-%.compiled: %.html %.pdf %.pics
+%.compiled: %.html %.tabled.html %.pdf %.pics
 	mkdir -p $(basename $@)
 	cp $(ADADOCS)/static/structured.css $(basename $@)
 	cp $(basename $@).html $(basename $@)/index.html
+	cp $(basename $@).tabled.html $(basename $@)/tabled.html
 	cp $(basename $@).pdf $(basename $@)
 	cp -r $(basename $@).pics $(basename $@)/pics
 	touch $@

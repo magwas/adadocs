@@ -14,6 +14,9 @@
       <child xsi:type="zenta:DiagramObject" id="120ea89a" targetConnections="8d8ca4de" zentaElement="a93354a0">
         <bounds x="367" y="224" width="-1" height="-1"/>
       </child>
+      <child xsi:type="zenta:DiagramObject" id="1a2e3dac" zentaElement="acce1d67">
+        <bounds x="709" y="257" width="-1" height="-1"/>
+      </child>
       <documentation>Metamodel diagram documentation</documentation>
       <property key="Template"/>
     </element>
@@ -61,6 +64,13 @@
       <property key="lineWidth" value="1"/>
       <property key="font"/>
       <property key="minOccurs" value="3/5"/>
+    </element>
+    <element xsi:type="zenta:BasicObject" name="even fifth level class" id="acce1d67" ancestor="a93354a0">
+      <property key="fillColor"/>
+      <property key="elementShape"/>
+      <property key="textAlignment" value="2"/>
+      <property key="fontColor"/>
+      <property key="font"/>
     </element>
   </folder>
   <folder name="model data" id="abd35f50"/>

@@ -67,7 +67,20 @@
       	test="exists(//section[title='Subfolder'])"/>
 
       <x:expect label="elements have ancestor in the documentation"
-      	test="//varlistentry[term/text()='second level class']/listitem/para/text()='A(n) second level class is a(n) Basic Object.'"/>
+      	test="zenta:assertEquals(
+      		'A second level class is a Basic Object.',
+      		//varlistentry[term/text()='second level class']/listitem/para/text()
+      		)"/>
+      <x:expect label="non-template elements receive definite article"
+      	test="zenta:assertEquals(
+      		'The second level instance is a second level class.',
+      		//varlistentry[term/text()='second level instance']/listitem/para/text()
+      		)"/>
+      <x:expect label="elements starting with vowel receive 'an'"
+      	test="zenta:assertEquals(
+      		'An even fifth level class is a fourth level class.',
+      		//varlistentry[term/text()='even fifth level class']/listitem/para/text()
+      		)"/>
    </x:scenario>
 
    <x:scenario label="docbook contains the errors in the model">

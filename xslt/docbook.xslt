@@ -19,23 +19,17 @@
 	<xsl:template match="element[@xsi:type!='zenta:ZentaDiagramModel']" mode="elementTitle">
 		<anchor id="{@id}"/>
 		<xsl:value-of select="@name"/>
-		<emphasis role="objectClass">
-			(<xsl:value-of select="@xsi:type"/>)
-		</emphasis>
 	</xsl:template>
 
 	<xsl:template match="connection[@name and @direction='1']" mode="elementTitle">
 		<anchor id="{@id}"/>
 		<xsl:value-of select="@name"/>
-		<emphasis role="objectClass">
-			(<xsl:value-of select="@ancestorName"/>)
-		</emphasis>
 	</xsl:template>
 
 	<xsl:template match="element[@xsi:type!='zenta:ZentaDiagramModel']|connection[@name and @direction='1']"
 		mode="elementDetails">
 		<para>
-			<xsl:value-of select="concat('A(n) ', @name, ' is a(n) ', //element[@id=current()/@ancestor]/@name,'.')"/>
+			<xsl:value-of select="concat(zenta:capitalize(zenta:articledName(.,'any')),' is ', zenta:articledName(//element[@id=current()/@ancestor],'no'),'.')"/>
 		</para>
 		<para>
 			<xsl:copy-of select="documentation/(*|text())"/>

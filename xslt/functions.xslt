@@ -161,4 +161,31 @@
 		</xsl:for-each>
 	</xsl:function>
 
+	<xsl:function name="zenta:articledName">
+		<xsl:param name="element"/>
+		<xsl:param name="definite"/>
+		<xsl:variable name="article">
+			<xsl:choose>
+				<xsl:when test="$element/@template='yes' or $definite='no'">
+					<xsl:choose>
+						<xsl:when test="contains('aeouiAEOUI',substring($element/@name,1,1))">
+							<xsl:value-of select="'an'"/>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="'a'"/>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="'the'"/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:value-of select="concat($article,' ',$element/@name)"/>
+	</xsl:function>
+	
+	<xsl:function name="zenta:capitalize">
+		<xsl:param name="str"/>
+		<xsl:value-of select="concat(upper-case(substring($str,1,1)),substring($str, 2))"/>
+	</xsl:function>
 </xsl:stylesheet>
