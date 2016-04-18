@@ -90,7 +90,7 @@
       <property key="fontColor"/>
       <property key="lineWidth" value="1"/>
       <property key="font"/>
-      <property key="minOccurs" value="/1"/>
+      <property key="minOccurs" value="1/1"/>
     </element>
   </folder>
   <folder name="Security Environment" id="e2e64608">
