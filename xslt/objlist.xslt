@@ -10,8 +10,7 @@
 
 <xsl:template match="/">
 	<objlist>
-		<xsl:variable name="objectClasses" select="distinct-values(//element/@ancestor)"/>
-		<xsl:for-each select="//element[@id=$objectClasses]">
+		<xsl:for-each select="//element[@template='yes']">
 			<objectClass>
 				<xsl:copy-of select="@id|@name"/>
 				<xsl:for-each select="//element[@ancestor=current()/@id]">

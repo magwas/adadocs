@@ -15,6 +15,9 @@
 %.docbook: %.richescape %.objlist
 	saxon9 -xsl:docbook.xslt -im:varlist -s:$< -o:$@
 
+%.tabled.docbook: %.richescape %.objlist
+	saxon9 -xsl:docbook.xslt -s:$< -o:$@
+
 %.html: %.docbook
 	saxon9 -xsl:$(ADADOCS)/xslt/docbook2html.xslt -s:$< -o:$@
 

@@ -19,14 +19,14 @@
       <x:expect label="The objectClass elements have id of the occurring object classes"
       	test="
       		zenta:assertSequenceEquals(
-      			distinct-values($testData//element/@ancestor),
+      			$p1//document[@name='../../testmodel.rich']//element[@template='yes']/@id,
       			/objlist/objectClass/@id
       			)
       		"/>
       <x:expect label="The objectclasses have the name of the class"
       	test="
       		zenta:assertSequenceEquals(
-	      		$testData//element[@id=distinct-values($testData//element/@ancestor)]/@name,
+	      		$p1//document[@name='../../testmodel.rich']//element[@template='yes']/@name,
 	      		/objlist/objectClass/@name
       		)
       		"/>
@@ -34,44 +34,48 @@
       <x:expect label="The objectclasses have all objects of that class listed"
       	test="
       		zenta:assertSequenceEquals(
-      			$testData//element[@ancestor='objectiveID']/@id,
-      			/objlist/objectClass[@id='objectiveID']/object/@id
+      			zenta:all-instances-of-type($p1,'second level class')/@id,
+      			/objlist/objectClass[@id=zenta:id-for-name($p1,'second level class')]/object/@id
       		)
       		"/>
       <x:expect label="The objectclasses have their names"
       	test="
       		zenta:assertSequenceEquals(
-      			$testData//element[@ancestor='objectiveID']/@name,
-      			/objlist/objectClass[@id='objectiveID']/object/@name
+      			zenta:all-instances-of-type($p1,'second level class')/@name,
+      			/objlist/objectClass[@name='second level class']/object/@name
       		)
       		"/>
 
       <x:expect label="The objects have value for each connection types in the objectclass"
       	test="
       		zenta:assertSequenceEquals(
-	      		$testData//element[@id='154474db']/value/@id,
-      			//object[@id='154474db']/value/@id
+	      		$p1//document[@name='../../testmodel.rich']//element[@name='third level instance']/value/@id,
+      			//object[@id=
+      				zenta:id-for-name($p1,'third level instance')
+      			  ]/value/@id
 	      	)
       		"/>
       <x:expect label="The values have name attribute for the relation"
       	test="
       		zenta:assertSequenceEquals(
-	      		$testData//element[@id='154474db']/value/@ancestorName,
-      			//object[@id='154474db']/value/@name
+	      		$p1//document[@name='../../testmodel.rich']//element[@name='fourth level instance']/value/@ancestorName,
+      			//object[@id=
+      				zenta:id-for-name($p1,'fourth level instance')
+      			  ]/value/@name
 	      	)
       		"/>
       <x:expect label="The values direction is in the direction attribute"
       	test="
       		zenta:assertSequenceEquals(
-	      		$testData//element[@id='154474db']/value/@direction,
-      			//object[@id='154474db']/value/@direction
+	      		$p1//document[@name='../../testmodel.rich']//element[@name='fourth level instance']/value/@direction,
+      			//object[@id=zenta:id-for-name($p1,'fourth level instance')]/value/@direction
 	      	)
       		"/>
       <x:expect label="The values text is the name of the pointed relation"
       	test="
       		zenta:assertSequenceEquals(
-	      		$testData//element[@id='154474db']/value/@name,
-      			//object[@id='154474db']/value/text()
+	      		$p1//document[@name='../../testmodel.rich']//element[@name='fourth level instance']/value/@name,
+      			//object[@id=zenta:id-for-name($p1,'fourth level instance')]/value/text()
 	      	)
       		"/>
    </x:scenario>

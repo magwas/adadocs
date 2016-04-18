@@ -2,7 +2,7 @@
 <zenta:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zenta="http://magwas.rulez.org/zenta" name="testmodel" id="83e93b51" version="2.2.1">
   <folder name="Metamodel" id="1bda70f7">
     <documentation>Metamodel documentation</documentation>
-    <element xsi:type="zenta:ZentaDiagramModel" name="Metamodel" id="154fb1e4">
+    <element xsi:type="zenta:ZentaDiagramModel" name="Metamodel diagram" id="154fb1e4">
       <child xsi:type="zenta:DiagramObject" id="5ab72819" zentaElement="a63d2d0e">
         <bounds x="281" y="82" width="-1" height="-1"/>
         <sourceConnection xsi:type="zenta:Connection" id="af23155c" source="5ab72819" target="ac4ec090" relationship="abe82119"/>
@@ -14,12 +14,14 @@
       <child xsi:type="zenta:DiagramObject" id="120ea89a" targetConnections="8d8ca4de" zentaElement="a93354a0">
         <bounds x="367" y="224" width="-1" height="-1"/>
       </child>
+      <documentation>Metamodel diagram documentation</documentation>
       <property key="Template"/>
     </element>
     <element xsi:type="zenta:BasicObject" name="Basic Object" id="basicobject"/>
     <element xsi:type="zenta:BasicRelationship" name="Basic Relation" id="basicrelation" source="basicobject" target="basicobject"/>
     <element xsi:type="zenta:ZentaDiagramModel" name="Default View" id="3bd9d9b9"/>
     <element xsi:type="zenta:BasicObject" name="second level class" id="a63d2d0e" ancestor="basicobject">
+      <documentation>a class directly descending from Basic Object</documentation>
       <property key="fillColor"/>
       <property key="elementShape"/>
       <property key="textAlignment" value="2"/>
@@ -50,8 +52,8 @@
       <property key="fontColor"/>
       <property key="font"/>
     </element>
-    <element xsi:type="zenta:BasicRelationship" id="73a4e14b" ancestor="abe82119"/>
     <element xsi:type="zenta:BasicRelationship" name="second level relation" id="87d6b2d5" ancestor="abe82119" source="a63d2d0e" target="a93354a0">
+      <documentation>this relation is a descendant of a descendant of basic relation</documentation>
       <property key="textPosition" value="1"/>
       <property key="lineDecoration"/>
       <property key="lineColor"/>
@@ -63,6 +65,7 @@
   </folder>
   <folder name="model data" id="abd35f50"/>
   <folder name="instances" id="faa91182">
+    <folder name="Subfolder" id="2912c49d"/>
     <element xsi:type="zenta:ZentaDiagramModel" name="instances" id="3b787e15">
       <child xsi:type="zenta:DiagramObject" id="d0048db4" zentaElement="f08125b1">
         <bounds x="227" y="73" width="-1" height="-1"/>
@@ -86,6 +89,10 @@
       </child>
       <child xsi:type="zenta:DiagramObject" id="0a9db5eb" targetConnections="a933aa86 61b4add3" zentaElement="6c0bace6">
         <bounds x="220" y="217" width="-1" height="-1"/>
+        <sourceConnection xsi:type="zenta:Connection" id="957b3954" source="0a9db5eb" target="2bbd9788" relationship="e1d993a3"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="2bbd9788" targetConnections="957b3954" zentaElement="d0c42ea7">
+        <bounds x="196" y="432" width="-1" height="-1"/>
       </child>
     </element>
     <element xsi:type="zenta:BasicObject" name="a basic object" id="f08125b1" ancestor="basicobject"/>
@@ -101,5 +108,7 @@
     <element xsi:type="zenta:BasicObject" name="fourth level instance" id="6c0bace6" ancestor="a93354a0"/>
     <element xsi:type="zenta:BasicRelationship" id="14429680" ancestor="87d6b2d5" source="63fb6744" target="6c0bace6"/>
     <element xsi:type="zenta:BasicRelationship" id="020b8d35" ancestor="basicrelation" source="f08125b1" target="6c0bace6"/>
+    <element xsi:type="zenta:BasicObject" name="another basic object" id="d0c42ea7" ancestor="basicobject"/>
+    <element xsi:type="zenta:BasicRelationship" id="e1d993a3" ancestor="basicrelation" source="6c0bace6" target="d0c42ea7"/>
   </folder>
 </zenta:model>

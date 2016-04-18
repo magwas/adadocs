@@ -8,142 +8,117 @@
 			   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                stylesheet="../docbook.xslt">
 
-	<x:variable name="testData" href="enriched.xml"/>
-	<x:variable name="testDataNoerror" href="enriched_noerror.xml"/>
-
-   <x:scenario label="output is a docbook article">
-      <x:context select="$testData"/>
-      <x:expect label="The root tag is article"
-      	test="count(/article) = 1 "/>
-      <x:expect label="article version is 5.0"
-      	test="/article/@version='5.0'"/>
-      <x:expect label="folders become sections"
-      	test="//*[title='Metamodel']/local-name()='section'"/>
-      <x:expect label="sections have titles"
-      	test="count(//section) = count(//section/title)"/>
-      <x:expect label="the first para of the section is the documentation for the folder"
-      	test="//section[title='Metamodel']/para[1]='Metamodel documentation'"/>
-      <x:expect label="there is a table in the folder if it contains anything documentable"
-      	test="count(//section[@id='metaModel']/table)=1"/>
-      <x:expect label="if there are diagrams, the first rows of the table contain the diagrams"
-      	test="//section[@id='metaModel']/table/tgroup/tbody/row[1]//figure/title='Metamodel diagram'"/>
-      <x:expect label="diagram remark is the diagram documentation"
-        test="//figure[title='Metamodel diagram']/remark='Metamodel diagram documentation'"/>
-      <x:expect label="document contains the picture of the diagram"
-        test="//figure[title='Metamodel diagram']/mediaobject/imageobject/imagedata/@fileref='pics/9f17e235.png'"/>
-      <x:expect label="elements follow the diagrams in the table"
-        test="//section[@id='metaModel']/table/tgroup/tbody/row//anchor/@id='environmentElementClassID'"/>
-      <x:expect label="element name is in the starter cell"
-        test="contains(//section[@id='metaModel']/table//entry[@class='starter' and anchor[@id='environmentElementClassID']]/text(),'Environment Element')"/>
-      <x:expect label="element type is in the starter cell"
-        test="contains(//section[@id='metaModel']/table//entry[@class='starter' and anchor[@id='environmentElementClassID']]/emphasis/text(),'Ada:Basic Object')"/>
-      <x:expect label="element documentation is in the documentation cell"
-        test="//section[@id='metaModel']/table//entry[@class='documentation' and ../entry/anchor[@id='environmentElementClassID']]/para/text() = 'An element of the Security Environment'"/>
-      <x:expect label="named connections are documented"
-      	test="//section[@id='metaModel']/table/tgroup/tbody/row//anchor/@id='influencesConnectionID'"/>
-      <x:expect label="unnamed connections are not documented"
-      	test="count(//anchor[@id='anUnnamedConnectionID']) = 0"/>
-      <x:expect label="named connections are documented only once"
-      	test="count(//anchor[@id='influencesConnectionID']) = 1"/>
-      <x:expect label="connection name is in the starter cell"
-        test="contains(//section[@id='metaModel']/table//entry[@class='starter' and anchor[@id='influencesConnectionID']]/text(),'Influences')"/>
-      <x:expect label="connection type is in the starter cell"
-        test="contains(//section[@id='metaModel']/table//entry[@class='starter' and anchor[@id='influencesConnectionID']]/emphasis/text(),'Basic Relation')"/>
-      <x:expect label="connection documentation is in the documentation cell"
-        test="//section[@id='metaModel']/table//entry[@class='documentation' and ../entry/anchor[@id='influencesConnectionID']]/para/text()='The influences relation'"/>
-      <x:expect label="subfolders are documented"
-      	test="contains(//section[@id='e2e64608']/section[@id='subfolderID'],'policy in subfolder')"/>
-   </x:scenario>
-
    <x:scenario label="listmode is varlist">
       <x:context select="$testData" mode="varlist"/>
+      
       <x:expect label="The root tag is article"
       	test="count(/article) = 1 "/>
+
       <x:expect label="article version is 5.0"
       	test="/article/@version='5.0'"/>
+
       <x:expect label="folders become sections"
-      	test="//*[@id='metaModel']/local-name()='section'"/>
+      	test="//*[title='Metamodel']/local-name()='section'"/>
+
       <x:expect label="sections have titles"
       	test="count(//section) = count(//section/title)"/>
+
       <x:expect label="section title is the name of the folder"
-      	test="//section[@id='metaModel']/title='Metamodel'"/>
+      	test="//section[title='Metamodel']/title='Metamodel'"/>
+
       <x:expect label="the first para of the section is the documentation for the folder"
-      	test="//section[@id='metaModel']/para[1]='Metamodel documentation'"/>
+      	test="//section[title='Metamodel']/para[1]='Metamodel documentation'"/>
+
       <x:expect label="the second para of the section contains a variablelist if it contains anything documentable"
-      	test="count(//section[@id='metaModel']/para[2]/variablelist)=1"/>
+      	test="count(//section[title='Metamodel']/para[2]/variablelist)=1"/>
+
       <x:expect label="the second para of the section does not contain a variablelist if there is nothing documentable"
       	test="count(//section[@id='emptyFolderId']/para[2]/variablelist)=0"/>
+
       <x:expect label="if there are diagrams, the second para contain the diagrams"
-      	test="//section[@id='metaModel']/para[2]//figure/title='Metamodel diagram'"/>
+      	test="//section[title='Metamodel']/para[2]//figure/title='Metamodel diagram'"/>
+
       <x:expect label="diagram remark is the diagram documentation"
         test="//figure[title='Metamodel diagram']/remark='Metamodel diagram documentation'"/>
+
       <x:expect label="document contains the picture of the diagram"
-        test="//figure[title='Metamodel diagram']/mediaobject/imageobject/imagedata/@fileref='pics/9f17e235.png'"/>
-      <x:expect label="elements follow the diagrams"
-        test="//section[@id='metaModel']/para[2]/variablelist/varlistentry/term/anchor/@id='environmentElementClassID'"/>
-      <x:expect label="element name is in the term"
-        test="//section[@id='metaModel']/para[2]/variablelist/varlistentry/term/text()='Environment Element'"/>
-      <x:expect label="element type is in the term"
-        test="normalize-space(//section[@id='metaModel']/para[2]/variablelist/varlistentry[2]/term/emphasis/text())='(Ada:Basic Object)'"/>
+        test="//figure[title='Metamodel diagram']/mediaobject/imageobject/imagedata/@fileref='pics/154fb1e4.png'"/>
+
+      <x:expect label="elements follow the diagrams with element name in the term"
+        test="//section[title='Metamodel']/para[2]/variablelist/varlistentry/term/text()='second level class'"/>
+
       <x:expect label="element documentation is in the listitem"
-        test="//section[@id='metaModel']/para/variablelist/varlistentry[2]/listitem/para/text()='An element of the Security Environment'"/>
-      <x:expect label="named connections are documented"
-      	test="//section[@id='metaModel']//varlistentry/term/anchor/@id='influencesConnectionID'"/>
+        test="//section[title='Metamodel']/para/variablelist/varlistentry[term/text()='second level class']/listitem/para/text()=
+        'a class directly descending from Basic Object'"/>
+
+      <x:expect label="named connections are documented with name in the term"
+      	test="//varlistentry/term/text()='second level relation'"/>
+
       <x:expect label="unnamed connections are not documented"
-      	test="count(//anchor[@id='anUnnamedConnectionID']) = 0"/>
+      	test="count(//anchor[@id='14429680']) = 0"/>
+
       <x:expect label="named connections are documented only once"
-      	test="count(//anchor[@id='influencesConnectionID']) = 1"/>
-      <x:expect label="connection name is in the term"
-        test="//section[@id='metaModel']/para[2]/variablelist/varlistentry/term/text()='Influences'"/>
-      <x:expect label="connection type is in the term"
-        test="normalize-space(//section[@id='metaModel']/para[2]/variablelist/varlistentry[9]/term/emphasis/text())='(Basic Relation)'"/>
+      	test="count(//varlistentry/term/text()='second level relation') = 1"/>
+
       <x:expect label="connection documentation is in listitem"
-        test="//section[@id='metaModel']/para/variablelist/varlistentry[9]/listitem/para/text() = 'The influences relation'"/>
+        test="//varlistentry[term/text()='second level relation']/listitem/para/text() = 'this relation is a descendant of a descendant of basic relation'"/>
+
       <x:expect label="subfolders are documented"
-      	test="contains(//section[@id='e2e64608']/section[@id='subfolderID'],'policy in subfolder')"/>
+      	test="exists(//section[title='Subfolder'])"/>
+
       <x:expect label="elements have ancestor in the documentation"
-      	test="//varlistentry[term/anchor/@id='environmentElementClassID']/listitem/para/text()='A(n) Environment Element is a(n) Basic Object.'"/>
+      	test="//varlistentry[term/text()='second level class']/listitem/para/text()='A(n) second level class is a(n) Basic Object.'"/>
    </x:scenario>
 
    <x:scenario label="docbook contains the errors in the model">
       <x:context select="$testData"/>
+
       <x:expect label="There is a section titled 'Deviations'"
       	test="//section/title/text()='Deviations'"/>
+
       <x:expect label="deviation contains a subsection for model errors"
       	test="//section[title/text()='Deviations']/section/title/text()='Model Errors'"/>
+
       <x:expect label="model errors is a variablelist"
       	test="//section[title/text()='Deviations']/section/title/text()='Model Errors'"/>
-      <x:expect label="model errors is a variablelist"
+
+      <x:expect label="model errors are only once in the document"
       	test="count(//section[title/text()='Deviations']/section[title/text()='Model Errors']/variablelist)=1"/>
+
       <x:expect label="terms are the error messages"
       	test="//section[title/text()='Deviations']/section[title/text()='Model Errors']/variablelist/varlistentry/term/text()='less than minOccurs values'"/>
+
       <x:expect label="entries contain a variablelist with the problem's description"
       	test="count(//section[title/text()='Model Errors']/variablelist/varlistentry/listitem/variablelist)>0"/>
+
       <x:expect label="an item in the description is the name of the element"
       	test="//section[title/text()='Model Errors']//varlistentry//varlistentry/term/text()='Offending element:'"/>
+
       <x:expect label="the offending element is linked"
-      	test="//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Offending element:']//link/@linkend='d6bf51d0'"/>
+      	test="zenta:assertEquals(
+      		//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Offending element:']//link/@linkend,
+      		//varlistentry[term/text()='fourth level instance']/term/anchor/@id
+      	)"/>
+
       <x:expect label="the offending element is named"
-      	test="//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Offending element:']//link[@linkend='d6bf51d0']/text()='Simple procedures without unnecessary steps'"/>
+      	test="zenta:assertEquals(
+      		//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Offending element:']/listitem/link/text(),
+      		'fourth level instance'
+      	)"/>
       <x:expect label="an item in the description is the name of the relation:"
       	test="//section[title/text()='Model Errors']//varlistentry//varlistentry/term/text()='Relation:'"/>
-      <x:expect label="the offending relation is linked"
-      	test="//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Relation:']//link/@linkend='35f04eeb'"/>
+      	
+      <x:expect label="the offending relationclass is linked"
+      	test="zenta:assertEquals(
+      		//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Relation:']//link/@linkend,
+      		//varlistentry[term/text()='second level relation']/term/anchor/@id
+      	)"/>
+
       <x:expect label="the offending relationclass is named"
-      	test="//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Relation:']//link[@linkend='35f04eeb']/text()='defines'"/>
-   </x:scenario>
-
-
-   <x:scenario label="when there are no errors in the model">
-      <x:context select="$testDataNoerror"/>
-      <x:expect label="There is a section titled 'Deviations'"
-      	test="//section/title/text()='Deviations'"/>
-      <x:expect label="deviation contains a subsection for model errors"
-      	test="//section[title/text()='Deviations']/section/title/text()='Model Errors'"/>
-      <x:expect label="no variablelist in model errors section"
-      	test="count(//section[title/text()='Deviations']/section[title/text()='Model Errors']/variablelist)=0"/>
-      <x:expect label="'No model errors' in the model errors section"
-      	test="//section[title/text()='Deviations']/section[title/text()='Model Errors']/para/text()='No model errors'"/>
+      	test="zenta:assertEquals(
+      		//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Relation:']//link/text(),
+      		'second level relation'
+      	)"/>
    </x:scenario>
 
 </x:description>

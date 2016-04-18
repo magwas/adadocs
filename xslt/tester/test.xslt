@@ -11,20 +11,34 @@
 	
 	<xsl:param name="tests"/>
 	<xsl:param name="terminate" select="'yes'"/>
+	<xsl:param name="sources"/>
+	
 	<xsl:variable name="doc" select="/"/>
 
 	<xsl:template match="/">
+	<xsl:variable name="sources">
+	<sources>
+	 <xsl:for-each select="tokenize($sources,',')">
+		 <document>
+		 	<xsl:attribute name="name" select="."/>
+		 	<xsl:copy-of select="document(.)"/>
+		 </document>
+	 </xsl:for-each>
+	</sources>
+	</xsl:variable>
+	
 		<xsl:for-each select="document($tests)//x:expect">
 			<xsl:variable name="lineno" select="saxon:line-number(@test)"/>
 			<xsl:variable name="label" select="@label"/>
 			<xsl:variable name="test" select="@test"/>
 			<xsl:for-each select="$doc">
+				<xsl:message select="concat($lineno,':',$label,':')"/>
 				<xsl:choose>
-					<xsl:when test="saxon:evaluate($test)">
-						<xsl:message select="concat($label,': OK')"/>
+					<xsl:when test="saxon:evaluate($test,$sources)">
+						<xsl:message select="'OK'"/>
 					</xsl:when>
 					<xsl:otherwise>
-						<xsl:message terminate="{$terminate}" select="concat($label,': FAIL. line=',$lineno,', test=',$test)"/>
+						<xsl:message terminate="{$terminate}" select="concat('FAIL. test=',$test)"/>
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:for-each>

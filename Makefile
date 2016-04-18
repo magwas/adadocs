@@ -17,10 +17,10 @@ clean:
 tmp:
 	mkdir -p tmp
 
-tests: enrich.test docbook.test objlist.test
+tests: rich.test docbook.test objlist.test tabled.docbook.test
 
 %.test: xslt/spec/%.xspec testmodel.%
-	 saxon9 -l -xsl:xslt/tester/test.xslt -s:testmodel.$(basename $@) tests=$$(pwd)/xslt/spec/$(basename $@).xspec
+	 saxon9 -l -xsl:xslt/tester/test.xslt -s:testmodel.$(basename $@) tests=$$(pwd)/xslt/spec/$(basename $@).xspec sources=../../testmodel.zenta,../../testmodel.rich
 
 pdoauth:
 	scp -P 22022 -r shippable@demokracia.rulez.org:/var/www/adadocs/PDOauth/master pdoauth

@@ -13,7 +13,7 @@
       	test="//element[@id='basicobject']/@xsi:type = 'zenta:BasicObject'"/>
       	
       <x:expect label="objects without ancestor remain the same type"
-      	test="//element[@name='Metamodel']/@xsi:type = 'zenta:ZentaDiagramModel'"/>
+      	test="//element[@name='Metamodel diagram']/@xsi:type = 'zenta:ZentaDiagramModel'"/>
       	
       <x:expect label="A Basic Object will be 'Basic Object'"
       	test="//element[@name='a basic object']/@xsi:type = 'Basic Object'"/>

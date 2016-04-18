@@ -6,7 +6,6 @@
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 exclude-result-prefixes="#default">
 
-
 <xsl:import href="xslt/docbook.xslt"/>
 
 	<xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes" omit-xml-declaration="yes"/>

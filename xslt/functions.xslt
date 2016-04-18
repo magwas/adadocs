@@ -15,6 +15,18 @@
 		<xsl:copy-of select="$input"/>
 	</xsl:function>
 
+	<xsl:function name="zenta:all-instances-of-type">
+		<xsl:param name="p1"/>
+		<xsl:param name="name"/>
+		<xsl:copy-of select="$p1//document[@name='../../testmodel.rich']//element[
+      				@ancestor=zenta:id-for-name($p1,$name)
+      				]"/>
+	</xsl:function>
+	<xsl:function name="zenta:id-for-name">
+		<xsl:param name="docs"/>
+		<xsl:param name="name"/>
+		<xsl:value-of select="$docs//document[@name='../../testmodel.rich']//element[@name=$name]/@id"/>
+	</xsl:function>
 	<xsl:function name="zenta:value-by-names">
 		<xsl:param name="doc"/>
 		<xsl:param name="source"/>
@@ -29,17 +41,31 @@
 		<xsl:copy-of select="$doc//connection[@source=//element[$source]/@id and @target=//element[@name=$target]/@id]"/>
 	</xsl:function>
 
+	<xsl:function name="zenta:assertEquals">
+		<xsl:param name="expected"/>
+		<xsl:param name="result"/>
+		<xsl:if test="not($expected = $result)">
+			<xsl:message>expected:
+			<xsl:copy-of select="$expected"/>
+			</xsl:message>
+			<xsl:message>result:
+			<xsl:copy-of select="$result"/>
+			</xsl:message>
+		</xsl:if>
+		<xsl:copy-of select='$expected = $result'/>
+	</xsl:function>
+
 	<xsl:function name="zenta:assertSequenceEquals">
 		<xsl:param name="expected"/>
 		<xsl:param name="result"/>
 		<xsl:copy-of select="
-		   	zenta:log(
-      			zenta:toStringSequence($expected,',')
-      		,'expected')
-      		 = 
       		 zenta:log(
       		 	zenta:toStringSequence($result,',')
       		,'result')
+      		=
+		   	zenta:log(
+      			zenta:toStringSequence($expected,',')
+      		,'expected')
 		"/>
 	</xsl:function>
 	<xsl:function name="zenta:toStringSequence">
