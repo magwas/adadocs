@@ -26,10 +26,20 @@
 		<xsl:value-of select="@name"/>
 	</xsl:template>
 
-	<xsl:template match="element[@xsi:type!='zenta:ZentaDiagramModel']|connection[@name and @direction='1']"
+	<xsl:template match="element[@xsi:type!='zenta:ZentaDiagramModel']"
 		mode="elementDetails">
 		<para>
 			<xsl:value-of select="concat(zenta:capitalize(zenta:articledName(.,'any')),' is ', zenta:articledName(//element[@id=current()/@ancestor],'no'),'.')"/>
+		</para>
+		<para>
+			<xsl:copy-of select="documentation/(*|text())"/>
+		</para>
+	</xsl:template>
+
+	<xsl:template match="connection[@name and @direction='1']"
+		mode="elementDetails">
+		<para>
+			<xsl:value-of select="concat(zenta:capitalize(zenta:articledName(.,'any')),' is ', zenta:articledName(//connection[@id=current()/@ancestor and @direction='1'],'no'),'.')"/>
 		</para>
 		<para>
 			<xsl:copy-of select="documentation/(*|text())"/>

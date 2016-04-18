@@ -73,7 +73,7 @@
       		)"/>
       <x:expect label="non-template elements receive definite article"
       	test="zenta:assertEquals(
-      		'The second level instance is a second level class.',
+      		'Second level instance is a second level class.',
       		//varlistentry[term/text()='second level instance']/listitem/para/text()
       		)"/>
       <x:expect label="elements starting with vowel receive 'an'"

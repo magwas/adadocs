@@ -1,7 +1,7 @@
 .PRECIOUS: %.xml %.rich %.objlist %.richescape %.docbook %.html %.pdf %.pics %.tabled.docbook
 
 %.xml: %.yml
-	$(ADADOCS)/bin/yml2xml $< |saxon9 -xsl:/home/mag/lib/identity.xslt -s:- >$@
+	$(ADADOCS)/bin/yml2xml $< |saxon9 -xsl:$(ADADOCS)/xslt/identity.xslt -s:- >$@
 	
 %.rich: %.zenta $(ADADOCS)
 	saxon9 -xsl:$(ADADOCS)/xslt/enrich.xslt -s:$< -im:enrich -o:$@
