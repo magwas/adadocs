@@ -12,10 +12,10 @@
 %.richescape: %.rich $(ADADOCS)/xslt/unescape.xslt
 	saxon9 -xsl:$(ADADOCS)/xslt/unescape.xslt -s:$< -o:$@
 
-%.docbook: %.richescape %.objlist docbook.xslt
+%.docbook: %.richescape %.objlist docbook.xslt $(ADADOCS)/xslt/docbook.xslt
 	saxon9 -xsl:docbook.xslt -im:varlist -s:$< -o:$@
 
-%.tabled.docbook: %.richescape %.objlist docbook.xslt
+%.tabled.docbook: %.richescape %.objlist docbook.xslt $(ADADOCS)/xslt/docbook.xslt
 	saxon9 -xsl:docbook.xslt -s:$< -o:$@
 
 %.html: %.docbook $(ADADOCS)/xslt/docbook2html.xslt

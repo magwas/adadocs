@@ -2,11 +2,12 @@
 <zenta:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zenta="http://magwas.rulez.org/zenta" name="testmodel" id="83e93b51" version="2.2.1">
   <folder name="Metamodel" id="1bda70f7">
     <documentation>Metamodel documentation</documentation>
-    <element xsi:type="zenta:ZentaDiagramModel" name="Metamodel diagram" id="154fb1e4">
+    <element xsi:type="zenta:ZentaDiagramModel" name="Metamodel diagram" id="154fb1e4" connectionRouterType="1">
       <child xsi:type="zenta:DiagramObject" id="5ab72819" zentaElement="a63d2d0e">
         <bounds x="281" y="82" width="-1" height="-1"/>
         <sourceConnection xsi:type="zenta:Connection" id="af23155c" source="5ab72819" target="ac4ec090" lineDecoration="DashedLineDecoration SmallEndArrowDecoration" relationship="abe82119"/>
         <sourceConnection xsi:type="zenta:Connection" id="8d8ca4de" source="5ab72819" target="120ea89a" lineDecoration="SmallEndArrowDecoration" relationship="87d6b2d5"/>
+        <sourceConnection xsi:type="zenta:Connection" id="b3801b91" source="5ab72819" target="6ed7a3d9" lineDecoration="BigArrowTargetDecoration" relationship="b8eb45ee"/>
       </child>
       <child xsi:type="zenta:DiagramObject" id="ac4ec090" targetConnections="af23155c" zentaElement="8d44c0ad">
         <bounds x="528" y="120" width="-1" height="-1"/>
@@ -16,6 +17,9 @@
       </child>
       <child xsi:type="zenta:DiagramObject" id="1a2e3dac" zentaElement="acce1d67">
         <bounds x="709" y="257" width="-1" height="-1"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="6ed7a3d9" targetConnections="b3801b91" zentaElement="726069f8">
+        <bounds x="590" y="28" width="-1" height="-1"/>
       </child>
       <documentation>Metamodel diagram documentation</documentation>
       <property key="Template"/>
@@ -65,6 +69,7 @@
       <property key="lineWidth" value="1"/>
       <property key="font"/>
       <property key="minOccurs" value="3/5"/>
+      <property key="maxOccurs" value="/"/>
     </element>
     <element xsi:type="zenta:BasicObject" name="even fifth level class" id="acce1d67" ancestor="a93354a0">
       <property key="fillColor"/>
@@ -72,6 +77,22 @@
       <property key="textAlignment" value="2"/>
       <property key="fontColor"/>
       <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicObject" name="target" id="726069f8" ancestor="basicobject">
+      <property key="fillColor"/>
+      <property key="elementShape"/>
+      <property key="textAlignment" value="2"/>
+      <property key="fontColor"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="points to" id="b8eb45ee" ancestor="basicrelation" source="a63d2d0e" target="726069f8">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="BigArrowTargetDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+      <property key="maxOccurs" value="1/2"/>
     </element>
   </folder>
   <folder name="model data" id="abd35f50"/>
@@ -147,5 +168,8 @@
     <element xsi:type="zenta:BasicObject" name="3rd3" id="e77d6182" ancestor="8d44c0ad"/>
     <element xsi:type="zenta:BasicRelationship" id="f8e80ced" ancestor="abe82119" source="9cd2039c" target="e77d6182"/>
     <element xsi:type="zenta:BasicRelationship" id="ed51a5a6" ancestor="abe82119" source="63fb6744" target="2b419353"/>
+  </folder>
+  <folder name="maxOccurs doc test" id="6d60855a">
+    <element xsi:type="zenta:ZentaDiagramModel" name="maxOccurs" id="b760e633"/>
   </folder>
 </zenta:model>

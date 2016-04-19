@@ -99,7 +99,7 @@
 
      <x:expect label="listitems contain a description of the connection"
      	test="zenta:assertEquals(
-     		'second level class first level relation third level class',
+     		'second level class second level relation at least 3 fourth level class',
      		//varlistentry[term/text()='second level class']/listitem/para/itemizedlist/listitem
      		)
      		"/>
@@ -107,14 +107,14 @@
      <x:expect label="a connection is described once"
      	test="count(
 	     		//varlistentry[term/text()='second level class']/listitem/para/itemizedlist/listitem[text()=
-	     		'second level class first level relation third level class']
+	     		'second level class second level relation at least 3 fourth level class']
      		) = 1
      		"/>
 
      <x:expect label="if minOccurs != 0, then listitem denotes it"
      	test="zenta:assertEquals(
-     		'third level class first level relation at least 1 second level class',
-     		//varlistentry[term/text()='third level class']/listitem/para/itemizedlist/listitem
+     		'fourth level class second level relation at least 5 second level class',
+     		//varlistentry[term/text()='fourth level class']/listitem/para/itemizedlist/listitem
      		)
      		"/>
 
@@ -178,4 +178,12 @@
       	)"/>
    </x:scenario>
 
+	<x:scenario label="maxOccurs documentation">
+		<x:expect label="if maxOccurs != 0, then listitem denotes it"
+	     	test="zenta:assertEquals(
+	     		'second level class points to at most 1 target',
+	     		//varlistentry[term/text()='second level class']/listitem/para/itemizedlist/listitem
+	     		)
+	     		"/>
+	</x:scenario>
 </x:description>

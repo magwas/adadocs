@@ -45,7 +45,12 @@
 								<xsl:value-of select="concat('at least ',@minOccurs,' ')"/>
 							</xsl:if>
 						</xsl:variable>
-						<xsl:value-of select="concat(../@name,' ',@relationName,' ',$atleast,@name)"/>
+						<xsl:variable name="atmost">
+							<xsl:if test="number(@maxOccurs) > 0">
+								<xsl:value-of select="concat('at most ',@maxOccurs,' ')"/>
+							</xsl:if>
+						</xsl:variable>
+						<xsl:value-of select="concat(../@name,' ',@relationName,' ',$atleast,$atmost,@name)"/>
 					</listitem>
 				</xsl:for-each>
 			</itemizedlist>
