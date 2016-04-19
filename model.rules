@@ -3,25 +3,25 @@
 %.xml: %.yml
 	$(ADADOCS)/bin/yml2xml $< |saxon9 -xsl:$(ADADOCS)/xslt/identity.xslt -s:- >$@
 	
-%.rich: %.zenta $(ADADOCS)
+%.rich: %.zenta $(ADADOCS) $(ADADOCS)/xslt/enrich.xslt
 	saxon9 -xsl:$(ADADOCS)/xslt/enrich.xslt -s:$< -im:enrich -o:$@
 
-%.objlist: %.rich
+%.objlist: %.rich $(ADADOCS)/xslt/objlist.xslt
 	saxon9 -xsl:$(ADADOCS)/xslt/objlist.xslt -s:$< -o:$@
 
-%.richescape: %.rich
+%.richescape: %.rich $(ADADOCS)/xslt/unescape.xslt
 	saxon9 -xsl:$(ADADOCS)/xslt/unescape.xslt -s:$< -o:$@
 
-%.docbook: %.richescape %.objlist
+%.docbook: %.richescape %.objlist docbook.xslt
 	saxon9 -xsl:docbook.xslt -im:varlist -s:$< -o:$@
 
-%.tabled.docbook: %.richescape %.objlist
+%.tabled.docbook: %.richescape %.objlist docbook.xslt
 	saxon9 -xsl:docbook.xslt -s:$< -o:$@
 
-%.html: %.docbook
+%.html: %.docbook $(ADADOCS)/xslt/docbook2html.xslt
 	saxon9 -xsl:$(ADADOCS)/xslt/docbook2html.xslt -s:$< -o:$@
 
-%.tabled.html: %.tabled..docbook
+%.tabled.html: %.tabled..docbook $(ADADOCS)/xslt/docbook2html.xslt
 	saxon9 -xsl:$(ADADOCS)/xslt/docbook2html.xslt -s:$< -o:$@
 
 %.pdf: %.docbook %.pics

@@ -55,7 +55,7 @@
       	test="//varlistentry/term/text()='second level relation'"/>
 
       <x:expect label="unnamed connections are not documented"
-      	test="count(//anchor[@id='14429680']) = 0"/>
+      	test="count(//anchor[@id='020b8d35']) = 0"/>
 
       <x:expect label="named connections are documented only once"
       	test="count(//varlistentry/term/text()='second level relation') = 1"/>
@@ -81,6 +81,50 @@
       		'An even fifth level class is a fourth level class.',
       		//varlistentry[term/text()='even fifth level class']/listitem/para/text()
       		)"/>
+   </x:scenario>
+
+   <x:scenario label="documentation of connections">
+      <x:expect label="template element documentation contains information for connections"
+      	test="zenta:assertContains(
+      		'connections:',
+      		//varlistentry[term/text()='second level class']/listitem/para/text()
+      		)"/>
+      <x:expect label="documentation of non-template element without connections does not contains information for connections"
+      	test="zenta:assertNotContains(
+      		'connections:',
+      		//varlistentry[term/text()='even fifth level class']/listitem/para/text()
+      		)"/>
+     <x:expect label="connection para contains an itemizedlist for connections"
+     	test="//varlistentry[term/text()='second level class']/listitem/para/itemizedlist"/>
+
+     <x:expect label="listitems contain a description of the connection"
+     	test="zenta:assertEquals(
+     		'second level class first level relation third level class',
+     		//varlistentry[term/text()='second level class']/listitem/para/itemizedlist/listitem
+     		)
+     		"/>
+
+     <x:expect label="a connection is described once"
+     	test="count(
+	     		//varlistentry[term/text()='second level class']/listitem/para/itemizedlist/listitem[text()=
+	     		'second level class first level relation third level class']
+     		) = 1
+     		"/>
+
+     <x:expect label="if minOccurs != 0, then listitem denotes it"
+     	test="zenta:assertEquals(
+     		'third level class first level relation at least 1 second level class',
+     		//varlistentry[term/text()='third level class']/listitem/para/itemizedlist/listitem
+     		)
+     		"/>
+
+     <x:expect label="another check"
+     	test="zenta:assertEquals(
+     		'second level class second level relation at least 3 fourth level class',
+     		//varlistentry[term/text()='second level class']/listitem/para/itemizedlist/listitem
+     		)
+     		"/>
+
    </x:scenario>
 
    <x:scenario label="docbook contains the errors in the model">

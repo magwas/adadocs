@@ -2,7 +2,7 @@
 ADADOCS=$(shell pwd)
 
 
-all: zentaworkaround tests ADA.compiled ADA.checks tmp/static
+all: zentaworkaround tests testmodel.compiled ADA.compiled ADA.checks tmp/static
 
 include model.rules
 

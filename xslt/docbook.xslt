@@ -34,6 +34,23 @@
 		<para>
 			<xsl:copy-of select="documentation/(*|text())"/>
 		</para>
+		<para>
+		<xsl:if test="value">
+			connections:
+			<itemizedlist>
+				<xsl:for-each select="value">
+					<listitem>
+						<xsl:variable name="atleast">
+							<xsl:if test="number(@minOccurs) > 0">
+								<xsl:value-of select="concat('at least ',@minOccurs,' ')"/>
+							</xsl:if>
+						</xsl:variable>
+						<xsl:value-of select="concat(../@name,' ',@relationName,' ',$atleast,@name)"/>
+					</listitem>
+				</xsl:for-each>
+			</itemizedlist>
+		</xsl:if>
+		</para>
 	</xsl:template>
 
 	<xsl:template match="connection[@name and @direction='1']"

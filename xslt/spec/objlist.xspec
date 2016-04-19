@@ -19,14 +19,14 @@
       <x:expect label="The objectClass elements have id of the occurring object classes"
       	test="
       		zenta:assertSequenceEquals(
-      			$p1//document[@name='../../testmodel.rich']//element[@template='yes']/@id,
+      			$p1//document[@name='../../testmodel.rich']//element[@template='true']/@id,
       			/objlist/objectClass/@id
       			)
       		"/>
       <x:expect label="The objectclasses have the name of the class"
       	test="
       		zenta:assertSequenceEquals(
-	      		$p1//document[@name='../../testmodel.rich']//element[@template='yes']/@name,
+	      		$p1//document[@name='../../testmodel.rich']//element[@template='true']/@name,
 	      		/objlist/objectClass/@name
       		)
       		"/>

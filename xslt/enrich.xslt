@@ -7,7 +7,7 @@
 	<xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes" omit-xml-declaration="yes"/>
 	
 	<xsl:include href="functions.xslt"/>
-	
+
 	<xsl:template match="zenta:model" mode="enrich">
 		<xsl:variable name="changetypeResult">
 			<xsl:apply-templates select="." mode="changetype"/>
@@ -33,11 +33,15 @@
 				."/>
 	</xsl:template>
 
+	<xsl:function name="zenta:isTemplate">
+		<xsl:param name="doc"/>
+		<xsl:param name="element"/>
+		<xsl:value-of select="$doc//element[property/@key='Template']//child/@zentaElement=$element/@id"/>
+	</xsl:function>
+
 	<xsl:template match="element" mode="changetype">
 		<xsl:copy>
-			<xsl:if test="//child[@zentaElement=current()/@id]/ancestor::*/property/@key='Template'">
-				<xsl:attribute name="template" select="'yes'"/>
-			</xsl:if>
+			<xsl:attribute name="template" select="zenta:isTemplate(/,.)"/>
 		    <xsl:apply-templates select="@*|*|text()|processing-instruction()|comment()" mode="changetype"/>
 		</xsl:copy>
 	</xsl:template>
@@ -54,15 +58,24 @@
 		<xsl:variable name="element" select="."/>
 		<xsl:variable name="doc" select="/"/>		
 		<xsl:variable name="definingRelations" select="zenta:getDefiningRelations($element,/)"/>
-		<xsl:for-each select="$definingRelations">
-			<xsl:variable name="relations" select="$doc//connection[@source=$element/@id and @ancestor=current()/@id and @direction=current()/@direction]"/>
-			<xsl:if test="not($element/@template)">
-				<xsl:copy-of select="zenta:checkRelationCount($element,.,$relations)"/>
-			</xsl:if>
-			<xsl:for-each select="$relations">
-				<xsl:apply-templates select="." mode="createValue" />
-			</xsl:for-each>
-		</xsl:for-each>
+		<xsl:choose>
+			<xsl:when test="$element/@template='true'">
+				<xsl:for-each select="//connection[@source=current()/@id]">
+					<xsl:apply-templates  select="." mode="createValue"/>
+				</xsl:for-each>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:for-each select="$definingRelations">
+					<xsl:variable name="relations" select="$doc//connection[@source=$element/@id and @ancestor=current()/@id and @direction=current()/@direction]"/>
+					<xsl:if test="$element/@template='false'">
+						<xsl:copy-of select="zenta:checkRelationCount($element,.,$doc)"/>
+					</xsl:if>
+					<xsl:for-each select="$relations">
+						<xsl:apply-templates select="." mode="createValue" />
+					</xsl:for-each>
+				</xsl:for-each>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 
 	<xsl:template match="element" mode="enrich_run2">

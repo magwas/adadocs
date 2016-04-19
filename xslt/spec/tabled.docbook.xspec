@@ -51,7 +51,7 @@
       	test="zenta:assertEquals(//row/entry[@class='starter']/text(),'second level relation')"/>
 
       <x:expect label="unnamed connections are not documented"
-      	test="not(//row/entry/anchor/@id='14429680')"/>
+      	test="not(//row/entry/anchor/@id='020b8d35')"/>
 
       <x:expect label="named connections are documented only once"
       	test="count(//row/entry[@class='starter' and text()='second level relation']) = 1"/>

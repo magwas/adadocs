@@ -5,11 +5,11 @@
     <element xsi:type="zenta:ZentaDiagramModel" name="Metamodel diagram" id="154fb1e4">
       <child xsi:type="zenta:DiagramObject" id="5ab72819" zentaElement="a63d2d0e">
         <bounds x="281" y="82" width="-1" height="-1"/>
-        <sourceConnection xsi:type="zenta:Connection" id="af23155c" source="5ab72819" target="ac4ec090" relationship="abe82119"/>
-        <sourceConnection xsi:type="zenta:Connection" id="8d8ca4de" source="5ab72819" target="120ea89a" relationship="87d6b2d5"/>
+        <sourceConnection xsi:type="zenta:Connection" id="af23155c" source="5ab72819" target="ac4ec090" lineDecoration="DashedLineDecoration SmallEndArrowDecoration" relationship="abe82119"/>
+        <sourceConnection xsi:type="zenta:Connection" id="8d8ca4de" source="5ab72819" target="120ea89a" lineDecoration="SmallEndArrowDecoration" relationship="87d6b2d5"/>
       </child>
       <child xsi:type="zenta:DiagramObject" id="ac4ec090" targetConnections="af23155c" zentaElement="8d44c0ad">
-        <bounds x="511" y="81" width="-1" height="-1"/>
+        <bounds x="528" y="120" width="-1" height="-1"/>
       </child>
       <child xsi:type="zenta:DiagramObject" id="120ea89a" targetConnections="8d8ca4de" zentaElement="a93354a0">
         <bounds x="367" y="224" width="-1" height="-1"/>
@@ -41,12 +41,13 @@
     <element xsi:type="zenta:BasicRelationship" name="first level relation" id="abe82119" ancestor="basicrelation" source="a63d2d0e" target="8d44c0ad">
       <documentation>This relation is a direct descendant of basic relation.</documentation>
       <property key="textPosition" value="1"/>
-      <property key="lineDecoration"/>
+      <property key="lineDecoration" value="DashedLineDecoration SmallEndArrowDecoration"/>
       <property key="lineColor"/>
       <property key="fontColor"/>
       <property key="lineWidth" value="1"/>
       <property key="font"/>
       <property key="minOccurs" value="/1"/>
+      <property key="maxOccurs" value="2/1"/>
     </element>
     <element xsi:type="zenta:BasicObject" name="fourth level class" id="a93354a0" ancestor="8d44c0ad">
       <property key="fillColor"/>
@@ -58,7 +59,7 @@
     <element xsi:type="zenta:BasicRelationship" name="second level relation" id="87d6b2d5" ancestor="abe82119" source="a63d2d0e" target="a93354a0">
       <documentation>this relation is a descendant of a descendant of basic relation</documentation>
       <property key="textPosition" value="1"/>
-      <property key="lineDecoration"/>
+      <property key="lineDecoration" value="SmallEndArrowDecoration"/>
       <property key="lineColor"/>
       <property key="fontColor"/>
       <property key="lineWidth" value="1"/>
@@ -96,13 +97,30 @@
         <bounds x="498" y="295" width="-1" height="-1"/>
         <sourceConnection xsi:type="zenta:Connection" id="9aa7ef42" source="71727ecc" target="0d16fc27" relationship="daad56f0"/>
         <sourceConnection xsi:type="zenta:Connection" id="a933aa86" source="71727ecc" target="0a9db5eb" relationship="14429680"/>
+        <sourceConnection xsi:type="zenta:Connection" id="560316a5" source="71727ecc" target="e15f9111" relationship="ed51a5a6"/>
       </child>
-      <child xsi:type="zenta:DiagramObject" id="0a9db5eb" targetConnections="a933aa86 61b4add3" zentaElement="6c0bace6">
+      <child xsi:type="zenta:DiagramObject" id="0a9db5eb" targetConnections="a933aa86 61b4add3 7c5a6562 1a72936c" zentaElement="6c0bace6">
         <bounds x="220" y="217" width="-1" height="-1"/>
         <sourceConnection xsi:type="zenta:Connection" id="957b3954" source="0a9db5eb" target="2bbd9788" relationship="e1d993a3"/>
       </child>
       <child xsi:type="zenta:DiagramObject" id="2bbd9788" targetConnections="957b3954" zentaElement="d0c42ea7">
         <bounds x="196" y="432" width="-1" height="-1"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="9efb191c" zentaElement="75e9f30a">
+        <bounds x="328" y="362" width="-1" height="-1"/>
+        <sourceConnection xsi:type="zenta:Connection" id="1a72936c" source="9efb191c" target="0a9db5eb" relationship="4b9f490e"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="3708d0d7" zentaElement="9cd2039c">
+        <bounds x="490" y="437" width="-1" height="-1"/>
+        <sourceConnection xsi:type="zenta:Connection" id="7c5a6562" source="3708d0d7" target="0a9db5eb" relationship="969d1f5b"/>
+        <sourceConnection xsi:type="zenta:Connection" id="f39c3c37" source="3708d0d7" target="e15f9111" relationship="f932f97c"/>
+        <sourceConnection xsi:type="zenta:Connection" id="c7d1e624" source="3708d0d7" target="02d6eebc" relationship="f8e80ced"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="e15f9111" targetConnections="f39c3c37 560316a5" zentaElement="2b419353">
+        <bounds x="711" y="393" width="-1" height="-1"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="02d6eebc" targetConnections="c7d1e624" zentaElement="e77d6182">
+        <bounds x="819" y="477" width="-1" height="-1"/>
       </child>
     </element>
     <element xsi:type="zenta:BasicObject" name="a basic object" id="f08125b1" ancestor="basicobject"/>
@@ -116,9 +134,18 @@
     <element xsi:type="zenta:BasicRelationship" id="fb6b6962" ancestor="abe82119" source="2c206781" target="2d941c95"/>
     <element xsi:type="zenta:BasicRelationship" id="daad56f0" ancestor="abe82119" source="63fb6744" target="2d941c95"/>
     <element xsi:type="zenta:BasicObject" name="fourth level instance" id="6c0bace6" ancestor="a93354a0"/>
-    <element xsi:type="zenta:BasicRelationship" id="14429680" ancestor="87d6b2d5" source="63fb6744" target="6c0bace6"/>
+    <element xsi:type="zenta:BasicRelationship" name="this  second level relation is also a first level relation" id="14429680" ancestor="87d6b2d5" source="63fb6744" target="6c0bace6"/>
     <element xsi:type="zenta:BasicRelationship" id="020b8d35" ancestor="basicrelation" source="f08125b1" target="6c0bace6"/>
     <element xsi:type="zenta:BasicObject" name="another basic object" id="d0c42ea7" ancestor="basicobject"/>
     <element xsi:type="zenta:BasicRelationship" id="e1d993a3" ancestor="basicrelation" source="6c0bace6" target="d0c42ea7"/>
+    <element xsi:type="zenta:BasicObject" name="second4" id="75e9f30a" ancestor="a63d2d0e"/>
+    <element xsi:type="zenta:BasicRelationship" id="4b9f490e" ancestor="abe82119" source="75e9f30a" target="6c0bace6"/>
+    <element xsi:type="zenta:BasicObject" name="second5" id="9cd2039c" ancestor="a63d2d0e"/>
+    <element xsi:type="zenta:BasicRelationship" id="969d1f5b" ancestor="abe82119" source="9cd2039c" target="6c0bace6"/>
+    <element xsi:type="zenta:BasicObject" name="3rd2" id="2b419353" ancestor="8d44c0ad"/>
+    <element xsi:type="zenta:BasicRelationship" id="f932f97c" ancestor="abe82119" source="9cd2039c" target="2b419353"/>
+    <element xsi:type="zenta:BasicObject" name="3rd3" id="e77d6182" ancestor="8d44c0ad"/>
+    <element xsi:type="zenta:BasicRelationship" id="f8e80ced" ancestor="abe82119" source="9cd2039c" target="e77d6182"/>
+    <element xsi:type="zenta:BasicRelationship" id="ed51a5a6" ancestor="abe82119" source="63fb6744" target="2b419353"/>
   </folder>
 </zenta:model>

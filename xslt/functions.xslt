@@ -55,6 +55,48 @@
 		<xsl:copy-of select='$expected = $result'/>
 	</xsl:function>
 
+	<xsl:function name="zenta:doesContain">
+		<xsl:param name="expected"/>
+		<xsl:param name="result"/>
+		<xsl:variable name="have">
+			<xsl:for-each select="$result">
+				<xsl:if test="contains(.,$expected)">
+					<have got="true"/>
+				</xsl:if>
+					<have got="foo"/>
+			</xsl:for-each>
+		</xsl:variable>
+		<xsl:copy-of select="$have//@got='true'"/>
+	</xsl:function>
+
+	<xsl:function name="zenta:assertContains">
+		<xsl:param name="expected"/>
+		<xsl:param name="result"/>
+		<xsl:if test="not(zenta:doesContain($expected,$result))">
+			<xsl:message>expected:
+			<xsl:copy-of select="$expected"/>
+			</xsl:message>
+			<xsl:message>result:
+			<xsl:copy-of select="$result"/>
+			</xsl:message>
+		</xsl:if>
+		<xsl:copy-of select="zenta:doesContain($expected,$result)"/>
+	</xsl:function>
+
+	<xsl:function name="zenta:assertNotContains">
+		<xsl:param name="expected"/>
+		<xsl:param name="result"/>
+		<xsl:if test="zenta:doesContain($expected,$result)">
+			<xsl:message>not expected:
+			<xsl:copy-of select="$expected"/>
+			</xsl:message>
+			<xsl:message>result:
+			<xsl:copy-of select="$result"/>
+			</xsl:message>
+		</xsl:if>
+		<xsl:copy-of select="not(zenta:doesContain($expected,$result))"/>
+	</xsl:function>
+
 	<xsl:function name="zenta:assertSequenceEquals">
 		<xsl:param name="expected"/>
 		<xsl:param name="result"/>
@@ -86,21 +128,53 @@
 		<xsl:param name="theString"/>
 		<xsl:choose>
 			<xsl:when test="empty($theString)">0</xsl:when>
+			<xsl:when test="$theString=''">0</xsl:when>
 			<xsl:otherwise><xsl:value-of select="number($theString)"/></xsl:otherwise>
 		</xsl:choose>
 	</xsl:function>
 
+	<xsl:function name="zenta:descendantRelationsFor">
+		<xsl:param name="relation"/>
+		<xsl:param name="element"/>
+		<xsl:param name="doc"/>
+		<xsl:variable name="descendants" select="$doc//connection[
+			@ancestor=$relation/@id and
+			@template='true' and
+			@direction=$relation/@direction
+			]"/>
+		<xsl:copy-of select="$doc//connection[
+			@ancestor=$relation/@id and
+			@template='false' and
+			@direction=$relation/@direction and
+			@source=$element/@id
+			]"/>
+		<xsl:for-each select="$descendants">
+			<xsl:copy-of select="zenta:descendantRelationsFor(.,$element,$doc)"/>
+		</xsl:for-each>
+	</xsl:function>
+	
+
 	<xsl:function name="zenta:checkRelationCount">
 		<xsl:param name="element"/>
 		<xsl:param name="template"/>
-		<xsl:param name="relations"/>
+		<xsl:param name="doc"/>
+		<xsl:variable name="descendants" select="zenta:descendantRelationsFor($template,$element,$doc)"/>
 		<xsl:if test="
-			count($relations)
+			count($descendants)
 			&lt;
 			zenta:occursNumber(string($template/@minOccurs))
 		">
 			<error type="less than minOccurs values" element="{$element/@id}">
 				<xsl:copy-of select="$template/@id|$template/@name|$template/@minOccurs|$template/@source|$template/@target"/>
+			</error>
+		</xsl:if>
+		<xsl:if test="
+			count($descendants)
+			&gt;
+			zenta:occursNumber(string($template/@maxOccurs))
+		">
+			<error type="more than maxOccurs values" element="{$element/@id}">
+				<xsl:copy-of select="$template/@id|$template/@name|$template/@maxOccurs|$template/@source|$template/@target"/>
 			</error>
 		</xsl:if>
 	</xsl:function>
@@ -121,11 +195,28 @@
 		</xsl:choose>
 	</xsl:function>
 
+	<xsl:function name="zenta:getMaxOccurs">
+		<xsl:param name="doc"/>
+		<xsl:param name="element"/>
+		<xsl:choose>
+			<xsl:when test="$element/property[@key='maxOccurs']">
+				<xsl:copy-of select="$element/property[@key='maxOccurs']/@value"/>
+			</xsl:when>
+			<xsl:when test="$doc//element[@id=$element/@ancestor]">
+				<xsl:copy-of select="zenta:getMaxOccurs($doc,$doc//element[@id=$element/@ancestor])"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:copy-of select="'0'"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:function>
+
 	<xsl:function name="zenta:buildConnection">
 		<xsl:param name="element"/>
 		<xsl:param name="direction"/>
 		<xsl:param name="doc"/>
 			<xsl:variable name="mO" select="zenta:getMinOccurs($doc,$element)"/>
+			<xsl:variable name="xO" select="zenta:getMaxOccurs($doc,$element)"/>
 			<connection>
 				<xsl:choose>
 					<xsl:when test="$direction=1">
@@ -139,6 +230,9 @@
 				</xsl:choose>
 				<xsl:attribute name="direction" select="$direction"/>
 				<xsl:attribute name="minOccurs" select="zenta:occursNumber(tokenize($mO,'/')[$direction])"/>
+				<xsl:attribute name="maxOccurs" select="zenta:occursNumber(tokenize($xO,'/')[$direction])"/>
+				<xsl:attribute name="template" select="$doc//element[property/@key='Template']//sourceConnection/@relationship=$element/@id"/>
+				<xsl:attribute name="relationName" select="$element/@name"/>
 				<xsl:attribute name="ancestorName" select="$doc//element[@id=$element/@ancestor]/@name"/>
 				<xsl:copy-of select="$element/@ancestor|$element/@id|$element/@name|$element/documentation"/>
 			</connection>
@@ -165,7 +259,7 @@
 		<xsl:param name="element"/>
 		<xsl:param name="definite"/>
 			<xsl:choose>
-				<xsl:when test="$element/@template='yes' or $definite='no'">
+				<xsl:when test="$element/@template='true' or $definite='no'">
 					<xsl:choose>
 						<xsl:when test="contains('aeouiAEOUI',substring($element/@name,1,1))">
 							<xsl:value-of select="concat('an ',$element/@name)"/>

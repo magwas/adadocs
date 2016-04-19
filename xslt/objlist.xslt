@@ -10,7 +10,7 @@
 
 <xsl:template match="/">
 	<objlist>
-		<xsl:for-each select="//element[@template='yes']">
+		<xsl:for-each select="//element[@template='true']">
 			<objectClass>
 				<xsl:copy-of select="@id|@name"/>
 				<xsl:for-each select="//element[@ancestor=current()/@id]">
