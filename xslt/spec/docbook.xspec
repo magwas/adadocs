@@ -45,41 +45,41 @@
         test="//figure[title='Metamodel diagram']/mediaobject/imageobject/imagedata/@fileref='pics/154fb1e4.png'"/>
 
       <x:expect label="elements follow the diagrams with element name in the term"
-        test="//section[title='Metamodel']/para[2]/variablelist/varlistentry/term/text()='second level class'"/>
+        test="//section[title='Metamodel']/para[2]/variablelist/varlistentry/term/text()='man'"/>
 
       <x:expect label="element documentation is in the listitem"
-        test="//section[title='Metamodel']/para/variablelist/varlistentry[term/text()='second level class']/listitem/para/text()=
+        test="//section[title='Metamodel']/para/variablelist/varlistentry[term/text()='man']/listitem/para/text()=
         'a class directly descending from Basic Object'"/>
 
       <x:expect label="named connections are documented with name in the term"
-      	test="//varlistentry/term/text()='second level relation'"/>
+      	test="//varlistentry/term/text()='pampers'"/>
 
       <x:expect label="unnamed connections are not documented"
       	test="count(//anchor[@id='020b8d35']) = 0"/>
 
       <x:expect label="named connections are documented only once"
-      	test="count(//varlistentry/term/text()='second level relation') = 1"/>
+      	test="count(//varlistentry/term/text()='pampers') = 1"/>
 
       <x:expect label="connection documentation is in listitem"
-        test="//varlistentry[term/text()='second level relation']/listitem/para/text() = 'this relation is a descendant of a descendant of basic relation'"/>
+        test="//varlistentry[term/text()='pampers']/listitem/para/text() = 'this relation is a descendant of a descendant of basic relation'"/>
 
       <x:expect label="subfolders are documented"
       	test="exists(//section[title='Subfolder'])"/>
 
       <x:expect label="elements have ancestor in the documentation"
       	test="zenta:assertEquals(
-      		'A second level class is a Basic Object.',
-      		//varlistentry[term/text()='second level class']/listitem/para/text()
+      		'A man is a Basic Object.',
+      		//varlistentry[term/text()='man']/listitem/para/text()
       		)"/>
       <x:expect label="non-template elements receive definite article"
       	test="zenta:assertEquals(
-      		'Second level instance is a second level class.',
-      		//varlistentry[term/text()='second level instance']/listitem/para/text()
+      		'Joe is a man.',
+      		//varlistentry[term/text()='Joe']/listitem/para/text()
       		)"/>
       <x:expect label="elements starting with vowel receive 'an'"
       	test="zenta:assertEquals(
-      		'An even fifth level class is a fourth level class.',
-      		//varlistentry[term/text()='even fifth level class']/listitem/para/text()
+      		'A cat is a grandchild.',
+      		//varlistentry[term/text()='cat']/listitem/para/text()
       		)"/>
    </x:scenario>
 
@@ -87,41 +87,41 @@
       <x:expect label="template element documentation contains information for connections"
       	test="zenta:assertContains(
       		'connections:',
-      		//varlistentry[term/text()='second level class']/listitem/para/text()
+      		//varlistentry[term/text()='man']/listitem/para/text()
       		)"/>
       <x:expect label="documentation of non-template element without connections does not contains information for connections"
       	test="zenta:assertNotContains(
       		'connections:',
-      		//varlistentry[term/text()='even fifth level class']/listitem/para/text()
+      		//varlistentry[term/text()='cat']/listitem/para/text()
       		)"/>
      <x:expect label="connection para contains an itemizedlist for connections"
-     	test="//varlistentry[term/text()='second level class']/listitem/para/itemizedlist"/>
+     	test="//varlistentry[term/text()='man']/listitem/para/itemizedlist"/>
 
      <x:expect label="listitems contain a description of the connection"
      	test="zenta:assertEquals(
-     		'second level class second level relation at least 3 fourth level class',
-     		//varlistentry[term/text()='second level class']/listitem/para/itemizedlist/listitem
+     		'man pampers at least 3 grandchild',
+     		//varlistentry[term/text()='man']/listitem/para/itemizedlist/listitem
      		)
      		"/>
 
      <x:expect label="a connection is described once"
      	test="count(
-	     		//varlistentry[term/text()='second level class']/listitem/para/itemizedlist/listitem[text()=
-	     		'second level class second level relation at least 3 fourth level class']
+	     		//varlistentry[term/text()='man']/listitem/para/itemizedlist/listitem[text()=
+	     		'man pampers at least 3 grandchild']
      		) = 1
      		"/>
 
      <x:expect label="if minOccurs != 0, then listitem denotes it"
      	test="zenta:assertEquals(
-     		'fourth level class second level relation at least 5 second level class',
-     		//varlistentry[term/text()='fourth level class']/listitem/para/itemizedlist/listitem
+     		'grandchild pampers at least 5 man',
+     		//varlistentry[term/text()='grandchild']/listitem/para/itemizedlist/listitem
      		)
      		"/>
 
      <x:expect label="another check"
      	test="zenta:assertEquals(
-     		'second level class second level relation at least 3 fourth level class',
-     		//varlistentry[term/text()='second level class']/listitem/para/itemizedlist/listitem
+     		'man pampers at least 3 grandchild',
+     		//varlistentry[term/text()='man']/listitem/para/itemizedlist/listitem
      		)
      		"/>
 
@@ -154,13 +154,13 @@
       <x:expect label="the offending element is linked"
       	test="zenta:assertEquals(
       		//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Offending element:']//link/@linkend,
-      		//varlistentry[term/text()='fourth level instance']/term/anchor/@id
+      		//varlistentry[term/text()='Alain']/term/anchor/@id
       	)"/>
 
       <x:expect label="the offending element is named"
       	test="zenta:assertEquals(
       		//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Offending element:']/listitem/link/text(),
-      		'fourth level instance'
+      		'Alain'
       	)"/>
       <x:expect label="an item in the description is the name of the relation:"
       	test="//section[title/text()='Model Errors']//varlistentry//varlistentry/term/text()='Relation:'"/>
@@ -168,21 +168,21 @@
       <x:expect label="the offending relationclass is linked"
       	test="zenta:assertEquals(
       		//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Relation:']//link/@linkend,
-      		//varlistentry[term/text()='second level relation']/term/anchor/@id
+      		//varlistentry[term/text()='pampers']/term/anchor/@id
       	)"/>
 
       <x:expect label="the offending relationclass is named"
       	test="zenta:assertEquals(
       		//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Relation:']//link/text(),
-      		'second level relation'
+      		'pampers'
       	)"/>
    </x:scenario>
 
 	<x:scenario label="maxOccurs documentation">
 		<x:expect label="if maxOccurs != 0, then listitem denotes it"
 	     	test="zenta:assertEquals(
-	     		'second level class points to at most 1 target',
-	     		//varlistentry[term/text()='second level class']/listitem/para/itemizedlist/listitem
+	     		'man points to at most 1 target',
+	     		//varlistentry[term/text()='man']/listitem/para/itemizedlist/listitem
 	     		)
 	     		"/>
 	</x:scenario>

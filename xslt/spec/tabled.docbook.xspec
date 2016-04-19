@@ -35,35 +35,35 @@
       <x:expect label="elements follow the diagrams in the table"
         test="zenta:assertEquals(
         	//section[title='Metamodel']/table/tgroup/tbody/row/entry/text(),
-        	'fourth level class')"/>
+        	'grandchild')"/>
 
       <x:expect label="element name is in the starter cell"
         test="zenta:assertEquals(
         	//section[title='Metamodel']/table/tgroup/tbody/row/entry[@class='starter']/text(),
-        	'fourth level class')"/>
+        	'grandchild')"/>
 
       <x:expect label="element documentation is in the documentation cell"
         test="zenta:assertEquals(
-        	//section[title='Metamodel']/table/tgroup/tbody/row[entry[@class='starter']/text()='second level class']/entry[@class='documentation']/para/text(),
+        	//section[title='Metamodel']/table/tgroup/tbody/row[entry[@class='starter']/text()='man']/entry[@class='documentation']/para/text(),
         	'a class directly descending from Basic Object')"/>
 
       <x:expect label="named connections are documented"
-      	test="zenta:assertEquals(//row/entry[@class='starter']/text(),'second level relation')"/>
+      	test="zenta:assertEquals(//row/entry[@class='starter']/text(),'pampers')"/>
 
       <x:expect label="unnamed connections are not documented"
       	test="not(//row/entry/anchor/@id='020b8d35')"/>
 
       <x:expect label="named connections are documented only once"
-      	test="count(//row/entry[@class='starter' and text()='second level relation']) = 1"/>
+      	test="count(//row/entry[@class='starter' and text()='pampers']) = 1"/>
 
       <x:expect label="connection name is in the starter cell"
         test="zenta:assertEquals(
         	//section[title='Metamodel']/table/tgroup/tbody/row/entry[@class='starter']/text(),
-        	'second level relation')"/>
+        	'pampers')"/>
         	
       <x:expect label="connection documentation is in the documentation cell"
         test="zenta:assertEquals(
-        	//section[title='Metamodel']/table/tgroup/tbody/row[entry[@class='starter']/text()='second level relation']/entry[@class='documentation']/para/text(),
+        	//section[title='Metamodel']/table/tgroup/tbody/row[entry[@class='starter']/text()='pampers']/entry[@class='documentation']/para/text(),
         	'this relation is a descendant of a descendant of basic relation')"/>
         	
       <x:expect label="subfolders are documented"

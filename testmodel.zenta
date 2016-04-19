@@ -27,7 +27,7 @@
     <element xsi:type="zenta:BasicObject" name="Basic Object" id="basicobject"/>
     <element xsi:type="zenta:BasicRelationship" name="Basic Relation" id="basicrelation" source="basicobject" target="basicobject"/>
     <element xsi:type="zenta:ZentaDiagramModel" name="Default View" id="3bd9d9b9"/>
-    <element xsi:type="zenta:BasicObject" name="second level class" id="a63d2d0e" ancestor="basicobject">
+    <element xsi:type="zenta:BasicObject" name="man" id="a63d2d0e" ancestor="basicobject">
       <documentation>a class directly descending from Basic Object</documentation>
       <property key="fillColor"/>
       <property key="elementShape"/>
@@ -35,14 +35,14 @@
       <property key="fontColor"/>
       <property key="font"/>
     </element>
-    <element xsi:type="zenta:BasicObject" name="third level class" id="8d44c0ad" ancestor="a63d2d0e">
+    <element xsi:type="zenta:BasicObject" name="child" id="8d44c0ad" ancestor="a63d2d0e">
       <property key="fillColor"/>
       <property key="elementShape"/>
       <property key="textAlignment" value="2"/>
       <property key="fontColor"/>
       <property key="font"/>
     </element>
-    <element xsi:type="zenta:BasicRelationship" name="first level relation" id="abe82119" ancestor="basicrelation" source="a63d2d0e" target="8d44c0ad">
+    <element xsi:type="zenta:BasicRelationship" name="raises" id="abe82119" ancestor="basicrelation" source="a63d2d0e" target="8d44c0ad">
       <documentation>This relation is a direct descendant of basic relation.</documentation>
       <property key="textPosition" value="1"/>
       <property key="lineDecoration" value="DashedLineDecoration SmallEndArrowDecoration"/>
@@ -53,14 +53,14 @@
       <property key="minOccurs" value="/1"/>
       <property key="maxOccurs" value="2/1"/>
     </element>
-    <element xsi:type="zenta:BasicObject" name="fourth level class" id="a93354a0" ancestor="8d44c0ad">
+    <element xsi:type="zenta:BasicObject" name="grandchild" id="a93354a0" ancestor="8d44c0ad">
       <property key="fillColor"/>
       <property key="elementShape"/>
       <property key="textAlignment" value="2"/>
       <property key="fontColor"/>
       <property key="font"/>
     </element>
-    <element xsi:type="zenta:BasicRelationship" name="second level relation" id="87d6b2d5" ancestor="abe82119" source="a63d2d0e" target="a93354a0">
+    <element xsi:type="zenta:BasicRelationship" name="pampers" id="87d6b2d5" ancestor="abe82119" source="a63d2d0e" target="a93354a0">
       <documentation>this relation is a descendant of a descendant of basic relation</documentation>
       <property key="textPosition" value="1"/>
       <property key="lineDecoration" value="SmallEndArrowDecoration"/>
@@ -71,7 +71,7 @@
       <property key="minOccurs" value="3/5"/>
       <property key="maxOccurs" value="/"/>
     </element>
-    <element xsi:type="zenta:BasicObject" name="even fifth level class" id="acce1d67" ancestor="a93354a0">
+    <element xsi:type="zenta:BasicObject" name="cat" id="acce1d67" ancestor="a93354a0">
       <property key="fillColor"/>
       <property key="elementShape"/>
       <property key="textAlignment" value="2"/>
@@ -144,28 +144,28 @@
         <bounds x="819" y="477" width="-1" height="-1"/>
       </child>
     </element>
-    <element xsi:type="zenta:BasicObject" name="a basic object" id="f08125b1" ancestor="basicobject"/>
-    <element xsi:type="zenta:BasicObject" name="second level instance" id="1e7181c1" ancestor="a63d2d0e"/>
-    <element xsi:type="zenta:BasicObject" name="third level instance" id="2d941c95" ancestor="8d44c0ad"/>
+    <element xsi:type="zenta:BasicObject" name="knife" id="f08125b1" ancestor="basicobject"/>
+    <element xsi:type="zenta:BasicObject" name="Joe" id="1e7181c1" ancestor="a63d2d0e"/>
+    <element xsi:type="zenta:BasicObject" name="Odette" id="2d941c95" ancestor="8d44c0ad"/>
     <element xsi:type="zenta:BasicRelationship" id="2411fe2d" ancestor="abe82119" source="1e7181c1" target="2d941c95">
-      <documentation>This is an instance of a first level relation.</documentation>
+      <documentation>This is an instance of a raises.</documentation>
     </element>
-    <element xsi:type="zenta:BasicObject" name="second2" id="2c206781" ancestor="a63d2d0e"/>
-    <element xsi:type="zenta:BasicObject" name="second3" id="63fb6744" ancestor="a63d2d0e"/>
+    <element xsi:type="zenta:BasicObject" name="mary" id="2c206781" ancestor="a63d2d0e"/>
+    <element xsi:type="zenta:BasicObject" name="bob" id="63fb6744" ancestor="a63d2d0e"/>
     <element xsi:type="zenta:BasicRelationship" id="fb6b6962" ancestor="abe82119" source="2c206781" target="2d941c95"/>
     <element xsi:type="zenta:BasicRelationship" id="daad56f0" ancestor="abe82119" source="63fb6744" target="2d941c95"/>
-    <element xsi:type="zenta:BasicObject" name="fourth level instance" id="6c0bace6" ancestor="a93354a0"/>
-    <element xsi:type="zenta:BasicRelationship" name="this  second level relation is also a first level relation" id="14429680" ancestor="87d6b2d5" source="63fb6744" target="6c0bace6"/>
+    <element xsi:type="zenta:BasicObject" name="Alain" id="6c0bace6" ancestor="a93354a0"/>
+    <element xsi:type="zenta:BasicRelationship" name="gives candy to" id="14429680" ancestor="87d6b2d5" source="63fb6744" target="6c0bace6"/>
     <element xsi:type="zenta:BasicRelationship" id="020b8d35" ancestor="basicrelation" source="f08125b1" target="6c0bace6"/>
     <element xsi:type="zenta:BasicObject" name="another basic object" id="d0c42ea7" ancestor="basicobject"/>
     <element xsi:type="zenta:BasicRelationship" id="e1d993a3" ancestor="basicrelation" source="6c0bace6" target="d0c42ea7"/>
-    <element xsi:type="zenta:BasicObject" name="second4" id="75e9f30a" ancestor="a63d2d0e"/>
+    <element xsi:type="zenta:BasicObject" name="alice" id="75e9f30a" ancestor="a63d2d0e"/>
     <element xsi:type="zenta:BasicRelationship" id="4b9f490e" ancestor="abe82119" source="75e9f30a" target="6c0bace6"/>
-    <element xsi:type="zenta:BasicObject" name="second5" id="9cd2039c" ancestor="a63d2d0e"/>
+    <element xsi:type="zenta:BasicObject" name="Jim" id="9cd2039c" ancestor="a63d2d0e"/>
     <element xsi:type="zenta:BasicRelationship" id="969d1f5b" ancestor="abe82119" source="9cd2039c" target="6c0bace6"/>
-    <element xsi:type="zenta:BasicObject" name="3rd2" id="2b419353" ancestor="8d44c0ad"/>
+    <element xsi:type="zenta:BasicObject" name="Kelly" id="2b419353" ancestor="8d44c0ad"/>
     <element xsi:type="zenta:BasicRelationship" id="f932f97c" ancestor="abe82119" source="9cd2039c" target="2b419353"/>
-    <element xsi:type="zenta:BasicObject" name="3rd3" id="e77d6182" ancestor="8d44c0ad"/>
+    <element xsi:type="zenta:BasicObject" name="Maurice" id="e77d6182" ancestor="8d44c0ad"/>
     <element xsi:type="zenta:BasicRelationship" id="f8e80ced" ancestor="abe82119" source="9cd2039c" target="e77d6182"/>
     <element xsi:type="zenta:BasicRelationship" id="ed51a5a6" ancestor="abe82119" source="63fb6744" target="2b419353"/>
   </folder>
