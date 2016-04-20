@@ -7,7 +7,7 @@
 
 	<xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes" omit-xml-declaration="yes"/>
 
-<xsl:include href="/home/mag/project/adadocs/xslt/functions.xslt"/>
+<xsl:include href="functions.xslt"/>
 
 <xsl:function name="zenta:createElemList">
 	<xsl:param name="file"/>

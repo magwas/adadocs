@@ -30,3 +30,6 @@ tmp/static: pdoauth
 
 ADA.checks: check.config ADA.objlist
 	saxon9 -xsl:xslt/consistencycheck.xslt -s:check.config -o:ADA.checks
+
+testenv:
+	docker run --rm -p 5900:5900 -v $$(pwd):/adadocs -it magwas/edemotest:xslt /bin/bash
