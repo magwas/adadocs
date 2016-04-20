@@ -8,6 +8,43 @@
 			   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                stylesheet="../docbook.xslt">
 
+	<x:scenario label="backward relation names">
+		<x:expect label="if no backward relation name is defined, 'is Xed by' used"
+	     	test="zenta:assertEquals(
+	     		'Odette is raised by bob',
+	     		//varlistentry[term/text()='Odette']/listitem/para/itemizedlist/listitem
+	     		)
+	     		"/>
+		<x:expect label="if the character before the last is not vovel, then an e is inserted"
+	     	test="zenta:assertEquals(
+	     		'grandchild is pampered by at least 5 man',
+	     		//varlistentry[term/text()='grandchild']/listitem/para/itemizedlist/listitem
+	     		)
+	     		"/>
+
+		<x:expect label="if the character before the last is not vovel, then an e is inserted"
+	     	test="zenta:assertEquals(
+	     		'grandchild is pampered by at least 5 man',
+	     		//varlistentry[term/text()='grandchild']/listitem/para/itemizedlist/listitem
+	     		)
+	     		"/>
+
+		<x:expect label="if there is a '/' in relation name, then the part before it is used for forward relation"
+	     	test="zenta:assertEquals(
+	     		'child plays with ent',
+	     		//varlistentry[term/text()='child']/listitem/para/itemizedlist/listitem
+	     		)
+	     		"/>
+
+		<x:expect label="if there is a '/' in relation name, then the part after it is used for backward relation"
+	     	test="zenta:assertEquals(
+	     		'ent is played with by child',
+	     		//varlistentry[term/text()='ent']/listitem/para/itemizedlist/listitem
+	     		)
+	     		"/>
+
+	</x:scenario>
+
    <x:scenario label="listmode is varlist">
       <x:context select="$testData" mode="varlist"/>
       
@@ -78,8 +115,8 @@
       		)"/>
       <x:expect label="elements starting with vowel receive 'an'"
       	test="zenta:assertEquals(
-      		'A cat is a grandchild.',
-      		//varlistentry[term/text()='cat']/listitem/para/text()
+      		'An ent is a Basic Object.',
+      		//varlistentry[term/text()='ent']/listitem/para/text()
       		)"/>
    </x:scenario>
 
@@ -113,8 +150,8 @@
 
      <x:expect label="if minOccurs != 0, then listitem denotes it"
      	test="zenta:assertEquals(
-     		'grandchild pampers at least 5 man',
-     		//varlistentry[term/text()='grandchild']/listitem/para/itemizedlist/listitem
+     		'man pampers at least 3 grandchild',
+     		//varlistentry[term/text()='man']/listitem/para/itemizedlist/listitem
      		)
      		"/>
 
@@ -185,5 +222,30 @@
 	     		//varlistentry[term/text()='man']/listitem/para/itemizedlist/listitem
 	     		)
 	     		"/>
+	     		
+		<x:expect label="minoccurs and maxoccurs together"
+	     	test="zenta:assertEquals(
+	     		'child is raised by at least 1 and at most 1 man',
+	     		//varlistentry[term/text()='child']/listitem/para/itemizedlist/listitem
+	     		)
+	     		"/>
 	</x:scenario>
+	
+	<x:scenario label="non-template connection documentation">
+
+		<x:expect label="non-template elements have no atleast and atmost"
+	     	test="zenta:assertEquals(
+	     		'bob gives candy to Alain',
+	     		//varlistentry[term/text()='bob']/listitem/para/itemizedlist/listitem
+	     		)
+	     		"/>
+		<x:expect label="if relation name is empty, then name of parent relation is used"
+	     	test="zenta:assertEquals(
+	     		'bob raises Odette',
+	     		//varlistentry[term/text()='bob']/listitem/para/itemizedlist/listitem
+	     		)
+	     		"/>
+	</x:scenario>
+	
+	/>
 </x:description>

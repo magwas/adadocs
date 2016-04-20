@@ -110,6 +110,7 @@
       		,'expected')
 		"/>
 	</xsl:function>
+
 	<xsl:function name="zenta:toStringSequence">
 		<xsl:param name="input"/>
 		<xsl:param name="delimiter"/>
@@ -169,9 +170,10 @@
 			</error>
 		</xsl:if>
 		<xsl:if test="
-			count($descendants)
-			&gt;
-			zenta:occursNumber(string($template/@maxOccurs))
+			(zenta:occursNumber(string($template/@maxOccurs)) !=0) and
+				(count($descendants)
+				&gt;
+				zenta:occursNumber(string($template/@maxOccurs)))
 		">
 			<error type="more than maxOccurs values" element="{$element/@id}">
 				<xsl:copy-of select="$template/@id|$template/@name|$template/@maxOccurs|$template/@source|$template/@target"/>
@@ -255,13 +257,17 @@
 		</xsl:for-each>
 	</xsl:function>
 
+	<xsl:function name="zenta:isVovel">
+		<xsl:param name="str"/>
+		<xsl:copy-of select="contains('aeouiAEOUI',$str)"/>
+	</xsl:function>
 	<xsl:function name="zenta:articledName">
 		<xsl:param name="element"/>
 		<xsl:param name="definite"/>
 			<xsl:choose>
 				<xsl:when test="$element/@template='true' or $definite='no'">
 					<xsl:choose>
-						<xsl:when test="contains('aeouiAEOUI',substring($element/@name,1,1))">
+						<xsl:when test="zenta:isVovel(substring($element/@name,1,1))">
 							<xsl:value-of select="concat('an ',$element/@name)"/>
 						</xsl:when>
 						<xsl:otherwise>
@@ -279,4 +285,16 @@
 		<xsl:param name="str"/>
 		<xsl:value-of select="concat(upper-case(substring($str,1,1)),substring($str, 2))"/>
 	</xsl:function>
+	
+	<xsl:function name="zenta:passive">
+		<xsl:param name="str"/>
+		<xsl:value-of select="
+			if (zenta:isVovel(substring($str,string-length($str)-2,1)))
+			then
+				concat('is ',substring($str,1,string-length($str)-1),'ed by')
+			else
+				concat('is ',substring($str,1,string-length($str)-1),'d by')
+			"/>
+	</xsl:function>
+	
 </xsl:stylesheet>

@@ -26,6 +26,22 @@
 		<xsl:value-of select="@name"/>
 	</xsl:template>
 
+	<xsl:function name="zenta:relationName">
+		<xsl:param name="value"/>
+		<xsl:variable name="given" select="if ($value/@relationName != '') then $value/@relationName else $value/@ancestorName"/>
+		<xsl:copy-of select="
+			if(contains($given,'/'))
+			then
+				tokenize(string($given),'/')[number($value/@direction)]
+			else
+				if($value/@direction='1')
+				then
+					$given
+				else
+					zenta:passive($given)
+			"/>
+	</xsl:function>
+
 	<xsl:template match="element[@xsi:type!='zenta:ZentaDiagramModel']"
 		mode="elementDetails">
 		<para>
@@ -42,15 +58,18 @@
 					<listitem>
 						<xsl:variable name="atleast">
 							<xsl:if test="number(@minOccurs) > 0">
-								<xsl:value-of select="concat('at least ',@minOccurs,' ')"/>
+								<xsl:value-of select="if (number(@minOccurs) > 0) then concat('at least ',@minOccurs,' ') else ''"/>
 							</xsl:if>
 						</xsl:variable>
 						<xsl:variable name="atmost">
-							<xsl:if test="number(@maxOccurs) > 0">
-								<xsl:value-of select="concat('at most ',@maxOccurs,' ')"/>
-							</xsl:if>
+								<xsl:value-of select="if (number(@maxOccurs) > 0) then concat('at most ',@maxOccurs,' ') else '' "/>
 						</xsl:variable>
-						<xsl:value-of select="concat(../@name,' ',@relationName,' ',$atleast,$atmost,@name)"/>
+						<xsl:variable name="numbers" select="if ($atmost!='' and $atleast!='') then concat($atleast,'and ',$atmost) else concat($atleast,$atmost)"/>
+						<xsl:value-of select="concat(
+								../@name,' ',
+								zenta:relationName(.),' ',
+								if (@template='true') then $numbers else '',
+								@name)"/>
 					</listitem>
 				</xsl:for-each>
 			</itemizedlist>
@@ -148,6 +167,28 @@
 		</section>
 	</xsl:template>
 
+	<xsl:template match="error" mode="#all">
+ 		<varlistentry>
+ 			<term><xsl:value-of select="@type"/></term>
+ 			<listitem>
+				<variablelist>
+					<varlistentry>
+						<term>Offending element:</term>
+						<listitem>
+							<xsl:variable name="eid" select="@element"/>
+							<link linkend="{@element}"><xsl:value-of select="//element[@id=$eid]/@name"/></link>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term>Relation:</term>
+						<listitem>
+							<link linkend="{@id}"><xsl:value-of select="@name"/></link>
+						</listitem>
+					</varlistentry>
+				</variablelist>
+			</listitem>
+ 		</varlistentry>
+	</xsl:template>
 	<xsl:template match="zenta:enriched" mode="#all">
 		<article version="5.0">
 	    	<xsl:apply-templates select="*" mode="#current"/>
@@ -158,28 +199,7 @@
 	    			<xsl:choose>
 	    				<xsl:when test="//error">
 	    					<variablelist>
-			    			<xsl:for-each select="//error">
-				    			<varlistentry>
-				    				<term><xsl:value-of select="@type"/></term>
-				    				<listitem>
-				    					<variablelist>
-				    						<varlistentry>
-				    							<term>Offending element:</term>
-				    							<listitem>
-				    								<xsl:variable name="eid" select="@element"/>
-				    								<link linkend="{@element}"><xsl:value-of select="//element[@id=$eid]/@name"/></link>
-				    							</listitem>
-				    						</varlistentry>
-				    						<varlistentry>
-				    							<term>Relation:</term>
-				    							<listitem>
-				    								<link linkend="{@id}"><xsl:value-of select="@name"/></link>
-				    							</listitem>
-				    						</varlistentry>
-				    					</variablelist>
-				    				</listitem>
-				    			</varlistentry>
-			    			</xsl:for-each>
+			    			<xsl:apply-templates select="//error"/>
 			    			</variablelist>
 	    				</xsl:when>
 	    				<xsl:otherwise>
