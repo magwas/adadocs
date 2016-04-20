@@ -261,6 +261,7 @@
 		<xsl:param name="str"/>
 		<xsl:copy-of select="contains('aeouiAEOUI',$str)"/>
 	</xsl:function>
+	
 	<xsl:function name="zenta:articledName">
 		<xsl:param name="element"/>
 		<xsl:param name="definite"/>
@@ -289,11 +290,11 @@
 	<xsl:function name="zenta:passive">
 		<xsl:param name="str"/>
 		<xsl:value-of select="
-			if (zenta:isVovel(substring($str,string-length($str)-2,1)))
+			if (zenta:isVovel(substring($str,string-length($str)-1,1)))
 			then
-				concat('is ',substring($str,1,string-length($str)-1),'ed by')
-			else
 				concat('is ',substring($str,1,string-length($str)-1),'d by')
+			else
+				concat('is ',substring($str,1,string-length($str)-1),'ed by')
 			"/>
 	</xsl:function>
 	

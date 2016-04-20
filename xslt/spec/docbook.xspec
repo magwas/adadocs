@@ -9,6 +9,21 @@
                stylesheet="../docbook.xslt">
 
 	<x:scenario label="backward relation names">
+	    <x:expect label="passive is okay for consonant and s"
+	    	test="zenta:assertEquals(
+	    		'is affected by',
+	    		zenta:passive('affects')
+	        	)"/>
+	    <x:expect label="expression founds the character before last"
+	    	test="zenta:assertEquals(
+	    		'e',
+	    		substring('raises',string-length('raises')-1,1)
+	        	)"/>
+	    <x:expect label="passive is okay for vovel and s"
+	    	test="zenta:assertEquals(
+	    		'is raised by',
+	    		zenta:passive('raises')
+	        	)"/>
 		<x:expect label="if no backward relation name is defined, 'is Xed by' used"
 	     	test="zenta:assertEquals(
 	     		'Odette is raised by bob',
