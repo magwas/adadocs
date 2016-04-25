@@ -1,2 +1,4 @@
 #!/bin/bash
-saxon9 -xsl:adadocs/xslt/xpather.xslt -s:${2} xpath=${1}
+template=$(dirname $0)/../xslt/xpather.xslt
+java -cp /usr/share/java/tagsoup.jar -jar /usr/local/lib/saxon9.jar -xsl:$template $2 xpath="$1" 
+
