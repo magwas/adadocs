@@ -1,8 +1,2 @@
 #!/bin/bash
-xpather=$(tempfile)
-template=$(dirname $0)/../xslt/xpather.xslt
-abspath=$(readlink -e ${template})
-sed "s<XPATH<$1<" <$abspath >$xpather
-saxon9 -xsl:$xpather -s:$2
-rm -f $xpather
-
+saxon9 -xsl:adadocs/xslt/xpather.xslt -s:${2} xpath=${1}
