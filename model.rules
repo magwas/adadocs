@@ -1,4 +1,4 @@
-.PRECIOUS: %.xml %.rich %.objlist %.richescape %.docbook %.html %.pdf %.pics %.tabled.docbook
+.PRECIOUS: %.xml %.rich %.objlist %.richescape %.docbook %.html %.pdf %.pics %.tabled.docbook %.check %.consistencycheck
 
 %.xml: %.yml
 	$(ADADOCS)/bin/yml2xml $< |saxon9 -xsl:$(ADADOCS)/xslt/identity.xslt -s:- >$@
@@ -35,10 +35,16 @@
 	/opt/Zenta/Zenta -data ~/.zenta -load $$(pwd)/$< -targetdir $$(pwd) -runstyle $(ADADOCS)/diagrams.style -exit
 	mv pics $@
 
+%.check:
+	sed 's/MODELNAME/$(basename $@)/' <$(ADADOCS)/example.check >$@
+
+%.consistencycheck: %.rich %.check
+	saxon9 -xsl:$(ADADOCS)/xslt/consistencycheck.xslt -s:$(basename $@).check -o:$@ 2>&1 | sed 's/\//:/'  |sort --field-separator=':' --key=2
+
 %.zip: %/index.html
 	zip -ro $@ $$(basename $@ .zip)
 
-%.compiled: %.html %.tabled.html %.pdf %.pics
+%.compiled: %.html %.tabled.html %.pdf %.pics %.consistencycheck
 	mkdir -p $(basename $@)
 	cp $(ADADOCS)/static/structured.css $(basename $@)
 	cp $(basename $@).html $(basename $@)/index.html

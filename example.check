@@ -1,0 +1,11 @@
+<checks>
+<check
+      	modelfile="MODELNAME.rich"
+      	modelbasepath="//error"
+      	modelnamepath="@type"
+      	modelvaluepath="concat(//element[@id=current()/@element]/@name,' ',@name)"
+      	inputfile="MODELNAME.rich"
+      	inputbasepath="//nonexistent"
+      	inputnamepath=""
+      	inputvaluepath=""/>
+</checks>

@@ -11,10 +11,12 @@
 
 	<x:variable name="testData">
       	<check
-      	modelfile="../ADA.objlist"
+      	modelfile="../../../ADA.objlist"
       	modelbasepath="//objectClass[@name='Policy']/object"
       	modelnamepath="@name"
       	modelvaluepath="value[@name='defines']"
+      	modelerrorid="concat('error_',@id)"
+      	modelerrorurl="concat('http://example.com/model.html#error_',@id)"
       	inputfile="../adainput.xml"
       	inputbasepath="//policy"
       	inputnamepath="@name"
