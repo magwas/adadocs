@@ -173,7 +173,7 @@
 			test="count(//element[@name='man']/value[@relationName='raises'])=1"/>
 	</x:scenario>
 	
-	<x:senario label="maxOccurs">
+	<x:scenario label="maxOccurs">
    	<x:expect label="there is a maxOccurs attribute for connections"
    		test="zenta:connection-by-names(/,'bob','Alain')/@maxOccurs=2" />
 
@@ -232,15 +232,23 @@
       <x:expect label="the maxOccurs message counts descendant relations as well"
       	test="//element[@name='bob']/error[@type='more than maxOccurs values']/@maxOccurs=2"
       />
-      
-      <!-- x:expect label="maxOccurs counting"
-      	test="zenta:assertEquals(
-      		 zenta:occursNumber(//connection[@id='basicrelation' and @direction='1']/@maxOccurs) != 0
-      		 and (
-      		 	),
-      	'f')" /-->
       <x:expect label="maxOccurs=0 is treated as infinity"
       	test="count(//element[@name='knife']/error[@type='more than maxOccurs values'])=0"/>
+	</x:scenario>
+	<x:scenario label="errors have a deterministic ID">
+      <x:expect label="the id for maxOccurs is created from the id of the element and the id of the relations"
+      	test="zenta:assertEquals(
+    	  		'maxOccurs_63fb6744_abe82119',
+	      		//element[@name='bob']/error[@type='more than maxOccurs values']/@errorID
+    	  	)"
+      />
+      <x:expect label="the id for minOccurs is created from the id of the element and the id of the relations"
+      	test="zenta:assertEquals(
+    	  		'minOccurs_63fb6744_87d6b2d5',
+	      		//element[@name='bob']/error[@type='less than minOccurs values']/@errorID
+    	  	)"
+      />
+      
 
-	</x:senario>
+	</x:scenario>
 </x:description>

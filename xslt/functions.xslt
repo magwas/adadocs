@@ -167,6 +167,7 @@
 		">
 			<error type="less than minOccurs values" element="{$element/@id}">
 				<xsl:copy-of select="$template/@id|$template/@name|$template/@minOccurs|$template/@source|$template/@target"/>
+				<xsl:attribute name="errorID" select="concat('minOccurs_',$element/@id,'_',$template/@id)"/>
 			</error>
 		</xsl:if>
 		<xsl:if test="
@@ -177,6 +178,7 @@
 		">
 			<error type="more than maxOccurs values" element="{$element/@id}">
 				<xsl:copy-of select="$template/@id|$template/@name|$template/@maxOccurs|$template/@source|$template/@target"/>
+				<xsl:attribute name="errorID" select="concat('maxOccurs_',$element/@id,'_',$template/@id)"/>
 			</error>
 		</xsl:if>
 	</xsl:function>
