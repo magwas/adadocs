@@ -1,0 +1,10 @@
+<model>
+      <man name="Joe" raises="Odette"/>
+      <man name="mary" raises="Odette"/>
+      <man name="bob" raises="Kelly"/>
+      <man name="alice" raises="Alain"/>
+      <man name="alice" raises="Odette"/>
+      <man name="Jim" raises="Alain"/>
+      <man name="Jim" raises="Kelly"/>
+      <man name="Jim" raises="Maurice"/>
+</model>

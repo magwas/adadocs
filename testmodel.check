@@ -8,4 +8,15 @@
       	inputbasepath="//nonexistent"
       	inputnamepath=""
       	inputvaluepath=""/>
+        <check
+        modelfile="testmodel.objlist"
+        modelbasepath="//objectClass[@name='man']/object"
+        modelnamepath="@name"
+        modelvaluepath="value[@name='raises']"
+        modelerrorid="concat('error_',@id)"
+        modelerrorurl="concat('http://example.com/model.html#error_',@id)"
+        inputfile="testobjects.xml"
+        inputbasepath="//man"
+        inputnamepath="@name"
+        inputvaluepath="@raises"/>
 </checks>

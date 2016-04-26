@@ -29,6 +29,11 @@
 	</xsl:for-each>
 </xsl:function>
 
+	<xsl:template match="/">
+		<consistencycheck>
+			<xsl:apply-templates select="//check"/>
+		</consistencycheck>
+	</xsl:template>
   <xsl:template match="check">
   		<data>
   			<xsl:variable name="inmodel" select="zenta:createElemList(@modelfile,@modelnamepath,@modelbasepath,@modelvaluepath)"/>
@@ -39,9 +44,7 @@
 	  		<input>
 	  			<xsl:copy-of select="$ininput"/>
 	  		</input>
-	  		<check>
-	  			<xsl:copy-of select="."/>
-	  		</check>
+  			<xsl:copy-of select="."/>
 	  		<onlymodel>
 	  			<xsl:for-each select="$inmodel">
 	  				<xsl:if test="count($ininput[@name=current()/@name and @value=current()/@value]) =0 ">

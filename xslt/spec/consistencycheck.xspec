@@ -9,19 +9,6 @@
 			   xmlns:saxon="http://saxon.sf.net/"
                stylesheet="../consistencycheck.xslt">
 
-	<x:variable name="testData">
-      	<check
-      	modelfile="../../../ADA.objlist"
-      	modelbasepath="//objectClass[@name='Policy']/object"
-      	modelnamepath="@name"
-      	modelvaluepath="value[@name='defines']"
-      	modelerrorid="concat('error_',@id)"
-      	modelerrorurl="concat('http://example.com/model.html#error_',@id)"
-      	inputfile="../adainput.xml"
-      	inputbasepath="//policy"
-      	inputnamepath="@name"
-      	inputvaluepath="@influences"/>
-	</x:variable>
 
    <x:scenario label="getdata mode gets the data">
       <x:context select="$testData">
@@ -29,22 +16,25 @@
       <x:expect label="inputdata is on data/input"
       	test="count(//data/input/entry) > 1"/>
       <x:expect label="input entries contain object names"
-      	test="//data/input/entry/@name = document('../adainput.xml')//policy/@name"/>
+      	test="zenta:assertEquals(
+      		document('../../testobjects.xml')//man/@name,
+      		//data/input/entry/@name
+      		)"/>
       <x:expect label="input entries contain value names"
-      	test="//data/input/entry/@value = document('../adainput.xml')//policy/@influences"/>
+      	test="//data/input/entry/@value = document('../../testobjects.xml')//man/@raises"/>
       <x:expect label="check object is in data/check"
-      	test="//data/check = $testData"/>
+      	test="zenta:assertEquals(
+      		//data/check[1],
+      		document('../../testmodel.check')//check[1])"/>
       <x:expect label="modelobjects are in data/model"
       	test="count(//data/model/entry) > 1"/>
       <x:expect label="entries contain object names"
-      	test="//data/model/entry/@name = document('../adainput.xml')//policy/@name"/>
+      	test="//data/model/entry/@name = document('../../testmodel.objlist')//objectClass[@name='man']/object/@name"/>
       <x:expect label="entries contain value names"
-      	test="//data/model/entry/@value = document('../adainput.xml')//policy/@influences"/>
+      	test="//data/model/entry/@value = document('../../testmodel.objlist')//objectClass[@name='man']/object/value[@name='raises']"/>
       <x:expect label="entries which are only in the model are under data/onlymodel"
-      	test="//data/onlymodel/entry/@name='Everyone is welcome to use the services, both NGOs and individuals. '"/>
+      	test="//data/onlymodel/entry[@name='bob']/@value='Odette'"/>
       <x:expect label="entries which are only in the input are under data/onlymodel"
-      	test="//data/onlyinput/entry/@value='foo'"/>
+      	test="//data/onlyinput/entry[@name='alice']/@value='Odette'"/>
    </x:scenario>
-   
-	
 </x:description>
