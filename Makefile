@@ -2,7 +2,7 @@
 ADADOCS=$(shell pwd)
 
 
-all: zentaworkaround tests testmodel.compiled ADA.compiled ADA.checks tmp/static
+all: zentaworkaround tests testmodel.compiled ADA.compiled tmp/static
 
 include model.rules
 
@@ -17,11 +17,10 @@ clean:
 tmp:
 	mkdir -p tmp
 
-tests: rich.test docbook.test objlist.test tabled.docbook.test
+tests: rich.test docbook.test objlist.test consistencycheck.test tabled.docbook.test
 
 %.test: xslt/spec/%.xspec testmodel.%
 	 saxon9 -l -xsl:xslt/tester/test.xslt -s:testmodel.$(basename $@) tests=$$(pwd)/xslt/spec/$(basename $@).xspec sources=../../testmodel.zenta,../../testmodel.rich
-	rm -f testmodel.$(basename $@)
 
 testmodel.consistencycheck: testmodel.check testmodel.rich testmodel.objlist
 	saxon9 -xsl:/project/mag/adadocs/xslt/consistencycheck.xslt -s:testmodel.check -o:testmodel.consistencycheck debug=true 2>&1 | sed 's/\//:/'  |sort --field-separator=':' --key=2
@@ -30,9 +29,6 @@ pdoauth:
 
 tmp/static: pdoauth tmp
 	cp -r pdoauth/html/ pdoauth/static/ tmp/
-
-ADA.checks: check.config ADA.objlist
-	saxon9 -xsl:xslt/consistencycheck.xslt -s:check.config -o:ADA.checks
 
 testenv:
 	docker run --rm -p 5900:5900 -v $$(pwd):/adadocs -it magwas/edemotest:xslt /bin/bash

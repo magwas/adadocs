@@ -4,8 +4,12 @@
       	modelbasepath="//error"
       	modelnamepath="@type"
       	modelvaluepath="concat(//element[@id=current()/@element]/@name,' ',@name)"
+        modelerrorid="$p1/object/error/@errorID"
       	inputfile="MODELNAME.rich"
       	inputbasepath="//nonexistent"
       	inputnamepath=""
-      	inputvaluepath=""/>
+      	inputvaluepath=""
+        inputerrorid="$p1/object/error/@errorID"
+        errorURL="concat('http://example.com/model.html#',$p1)"
+      	/>
 </checks>
