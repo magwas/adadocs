@@ -201,17 +201,17 @@
       	test="count(//section[title/text()='Model Errors']/variablelist/varlistentry/listitem/variablelist)>0"/>
 
       <x:expect label="an item in the description is the name of the element"
-      	test="//section[title/text()='Model Errors']//varlistentry//varlistentry/term/text()='Offending element:'"/>
+      	test="//section[title/text()='Model Errors']//varlistentry//varlistentry/term/anchor/text()='Offending element:'"/>
 
       <x:expect label="the offending element is linked"
       	test="zenta:assertEquals(
-      		//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Offending element:']//link/@linkend,
+      		//section[title/text()='Model Errors']//varlistentry//varlistentry[term/anchor/text()='Offending element:']//link/@linkend,
       		//varlistentry[term/text()='Alain']/term/anchor/@id
       	)"/>
 
       <x:expect label="the offending element is named"
       	test="zenta:assertEquals(
-      		//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Offending element:']/listitem/link/text(),
+      		//section[title/text()='Model Errors']//varlistentry//varlistentry[term/anchor/text()='Offending element:']/listitem/link/text(),
       		'Alain'
       	)"/>
       <x:expect label="an item in the description is the name of the relation:"
@@ -260,6 +260,15 @@
 	     		//varlistentry[term/text()='bob']/listitem/para/itemizedlist/listitem
 	     		)
 	     		"/>
+	</x:scenario>
+
+	<x:scenario label="documentation generator generate anchor for errors">
+
+      <x:expect label="there is an anchor in the term of the error with the errorID"
+      	test="zenta:assertEquals(
+      		'minOccurs_63fb6744_87d6b2d5',
+      		//section[title/text()='Model Errors']//varlistentry/term/anchor/@id
+      	)"/>
 	</x:scenario>
 	
 	/>

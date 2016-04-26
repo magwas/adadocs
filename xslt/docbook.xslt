@@ -173,7 +173,9 @@
  			<listitem>
 				<variablelist>
 					<varlistentry>
-						<term>Offending element:</term>
+						<term>
+							<anchor id="{@errorID}">Offending element:</anchor>
+						</term>
 						<listitem>
 							<xsl:variable name="eid" select="@element"/>
 							<link linkend="{@element}"><xsl:value-of select="//element[@id=$eid]/@name"/></link>
