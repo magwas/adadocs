@@ -37,4 +37,27 @@
       <x:expect label="entries which are only in the input are under data/onlymodel"
       	test="//data/onlyinput/entry[@name='alice']/@value='Odette'"/>
    </x:scenario>
+   <x:scenario label="emit error ids and urls in consistency checker">
+      <x:expect label="onlyinput entries have error id"
+      	test="zenta:assertEquals(
+      		'error_no_entry_in_model_for_alice_raises_Odette',
+      		//data/onlyinput/entry[@name='alice']/@errorID
+      	)"/>
+      <x:expect label="onlymodel entries have error id"
+      	test="zenta:assertEquals(
+      		'error_no_entry_irl_for_63fb6744_raises_daad56f0',
+      		//data/onlymodel/entry[@name='bob']/@errorID
+      	)"/>
+      <x:expect label="onlyinput entries have error url"
+      	test="zenta:assertEquals(
+      		'http://example.com/model.html#error_no_entry_in_model_for_alice_raises_Odette',
+      		//data/onlyinput/entry[@name='alice']/@errorURL
+      	)"/>
+      <x:expect label="onlymodel entries have error url"
+      	test="zenta:assertEquals(
+      		'http://example.com/model.html#error_no_entry_irl_for_63fb6744_raises_daad56f0',
+      		//data/onlymodel/entry[@name='bob']/@errorURL
+      	)"/>
+
+   </x:scenario>
 </x:description>
