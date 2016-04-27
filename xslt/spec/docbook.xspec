@@ -305,5 +305,12 @@
       		zenta:normalizeAllSpaces(//varlistentry[term/anchor/@id='maxOccurs_2b419353_abe82119_2']/listitem/para/text())
       	)"/>
 	
+      <x:expect label="if no errors, then no variablelist"
+      	test="not(//section[title='dummy empty stuff']/variablelist)"/>
+      <x:expect label="if no errors, then there is a sentence about it"
+      	test="zenta:assertEquals(
+      		'No deviations in this section.',
+      		//section[title='dummy empty stuff']/para
+      	)"/>
 	/>
 </x:description>

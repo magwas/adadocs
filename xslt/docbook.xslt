@@ -203,27 +203,34 @@ xmlns:saxon="http://saxon.sf.net/"
 	    		<xsl:for-each select="$inconsistencies//data">
 	    			<section>
 	    				<title><xsl:value-of select="check/@title"/></title>
-		    			<variablelist>
-			    			<xsl:for-each select="onlyinput/entry|onlymodel/entry">
-			    				<varlistentry>
-			    					<term>
-			    						<anchor><xsl:attribute name="id" select="@errorID"/></anchor>
-  											<xsl:value-of select="saxon:evaluate(
-  											../../check/@errortitlestring,
-  											.,
-  											$doc)"/>
-			    					</term>
-			    					<listitem>
-			    						<para>
-  											<xsl:copy-of select="saxon:evaluate(
-  											../../check/@errordescription,
-  											.,
-  											$doc)"/>
-			    						</para>
-			    					</listitem>
-			    				</varlistentry>
-			    			</xsl:for-each>
-		    			</variablelist>
+	    				<xsl:choose>
+		    				<xsl:when test="onlyinput/entry|onlymodel/entry">
+				    			<variablelist>
+					    			<xsl:for-each select="onlyinput/entry|onlymodel/entry">
+					    				<varlistentry>
+					    					<term>
+					    						<anchor><xsl:attribute name="id" select="@errorID"/></anchor>
+		  											<xsl:value-of select="saxon:evaluate(
+		  											../../check/@errortitlestring,
+		  											.,
+		  											$doc)"/>
+					    					</term>
+					    					<listitem>
+					    						<para>
+		  											<xsl:copy-of select="saxon:evaluate(
+		  											../../check/@errordescription,
+		  											.,
+		  											$doc)"/>
+					    						</para>
+					    					</listitem>
+					    				</varlistentry>
+					    			</xsl:for-each>
+				    			</variablelist>
+				    		</xsl:when>
+				    		<xsl:otherwise>
+				    			<para>No deviations in this section.</para>
+				    		</xsl:otherwise>
+			    		</xsl:choose>
 	    			</section>
 	    		</xsl:for-each>
 	    	</section>

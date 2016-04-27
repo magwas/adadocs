@@ -1,5 +1,5 @@
 <checks>
-<check
+	<check
 		title="Model Errors"
       	modelfile="testmodel.rich"
       	modelbasepath="//error"
@@ -15,7 +15,7 @@
         errortitlestring="zenta:modelErrorTitle($p1,$p2)"
         errordescription="zenta:modelErrorDescription($p1,$p2)"
       	/>
-        <check
+    <check
         title="Discrepancies with an external source"
         modelfile="testmodel.objlist"
         modelbasepath="//objectClass[@name='man']/object"
@@ -53,4 +53,20 @@
         "
         errorURL="concat('http://example.com/model.html#',$p1)"
         />
+	<check
+		title="dummy empty stuff"
+      	modelfile="testmodel.rich"
+      	modelbasepath="//nonexistent"
+      	modelnamepath="@type"
+      	modelvaluepath="concat(//element[@id=current()/@element]/@name,' ',@name)"
+        modelerrorid="$p1/object/error/@errorID"
+      	inputfile="testmodel.rich"
+      	inputbasepath="//nonexistent"
+      	inputnamepath=""
+      	inputvaluepath=""
+        inputerrorid="$p1"
+        errorURL="concat('http://example.com/model.html#',$p1)"
+        errortitlestring="zenta:modelErrorTitle($p1,$p2)"
+        errordescription="zenta:modelErrorDescription($p1,$p2)"
+      	/>
 </checks>
