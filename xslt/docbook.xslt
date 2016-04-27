@@ -214,6 +214,7 @@ xmlns:saxon="http://saxon.sf.net/"
 		  											../../check/@errortitlestring,
 		  											.,
 		  											$doc)"/>
+		  										<ulink url="#{@errorID}">.</ulink>
 					    					</term>
 					    					<listitem>
 					    						<para>
