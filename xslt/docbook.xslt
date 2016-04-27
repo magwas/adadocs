@@ -207,18 +207,19 @@ xmlns:saxon="http://saxon.sf.net/"
 			    			<xsl:for-each select="onlyinput/entry|onlymodel/entry">
 			    				<varlistentry>
 			    					<term>
-			    						<anchor><xsl:attribute name="id" select="@errorID"/>
+			    						<anchor><xsl:attribute name="id" select="@errorID"/></anchor>
   											<xsl:value-of select="saxon:evaluate(
   											../../check/@errortitlestring,
   											.,
   											$doc)"/>
-			    						</anchor>
 			    					</term>
 			    					<listitem>
+			    						<para>
   											<xsl:copy-of select="saxon:evaluate(
   											../../check/@errordescription,
   											.,
   											$doc)"/>
+			    						</para>
 			    					</listitem>
 			    				</varlistentry>
 			    			</xsl:for-each>

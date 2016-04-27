@@ -1,0 +1,501 @@
+<article xmlns:saxon="http://saxon.sf.net/"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:archimate="http://www.archimatetool.com/archimate"
+         xmlns:zenta="http://magwas.rulez.org/zenta"
+         version="5.0">
+   <section id="1bda70f7">
+      <title>Metamodel</title>
+      <para>Metamodel documentation</para>
+      <para>
+         <figure>
+            <title>Metamodel diagram</title>
+            <remark>Metamodel diagram documentation</remark>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="pics/154fb1e4.png"/>
+               </imageobject>
+            </mediaobject>
+         </figure>
+         <figure>
+            <title>Default View</title>
+            <remark/>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="pics/3bd9d9b9.png"/>
+               </imageobject>
+            </mediaobject>
+         </figure>
+         <variablelist>
+            <varlistentry>
+               <term>
+                  <anchor id="basicobject"/>Basic Object</term>
+               <listitem>
+                  <para>Basic Object is an .</para>
+                  <para/>
+                  <para/>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="a63d2d0e"/>man</term>
+               <listitem>
+                  <para>A man is a Basic Object.</para>
+                  <para>a class directly descending from Basic Object</para>
+                  <para>
+			connections:
+			<itemizedlist>
+                        <listitem>man raises at most 2 child</listitem>
+                        <listitem>man pampers at least 3 grandchild</listitem>
+                        <listitem>man points to at most 1 target</listitem>
+                     </itemizedlist>
+                  </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="8d44c0ad"/>child</term>
+               <listitem>
+                  <para>A child is a man.</para>
+                  <para/>
+                  <para>
+			connections:
+			<itemizedlist>
+                        <listitem>child is raised by at least 1 and at most 1 man</listitem>
+                        <listitem>child plays with ent</listitem>
+                     </itemizedlist>
+                  </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="a93354a0"/>grandchild</term>
+               <listitem>
+                  <para>A grandchild is a child.</para>
+                  <para/>
+                  <para>
+			connections:
+			<itemizedlist>
+                        <listitem>grandchild is pampered by at least 5 man</listitem>
+                     </itemizedlist>
+                  </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="726069f8"/>target</term>
+               <listitem>
+                  <para>A target is a Basic Object.</para>
+                  <para/>
+                  <para>
+			connections:
+			<itemizedlist>
+                        <listitem>target is pointed to at most 2 man</listitem>
+                     </itemizedlist>
+                  </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="6ab6df72"/>ent</term>
+               <listitem>
+                  <para>An ent is a Basic Object.</para>
+                  <para/>
+                  <para>
+			connections:
+			<itemizedlist>
+                        <listitem>ent is played with by child</listitem>
+                     </itemizedlist>
+                  </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="basicrelation"/>Basic Relation</term>
+               <listitem>
+                  <para>Basic Relation is an .</para>
+                  <para/>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="abe82119"/>raises</term>
+               <listitem>
+                  <para>A raises is a Basic Relation.</para>
+                  <para>This relation is a direct descendant of basic relation.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="87d6b2d5"/>pampers</term>
+               <listitem>
+                  <para>A pampers is a raises.</para>
+                  <para>this relation is a descendant of a descendant of basic relation</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="b8eb45ee"/>points to/is pointed to</term>
+               <listitem>
+                  <para>A points to/is pointed to is a Basic Relation.</para>
+                  <para/>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="5466dc71"/>plays with/is played with by</term>
+               <listitem>
+                  <para>A plays with/is played with by is a Basic Relation.</para>
+                  <para/>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </para>
+   </section>
+   <section id="abd35f50">
+      <title>model data</title>
+      <para/>
+      <para/>
+   </section>
+   <section id="faa91182">
+      <title>instances</title>
+      <para/>
+      <section id="2912c49d">
+         <title>Subfolder</title>
+         <para/>
+         <para/>
+      </section>
+      <para>
+         <figure>
+            <title>instances</title>
+            <remark/>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="pics/3b787e15.png"/>
+               </imageobject>
+            </mediaobject>
+         </figure>
+         <variablelist>
+            <varlistentry>
+               <term>
+                  <anchor id="f08125b1"/>knife</term>
+               <listitem>
+                  <para>Knife is a Basic Object.</para>
+                  <para/>
+                  <para>
+			connections:
+			<itemizedlist>
+                        <listitem>knife Basic Relation Alain</listitem>
+                     </itemizedlist>
+                  </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="1e7181c1"/>Joe</term>
+               <listitem>
+                  <para>Joe is a man.</para>
+                  <para/>
+                  <para>
+			connections:
+			<itemizedlist>
+                        <listitem>Joe raises Odette</listitem>
+                     </itemizedlist>
+                  </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="2d941c95"/>Odette</term>
+               <listitem>
+                  <para>Odette is a child.</para>
+                  <para/>
+                  <para>
+			connections:
+			<itemizedlist>
+                        <listitem>Odette is raised by Joe</listitem>
+                        <listitem>Odette is raised by mary</listitem>
+                        <listitem>Odette is raised by bob</listitem>
+                     </itemizedlist>
+                  </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="2c206781"/>mary</term>
+               <listitem>
+                  <para>Mary is a man.</para>
+                  <para/>
+                  <para>
+			connections:
+			<itemizedlist>
+                        <listitem>mary raises Odette</listitem>
+                     </itemizedlist>
+                  </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="63fb6744"/>bob</term>
+               <listitem>
+                  <para>Bob is a man.</para>
+                  <para/>
+                  <para>
+			connections:
+			<itemizedlist>
+                        <listitem>bob raises Odette</listitem>
+                        <listitem>bob raises Kelly</listitem>
+                        <listitem>bob gives candy to Alain</listitem>
+                     </itemizedlist>
+                  </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="6c0bace6"/>Alain</term>
+               <listitem>
+                  <para>Alain is a grandchild.</para>
+                  <para/>
+                  <para>
+			connections:
+			<itemizedlist>
+                        <listitem>Alain Basic Relation another basic object</listitem>
+                        <listitem>Alain is Basic Relatiod by knife</listitem>
+                        <listitem>Alain is raised by alice</listitem>
+                        <listitem>Alain is raised by Jim</listitem>
+                        <listitem>Alain is gives candy ted by bob</listitem>
+                     </itemizedlist>
+                  </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="d0c42ea7"/>another basic object</term>
+               <listitem>
+                  <para>Another basic object is a Basic Object.</para>
+                  <para/>
+                  <para>
+			connections:
+			<itemizedlist>
+                        <listitem>another basic object is Basic Relatiod by Alain</listitem>
+                     </itemizedlist>
+                  </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="75e9f30a"/>alice</term>
+               <listitem>
+                  <para>Alice is a man.</para>
+                  <para/>
+                  <para>
+			connections:
+			<itemizedlist>
+                        <listitem>alice raises Alain</listitem>
+                     </itemizedlist>
+                  </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="9cd2039c"/>Jim</term>
+               <listitem>
+                  <para>Jim is a man.</para>
+                  <para/>
+                  <para>
+			connections:
+			<itemizedlist>
+                        <listitem>Jim raises Alain</listitem>
+                        <listitem>Jim raises Kelly</listitem>
+                        <listitem>Jim raises Maurice</listitem>
+                     </itemizedlist>
+                  </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="2b419353"/>Kelly</term>
+               <listitem>
+                  <para>Kelly is a child.</para>
+                  <para/>
+                  <para>
+			connections:
+			<itemizedlist>
+                        <listitem>Kelly is raised by Jim</listitem>
+                        <listitem>Kelly is raised by bob</listitem>
+                     </itemizedlist>
+                  </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="e77d6182"/>Maurice</term>
+               <listitem>
+                  <para>Maurice is a child.</para>
+                  <para/>
+                  <para>
+			connections:
+			<itemizedlist>
+                        <listitem>Maurice is raised by Jim</listitem>
+                     </itemizedlist>
+                  </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="14429680"/>gives candy to</term>
+               <listitem>
+                  <para>Gives candy to is a pampers.</para>
+                  <para/>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </para>
+   </section>
+   <section id="6d60855a">
+      <title>maxOccurs doc test</title>
+      <para/>
+      <para>
+         <figure>
+            <title>maxOccurs</title>
+            <remark/>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="pics/b760e633.png"/>
+               </imageobject>
+            </mediaobject>
+         </figure>
+      </para>
+   </section>
+   <section>
+      <title>Deviations</title>
+      <section>
+         <title>Model Errors</title>
+         <variablelist>
+            <varlistentry>
+               <term>
+                  <anchor id="minOccurs_1e7181c1_87d6b2d5_1"/>extra relation for Joe</term>
+               <listitem>
+                  <para>Joe should have at least 3 pampers relation, but have none </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="minOccurs_2d941c95_87d6b2d5_1"/>extra relation for Odette</term>
+               <listitem>
+                  <para>Odette should have at least 3 pampers relation, but have none </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="maxOccurs_2d941c95_abe82119_2"/>missing relation for Odette</term>
+               <listitem>
+                  <para>Odette should have only 1 raises relation, but already have 3 from Joe and mary and bob</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="minOccurs_2c206781_87d6b2d5_1"/>extra relation for mary</term>
+               <listitem>
+                  <para>mary should have at least 3 pampers relation, but have none </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="maxOccurs_63fb6744_abe82119_1"/>missing relation for bob</term>
+               <listitem>
+                  <para>bob should have only 2 raises relation, but already have 2 to Odette and Kelly</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="minOccurs_63fb6744_87d6b2d5_1"/>extra relation for bob</term>
+               <listitem>
+                  <para>bob should have at least 3 pampers relation, but have only 1 to Alain</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="minOccurs_6c0bace6_87d6b2d5_1"/>extra relation for Alain</term>
+               <listitem>
+                  <para>Alain should have at least 3 pampers relation, but have only 1 to bob</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="maxOccurs_6c0bace6_abe82119_2"/>missing relation for Alain</term>
+               <listitem>
+                  <para>Alain should have only 1 raises relation, but already have 2 from alice and Jim</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="minOccurs_6c0bace6_87d6b2d5_2"/>extra relation for Alain</term>
+               <listitem>
+                  <para>Alain should have at least 5 pampers relation, but have only 1 from bob</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="minOccurs_75e9f30a_87d6b2d5_1"/>extra relation for alice</term>
+               <listitem>
+                  <para>alice should have at least 3 pampers relation, but have none </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="maxOccurs_9cd2039c_abe82119_1"/>missing relation for Jim</term>
+               <listitem>
+                  <para>Jim should have only 2 raises relation, but already have 3 to Alain and Kelly and Maurice</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="minOccurs_9cd2039c_87d6b2d5_1"/>extra relation for Jim</term>
+               <listitem>
+                  <para>Jim should have at least 3 pampers relation, but have none </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="minOccurs_2b419353_87d6b2d5_1"/>extra relation for Kelly</term>
+               <listitem>
+                  <para>Kelly should have at least 3 pampers relation, but have none </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="maxOccurs_2b419353_abe82119_2"/>missing relation for Kelly</term>
+               <listitem>
+                  <para>Kelly should have only 1 raises relation, but already have 2 from Jim and bob</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="minOccurs_e77d6182_87d6b2d5_1"/>extra relation for Maurice</term>
+               <listitem>
+                  <para>Maurice should have at least 3 pampers relation, but have none </para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section>
+         <title>Discrepancies with an external source</title>
+         <variablelist>
+            <varlistentry>
+               <term>
+                  <anchor id="error_no_entry_irl_for_63fb6744_raises_daad56f0"/>no bob raises Odette</term>
+               <listitem>
+                  <para>model says that bob (63fb6744) raises Odette (daad56f0), but no sign of it IRL</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term>
+                  <anchor id="error_no_entry_in_model_for_alice_raises_Odette"/>no trace in model of alice raising Odette</term>
+               <listitem>
+                  <para>no trace in model of alice raising Odette</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+   </section>
+</article>

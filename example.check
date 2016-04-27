@@ -13,5 +13,6 @@
         inputerrorid="$p1"
         errorURL="concat('http://example.com/model.html#',$p1)"
         errortitlestring="zenta:modelErrorTitle($p1,$p2)"
+        errordescription="zenta:modelErrorDescription($p1,$p2)"
       	/>
 </checks>

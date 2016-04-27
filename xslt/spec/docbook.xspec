@@ -232,7 +232,7 @@
 
       <x:expect label="there is an anchor in the term of the error with the errorID"
       	test="zenta:assertEquals(
-      		'minOccurs_63fb6744_87d6b2d5',
+      		'minOccurs_63fb6744_87d6b2d5_1',
       		//section[title/text()='Model Errors']//varlistentry/term/anchor/@id
       	)"/>
 	</x:scenario>
@@ -257,28 +257,52 @@
       <x:expect label="the title is generated according to errortitlestring"
       	test="zenta:assertEquals(
       		'no trace in model of alice raising Odette',
-      		//section[title/text()='Discrepancies with an external source']//varlistentry/term/anchor/text()
+      		//section[title/text()='Discrepancies with an external source']//varlistentry/term/text()
       	)"/>
       <x:expect label="the full object is available for errortitlestring as $p1"
       	test="zenta:assertEquals(
-      		'model says that bob (63fb6744) raises Odette (daad56f0), but no sign of it IRL',
-      		//section[title/text()='Discrepancies with an external source']//varlistentry/term/anchor/text()
+      		'no bob raises Odette',
+      		//section[title/text()='Discrepancies with an external source']//varlistentry/term/text()
       	)"/>
       <x:expect label="the full document is available for errortitlestring as $p2"
       	test="zenta:assertEquals(
       		'missing relation for Odette',
-      		//anchor[@id='maxOccurs_2d941c95_abe82119']/text()
+      		//term[anchor/@id='maxOccurs_2d941c95_abe82119_2']/text()
       	)"/>
       <x:expect label="minOccurs errors have a meaningful title"
       	test="zenta:assertEquals(
       		'extra relation for bob',
-      		//anchor[@id='minOccurs_63fb6744_87d6b2d5']/text()
+      		//term[anchor/@id='minOccurs_63fb6744_87d6b2d5_1']/text()
       	)"/>
 	</x:scenario>
       <x:expect label="the description is generated according to errordescription"
       	test="zenta:assertEquals(
       		'model says that bob (63fb6744) raises Odette (daad56f0), but no sign of it IRL',
-      		//section[title/text()='Discrepancies with an external source']//varlistentry/listitem/text()
+      		//section[title/text()='Discrepancies with an external source']//varlistentry/listitem/para/text()
+      	)"/>
+
+      <x:expect label="maxOccurs description is okay"
+      	test="zenta:assertEquals(
+      		'Odette should have only 1 raises relation, but already have 3 from Joe and mary and bob',
+      		zenta:normalizeAllSpaces(//varlistentry[term/anchor/@id='maxOccurs_2d941c95_abe82119_2']/listitem/para/text())
+      	)"/>
+
+      <x:expect label="minOccurs description is okay"
+      	test="zenta:assertEquals(
+      		'Alain should have at least 3 pampers relation, but have only 1 to bob',
+      		zenta:normalizeAllSpaces(//varlistentry[term/anchor/@id='minOccurs_6c0bace6_87d6b2d5_1']/listitem/para/text())
+      	)"/>
+
+      <x:expect label="minOccurs description is okay if no relations"
+      	test="zenta:assertEquals(
+      		'Kelly should have at least 3 pampers relation, but have none',
+      		zenta:normalizeAllSpaces(//varlistentry[term/anchor/@id='minOccurs_2b419353_87d6b2d5_1']/listitem/para/text())
+      	)"/>
+
+      <x:expect label="error description is okay when direction is reverse"
+      	test="zenta:assertEquals(
+      		'Kelly should have only 1 raises relation, but already have 2 from Jim and bob',
+      		zenta:normalizeAllSpaces(//varlistentry[term/anchor/@id='maxOccurs_2b419353_abe82119_2']/listitem/para/text())
       	)"/>
 	
 	/>

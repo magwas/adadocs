@@ -67,11 +67,11 @@
       />
 
       <x:expect label="there is an error if there are less than minOccurs instances of values of a relation type to an element"
-      	test="//element[@name='mary']/error/@type='less than minOccurs values'"
+      	test="//element[@name='mary']/error/@type='minOccursError'"
       />
 
       <x:expect label="template elements have no errors for minOccurs"
-      	test="//element[@name='man'] and not(//element[@name='man']/error/@type='less than minOccurs values')"
+      	test="//element[@name='man'] and not(//element[@name='man']/error/@type='minOccursError')"
       />
 
       <x:expect label="the error message contains the id of the defining relation"
@@ -195,30 +195,30 @@
 
 
       <x:expect label="there is an error if there are more than maxOccurs instances of values of a relation type to an element"
-      	test="//element[@name='Odette']/error/@type='more than maxOccurs values'"
+      	test="//element[@name='Odette']/error/@type='maxOccursError'"
       />
 
       <x:expect label="template elements have no errors for maxOccurs FIXME"
-      	test="//element[@name='man'] and not(//element[@name='man']/error/@type[@type='more than maxOccurs values']='more than maxOccurs values')"
+      	test="//element[@name='man'] and not(//element[@name='man']/error/@type[@type='maxOccursError']='maxOccursError')"
       />
 
       <x:expect label="the error message contains the id of the defining relation"
-      	test="//element[@name='Odette']/error[@type='more than maxOccurs values']/@id=//connection[@name='raises']/@id"
+      	test="//element[@name='Odette']/error[@type='maxOccursError']/@id=//connection[@name='raises']/@id"
       />
       
       <x:expect label="the error message contains the name of the defining relation"
-      	test="//element[@name='Odette']/error[@type='more than maxOccurs values']/@name='raises'"
+      	test="//element[@name='Odette']/error[@type='maxOccursError']/@name='raises'"
       />
       
       <x:expect label="the maxOccurs error message works backward as well"
-      	test="//element[@name='Alain']/error[@type='more than maxOccurs values']/@name='raises'"
+      	test="//element[@name='Alain']/error[@type='maxOccursError']/@name='raises'"
       />
       
       <x:expect label="the maxOccurs error message contains the maxOccurs value backwards"
-      	test="//element[@name='Alain']/error[@type='more than maxOccurs values']/@maxOccurs=1"
+      	test="//element[@name='Alain']/error[@type='maxOccursError']/@maxOccurs=1"
       />
       <x:expect label="the maxOccurs error message contains the maxOccurs value forwards"
-      	test="//element[@name='Jim']/error[@type='more than maxOccurs values']/@maxOccurs=2"
+      	test="//element[@name='Jim']/error[@type='maxOccursError']/@maxOccurs=2"
       />
 
 	  <x:expect label="descendantRelationsFor lists all relations of an element which are descendat of the relation"
@@ -230,22 +230,22 @@
 	  		'gives candy to'"/>
 	  	
       <x:expect label="the maxOccurs message counts descendant relations as well"
-      	test="//element[@name='bob']/error[@type='more than maxOccurs values']/@maxOccurs=2"
+      	test="//element[@name='bob']/error[@type='maxOccursError']/@maxOccurs=2"
       />
       <x:expect label="maxOccurs=0 is treated as infinity"
-      	test="count(//element[@name='knife']/error[@type='more than maxOccurs values'])=0"/>
+      	test="count(//element[@name='knife']/error[@type='maxOccursError'])=0"/>
 	</x:scenario>
 	<x:scenario label="errors have a deterministic ID">
-      <x:expect label="the id for maxOccurs is created from the id of the element and the id of the relations"
+      <x:expect label="the id for maxOccurs is created from the id of the element and the id and direction of the relations"
       	test="zenta:assertEquals(
-    	  		'maxOccurs_63fb6744_abe82119',
-	      		//element[@name='bob']/error[@type='more than maxOccurs values']/@errorID
+    	  		'maxOccurs_63fb6744_abe82119_1',
+	      		//element[@name='bob']/error[@type='maxOccursError']/@errorID
     	  	)"
       />
-      <x:expect label="the id for minOccurs is created from the id of the element and the id of the relations"
+      <x:expect label="the id for minOccurs is created from the id of the element and the id and direction of the relations"
       	test="zenta:assertEquals(
-    	  		'minOccurs_63fb6744_87d6b2d5',
-	      		//element[@name='bob']/error[@type='less than minOccurs values']/@errorID
+    	  		'minOccurs_63fb6744_87d6b2d5_1',
+	      		//element[@name='bob']/error[@type='minOccursError']/@errorID
     	  	)"
       />
       

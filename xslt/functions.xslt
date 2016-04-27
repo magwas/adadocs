@@ -15,6 +15,10 @@
 		<xsl:copy-of select="$input"/>
 	</xsl:function>
 
+	<xsl:function name="zenta:normalizeAllSpaces">
+		<xsl:param name="str"/>
+		<xsl:value-of select="normalize-space(replace(string-join($str, ' '),'[ \n\t][ \n\t]*',' '))"/>
+	</xsl:function>
 	<xsl:function name="zenta:all-instances-of-type">
 		<xsl:param name="p1"/>
 		<xsl:param name="name"/>
@@ -171,9 +175,9 @@
 			&lt;
 			zenta:occursNumber(string($template/@minOccurs))
 		">
-			<error type="less than minOccurs values" element="{$element/@id}">
-				<xsl:copy-of select="$template/@id|$template/@name|$template/@minOccurs|$template/@source|$template/@target"/>
-				<xsl:attribute name="errorID" select="concat('minOccurs_',$element/@id,'_',$template/@id)"/>
+			<error type="minOccursError" element="{$element/@id}">
+				<xsl:copy-of select="$template/@id|$template/@name|$template/@minOccurs|$template/@source|$template/@target|$template/@direction"/>
+				<xsl:attribute name="errorID" select="concat('minOccurs_',$element/@id,'_',$template/@id,'_', $template/@direction)"/>
 			</error>
 		</xsl:if>
 		<xsl:if test="
@@ -182,9 +186,9 @@
 				&gt;
 				zenta:occursNumber(string($template/@maxOccurs)))
 		">
-			<error type="more than maxOccurs values" element="{$element/@id}">
-				<xsl:copy-of select="$template/@id|$template/@name|$template/@maxOccurs|$template/@source|$template/@target"/>
-				<xsl:attribute name="errorID" select="concat('maxOccurs_',$element/@id,'_',$template/@id)"/>
+			<error type="maxOccursError" element="{$element/@id}">
+				<xsl:copy-of select="$template/@id|$template/@name|$template/@maxOccurs|$template/@source|$template/@target|$template/@direction"/>
+				<xsl:attribute name="errorID" select="concat('maxOccurs_',$element/@id,'_',$template/@id,'_', $template/@direction)"/>
 			</error>
 		</xsl:if>
 	</xsl:function>
@@ -305,5 +309,78 @@
 				concat('is ',substring($str,1,string-length($str)-1),'ed by')
 			"/>
 	</xsl:function>
+    <xsl:function name="zenta:modelErrorTitle">
+    	<xsl:param name="object"/>
+    	<xsl:param name="doc"/>
+    	<xsl:value-of select="if ($object/object/error/@type='minOccursError')
+        	then concat(
+        		'extra relation for ',
+	        	$doc//element[@id=$object/object/error/@element]/@name
+	        	)
+	        else if ($object/object/error/@type='maxOccursError')
+        	then concat(
+        		'missing relation for ',
+	        	$doc//element[@id=$object/object/error/@element]/@name
+	        	)
+			else concat('unknown error type ', $object/object/error/@type)
+    	"/>
+    </xsl:function>
+    
+    <xsl:function name="zenta:describeOccurs">
+    	<xsl:param name="element"/>
+    	<xsl:param name="errobj"/>
+    	<xsl:param name="doc"/>
+    	<xsl:if test="not($errobj/@type = 'minOccursError' or
+    		$errobj/@type = 'maxOccursError')">
+    		<xsl:message terminate="yes" select="concat('unknown element type: ',$errobj/@type)"/>
+    	</xsl:if>
+    	<xsl:variable name="relations" select="$element/value[@ancestorName=$errobj/@name]/@name"/>
+    	<xsl:value-of select="$element/@name"/>
+    	<xsl:value-of select="if ($errobj/@type = 'minOccursError')
+    		then
+    			' should have at least '
+    		else
+    			' should have only '
+    	"/>
+    	<xsl:value-of select="if ($errobj/@type = 'minOccursError')
+    		then
+    			$errobj/@minOccurs
+    		else
+    			$errobj/@maxOccurs
+    	"/>
+    	<xsl:text> </xsl:text>
+    	<xsl:value-of select="$errobj/@name"/>
+    	<xsl:text> relation, </xsl:text>
+    	<xsl:value-of select="if ($errobj/@type = 'maxOccursError')
+    		then
+    			'but already have '
+    		else if (count($relations) > 0 )
+    		then
+    			'but have only '
+    		else
+    			'but have none '
+    	"/>
+    	<xsl:if test="count($relations) > 0 ">
+	    	<xsl:value-of select="count($relations)"/>
+	    	<xsl:value-of select="if($errobj/@direction='1')
+	    		then
+	    			' to '
+	    		else
+	    			' from '"/>
+	    	<xsl:value-of select="string-join($relations, ' and ')"/>
+    	</xsl:if>
+    </xsl:function>
+    <xsl:function name="zenta:modelErrorDescription">
+    	<xsl:param name="object"/>
+    	<xsl:param name="doc"/>
+    	<xsl:variable name="errobj" select="$object/object/error"/>
+    	<xsl:variable name="relations" select="$doc//element[@id=$errobj/@element]/value[@ancestorName=$errobj/@name]/@name"/>
+    	<xsl:value-of select="
+        	zenta:describeOccurs(
+        		$doc//element[@id=$errobj/@element],
+        		$errobj,
+        		$doc)
+    	"/>
+    </xsl:function>
 	
 </xsl:stylesheet>

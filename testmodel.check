@@ -33,11 +33,10 @@
         	concat('no trace in model of ',$p1/@name, ' raising ', $p1/@value)
         else
         	concat(
-        		'model says that ',
-        		$p1/@name, ' (', $p1/object/object/@id,
-        		') raises ',
-        		$p1/@value, ' (', $p1/value/value/@id,
-        		'), but no sign of it IRL' 
+        		'no ',
+        		$p1/@name,
+        		' raises ',
+        		$p1/@value
         	)
         "
         errordescription="if ($p1/object/man)
