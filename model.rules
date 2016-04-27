@@ -57,7 +57,7 @@
 modelclean:
 	rm -rf *.rich *.objlist *.richescape *.docbook *.html *.pdf *.pics *.zip *.compiled
 
-$(ADADOCS)/classes: src/net/sf/saxon/trans/RelativeUriResolver.java
-	mkdir -p classes
-	javac -cp /usr/local/lib/saxon9.jar -d classes src/net/sf/saxon/trans/RelativeUriResolver.java
+$(ADADOCS)/classes: $(ADADOCS)/src/net/sf/saxon/trans/RelativeUriResolver.java
+	mkdir -p $(ADADOCS)/classes
+	javac -cp /usr/local/lib/saxon9.jar -d $(ADADOCS)/classes $(ADADOCS)/src/net/sf/saxon/trans/RelativeUriResolver.java
 
