@@ -3,11 +3,14 @@
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xmlns:archimate="http://www.archimatetool.com/archimate"
    xmlns:zenta="http://magwas.rulez.org/zenta"
+xmlns:saxon="http://saxon.sf.net/"
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 	<xsl:include href="functions.xslt"/>
+	<xsl:include href="docbook.local.xslt"/>
 	<xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes" omit-xml-declaration="yes"/>
-
+	<xsl:param name="inconsistencyfile"/>
+	<xsl:variable name="inconsistencies" select="document($inconsistencyfile)"/>
 	<xsl:template match="element[@xsi:type='zenta:ZentaDiagramModel']" mode="figure">
 		<figure>
 			<title><xsl:value-of select="@name"/></title>
@@ -192,23 +195,36 @@
  		</varlistentry>
 	</xsl:template>
 	<xsl:template match="zenta:enriched" mode="#all">
+		<xsl:variable name="doc" select="/"/>
 		<article version="5.0">
 	    	<xsl:apply-templates select="*" mode="#current"/>
 	    	<section>
 	    		<title>Deviations</title>
-	    		<section>
-	    			<title>Model Errors</title>
-	    			<xsl:choose>
-	    				<xsl:when test="//error">
-	    					<variablelist>
-			    			<xsl:apply-templates select="//error"/>
-			    			</variablelist>
-	    				</xsl:when>
-	    				<xsl:otherwise>
-	    					<para>No model errors</para>
-	    				</xsl:otherwise>
-	    			</xsl:choose>
-	    		</section>
+	    		<xsl:for-each select="$inconsistencies//data">
+	    			<section>
+	    				<title><xsl:value-of select="check/@title"/></title>
+		    			<variablelist>
+			    			<xsl:for-each select="onlyinput/entry|onlymodel/entry">
+			    				<varlistentry>
+			    					<term>
+			    						<anchor><xsl:attribute name="id" select="@errorID"/>
+  											<xsl:value-of select="saxon:evaluate(
+  											../../check/@errortitlestring,
+  											.,
+  											$doc)"/>
+			    						</anchor>
+			    					</term>
+			    					<listitem>
+  											<xsl:copy-of select="saxon:evaluate(
+  											../../check/@errordescription,
+  											.,
+  											$doc)"/>
+			    					</listitem>
+			    				</varlistentry>
+			    			</xsl:for-each>
+		    			</variablelist>
+	    			</section>
+	    		</xsl:for-each>
 	    	</section>
 		</article>
 	</xsl:template>

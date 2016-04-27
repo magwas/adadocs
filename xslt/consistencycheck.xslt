@@ -56,8 +56,8 @@
 		  		<input>
 		  			<xsl:copy-of select="$ininput"/>
 		  		</input>
-	  			<xsl:copy-of select="."/>
   			</xsl:if>
+	  		<xsl:copy-of select="."/>
 	  		<onlymodel>
 	  			<xsl:for-each select="$inmodel">
 	  				<xsl:if test="count($ininput[@name=current()/@name and @value=current()/@value]) =0 ">
@@ -66,6 +66,7 @@
 	  						<xsl:variable name="errorID" select="saxon:evaluate($modelerrorid,.)"/>
 	  						<xsl:attribute name="errorID" select="$errorID"/>
 	  						<xsl:attribute name="errorURL" select="saxon:evaluate($errorURL,$errorID)"/>
+	  						<xsl:copy-of select="object|value"/>
 	  					</entry>
 	  					<xsl:message>onlymodel:<xsl:value-of select="@name"/>/<xsl:value-of select="@value"/>.</xsl:message>
 	  				</xsl:if>
@@ -79,6 +80,7 @@
 	  						<xsl:variable name="errorID" select="saxon:evaluate($inputerrorid,.)"/>
 	  						<xsl:attribute name="errorID" select="$errorID"/>
 	  						<xsl:attribute name="errorURL" select="saxon:evaluate($errorURL,$errorID)"/>
+	  						<xsl:copy-of select="object|value"/>
 	  					</entry>
 	  				</xsl:if>
 	  			</xsl:for-each>

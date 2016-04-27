@@ -3,20 +3,20 @@
 %.xml: %.yml
 	$(ADADOCS)/bin/yml2xml $< |saxon9 -xsl:$(ADADOCS)/xslt/identity.xslt -s:- >$@
 	
-%.rich: %.zenta $(ADADOCS) $(ADADOCS)/xslt/enrich.xslt
+%.rich: %.zenta $(ADADOCS)/xslt/enrich.xslt $(ADADOCS)/classes
 	saxon9 -xsl:$(ADADOCS)/xslt/enrich.xslt -s:$< -im:enrich -o:$@
 
-%.objlist: %.rich $(ADADOCS)/xslt/objlist.xslt
+%.objlist: %.rich $(ADADOCS)/xslt/objlist.xslt 
 	saxon9 -xsl:$(ADADOCS)/xslt/objlist.xslt -s:$< -o:$@
 
 %.richescape: %.rich $(ADADOCS)/xslt/unescape.xslt
 	saxon9 -xsl:$(ADADOCS)/xslt/unescape.xslt -s:$< -o:$@
 
-%.docbook: %.richescape %.objlist docbook.xslt $(ADADOCS)/xslt/docbook.xslt
-	saxon9 -xsl:docbook.xslt -im:varlist -s:$< -o:$@
+%.docbook: %.richescape %.objlist $(ADADOCS)/xslt/docbook.xslt %.consistencycheck $(ADADOCS)/classes
+	saxon9 -xsl:$(ADADOCS)/xslt/docbook.xslt -im:varlist -s:$< -o:$@ inconsistencyfile=$$(pwd)/$(basename $@).consistencycheck
 
-%.tabled.docbook: %.richescape %.objlist docbook.xslt $(ADADOCS)/xslt/docbook.xslt
-	saxon9 -xsl:docbook.xslt -s:$< -o:$@
+%.tabled.docbook: %.richescape %.objlist $(ADADOCS)/xslt/docbook.xslt
+	saxon9 -xsl:$(ADADOCS)/xslt/docbook.xslt -s:$< -o:$@
 
 %.html: %.docbook $(ADADOCS)/xslt/docbook2html.xslt
 	saxon9 -xsl:$(ADADOCS)/xslt/docbook2html.xslt -s:$< -o:$@
@@ -24,7 +24,7 @@
 %.tabled.html: %.tabled..docbook $(ADADOCS)/xslt/docbook2html.xslt
 	saxon9 -xsl:$(ADADOCS)/xslt/docbook2html.xslt -s:$< -o:$@
 
-%.pdf: %.docbook %.pics
+%.pdf: %.docbook %.pics $(ADADOCS)/classes
 	sed 's/fileref="pics/fileref="$(basename $@).pics/g' <$(basename $@).docbook >$(basename $@).docbook.repic
 	dblatex $(basename $@).docbook.repic -o $@
 	rm $(basename $@).docbook.repic
@@ -56,4 +56,8 @@
 
 modelclean:
 	rm -rf *.rich *.objlist *.richescape *.docbook *.html *.pdf *.pics *.zip *.compiled
+
+$(ADADOCS)/classes: src/net/sf/saxon/trans/RelativeUriResolver.java
+	mkdir -p classes
+	javac -cp /usr/local/lib/saxon9.jar -d classes src/net/sf/saxon/trans/RelativeUriResolver.java
 

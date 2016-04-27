@@ -44,7 +44,7 @@
 	<xsl:function name="zenta:assertEquals">
 		<xsl:param name="expected"/>
 		<xsl:param name="result"/>
-		<xsl:if test="not($expected = $result)">
+		<xsl:if test="not($result = $expected)">
 			<xsl:message>expected:
 			<xsl:copy-of select="$expected"/>
 			</xsl:message>
@@ -52,7 +52,7 @@
 			<xsl:copy-of select="$result"/>
 			</xsl:message>
 		</xsl:if>
-		<xsl:copy-of select='$expected = $result'/>
+		<xsl:copy-of select='$result = $expected'/>
 	</xsl:function>
 
 	<xsl:function name="zenta:doesContain">
@@ -100,14 +100,20 @@
 	<xsl:function name="zenta:assertSequenceEquals">
 		<xsl:param name="expected"/>
 		<xsl:param name="result"/>
+		<xsl:variable name="resultSequence" select="zenta:toStringSequence($result,',')"/>
+		<xsl:variable name="expectedSequence" select="zenta:toStringSequence($expected,',')"/>
+		<xsl:if test="not($resultSequence = $expectedSequence)">
+			<xsl:message>
+				expected:
+				<xsl:value-of select="$expectedSequence"/>
+				result:
+				<xsl:value-of select="$resultSequence"/>
+			</xsl:message>
+		</xsl:if>
 		<xsl:copy-of select="
-      		 zenta:log(
-      		 	zenta:toStringSequence($result,',')
-      		,'result')
+      		 	$resultSequence
       		=
-		   	zenta:log(
-      			zenta:toStringSequence($expected,',')
-      		,'expected')
+      			$expectedSequence
 		"/>
 	</xsl:function>
 

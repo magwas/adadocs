@@ -194,40 +194,6 @@
       <x:expect label="model errors are only once in the document"
       	test="count(//section[title/text()='Deviations']/section[title/text()='Model Errors']/variablelist)=1"/>
 
-      <x:expect label="terms are the error messages"
-      	test="//section[title/text()='Deviations']/section[title/text()='Model Errors']/variablelist/varlistentry/term/text()='less than minOccurs values'"/>
-
-      <x:expect label="entries contain a variablelist with the problem's description"
-      	test="count(//section[title/text()='Model Errors']/variablelist/varlistentry/listitem/variablelist)>0"/>
-
-      <x:expect label="an item in the description is the name of the element"
-      	test="//section[title/text()='Model Errors']//varlistentry//varlistentry/term/anchor/text()='Offending element:'"/>
-
-      <x:expect label="the offending element is linked"
-      	test="zenta:assertEquals(
-      		//section[title/text()='Model Errors']//varlistentry//varlistentry[term/anchor/text()='Offending element:']//link/@linkend,
-      		//varlistentry[term/text()='Alain']/term/anchor/@id
-      	)"/>
-
-      <x:expect label="the offending element is named"
-      	test="zenta:assertEquals(
-      		//section[title/text()='Model Errors']//varlistentry//varlistentry[term/anchor/text()='Offending element:']/listitem/link/text(),
-      		'Alain'
-      	)"/>
-      <x:expect label="an item in the description is the name of the relation:"
-      	test="//section[title/text()='Model Errors']//varlistentry//varlistentry/term/text()='Relation:'"/>
-      	
-      <x:expect label="the offending relationclass is linked"
-      	test="zenta:assertEquals(
-      		//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Relation:']//link/@linkend,
-      		//varlistentry[term/text()='pampers']/term/anchor/@id
-      	)"/>
-
-      <x:expect label="the offending relationclass is named"
-      	test="zenta:assertEquals(
-      		//section[title/text()='Model Errors']//varlistentry//varlistentry[term/text()='Relation:']//link/text(),
-      		'pampers'
-      	)"/>
    </x:scenario>
 
 	<x:scenario label="maxOccurs documentation">
@@ -270,6 +236,50 @@
       		//section[title/text()='Model Errors']//varlistentry/term/anchor/@id
       	)"/>
 	</x:scenario>
+
+	<x:scenario label="generated inconsistencies are included in the model">
+
+      <x:expect label="there is a section under deviations for each of the checks"
+      	test="zenta:assertSequenceEquals(
+      		document('../../testmodel.check')//check/@title,
+      		//section[title/text()='Deviations']/section/title/text()
+      	)"/>
+      <x:expect label="the section contains a varlist of onlyinput entries, anchored with errorID"
+      	test="zenta:assertEquals(
+      		document('../../testmodel.consistencycheck')//data[check/@title='Discrepancies with an external source']/onlyinput/entry/@errorID,
+      		//section[title/text()='Discrepancies with an external source']//varlistentry/term/anchor/@id
+      	)"/>
+      <x:expect label="the section contains a varlist of onlymodel entries, anchored with errorID"
+      	test="zenta:assertEquals(
+      		document('../../testmodel.consistencycheck')//data[check/@title='Discrepancies with an external source']/onlymodel/entry/@errorID,
+      		//section[title/text()='Discrepancies with an external source']//varlistentry/term/anchor/@id
+      	)"/>
+      <x:expect label="the title is generated according to errortitlestring"
+      	test="zenta:assertEquals(
+      		'no trace in model of alice raising Odette',
+      		//section[title/text()='Discrepancies with an external source']//varlistentry/term/anchor/text()
+      	)"/>
+      <x:expect label="the full object is available for errortitlestring as $p1"
+      	test="zenta:assertEquals(
+      		'model says that bob (63fb6744) raises Odette (daad56f0), but no sign of it IRL',
+      		//section[title/text()='Discrepancies with an external source']//varlistentry/term/anchor/text()
+      	)"/>
+      <x:expect label="the full document is available for errortitlestring as $p2"
+      	test="zenta:assertEquals(
+      		'missing relation for Odette',
+      		//anchor[@id='maxOccurs_2d941c95_abe82119']/text()
+      	)"/>
+      <x:expect label="minOccurs errors have a meaningful title"
+      	test="zenta:assertEquals(
+      		'extra relation for bob',
+      		//anchor[@id='minOccurs_63fb6744_87d6b2d5']/text()
+      	)"/>
+	</x:scenario>
+      <x:expect label="the description is generated according to errordescription"
+      	test="zenta:assertEquals(
+      		'model says that bob (63fb6744) raises Odette (daad56f0), but no sign of it IRL',
+      		//section[title/text()='Discrepancies with an external source']//varlistentry/listitem/text()
+      	)"/>
 	
 	/>
 </x:description>

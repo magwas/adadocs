@@ -1,18 +1,22 @@
 <checks>
 <check
+		title="Model Errors"
       	modelfile="testmodel.rich"
       	modelbasepath="//error"
       	modelnamepath="@type"
       	modelvaluepath="concat(//element[@id=current()/@element]/@name,' ',@name)"
-        modelerrorid="concat('error_no_entry_irl_for_',$p1/@element,'_raises_',$p1/@id)"
+        modelerrorid="$p1/object/error/@errorID"
       	inputfile="testmodel.rich"
       	inputbasepath="//nonexistent"
       	inputnamepath=""
       	inputvaluepath=""
-        inputerrorid="concat('error_no_entry_in_model_for_',$p1/@name,'_raises_',$p1/@raises)"
+        inputerrorid="$p1"
         errorURL="concat('http://example.com/model.html#',$p1)"
+        errortitlestring="zenta:modelErrorTitle($p1,$p2)"
+        errordescription="zenta:modelErrorDescription($p1,$p2)"
       	/>
         <check
+        title="Discrepancies with an external source"
         modelfile="testmodel.objlist"
         modelbasepath="//objectClass[@name='man']/object"
         modelnamepath="@name"
@@ -24,6 +28,30 @@
         inputnamepath="@name"
         inputvaluepath="@raises"
         inputerrorid="concat('error_no_entry_in_model_for_',$p1/@name,'_raises_',$p1/@value)"
+        errortitlestring="if ($p1/object/man)
+        then
+        	concat('no trace in model of ',$p1/@name, ' raising ', $p1/@value)
+        else
+        	concat(
+        		'model says that ',
+        		$p1/@name, ' (', $p1/object/object/@id,
+        		') raises ',
+        		$p1/@value, ' (', $p1/value/value/@id,
+        		'), but no sign of it IRL' 
+        	)
+        "
+        errordescription="if ($p1/object/man)
+        then
+        	concat('no trace in model of ',$p1/@name, ' raising ', $p1/@value)
+        else
+        	concat(
+        		'model says that ',
+        		$p1/@name, ' (', $p1/object/object/@id,
+        		') raises ',
+        		$p1/@value, ' (', $p1/value/value/@id,
+        		'), but no sign of it IRL' 
+        	)
+        "
         errorURL="concat('http://example.com/model.html#',$p1)"
         />
 </checks>

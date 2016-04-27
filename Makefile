@@ -1,7 +1,6 @@
 
 ADADOCS=$(shell pwd)
 
-
 all: zentaworkaround tests testmodel.compiled ADA.compiled tmp/static
 
 include model.rules
@@ -10,6 +9,10 @@ zentaworkaround:
 	mkdir -p ~/.zenta/.metadata/.plugins/org.eclipse.e4.workbench/
 	cp workbench.xmi ~/.zenta/.metadata/.plugins/org.eclipse.e4.workbench/
 	touch zentaworkaround
+
+classes: src/net/sf/saxon/trans/RelativeUriResolver.java
+	mkdir -p classes
+	javac -cp /usr/local/lib/saxon9.jar -d classes src/net/sf/saxon/trans/RelativeUriResolver.java
 
 clean:
 	git clean -fdx

@@ -1,5 +1,6 @@
 <checks>
 <check
+		title="Model Errors"
       	modelfile="MODELNAME.rich"
       	modelbasepath="//error"
       	modelnamepath="@type"
@@ -9,7 +10,8 @@
       	inputbasepath="//nonexistent"
       	inputnamepath=""
       	inputvaluepath=""
-        inputerrorid="$p1/object/error/@errorID"
+        inputerrorid="$p1"
         errorURL="concat('http://example.com/model.html#',$p1)"
+        errortitlestring="zenta:modelErrorTitle($p1,$p2)"
       	/>
 </checks>
