@@ -314,12 +314,12 @@
     	<xsl:param name="doc"/>
     	<xsl:value-of select="if ($object/object/error/@type='minOccursError')
         	then concat(
-        		'extra relation for ',
+        		'missing relation for ',
 	        	$doc//element[@id=$object/object/error/@element]/@name
 	        	)
 	        else if ($object/object/error/@type='maxOccursError')
         	then concat(
-        		'missing relation for ',
+        		'extra relation for ',
 	        	$doc//element[@id=$object/object/error/@element]/@name
 	        	)
 			else concat('unknown error type ', $object/object/error/@type)
@@ -374,7 +374,6 @@
     	<xsl:param name="object"/>
     	<xsl:param name="doc"/>
     	<xsl:variable name="errobj" select="$object/object/error"/>
-    	<xsl:variable name="relations" select="$doc//element[@id=$errobj/@element]/value[@ancestorName=$errobj/@name]/@name"/>
     	<xsl:value-of select="
         	zenta:describeOccurs(
         		$doc//element[@id=$errobj/@element],

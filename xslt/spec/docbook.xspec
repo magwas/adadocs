@@ -266,12 +266,12 @@
       	)"/>
       <x:expect label="the full document is available for errortitlestring as $p2"
       	test="zenta:assertEquals(
-      		'missing relation for Odette',
+      		'extra relation for Odette',
       		//term[anchor/@id='maxOccurs_2d941c95_abe82119_2']/text()
       	)"/>
       <x:expect label="minOccurs errors have a meaningful title"
       	test="zenta:assertEquals(
-      		'extra relation for bob',
+      		'missing relation for bob',
       		//term[anchor/@id='minOccurs_63fb6744_87d6b2d5_1']/text()
       	)"/>
 	</x:scenario>
