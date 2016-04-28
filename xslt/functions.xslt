@@ -349,7 +349,13 @@
     	<xsl:param name="doc"/>
     	<xsl:if test="not($errobj/@type = 'minOccursError' or
     		$errobj/@type = 'maxOccursError')">
-    		<xsl:message terminate="yes" select="concat('unknown element type: ',$errobj/@type)"/>
+    		<xsl:message terminate="yes">
+    			unknown element type: <xsl:value-of select="$errobj/@type"/> in
+    			<f>
+    			<xsl:copy-of select="$element"/>
+    			errobj: <xsl:copy-of select="$errobj"/>
+    			</f>
+    		</xsl:message>
     	</xsl:if>
     	<xsl:variable name="relations">
     		<xsl:for-each select="$element/value[@ancestorName=$errobj/@name]">
