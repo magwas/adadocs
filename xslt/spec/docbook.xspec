@@ -27,34 +27,34 @@
 		<x:expect label="if no backward relation name is defined, 'is Xed by' used"
 	     	test="zenta:assertEquals(
 	     		'Odette is raised by bob',
-	     		//varlistentry[term/text()='Odette']/listitem/para/itemizedlist/listitem
+	     		zenta:normalizeAllSpaces(//varlistentry[term/text()='Odette']/listitem//listitem[3]//text())
 	     		)
 	     		"/>
 		<x:expect label="if the character before the last is not vovel, then an e is inserted"
 	     	test="zenta:assertEquals(
 	     		'grandchild is pampered by at least 5 man',
-	     		//varlistentry[term/text()='grandchild']/listitem/para/itemizedlist/listitem
+	     		zenta:normalizeAllSpaces(//varlistentry[term/text()='grandchild']/listitem/para/itemizedlist/listitem//text())
 	     		)
 	     		"/>
 
 		<x:expect label="if the character before the last is not vovel, then an e is inserted"
 	     	test="zenta:assertEquals(
 	     		'grandchild is pampered by at least 5 man',
-	     		//varlistentry[term/text()='grandchild']/listitem/para/itemizedlist/listitem
+	     		zenta:normalizeAllSpaces(//varlistentry[term/text()='grandchild']/listitem/para/itemizedlist/listitem//text())
 	     		)
 	     		"/>
 
 		<x:expect label="if there is a '/' in relation name, then the part before it is used for forward relation"
 	     	test="zenta:assertEquals(
 	     		'child plays with ent',
-	     		//varlistentry[term/text()='child']/listitem/para/itemizedlist/listitem
+	     		zenta:normalizeAllSpaces(//varlistentry[term/text()='child']/listitem/para/itemizedlist/listitem[2]//text())
 	     		)
 	     		"/>
 
 		<x:expect label="if there is a '/' in relation name, then the part after it is used for backward relation"
 	     	test="zenta:assertEquals(
 	     		'ent is played with by child',
-	     		//varlistentry[term/text()='ent']/listitem/para/itemizedlist/listitem
+	     		zenta:normalizeAllSpaces(//varlistentry[term/text()='ent']/listitem/para/itemizedlist/listitem//text())
 	     		)
 	     		"/>
 
@@ -152,28 +152,21 @@
      <x:expect label="listitems contain a description of the connection"
      	test="zenta:assertEquals(
      		'man pampers at least 3 grandchild',
-     		//varlistentry[term/text()='man']/listitem/para/itemizedlist/listitem
+     		zenta:normalizeAllSpaces(//varlistentry[term/text()='man']/listitem/para/itemizedlist/listitem[2]//text())
      		)
      		"/>
 
      <x:expect label="a connection is described once"
      	test="count(
 	     		//varlistentry[term/text()='man']/listitem/para/itemizedlist/listitem[text()=
-	     		'man pampers at least 3 grandchild']
-     		) = 1
+	     		'man pampers at least 3 ']
+     		  ) = 1
      		"/>
 
      <x:expect label="if minOccurs != 0, then listitem denotes it"
      	test="zenta:assertEquals(
      		'man pampers at least 3 grandchild',
-     		//varlistentry[term/text()='man']/listitem/para/itemizedlist/listitem
-     		)
-     		"/>
-
-     <x:expect label="another check"
-     	test="zenta:assertEquals(
-     		'man pampers at least 3 grandchild',
-     		//varlistentry[term/text()='man']/listitem/para/itemizedlist/listitem
+     		zenta:normalizeAllSpaces(//varlistentry[term/text()='man']/listitem/para/itemizedlist/listitem[2]//text())
      		)
      		"/>
 
@@ -200,14 +193,14 @@
 		<x:expect label="if maxOccurs != 0, then listitem denotes it"
 	     	test="zenta:assertEquals(
 	     		'man points to at most 1 target',
-	     		//varlistentry[term/text()='man']/listitem/para/itemizedlist/listitem
+	     		zenta:normalizeAllSpaces(//varlistentry[term/text()='man']/listitem/para/itemizedlist/listitem[3]//text())
 	     		)
 	     		"/>
 	     		
 		<x:expect label="minoccurs and maxoccurs together"
 	     	test="zenta:assertEquals(
 	     		'child is raised by at least 1 and at most 1 man',
-	     		//varlistentry[term/text()='child']/listitem/para/itemizedlist/listitem
+	     		zenta:normalizeAllSpaces(//varlistentry[term/text()='child']/listitem/para/itemizedlist/listitem[1]//text())
 	     		)
 	     		"/>
 	</x:scenario>
@@ -217,13 +210,13 @@
 		<x:expect label="non-template elements have no atleast and atmost"
 	     	test="zenta:assertEquals(
 	     		'bob gives candy to Alain',
-	     		//varlistentry[term/text()='bob']/listitem/para/itemizedlist/listitem
+	     		zenta:normalizeAllSpaces(//varlistentry[term/text()='bob']/listitem/para/itemizedlist/listitem[3]//text())
 	     		)
 	     		"/>
 		<x:expect label="if relation name is empty, then name of parent relation is used"
 	     	test="zenta:assertEquals(
 	     		'bob raises Odette',
-	     		//varlistentry[term/text()='bob']/listitem/para/itemizedlist/listitem
+	     		zenta:normalizeAllSpaces(//varlistentry[term/text()='bob']/listitem/para/itemizedlist/listitem[1]//text())
 	     		)
 	     		"/>
 	</x:scenario>
@@ -313,4 +306,12 @@
       		//section[title='dummy empty stuff']/para
       	)"/>
 	/>
+	<x:scenario label="model descriptions have links to relations">
+    	<x:expect label="endpoints have links"
+	      	test="zenta:assertEquals(
+	      		'a63d2d0e',
+	      		//varlistentry[term/anchor/@id='a93354a0']/listitem//listitem/link/@linkend
+	      	)"/>
+			/>
+	</x:scenario>
 </x:description>

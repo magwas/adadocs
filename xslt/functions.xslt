@@ -309,6 +309,23 @@
 				concat('is ',substring($str,1,string-length($str)-1),'ed by')
 			"/>
 	</xsl:function>
+
+	<xsl:function name="zenta:relationName">
+		<xsl:param name="value"/>
+		<xsl:variable name="given" select="if ($value/@relationName != '') then $value/@relationName else $value/@ancestorName"/>
+		<xsl:copy-of select="
+			if(contains($given,'/'))
+			then
+				tokenize(string($given),'/')[number($value/@direction)]
+			else
+				if($value/@direction='1')
+				then
+					$given
+				else
+					zenta:passive($given)
+			"/>
+	</xsl:function>
+
     <xsl:function name="zenta:modelErrorTitle">
     	<xsl:param name="object"/>
     	<xsl:param name="doc"/>

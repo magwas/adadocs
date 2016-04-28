@@ -29,22 +29,6 @@ xmlns:saxon="http://saxon.sf.net/"
 		<xsl:value-of select="@name"/>
 	</xsl:template>
 
-	<xsl:function name="zenta:relationName">
-		<xsl:param name="value"/>
-		<xsl:variable name="given" select="if ($value/@relationName != '') then $value/@relationName else $value/@ancestorName"/>
-		<xsl:copy-of select="
-			if(contains($given,'/'))
-			then
-				tokenize(string($given),'/')[number($value/@direction)]
-			else
-				if($value/@direction='1')
-				then
-					$given
-				else
-					zenta:passive($given)
-			"/>
-	</xsl:function>
-
 	<xsl:template match="element[@xsi:type!='zenta:ZentaDiagramModel']"
 		mode="elementDetails">
 		<para>
@@ -68,11 +52,14 @@ xmlns:saxon="http://saxon.sf.net/"
 								<xsl:value-of select="if (number(@maxOccurs) > 0) then concat('at most ',@maxOccurs,' ') else '' "/>
 						</xsl:variable>
 						<xsl:variable name="numbers" select="if ($atmost!='' and $atleast!='') then concat($atleast,'and ',$atmost) else concat($atleast,$atmost)"/>
-						<xsl:value-of select="concat(
-								../@name,' ',
+						<xsl:value-of select="../@name"/>
+						<xsl:value-of select="concat(' ',
 								zenta:relationName(.),' ',
-								if (@template='true') then $numbers else '',
-								@name)"/>
+								if (@template='true') then $numbers else ''
+								)"/>
+						<link linkend="{@target}">
+							<xsl:value-of select="@name"/>
+						</link>
 					</listitem>
 				</xsl:for-each>
 			</itemizedlist>
