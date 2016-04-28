@@ -26,5 +26,5 @@ zentaworkaround:
 
 inputs/ADA.issues.xml:
 	mkdir -p inputs
-	getGithubIssues https://api.github.com/repos/edemo/pdoauth label:auto_inconsistency >inputs/ADA.issues.xml
+	getGithubIssues https://api.github.com label:auto_inconsistency+repo:edemo/PDOauth >inputs/ADA.issues.xml
 
