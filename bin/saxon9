@@ -1,4 +1,0 @@
-#!/bin/bash
-classesdir=$(dirname $(dirname $(readlink -e $0)))/classes
-java -cp $classesdir:/usr/share/java/tagsoup.jar:/usr/local/lib/saxon9.jar net.sf.saxon.Transform -r net.sf.saxon.trans.RelativeUriResolver ${*} targetdir=$PWD
-

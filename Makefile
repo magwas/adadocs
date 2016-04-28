@@ -1,18 +1,7 @@
 
-ADADOCS=$(shell pwd)
+all: zentaworkaround ADA.compiled tmp/static
 
-all: zentaworkaround tests testmodel.compiled ADA.compiled tmp/static
-
-include model.rules
-
-zentaworkaround:
-	mkdir -p ~/.zenta/.metadata/.plugins/org.eclipse.e4.workbench/
-	cp workbench.xmi ~/.zenta/.metadata/.plugins/org.eclipse.e4.workbench/
-	touch zentaworkaround
-
-classes: src/net/sf/saxon/trans/RelativeUriResolver.java
-	mkdir -p classes
-	javac -cp /usr/local/lib/saxon9.jar -d classes src/net/sf/saxon/trans/RelativeUriResolver.java
+include $(ZENTATOOLS)/model.rules
 
 clean:
 	git clean -fdx
@@ -20,13 +9,6 @@ clean:
 tmp:
 	mkdir -p tmp
 
-tests: rich.test docbook.test objlist.test consistencycheck.test tabled.docbook.test
-
-%.test: xslt/spec/%.xspec testmodel.%
-	 saxon9 -l -xsl:xslt/tester/test.xslt -s:testmodel.$(basename $@) tests=$$(pwd)/xslt/spec/$(basename $@).xspec sources=../../testmodel.zenta,../../testmodel.rich
-
-testmodel.consistencycheck: testmodel.check testmodel.rich testmodel.objlist
-	saxon9 -xsl:/project/mag/adadocs/xslt/consistencycheck.xslt -s:testmodel.check -o:testmodel.consistencycheck debug=true 2>&1 | sed 's/\//:/'  |sort --field-separator=':' --key=2
 pdoauth:
 	scp -P 22022 -r shippable@demokracia.rulez.org:/var/www/adadocs/PDOauth/master pdoauth
 
