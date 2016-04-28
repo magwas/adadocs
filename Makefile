@@ -17,3 +17,9 @@ tmp/static: pdoauth tmp
 
 testenv:
 	docker run --rm -p 5900:5900 -v $$(pwd):/adadocs -it magwas/edemotest:xslt /bin/bash
+
+zentaworkaround:
+	mkdir -p ~/.zenta/.metadata/.plugins/org.eclipse.e4.workbench/
+	cp workbench.xmi ~/.zenta/.metadata/.plugins/org.eclipse.e4.workbench/
+	touch zentaworkaround
+
