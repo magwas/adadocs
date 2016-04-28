@@ -5,6 +5,7 @@ include $(ZENTATOOLS)/model.rules
 
 clean:
 	git clean -fdx
+	rm -rf zenta-tools
 
 tmp:
 	mkdir -p tmp
