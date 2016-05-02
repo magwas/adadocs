@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <zenta:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zenta="http://magwas.rulez.org/zenta" name="Ada" id="d3202427" version="2.2.1">
-  <folder name="Metamodel" id="c77845ef">
+  <folder name="0. Metamodel" id="c77845ef">
     <folder name="Actors" id="db63e7f8">
       <element xsi:type="zenta:BasicObject" name="Actor" id="35011218" ancestor="basicobject">
         <property key="fillColor"/>
@@ -473,7 +473,7 @@
     <element xsi:type="zenta:BasicObject" name="Basic Object" id="basicobject"/>
     <element xsi:type="zenta:BasicRelationship" name="Basic Relation" id="basicrelation" source="basicobject" target="basicobject"/>
   </folder>
-  <folder name="Security Environment" id="e2e64608">
+  <folder name="2. Security Environment" id="e2e64608">
     <element xsi:type="zenta:ZentaDiagramModel" name="Security Environment" id="505a29f2">
       <child xsi:type="zenta:DiagramObject" id="751fa694" zentaElement="674bd734">
         <bounds x="233" y="59" width="-1" height="-1"/>
@@ -575,7 +575,7 @@ We store only the one-way hash of personal identifiers</documentation>
     <element xsi:type="zenta:BasicRelationship" id="c4f9fcc2" ancestor="0f27eeaa" source="154474db" target="139edaa0"/>
     <element xsi:type="zenta:BasicRelationship" id="e997997e" ancestor="0f27eeaa" source="3e669cc9" target="139edaa0"/>
   </folder>
-  <folder name="Attack tree" id="f56ebd57">
+  <folder name="3. Attack tree" id="f56ebd57">
     <element xsi:type="zenta:ZentaDiagramModel" name="Attack tree" id="17dbe6fa" connectionRouterType="1">
       <child xsi:type="zenta:DiagramObject" id="03507618" zentaElement="3e669cc9">
         <bounds x="444" y="60" width="-1" height="-1"/>
@@ -766,7 +766,7 @@ We store only the one-way hash of personal identifiers</documentation>
     <element xsi:type="zenta:BasicRelationship" id="8b554f48" ancestor="c28de966" source="4f77cef7" target="859a0083"/>
     <element xsi:type="zenta:BasicRelationship" id="472b5922" ancestor="c28de966" source="4f77cef7" target="a567f0e2"/>
   </folder>
-  <folder name="Overview" id="da7816c5">
+  <folder name="1. Overview" id="da7816c5">
     <element xsi:type="zenta:ZentaDiagramModel" name="Overview" id="60175bca" connectionRouterType="1">
       <child xsi:type="zenta:DiagramObject" id="df72d069" targetConnections="43e24530 c3abc298 0f0c069a" zentaElement="8522b66d">
         <bounds x="324" y="48" width="-1" height="-1"/>
