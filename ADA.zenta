@@ -576,7 +576,7 @@ We store only the one-way hash of personal identifiers</documentation>
     <element xsi:type="zenta:BasicRelationship" id="e997997e" ancestor="0f27eeaa" source="3e669cc9" target="139edaa0"/>
   </folder>
   <folder name="3. Attack tree" id="f56ebd57">
-    <element xsi:type="zenta:ZentaDiagramModel" name="Attack tree" id="17dbe6fa" connectionRouterType="1">
+    <element xsi:type="zenta:ZentaDiagramModel" name="Attack tree: information leak" id="17dbe6fa" connectionRouterType="1">
       <child xsi:type="zenta:DiagramObject" id="03507618" zentaElement="3e669cc9">
         <bounds x="444" y="60" width="-1" height="-1"/>
         <sourceConnection xsi:type="zenta:Connection" id="bc7f4564" source="03507618" target="5e283ac1" relationship="e11239e1"/>
@@ -765,6 +765,43 @@ We store only the one-way hash of personal identifiers</documentation>
     <element xsi:type="zenta:BasicRelationship" id="d7528923" ancestor="9c5ce650" source="8756f393" target="856cb0dd"/>
     <element xsi:type="zenta:BasicRelationship" id="8b554f48" ancestor="c28de966" source="4f77cef7" target="859a0083"/>
     <element xsi:type="zenta:BasicRelationship" id="472b5922" ancestor="c28de966" source="4f77cef7" target="a567f0e2"/>
+    <element xsi:type="zenta:ZentaDiagramModel" name="Attack tree: fake users" id="19f710ff">
+      <child xsi:type="zenta:DiagramObject" id="3c95a880" zentaElement="3c001770">
+        <bounds x="299" y="54" width="-1" height="-1"/>
+        <sourceConnection xsi:type="zenta:Connection" id="e01f9320" source="3c95a880" target="a5d7676a" relationship="5b5c266b"/>
+        <sourceConnection xsi:type="zenta:Connection" id="157dfb19" source="3c95a880" target="fac280d1" relationship="a3b1cdbd"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="3a8e17d9" targetConnections="f42276f0 680de485" zentaElement="a76ab32b">
+        <bounds x="168" y="240" width="-1" height="-1"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="f238cb0a" targetConnections="45e08cca" zentaElement="b53ce848">
+        <bounds x="504" y="240" width="-1" height="-1"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="a5d7676a" targetConnections="e01f9320" zentaElement="4ec766b1">
+        <bounds x="207" y="147" width="-1" height="-1"/>
+        <sourceConnection xsi:type="zenta:Connection" id="f42276f0" source="a5d7676a" target="3a8e17d9" relationship="8d36058d"/>
+        <sourceConnection xsi:type="zenta:Connection" id="80ef54b2" source="a5d7676a" target="79bccd3d" relationship="7c931aa2"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="fac280d1" targetConnections="157dfb19" zentaElement="58764d96">
+        <bounds x="360" y="149" width="-1" height="-1"/>
+        <sourceConnection xsi:type="zenta:Connection" id="680de485" source="fac280d1" target="3a8e17d9" relationship="e6cc77eb"/>
+        <sourceConnection xsi:type="zenta:Connection" id="45e08cca" source="fac280d1" target="f238cb0a" relationship="00ce37d6"/>
+      </child>
+      <child xsi:type="zenta:DiagramObject" id="79bccd3d" targetConnections="80ef54b2" zentaElement="a0a16149">
+        <bounds x="339" y="244" width="-1" height="-1"/>
+      </child>
+    </element>
+    <element xsi:type="zenta:BasicObject" name="Register a user in ADA" id="a76ab32b" ancestor="b04f4b04"/>
+    <element xsi:type="zenta:BasicObject" name="Get assurance for the fake user" id="b53ce848" ancestor="b04f4b04"/>
+    <element xsi:type="zenta:BasicObject" name="With the hash of a real person" id="4ec766b1" ancestor="cc6698c3"/>
+    <element xsi:type="zenta:BasicObject" name="With a fake hash" id="58764d96" ancestor="cc6698c3"/>
+    <element xsi:type="zenta:BasicRelationship" id="5b5c266b" ancestor="a2bc5474" source="3c001770" target="4ec766b1"/>
+    <element xsi:type="zenta:BasicRelationship" id="a3b1cdbd" ancestor="a2bc5474" source="3c001770" target="58764d96"/>
+    <element xsi:type="zenta:BasicRelationship" id="8d36058d" ancestor="c28de966" source="4ec766b1" target="a76ab32b"/>
+    <element xsi:type="zenta:BasicRelationship" id="e6cc77eb" ancestor="c28de966" source="58764d96" target="a76ab32b"/>
+    <element xsi:type="zenta:BasicRelationship" id="00ce37d6" ancestor="c28de966" source="58764d96" target="b53ce848"/>
+    <element xsi:type="zenta:BasicObject" name="Get assurance in the name of the person" id="a0a16149" ancestor="b04f4b04"/>
+    <element xsi:type="zenta:BasicRelationship" id="7c931aa2" ancestor="c28de966" source="4ec766b1" target="a0a16149"/>
   </folder>
   <folder name="1. Overview" id="da7816c5">
     <element xsi:type="zenta:ZentaDiagramModel" name="Overview" id="60175bca" connectionRouterType="1">
