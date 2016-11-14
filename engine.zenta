@@ -1537,6 +1537,9 @@
       </element>
     </folder>
   </folder>
-  <element xsi:type="zenta:BasicRelationship" name="Basic Relation" id="basicrelation" source="basicobject" target="basicobject"/>
+  <element xsi:type="zenta:BasicRelationship" name="Basic Relation" id="basicrelation" source="basicobject" target="basicobject">
+    <property key="minOccurs" value="-1/-1"/>
+    <property key="maxOccurs" value="-1/-1"/>
+  </element>
   <element xsi:type="zenta:BasicObject" name="Basic Object" id="basicobject"/>
 </zenta:model>

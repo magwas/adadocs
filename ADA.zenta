@@ -579,7 +579,10 @@
       </element>
     </folder>
     <element xsi:type="zenta:BasicObject" name="Basic Object" id="basicobject"/>
-    <element xsi:type="zenta:BasicRelationship" name="Basic Relation" id="basicrelation" source="basicobject" target="basicobject"/>
+    <element xsi:type="zenta:BasicRelationship" name="Basic Relation" id="basicrelation" source="basicobject" target="basicobject">
+      <property key="minOccurs" value="-1/-1"/>
+      <property key="maxOccurs" value="-1/-1"/>
+    </element>
   </folder>
   <folder name="2. Security Environment" id="e2e64608">
     <element xsi:type="zenta:ZentaDiagramModel" name="Security Environment" id="505a29f2">
