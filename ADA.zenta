@@ -1211,7 +1211,7 @@ We store only the one-way hash of personal identifiers</documentation>
       <element xsi:type="zenta:BasicObject" name="cullision with assured hash" id="06146ece-ab38-410a-8de0-7e7f6b675506" ancestor="0a4ded23-e064-4485-9d8e-3423ba8a836c">
         <documentation>Note that this case cannot happen in normal operating conditions.
 - an email is sent to the other (hand-assured) user
-- a warning message is viewed for the user we want to assign the hash to
+- an error message is viewed for the user we want to assign the hash to
 - the hash of the user gets deleted
 - the operation fails
 - no user gets deleted
