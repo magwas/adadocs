@@ -503,4 +503,5 @@ The </documentation>
       </child>
     </element>
   </folder>
+  <property key="documentationMarkup" value="verbatim"/>
 </zenta:model>
