@@ -5,4 +5,4 @@ python:
 archive: true
 script:
 - ./bin/script
-- scp -P 22022 -r tmp/* shippable@demokracia.rulez.org:/var/www/adadocs
+- ./bin/publish
