@@ -1750,7 +1750,7 @@
     </element>
     <element xsi:type="zenta:BasicObject" name="Manage votes" id="9386718b-3caf-4152-8386-0df9deeb35d3" ancestor="e1dcc278-0e1a-4399-99a4-04706212b230"/>
     <element xsi:type="zenta:BasicObject" name="create vote" id="53971969-fee5-4442-a283-98d7f5b2c94f" ancestor="460b77b0-9540-480a-86b1-00541ccb1fd5">
-      <documentation>POST /vote (String votename, List&lt;String> neededAssurances, List&lt;String> countedAssurances, bool private, minEndorsements: int =0) -> VoteAdminInfo
+      <documentation>POST /vote (String votename, List&lt;String> neededAssurances, List&lt;String> countedAssurances, bool isPrivate, minEndorsements: int =0) -> VoteAdminInfo
 
 VoteAdminInfo has
 voteId: String
@@ -1773,7 +1773,7 @@ bool private: true or false
     <element xsi:type="zenta:BasicObject" name="returns an unique vote id for reference and administrator key for vote management" id="4254c731-94cd-4f02-9e1b-362d5d46496a" ancestor="b16e0f12-f380-46e5-b82f-0b3f43d8200a"/>
     <element xsi:type="zenta:BasicRelationship" id="c55dbcdf-9117-470b-8b54-a36b0bcf8aed" ancestor="e85cd8d3-b087-4b67-b309-0b52fd48e4af" source="53971969-fee5-4442-a283-98d7f5b2c94f" target="4254c731-94cd-4f02-9e1b-362d5d46496a"/>
     <element xsi:type="zenta:BasicObject" name="Add choice" id="d311158f-1d7b-4288-86d2-a258d7a63741" ancestor="460b77b0-9540-480a-86b1-00541ccb1fd5">
-      <documentation>POST /choice/&lt;voteId>/&lt;choiceId>/&lt;adminKey> (String choice) -> String choiceId</documentation>
+      <documentation>POST /choice/&amp;lt;voteId>/&lt;choiceId>/&lt;adminKey> (String choice) -> String choiceId</documentation>
     </element>
     <element xsi:type="zenta:BasicRelationship" id="d76715c6-170f-4711-9dc6-6c70f6b839c7" ancestor="3140e6ea-3113-4e8e-a8fa-895ee9ff44ce" source="9386718b-3caf-4152-8386-0df9deeb35d3" target="d311158f-1d7b-4288-86d2-a258d7a63741"/>
     <element xsi:type="zenta:BasicObject" name="show vote" id="5c0244e2-2097-4b3b-abed-9dbefdcd45ac" ancestor="460b77b0-9540-480a-86b1-00541ccb1fd5">
