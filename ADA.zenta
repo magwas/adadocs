@@ -483,10 +483,14 @@
         <property key="font"/>
       </element>
     </folder>
-    <documentation>A metamodel is the same to an architecture model as the legend is to a map: It defines  what an element actually means, and what kind of relations are possible between elements.
+    <documentation>A metamodel is the same to an architecture model as the legend is to a map: 
+It defines  what an element actually means, and what kind of relations are possible between elements.
 The metamodel is possibly the hardest to understand part of the model.
-The good news is that you need it only if you are lost with the meaning of the normal architecture diagrams, and that an architecture diagram should be well organised, such that everyone understands its meaning.
-The bad news is that I am doing sloppy modeling: the information is there, but sometimes it is not nicely organized, and there are just too many of it. Feel free to open issues in the edemo/adadocs github repository if you find anything unintelligible.
+The good news is that you need it only if you are lost with the meaning of the normal architecture diagrams,
+and that an architecture diagram should be well organised, such that everyone understands its meaning.
+The bad news is that I am doing sloppy modeling: the information is there, 
+but sometimes it is not nicely organized, and there are just too many of it.
+Feel free to open issues in the edemo/adadocs github repository if you find anything unintelligible.
 
 Please note that elements in the metamodel denote classes of things in the &quot;plain&quot; model.
 Therefore there are often more relations between two elements, and the relations are sometimes labeled in funny ways.
@@ -499,7 +503,8 @@ For example there is &quot;Application component&quot; and &quot;Application int
 - Application interface is used by Application component, and
 - Application interface composes Application component(s)
 
-If you look at the html page of the model, you can actually find the above sentences in the description of the elements (click on the element on the image).
+If you look at the html page of the model, you can actually find the above sentences in the description
+of the elements (click on the element on the image).
 
 The classes of things can themselves be instances of some other classes of things. A User is an Actor, An Assurer is a User, and so on.
 The root of the class hierarchy (which is traditionally called Thing) is called Basic Object in the model.
@@ -1368,7 +1373,10 @@ The vote recorded in the tally is four steps away from the identity of the perso
     <element xsi:type="zenta:BasicRelationship" id="72ce4af7" ancestor="fc35e98f" source="ac1198fd" target="f61ebfbf"/>
     <element xsi:type="zenta:BasicRelationship" id="75c8f1a9" ancestor="4de9c1b9" source="6af03b84" target="5540c87a"/>
     <element xsi:type="zenta:BasicObject" name="Basic Object" id="basicobject"/>
-    <element xsi:type="zenta:BasicRelationship" name="Basic Relation" id="basicrelation" source="basicobject" target="basicobject"/>
+    <element xsi:type="zenta:BasicRelationship" name="Basic Relation" id="basicrelation" source="basicobject" target="basicobject">
+      <property key="minOccurs" value="-1/-1"/>
+      <property key="maxOccurs" value="-1/-1"/>
+    </element>
     <element xsi:type="zenta:BasicRelationship" name="associates" id="f558f236-6adf-4f56-a806-69ada8fdd543" ancestor="basicrelation" source="0ebb7726-b098-4d23-8c03-7fb8cfe214c9" target="35011218">
       <property key="textPosition" value="1"/>
       <property key="lineDecoration" value="SmallEndArrowDecoration DashedLineDecoration"/>
@@ -1789,4 +1797,5 @@ The vote recorded in the tally is four steps away from the identity of the perso
     <element xsi:type="zenta:BasicRelationship" id="e51d6e6d-8f2b-4996-8c6f-52c4a6aa6e5a" ancestor="fc35e98f" source="67c16aa9-ebdb-43bc-99e3-eb0f16ba0492" target="19bfa9b6-b9b4-4630-ac9f-4021cd1a3c4c"/>
     <element xsi:type="zenta:BasicRelationship" id="1d5a737e-e812-49c0-a3ca-ea57b7c5579b" ancestor="23064c36-37b1-48bd-9d7c-d92ff57a1472" source="201caa2b-eed6-421d-8aaf-dd0b51b8ab0b" target="bed876b5-5544-4e89-82f6-581ac7461e24"/>
   </folder>
+  <property key="documentationMarkup" value="verbatim"/>
 </zenta:model>
