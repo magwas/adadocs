@@ -95,64 +95,10 @@
         <property key="fontColor"/>
         <property key="font"/>
       </element>
-      <element xsi:type="zenta:BasicRelationship" name="has/belongs to" id="d1bed889-916e-4b76-85c0-4493a0bc865d" ancestor="basicrelation" source="35011218" target="0ebb7726-b098-4d23-8c03-7fb8cfe214c9">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="SmallEndArrowDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="associates" id="f558f236-6adf-4f56-a806-69ada8fdd543" ancestor="basicrelation" source="0ebb7726-b098-4d23-8c03-7fb8cfe214c9" target="35011218">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="SmallEndArrowDecoration DashedLineDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="certifies" id="93067b26-ef91-4752-8c19-3bc9ba7baf45" ancestor="basicrelation" source="5d47812b-90b0-490c-b4e4-1076bd0cd8a0" target="0ebb7726-b098-4d23-8c03-7fb8cfe214c9">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="BigArrowTargetDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="assures/is assured by" id="47fa0bc7-518f-426d-9092-e32a06265201" ancestor="basicrelation" source="5d47812b-90b0-490c-b4e4-1076bd0cd8a0" target="35011218">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="SmallEndArrowDecoration DiamondTargetDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="is checked by/checks" id="977c2e70-0664-4a83-b16c-a71d13ddfb74" ancestor="basicrelation" source="0ebb7726-b098-4d23-8c03-7fb8cfe214c9" target="5d47812b-90b0-490c-b4e4-1076bd0cd8a0">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="DottedLineDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="from/is source of" id="005fc38f-9fe3-4678-b5d2-b61acffa4785" ancestor="basicrelation" source="d3f17f54-4a38-423a-96da-61f7e93b9d4b" target="0ebb7726-b098-4d23-8c03-7fb8cfe214c9">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="DiamondTargetDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="to/is target of" id="ffc5fbee-7ac5-4fca-8d5a-5aafcb28b2e3" ancestor="basicrelation" source="d3f17f54-4a38-423a-96da-61f7e93b9d4b" target="0ebb7726-b098-4d23-8c03-7fb8cfe214c9">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="SmallEndArrowDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
     </folder>
     <folder name="Security Environment" id="9631ba2a">
+      <documentation>This is the standard Common Criteria Security Environment and Objectives, amended with what is needed for an attack tree.
+</documentation>
       <element xsi:type="zenta:BasicObject" name="Assumption" id="fe465fff" ancestor="238bb246">
         <property key="fillColor" value="#144c03"/>
         <property key="elementShape" value="ellipseShape"/>
@@ -182,23 +128,6 @@
         <property key="fontColor"/>
         <property key="font"/>
       </element>
-      <element xsi:type="zenta:BasicRelationship" name="can be conducted as/is a way of" id="9c5ce650" ancestor="basicrelation" source="4b73634f" target="cc6698c3">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="SmallEndArrowDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="defines" id="35f04eeb" ancestor="basicrelation" source="4e990e8d" target="f362356f">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="BigArrowTargetDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-        <property key="minOccurs" value="1/1"/>
-      </element>
       <element xsi:type="zenta:BasicObject" name="Environment Element" id="238bb246" ancestor="basicobject">
         <property key="fillColor" value="#1e90ff"/>
         <property key="elementShape" value="ellipseShape"/>
@@ -219,48 +148,6 @@
         <property key="elementShape" value="emptyShape"/>
         <property key="textAlignment" value="2"/>
         <property key="fontColor"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="fulfills" id="25052f22" ancestor="basicrelation" source="objectiveID" target="da7d7941">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="SmallEndArrowDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="Influences" id="0f27eeaa" ancestor="basicrelation" source="238bb246" target="objectiveID">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="SmallEndArrowDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-        <property key="minOccurs" value="/1"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="is composed of/is a step of" id="c28de966" ancestor="basicrelation" source="4b73634f" target="b04f4b04">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="SmallEndArrowDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="is materialized as/materializes" id="a2bc5474" ancestor="basicrelation" source="32181c01" target="4b73634f">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="SmallEndArrowDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-        <property key="minOccurs" value="2/-1"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="is mitigated by/mitigates" id="320e48d5" ancestor="basicrelation" source="4b73634f" target="da7d7941">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="DottedLineDecoration SmallEndArrowDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
         <property key="font"/>
       </element>
       <element xsi:type="zenta:BasicObject" name="Objective" id="objectiveID" ancestor="basicobject">
@@ -478,83 +365,11 @@
         <property key="fontColor"/>
         <property key="font"/>
       </element>
-      <element xsi:type="zenta:BasicRelationship" name="realizes" id="fabac1e6" ancestor="basicrelation" source="2afbef68" target="c8d7de52">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="DiamondTargetDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="defines" id="5fa9eaf1" ancestor="basicrelation" source="75ec6c2f" target="2afbef68">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="supports" id="0713000d" ancestor="basicrelation" source="a63380eb" target="2afbef68">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="uses" id="cf0483aa" ancestor="basicrelation" source="35011218" target="2afbef68">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="contains" id="6854e1c6" ancestor="basicrelation" source="a63380eb" target="a63380eb">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="DiamondSourceDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="uses" id="fc35e98f" ancestor="basicrelation" source="a63380eb" target="863fd22c">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="SmallEndArrowDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="composed of/composes" id="4de9c1b9" ancestor="basicrelation" source="a63380eb" target="863fd22c">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="DiamondSourceDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
       <element xsi:type="zenta:BasicObject" name="Operation" id="e90bf406-9842-4801-a9b2-f73b4c44b45d" ancestor="basicobject">
         <property key="fillColor" value="#8ae234"/>
         <property key="elementShape" value="ellipseShape"/>
         <property key="textAlignment" value="2"/>
         <property key="fontColor"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="uses" id="47298669-ab49-4b80-9077-ece3d2663567" ancestor="basicrelation" source="e90bf406-9842-4801-a9b2-f73b4c44b45d" target="863fd22c">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="contains" id="f59c1337-5d67-46a8-a7cf-d3fce0f2b468" ancestor="basicrelation" source="c8d7de52" target="e90bf406-9842-4801-a9b2-f73b4c44b45d">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="DiamondSourceDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
         <property key="font"/>
       </element>
       <element xsi:type="zenta:BasicObject" name="Object" id="99eee886-6771-49ff-9419-0728aefda14f" ancestor="basicobject">
@@ -564,83 +379,11 @@
         <property key="fontColor"/>
         <property key="font"/>
       </element>
-      <element xsi:type="zenta:BasicRelationship" name="owns" id="fc20932b-9610-4aa4-bde2-b97cfdff061c" ancestor="basicrelation" source="a63380eb" target="99eee886-6771-49ff-9419-0728aefda14f">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="3"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="reads" id="caa48ae1-744c-474e-91ba-27bf1dbf52dd" ancestor="basicrelation" source="a63380eb" target="99eee886-6771-49ff-9419-0728aefda14f">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="SmallStartArrowDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="relates to/is related to" id="585312c2-7173-42c0-9e58-922391b35cc7" ancestor="basicrelation" source="99eee886-6771-49ff-9419-0728aefda14f" target="99eee886-6771-49ff-9419-0728aefda14f">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="uses" id="ba569cab-1780-4cd0-812b-ae0a49c57d0e" ancestor="basicrelation" source="863fd22c" target="863fd22c">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="SmallEndArrowDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
       <element xsi:type="zenta:BasicObject" name="testcase" id="0a4ded23-e064-4485-9d8e-3423ba8a836c" ancestor="basicobject">
         <property key="fillColor" value="#73d216"/>
         <property key="elementShape" value="serviceShape"/>
         <property key="textAlignment" value="2"/>
         <property key="fontColor"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="tests" id="2875fcb1-8abe-4aa1-aaac-780cd7f843a1" ancestor="basicrelation" source="0a4ded23-e064-4485-9d8e-3423ba8a836c" target="e90bf406-9842-4801-a9b2-f73b4c44b45d">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="tests" id="23064c36-37b1-48bd-9d7c-d92ff57a1472" ancestor="basicrelation" source="0a4ded23-e064-4485-9d8e-3423ba8a836c" target="863fd22c">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="uses" id="3b9e6dcd-9d6d-4cf1-9624-798c0f71371a" ancestor="basicrelation" source="863fd22c" target="dd405fd8">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="SmallEndArrowDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="manipulates" id="467d72ed-0120-41fc-b6ba-c37893e10874" ancestor="basicrelation" source="e90bf406-9842-4801-a9b2-f73b4c44b45d" target="99eee886-6771-49ff-9419-0728aefda14f">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="DottedLineDecoration SmallEndArrowDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="conducts" id="9ac9367d-819f-4aaa-9142-ce5418dbc409" ancestor="basicrelation" source="35011218" target="e90bf406-9842-4801-a9b2-f73b4c44b45d">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
         <property key="font"/>
       </element>
     </folder>
@@ -725,27 +468,11 @@
         <property key="fontColor" value="#ffffff"/>
         <property key="font"/>
       </element>
-      <element xsi:type="zenta:BasicRelationship" name="proves/is proven by" id="ca63c862-3042-4808-b1f8-0d976382c91b" ancestor="basicrelation" source="964c049e-5b20-43c5-99c1-e9ff0af4a74b" target="0ebb7726-b098-4d23-8c03-7fb8cfe214c9">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value="SmallEndArrowDecoration DottedLineDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
       <element xsi:type="zenta:BasicObject" name="Recovery operation" id="acbf60db-66e5-46be-9a8f-e3b2de8c28f2" ancestor="e90bf406-9842-4801-a9b2-f73b4c44b45d">
         <property key="fillColor" value="#ff8f8f"/>
         <property key="elementShape" value="ellipseShape"/>
         <property key="textAlignment" value="2"/>
         <property key="fontColor"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="recovers" id="ae827c22-0c52-4036-b888-c7671283ab4b" ancestor="basicrelation" source="acbf60db-66e5-46be-9a8f-e3b2de8c28f2" target="964c049e-5b20-43c5-99c1-e9ff0af4a74b">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
         <property key="font"/>
       </element>
       <element xsi:type="zenta:BasicObject" name="Assuring identity" id="460ad408-4569-4c3b-b874-02d3b0aedd58" ancestor="35011218">
@@ -755,28 +482,29 @@
         <property key="fontColor"/>
         <property key="font"/>
       </element>
-      <element xsi:type="zenta:BasicRelationship" name="assures" id="7144c8d3-40c9-4512-9dd9-02bc6871488f" ancestor="basicrelation" source="460ad408-4569-4c3b-b874-02d3b0aedd58" target="5d47812b-90b0-490c-b4e4-1076bd0cd8a0">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
-      <element xsi:type="zenta:BasicRelationship" name="proves/is proven by" id="dd2f92fe-a724-48ab-bcfa-36ae2b4a82d2" ancestor="basicrelation" source="0ebb7726-b098-4d23-8c03-7fb8cfe214c9" target="99eee886-6771-49ff-9419-0728aefda14f">
-        <property key="textPosition" value="1"/>
-        <property key="lineDecoration" value=" DottedLineDecoration SmallEndArrowDecoration"/>
-        <property key="lineColor"/>
-        <property key="fontColor"/>
-        <property key="lineWidth" value="1"/>
-        <property key="font"/>
-      </element>
     </folder>
-    <element xsi:type="zenta:BasicObject" name="Basic Object" id="basicobject"/>
-    <element xsi:type="zenta:BasicRelationship" name="Basic Relation" id="basicrelation" source="basicobject" target="basicobject">
-      <property key="minOccurs" value="-1/-1"/>
-      <property key="maxOccurs" value="-1/-1"/>
-    </element>
+    <documentation>A metamodel is the same to an architecture model as the legend is to a map: It defines  what an element actually means, and what kind of relations are possible between elements.
+The metamodel is possibly the hardest to understand part of the model.
+The good news is that you need it only if you are lost with the meaning of the normal architecture diagrams, and that an architecture diagram should be well organised, such that everyone understands its meaning.
+The bad news is that I am doing sloppy modeling: the information is there, but sometimes it is not nicely organized, and there are just too many of it. Feel free to open issues in the edemo/adadocs github repository if you find anything unintelligible.
+
+Please note that elements in the metamodel denote classes of things in the &quot;plain&quot; model.
+Therefore there are often more relations between two elements, and the relations are sometimes labeled in funny ways.
+The part before the &quot;/&quot; is used in descriptions when the relation points forward, and the part after it used in the backward case.
+If there is no &quot;/&quot;, then a simple algorithm tries to come up with a suitable sentence.
+For example there is &quot;Application component&quot; and &quot;Application interface&quot;, ad there are two relations from the forst to the second: &quot;composed of/composes&quot; and &quot;uses&quot;. This means that:
+
+- Application component uses Application interface,
+- Application component composed of Application interface(s),
+- Application interface is used by Application component, and
+- Application interface composes Application component(s)
+
+If you look at the html page of the model, you can actually find the above sentences in the description of the elements (click on the element on the image).
+
+The classes of things can themselves be instances of some other classes of things. A User is an Actor, An Assurer is a User, and so on.
+The root of the class hierarchy (which is traditionally called Thing) is called Basic Object in the model.
+In the html version you can see the description of elements to figure out what they are. in the Zenta modeler, you can use the &quot;Hints&quot; window.
+</documentation>
   </folder>
   <folder name="2. Security Environment" id="e2e64608">
     <element xsi:type="zenta:ZentaDiagramModel" name="Security Environment" id="505a29f2">
@@ -839,16 +567,13 @@
       <documentation>UI is easy to use without previous training.
 </documentation>
     </element>
-    <element xsi:type="zenta:BasicRelationship" id="e4257f27" ancestor="35f04eeb" source="6395d5ce" target="a4e3fe24"/>
     <element xsi:type="zenta:BasicObject" name="Streamlined" id="d6bf51d0" ancestor="f362356f">
       <documentation>Simple procedures without unnecessary steps</documentation>
     </element>
-    <element xsi:type="zenta:BasicRelationship" id="66dc5806" ancestor="35f04eeb" source="6395d5ce" target="d6bf51d0"/>
     <element xsi:type="zenta:BasicObject" name="Anonymous" id="154474db" ancestor="f362356f">
       <documentation>Personal data of users are not shown or gathered.
 </documentation>
     </element>
-    <element xsi:type="zenta:BasicRelationship" id="5d868a03" ancestor="35f04eeb" source="6395d5ce" target="154474db"/>
     <element xsi:type="zenta:BasicObject" name="The data which can lead to the real person is stored encrypted in the database." id="obj2" ancestor="objectiveID">
       <documentation>This includes:
 - hash
@@ -859,12 +584,10 @@
     <element xsi:type="zenta:BasicObject" name="Assure eligibility" id="df567ba2" ancestor="f362356f">
       <documentation>There is a subset of the user base which contains only existing, different individuals</documentation>
     </element>
-    <element xsi:type="zenta:BasicRelationship" id="174a972b" ancestor="35f04eeb" source="674bd734" target="df567ba2"/>
     <element xsi:type="zenta:BasicObject" name="Ideology neutral" id="2531fed2" ancestor="f362356f">
       <documentation>Everyone is welcome to use the services, both NGOs and individuals.
 No discrimination based on world view, ethnicity, gender or anything else.</documentation>
     </element>
-    <element xsi:type="zenta:BasicRelationship" id="eaeeca4b" ancestor="35f04eeb" source="5b7f4355" target="2531fed2"/>
     <element xsi:type="zenta:BasicObject" name="Information leak" id="3e669cc9" ancestor="32181c01">
       <documentation>A state actor or other threat agent may try to use the IT system to obtain personal information about its users.</documentation>
     </element>
@@ -872,13 +595,10 @@ No discrimination based on world view, ethnicity, gender or anything else.</docu
       <documentation>A group of malicious actors may try to add fake users to the system, or control users belonging to other people.
 </documentation>
     </element>
-    <element xsi:type="zenta:BasicRelationship" id="339e32b8" ancestor="35f04eeb" source="674bd734" target="154474db"/>
     <element xsi:type="zenta:BasicObject" name="No personal information is handled" id="139edaa0" ancestor="c98fab8f">
       <documentation>Only those personal data are kept which are absolutely necessary for functionality (email, hash).
 We store only the one-way hash of personal identifiers</documentation>
     </element>
-    <element xsi:type="zenta:BasicRelationship" id="c4f9fcc2" ancestor="0f27eeaa" source="154474db" target="139edaa0"/>
-    <element xsi:type="zenta:BasicRelationship" id="e997997e" ancestor="0f27eeaa" source="3e669cc9" target="139edaa0"/>
   </folder>
   <folder name="3. Attack tree" id="f56ebd57">
     <element xsi:type="zenta:ZentaDiagramModel" name="Attack tree: information leak" id="17dbe6fa" connectionRouterType="1">
@@ -1013,63 +733,27 @@ We store only the one-way hash of personal identifiers</documentation>
     <element xsi:type="zenta:BasicObject" name="Obtain personal information from other sources, and use that to assume identity" id="51da3551" ancestor="cc6698c3"/>
     <element xsi:type="zenta:BasicObject" name="Obtain login credentials of user" id="c7f90061" ancestor="cc6698c3"/>
     <element xsi:type="zenta:BasicObject" name="Obtain oauth2 tokens from ADA database" id="db3711b2" ancestor="cc6698c3"/>
-    <element xsi:type="zenta:BasicRelationship" id="e11239e1" ancestor="a2bc5474" source="3e669cc9" target="c5ee8ee2"/>
-    <element xsi:type="zenta:BasicRelationship" id="faf94e55" ancestor="a2bc5474" source="3e669cc9" target="28bd12d4"/>
-    <element xsi:type="zenta:BasicRelationship" id="73934e39" ancestor="a2bc5474" source="3e669cc9" target="9f97c625"/>
-    <element xsi:type="zenta:BasicRelationship" id="65d2bf56" ancestor="a2bc5474" source="3e669cc9" target="9ff149e6"/>
-    <element xsi:type="zenta:BasicRelationship" id="102c532e" ancestor="9c5ce650" source="c5ee8ee2" target="51da3551"/>
-    <element xsi:type="zenta:BasicRelationship" id="5d05cdd2" ancestor="9c5ce650" source="c5ee8ee2" target="c7f90061"/>
-    <element xsi:type="zenta:BasicRelationship" id="95d34564" ancestor="9c5ce650" source="c5ee8ee2" target="db3711b2"/>
     <element xsi:type="zenta:BasicObject" name="Break ADA database" id="859a0083" ancestor="b04f4b04"/>
     <element xsi:type="zenta:BasicObject" name="Use the token in service provider" id="bc8ccfe1" ancestor="b04f4b04"/>
-    <element xsi:type="zenta:BasicRelationship" id="0c9ad65f" ancestor="c28de966" source="db3711b2" target="859a0083"/>
-    <element xsi:type="zenta:BasicRelationship" id="8f0c0ed3" ancestor="c28de966" source="db3711b2" target="bc8ccfe1"/>
     <element xsi:type="zenta:BasicObject" name="using social engineering" id="32efa36f" ancestor="cc6698c3"/>
-    <element xsi:type="zenta:BasicRelationship" id="cd0d6fe0" ancestor="9c5ce650" source="c7f90061" target="32efa36f"/>
     <element xsi:type="zenta:BasicObject" name="using technical means" id="a05e523f" ancestor="cc6698c3"/>
-    <element xsi:type="zenta:BasicRelationship" id="7630fe37" ancestor="9c5ce650" source="c7f90061" target="a05e523f"/>
-    <element xsi:type="zenta:BasicRelationship" id="3b25b63d" ancestor="c28de966" source="a05e523f" target="859a0083"/>
     <element xsi:type="zenta:BasicObject" name="decrypt credential info" id="d60d50bd" ancestor="b04f4b04"/>
-    <element xsi:type="zenta:BasicRelationship" id="a4b67ec7" ancestor="c28de966" source="a05e523f" target="d60d50bd"/>
     <element xsi:type="zenta:BasicObject" name="Using privileges within ADA" id="d06e367f" ancestor="cc6698c3"/>
     <element xsi:type="zenta:BasicObject" name="Using the backend interface" id="1d34411c" ancestor="cc6698c3"/>
     <element xsi:type="zenta:BasicObject" name="Attacking the browser of a user" id="4515193b" ancestor="cc6698c3"/>
     <element xsi:type="zenta:BasicObject" name="Attacking the database engine" id="47995aa8" ancestor="cc6698c3"/>
     <element xsi:type="zenta:BasicObject" name="Attacing the operating system under the server or the database engine" id="34aea6a6" ancestor="cc6698c3"/>
-    <element xsi:type="zenta:BasicRelationship" id="01d36b2c" ancestor="9c5ce650" source="859a0083" target="1d34411c"/>
-    <element xsi:type="zenta:BasicRelationship" id="763dc6df" ancestor="9c5ce650" source="859a0083" target="4515193b"/>
-    <element xsi:type="zenta:BasicRelationship" id="7c999c04" ancestor="9c5ce650" source="859a0083" target="47995aa8"/>
-    <element xsi:type="zenta:BasicRelationship" id="f2d57ad2" ancestor="9c5ce650" source="859a0083" target="34aea6a6"/>
-    <element xsi:type="zenta:BasicRelationship" id="43e3e94e" ancestor="9c5ce650" source="859a0083" target="d06e367f"/>
-    <element xsi:type="zenta:BasicRelationship" id="97302094" ancestor="c28de966" source="28bd12d4" target="859a0083"/>
     <element xsi:type="zenta:BasicObject" name="Connect information in ada with an IRL person" id="a567f0e2" ancestor="b04f4b04"/>
-    <element xsi:type="zenta:BasicRelationship" id="94db1e4e" ancestor="c28de966" source="28bd12d4" target="a567f0e2"/>
     <element xsi:type="zenta:BasicObject" name="Connect hash with irl person" id="1b3a797d" ancestor="cc6698c3"/>
     <element xsi:type="zenta:BasicObject" name="Connect email with irl person" id="c54d777c" ancestor="cc6698c3"/>
-    <element xsi:type="zenta:BasicRelationship" id="1decac7d" ancestor="9c5ce650" source="a567f0e2" target="1b3a797d"/>
-    <element xsi:type="zenta:BasicRelationship" id="367f2b87" ancestor="9c5ce650" source="a567f0e2" target="c54d777c"/>
     <element xsi:type="zenta:BasicObject" name="from database" id="57463031" ancestor="cc6698c3"/>
     <element xsi:type="zenta:BasicObject" name="From logs" id="9b14f04b" ancestor="cc6698c3"/>
-    <element xsi:type="zenta:BasicRelationship" id="4720506d" ancestor="c28de966" source="57463031" target="859a0083"/>
-    <element xsi:type="zenta:BasicRelationship" id="92a1737a" ancestor="9c5ce650" source="9b14f04b" target="34aea6a6"/>
     <element xsi:type="zenta:BasicObject" name="Obtain usage pattern" id="133933d1" ancestor="b04f4b04"/>
     <element xsi:type="zenta:BasicObject" name="convince user that the information is intimidating" id="9072452a" ancestor="b04f4b04"/>
-    <element xsi:type="zenta:BasicRelationship" id="6507aa4e" ancestor="c28de966" source="9f97c625" target="133933d1"/>
-    <element xsi:type="zenta:BasicRelationship" id="350385de" ancestor="c28de966" source="9f97c625" target="a567f0e2"/>
-    <element xsi:type="zenta:BasicRelationship" id="832956a5" ancestor="c28de966" source="9f97c625" target="9072452a"/>
-    <element xsi:type="zenta:BasicRelationship" id="786493f7" ancestor="9c5ce650" source="133933d1" target="57463031"/>
-    <element xsi:type="zenta:BasicRelationship" id="7b55cadb" ancestor="9c5ce650" source="133933d1" target="9b14f04b"/>
     <element xsi:type="zenta:BasicObject" name="break/abuse the service" id="223a1eeb" ancestor="b04f4b04"/>
     <element xsi:type="zenta:BasicObject" name="connect service user with IRL user" id="8756f393" ancestor="b04f4b04"/>
     <element xsi:type="zenta:BasicObject" name="Using information in ADA" id="4f77cef7" ancestor="cc6698c3"/>
     <element xsi:type="zenta:BasicObject" name="Using information in the service" id="856cb0dd" ancestor="cc6698c3"/>
-    <element xsi:type="zenta:BasicRelationship" id="fff73ee2" ancestor="c28de966" source="9ff149e6" target="223a1eeb"/>
-    <element xsi:type="zenta:BasicRelationship" id="5ad722ab" ancestor="c28de966" source="9ff149e6" target="8756f393"/>
-    <element xsi:type="zenta:BasicRelationship" id="6f4480a5" ancestor="c28de966" source="9ff149e6" target="9072452a"/>
-    <element xsi:type="zenta:BasicRelationship" id="369f63ea" ancestor="9c5ce650" source="8756f393" target="4f77cef7"/>
-    <element xsi:type="zenta:BasicRelationship" id="d7528923" ancestor="9c5ce650" source="8756f393" target="856cb0dd"/>
-    <element xsi:type="zenta:BasicRelationship" id="8b554f48" ancestor="c28de966" source="4f77cef7" target="859a0083"/>
-    <element xsi:type="zenta:BasicRelationship" id="472b5922" ancestor="c28de966" source="4f77cef7" target="a567f0e2"/>
     <element xsi:type="zenta:ZentaDiagramModel" name="Attack tree: fake users" id="19f710ff">
       <child xsi:type="zenta:DiagramObject" id="3c95a880" zentaElement="3c001770">
         <bounds x="299" y="54" width="-1" height="-1"/>
@@ -1100,13 +784,7 @@ We store only the one-way hash of personal identifiers</documentation>
     <element xsi:type="zenta:BasicObject" name="Get assurance for the fake user" id="b53ce848" ancestor="b04f4b04"/>
     <element xsi:type="zenta:BasicObject" name="With the hash of a real person" id="4ec766b1" ancestor="cc6698c3"/>
     <element xsi:type="zenta:BasicObject" name="With a fake hash" id="58764d96" ancestor="cc6698c3"/>
-    <element xsi:type="zenta:BasicRelationship" id="5b5c266b" ancestor="a2bc5474" source="3c001770" target="4ec766b1"/>
-    <element xsi:type="zenta:BasicRelationship" id="a3b1cdbd" ancestor="a2bc5474" source="3c001770" target="58764d96"/>
-    <element xsi:type="zenta:BasicRelationship" id="8d36058d" ancestor="c28de966" source="4ec766b1" target="a76ab32b"/>
-    <element xsi:type="zenta:BasicRelationship" id="e6cc77eb" ancestor="c28de966" source="58764d96" target="a76ab32b"/>
-    <element xsi:type="zenta:BasicRelationship" id="00ce37d6" ancestor="c28de966" source="58764d96" target="b53ce848"/>
     <element xsi:type="zenta:BasicObject" name="Get assurance in the name of the person" id="a0a16149" ancestor="b04f4b04"/>
-    <element xsi:type="zenta:BasicRelationship" id="7c931aa2" ancestor="c28de966" source="4ec766b1" target="a0a16149"/>
   </folder>
   <folder name="1. Overview" id="da7816c5">
     <folder name="Trust model" id="9fa9958c-d9b3-45b8-9cf4-8f876cf2fcb2">
@@ -1120,31 +798,6 @@ We store only the one-way hash of personal identifiers</documentation>
         <element xsi:type="zenta:BasicObject" name="ADA user" id="4b133f6c-ab4a-4671-bbe0-0b8f64410dff" ancestor="0594211f"/>
         <element xsi:type="zenta:BasicObject" name="Application user" id="3a6f1a06-ac9c-4ba4-b455-fc2d92cf38f6" ancestor="0594211f"/>
         <element xsi:type="zenta:BasicObject" name="Assurer interface" id="070234df-8d60-4cf0-83b3-9260a3c60683" ancestor="863fd22c"/>
-        <element xsi:type="zenta:BasicRelationship" id="5777ca75-7162-4ebf-9b74-5484911a6ebe" ancestor="d1bed889-916e-4b76-85c0-4493a0bc865d" source="b326b9e9-14dc-43a8-b238-673d2bff77c4" target="9ac1d31f-e9f6-4454-b840-cec86a7bf4d7"/>
-        <element xsi:type="zenta:BasicRelationship" id="907553da-f57c-479b-9d35-511fb336a208" ancestor="f558f236-6adf-4f56-a806-69ada8fdd543" source="9ac1d31f-e9f6-4454-b840-cec86a7bf4d7" target="4b133f6c-ab4a-4671-bbe0-0b8f64410dff"/>
-        <element xsi:type="zenta:BasicRelationship" id="4e74e715-b9ef-41fc-9e72-e33e5d3206a4" ancestor="d1bed889-916e-4b76-85c0-4493a0bc865d" source="4b133f6c-ab4a-4671-bbe0-0b8f64410dff" target="a0eab1f0-1901-4dae-bc29-0279d2c2a894"/>
-        <element xsi:type="zenta:BasicRelationship" id="c8979085-8e68-4e1d-92ca-9169f0b5391c" ancestor="f558f236-6adf-4f56-a806-69ada8fdd543" source="a0eab1f0-1901-4dae-bc29-0279d2c2a894" target="3a6f1a06-ac9c-4ba4-b455-fc2d92cf38f6"/>
-        <element xsi:type="zenta:BasicRelationship" id="5720fab5-27d8-4b08-a136-f764840fd499" ancestor="d1bed889-916e-4b76-85c0-4493a0bc865d" source="3a6f1a06-ac9c-4ba4-b455-fc2d92cf38f6" target="0d67fb09-9413-49a7-9cb5-4c97e8afbb8f"/>
-        <element xsi:type="zenta:BasicRelationship" id="fee9707a-4cf7-416f-a4a1-f60f28f27f79" ancestor="47fa0bc7-518f-426d-9092-e32a06265201" source="167a7e25-0bf0-44c0-aa07-d91f37f358bf" target="b326b9e9-14dc-43a8-b238-673d2bff77c4"/>
-        <element xsi:type="zenta:BasicRelationship" id="85827f51-5472-46fb-88a0-caa3e71487c1" ancestor="93067b26-ef91-4752-8c19-3bc9ba7baf45" source="167a7e25-0bf0-44c0-aa07-d91f37f358bf" target="a0eab1f0-1901-4dae-bc29-0279d2c2a894"/>
-        <element xsi:type="zenta:BasicRelationship" id="7ccae825-1fa8-435f-a821-288e0638a8da" ancestor="47fa0bc7-518f-426d-9092-e32a06265201" source="7d3e3279-36b0-4235-8880-388dfea68dd5" target="4b133f6c-ab4a-4671-bbe0-0b8f64410dff"/>
-        <element xsi:type="zenta:BasicRelationship" id="eeab87be-3054-475c-98aa-ca12925e80dc" ancestor="93067b26-ef91-4752-8c19-3bc9ba7baf45" source="7d3e3279-36b0-4235-8880-388dfea68dd5" target="0d67fb09-9413-49a7-9cb5-4c97e8afbb8f"/>
-        <element xsi:type="zenta:BasicRelationship" id="8f8a15fd-545a-4605-852d-7353e253f35a" ancestor="977c2e70-0664-4a83-b16c-a71d13ddfb74" source="9ac1d31f-e9f6-4454-b840-cec86a7bf4d7" target="167a7e25-0bf0-44c0-aa07-d91f37f358bf"/>
-        <element xsi:type="zenta:BasicRelationship" id="c8de9c70-84ce-4880-a4e9-52c0ad02c587" ancestor="fc20932b-9610-4aa4-bde2-b97cfdff061c" source="ac1198fd" target="f761f870-4675-45a1-9e41-fd257e978643"/>
-        <element xsi:type="zenta:BasicRelationship" id="728100e8-029a-4ce2-89a4-8c0837e04c3f" ancestor="005fc38f-9fe3-4678-b5d2-b61acffa4785" source="f761f870-4675-45a1-9e41-fd257e978643" target="9ac1d31f-e9f6-4454-b840-cec86a7bf4d7"/>
-        <element xsi:type="zenta:BasicRelationship" id="fa7d0a9b-3e73-44f8-b474-82a3fb22b188" ancestor="fc20932b-9610-4aa4-bde2-b97cfdff061c" source="ac1198fd" target="99b1488f-f185-4285-88a5-635f6032b0c6"/>
-        <element xsi:type="zenta:BasicRelationship" id="7e9ace5a-4811-4174-9581-21fd4d102c37" ancestor="005fc38f-9fe3-4678-b5d2-b61acffa4785" source="99b1488f-f185-4285-88a5-635f6032b0c6" target="a0eab1f0-1901-4dae-bc29-0279d2c2a894"/>
-        <element xsi:type="zenta:BasicRelationship" id="0316040d-6db3-4a17-84c9-1b1c10002e0b" ancestor="ffc5fbee-7ac5-4fca-8d5a-5aafcb28b2e3" source="99b1488f-f185-4285-88a5-635f6032b0c6" target="0d67fb09-9413-49a7-9cb5-4c97e8afbb8f"/>
-        <element xsi:type="zenta:BasicRelationship" id="75e70e77-8784-40fd-aabc-3f9e6ca22a36" ancestor="ffc5fbee-7ac5-4fca-8d5a-5aafcb28b2e3" source="f761f870-4675-45a1-9e41-fd257e978643" target="a0eab1f0-1901-4dae-bc29-0279d2c2a894"/>
-        <element xsi:type="zenta:BasicRelationship" id="01350655-79e9-438d-8e16-72b0e0d8d268" ancestor="d1bed889-916e-4b76-85c0-4493a0bc865d" source="4b133f6c-ab4a-4671-bbe0-0b8f64410dff" target="277d401b-772c-4c1b-a9ad-17f8bea76060"/>
-        <element xsi:type="zenta:BasicRelationship" id="793c0791-4fbf-4f48-9f7c-57f6db6d8e8f" ancestor="977c2e70-0664-4a83-b16c-a71d13ddfb74" source="277d401b-772c-4c1b-a9ad-17f8bea76060" target="7d3e3279-36b0-4235-8880-388dfea68dd5"/>
-        <element xsi:type="zenta:BasicRelationship" id="4678ba9e-76ba-43ed-b747-de5620557a49" ancestor="fc20932b-9610-4aa4-bde2-b97cfdff061c" source="ac1198fd" target="6b526d26-f7cb-45dc-8620-f0f8547e1908"/>
-        <element xsi:type="zenta:BasicRelationship" id="0c5d1d09-845a-42c4-b8c0-9aa171459344" ancestor="005fc38f-9fe3-4678-b5d2-b61acffa4785" source="6b526d26-f7cb-45dc-8620-f0f8547e1908" target="277d401b-772c-4c1b-a9ad-17f8bea76060"/>
-        <element xsi:type="zenta:BasicRelationship" id="7e7d2758-110b-4f0d-adc7-218c6013c08a" ancestor="ffc5fbee-7ac5-4fca-8d5a-5aafcb28b2e3" source="6b526d26-f7cb-45dc-8620-f0f8547e1908" target="a0eab1f0-1901-4dae-bc29-0279d2c2a894"/>
-        <element xsi:type="zenta:BasicRelationship" id="7d9bacf3-9e94-4430-9ac7-302a1013a6ab" ancestor="4de9c1b9" source="ac1198fd" target="070234df-8d60-4cf0-83b3-9260a3c60683"/>
-        <element xsi:type="zenta:BasicRelationship" id="2a049883-6f72-47bd-87b7-5551afa87266" ancestor="47298669-ab49-4b80-9077-ece3d2663567" source="167a7e25-0bf0-44c0-aa07-d91f37f358bf" target="070234df-8d60-4cf0-83b3-9260a3c60683"/>
-        <element xsi:type="zenta:BasicRelationship" id="0d261942-27c0-44cc-95d1-610a734f7f39" ancestor="4de9c1b9" source="ac1198fd" target="42e57944-259a-422b-9962-7d3e904ec44b"/>
-        <element xsi:type="zenta:BasicRelationship" id="c45bfcba-c9bd-40e2-9415-9af19686f02e" ancestor="47298669-ab49-4b80-9077-ece3d2663567" source="7d3e3279-36b0-4235-8880-388dfea68dd5" target="42e57944-259a-422b-9962-7d3e904ec44b"/>
         <element xsi:type="zenta:BasicObject" name="IRL Person" id="b326b9e9-14dc-43a8-b238-673d2bff77c4" ancestor="35011218"/>
         <element xsi:type="zenta:BasicObject" name="login credential" id="277d401b-772c-4c1b-a9ad-17f8bea76060" ancestor="0ebb7726-b098-4d23-8c03-7fb8cfe214c9"/>
         <element xsi:type="zenta:BasicObject" name="login credential/ADA id association" id="6b526d26-f7cb-45dc-8620-f0f8547e1908" ancestor="d3f17f54-4a38-423a-96da-61f7e93b9d4b"/>
@@ -1245,19 +898,11 @@ We store only the one-way hash of personal identifiers</documentation>
         </element>
         <element xsi:type="zenta:BasicObject" name="Data on physical identity card" id="dc3a3db4-adde-4096-a6cc-b7426c77748a" ancestor="964c049e-5b20-43c5-99c1-e9ff0af4a74b"/>
         <element xsi:type="zenta:BasicObject" name="password or facebook login" id="3239662f-578a-41b5-bb8b-af22eae7e2e3" ancestor="964c049e-5b20-43c5-99c1-e9ff0af4a74b"/>
-        <element xsi:type="zenta:BasicRelationship" id="41c66ca3-9e38-4a63-aa5b-83fa9ea66a9d" ancestor="ca63c862-3042-4808-b1f8-0d976382c91b" source="dc3a3db4-adde-4096-a6cc-b7426c77748a" target="9ac1d31f-e9f6-4454-b840-cec86a7bf4d7"/>
-        <element xsi:type="zenta:BasicRelationship" id="768277b2-0b38-4818-b32f-97b9fc3114b0" ancestor="ca63c862-3042-4808-b1f8-0d976382c91b" source="3239662f-578a-41b5-bb8b-af22eae7e2e3" target="277d401b-772c-4c1b-a9ad-17f8bea76060"/>
         <element xsi:type="zenta:BasicObject" name="email recovery" id="962977d7-7f43-495d-8a48-f130d635698a" ancestor="acbf60db-66e5-46be-9a8f-e3b2de8c28f2"/>
         <element xsi:type="zenta:BasicObject" name="Official procedure" id="f64978d1-550a-486d-aeb5-0d9e448bb87f" ancestor="acbf60db-66e5-46be-9a8f-e3b2de8c28f2"/>
-        <element xsi:type="zenta:BasicRelationship" id="1f4a9f63-95cd-4956-8d31-43d28953cfff" ancestor="ae827c22-0c52-4036-b888-c7671283ab4b" source="f64978d1-550a-486d-aeb5-0d9e448bb87f" target="dc3a3db4-adde-4096-a6cc-b7426c77748a"/>
-        <element xsi:type="zenta:BasicRelationship" id="80ca87ce-60ec-4c46-8504-42a578f0021f" ancestor="ae827c22-0c52-4036-b888-c7671283ab4b" source="962977d7-7f43-495d-8a48-f130d635698a" target="3239662f-578a-41b5-bb8b-af22eae7e2e3"/>
       </folder>
       <folder name="Voting trust model" id="10aae4b5-667b-462d-964e-de0f7a08bee2">
         <element xsi:type="zenta:BasicObject" name="Assign ballot to user" id="d008e453-ae49-4ddb-b348-25e5581fb7d1" ancestor="5d47812b-90b0-490c-b4e4-1076bd0cd8a0"/>
-        <element xsi:type="zenta:BasicRelationship" id="970708b0-5ba3-48e1-b835-20327d696a99" ancestor="d1bed889-916e-4b76-85c0-4493a0bc865d" source="3a6f1a06-ac9c-4ba4-b455-fc2d92cf38f6" target="07712e46-b80c-4680-b72c-cf970b087b7c"/>
-        <element xsi:type="zenta:BasicRelationship" id="3917f02f-61a4-4970-8b27-09999c3927fc" ancestor="47fa0bc7-518f-426d-9092-e32a06265201" source="d008e453-ae49-4ddb-b348-25e5581fb7d1" target="3a6f1a06-ac9c-4ba4-b455-fc2d92cf38f6"/>
-        <element xsi:type="zenta:BasicRelationship" id="ae12efb7-870a-4427-a42a-a3da02d2042e" ancestor="93067b26-ef91-4752-8c19-3bc9ba7baf45" source="d008e453-ae49-4ddb-b348-25e5581fb7d1" target="07712e46-b80c-4680-b72c-cf970b087b7c"/>
-        <element xsi:type="zenta:BasicRelationship" id="0deac5a9-8768-47f6-971a-4b642231b671" ancestor="977c2e70-0664-4a83-b16c-a71d13ddfb74" source="0d67fb09-9413-49a7-9cb5-4c97e8afbb8f" target="d008e453-ae49-4ddb-b348-25e5581fb7d1"/>
         <element xsi:type="zenta:BasicObject" name="Vote ballot" id="07712e46-b80c-4680-b72c-cf970b087b7c" ancestor="0ebb7726-b098-4d23-8c03-7fb8cfe214c9"/>
         <element xsi:type="zenta:BasicObject" name="Secret per/vote voter identity" id="1cc725fc-a755-49a8-9716-0bec4d39a0af" ancestor="0594211f"/>
         <element xsi:type="zenta:ZentaDiagramModel" name="Voting trust model basic flavour" id="c50c0fdc-0cc8-4a08-aec6-4ec251417131" connectionRouterType="1">
@@ -1328,33 +973,23 @@ We store only the one-way hash of personal identifiers</documentation>
             <sourceConnection xsi:type="zenta:Connection" id="e43dabd4-a99e-4e26-a5dd-d9e662275b00" source="71dded38-6bba-48f6-996d-457e64c20cdb" target="321b6cd2-78f0-4509-bd78-c712681c7242" relationship="1b61d69e-2be7-4a1f-b438-0d7fc2d3f477"/>
           </child>
         </element>
-        <element xsi:type="zenta:BasicRelationship" id="1cf798ce-592e-4c18-bd65-814659b8cfed" ancestor="f558f236-6adf-4f56-a806-69ada8fdd543" source="07712e46-b80c-4680-b72c-cf970b087b7c" target="1cc725fc-a755-49a8-9716-0bec4d39a0af"/>
         <element xsi:type="zenta:BasicObject" name="vote cast" id="da53e4f5-8d7b-4c0b-aba5-8f9d6855e868" ancestor="99eee886-6771-49ff-9419-0728aefda14f"/>
         <element xsi:type="zenta:BasicObject" name="Vote tallying" id="87cc8939-bc26-4f14-b446-b8c155326f65" ancestor="e90bf406-9842-4801-a9b2-f73b4c44b45d"/>
-        <element xsi:type="zenta:BasicRelationship" name="reads" id="c424b392-0141-4812-ab53-f197296c882a" ancestor="467d72ed-0120-41fc-b6ba-c37893e10874" source="87cc8939-bc26-4f14-b446-b8c155326f65" target="da53e4f5-8d7b-4c0b-aba5-8f9d6855e868"/>
         <element xsi:type="zenta:BasicObject" name="vote result" id="74529d3b-2ae6-4cf8-bd52-1e895d854418" ancestor="99eee886-6771-49ff-9419-0728aefda14f"/>
-        <element xsi:type="zenta:BasicRelationship" name="creates" id="fdae38dc-7668-4fb4-abca-a6add570d23e" ancestor="467d72ed-0120-41fc-b6ba-c37893e10874" source="87cc8939-bc26-4f14-b446-b8c155326f65" target="74529d3b-2ae6-4cf8-bd52-1e895d854418"/>
         <element xsi:type="zenta:BasicObject" name="record vote" id="cbfb477d-7955-4b5e-8823-df351758554e" ancestor="5d47812b-90b0-490c-b4e4-1076bd0cd8a0"/>
-        <element xsi:type="zenta:BasicRelationship" id="a0bbf33d-449d-4971-8a43-d4b425d45757" ancestor="977c2e70-0664-4a83-b16c-a71d13ddfb74" source="07712e46-b80c-4680-b72c-cf970b087b7c" target="cbfb477d-7955-4b5e-8823-df351758554e"/>
         <element xsi:type="zenta:BasicObject" name="vote receipt" id="1e83eb87-3789-4dda-b86b-b16e445a9ba8" ancestor="0ebb7726-b098-4d23-8c03-7fb8cfe214c9"/>
-        <element xsi:type="zenta:BasicRelationship" id="786dfe6c-1832-4bb1-babe-511c5c2879fd" ancestor="d1bed889-916e-4b76-85c0-4493a0bc865d" source="1cc725fc-a755-49a8-9716-0bec4d39a0af" target="1e83eb87-3789-4dda-b86b-b16e445a9ba8"/>
-        <element xsi:type="zenta:BasicRelationship" id="32970a60-7144-4320-86a4-2a670da264b5" ancestor="93067b26-ef91-4752-8c19-3bc9ba7baf45" source="cbfb477d-7955-4b5e-8823-df351758554e" target="1e83eb87-3789-4dda-b86b-b16e445a9ba8"/>
-        <element xsi:type="zenta:BasicRelationship" id="a9100278-9d5f-40d8-9b4e-5a6addf0108c" ancestor="47fa0bc7-518f-426d-9092-e32a06265201" source="cbfb477d-7955-4b5e-8823-df351758554e" target="1cc725fc-a755-49a8-9716-0bec4d39a0af"/>
-        <element xsi:type="zenta:BasicRelationship" name="records" id="2c6ac4e3-2020-43a6-b024-077bf3ba0734" ancestor="467d72ed-0120-41fc-b6ba-c37893e10874" source="cbfb477d-7955-4b5e-8823-df351758554e" target="da53e4f5-8d7b-4c0b-aba5-8f9d6855e868"/>
-        <element xsi:type="zenta:BasicRelationship" id="fbf674a8-e585-41f9-80f4-0b1e84e1f251" ancestor="dd2f92fe-a724-48ab-bcfa-36ae2b4a82d2" source="1e83eb87-3789-4dda-b86b-b16e445a9ba8" target="da53e4f5-8d7b-4c0b-aba5-8f9d6855e868"/>
         <element xsi:type="zenta:BasicObject" name="proxy id/ballot association" id="0802eae1-5cc5-4b46-8071-cf2c01ad209f" ancestor="d3f17f54-4a38-423a-96da-61f7e93b9d4b"/>
-        <element xsi:type="zenta:BasicRelationship" id="cba47c7f-d798-4a67-af57-4c7f299904a9" ancestor="005fc38f-9fe3-4678-b5d2-b61acffa4785" source="0802eae1-5cc5-4b46-8071-cf2c01ad209f" target="0d67fb09-9413-49a7-9cb5-4c97e8afbb8f"/>
-        <element xsi:type="zenta:BasicRelationship" id="55599eb2-12ea-4868-a2ce-5e4b37d80108" ancestor="ffc5fbee-7ac5-4fca-8d5a-5aafcb28b2e3" source="0802eae1-5cc5-4b46-8071-cf2c01ad209f" target="07712e46-b80c-4680-b72c-cf970b087b7c"/>
         <element xsi:type="zenta:BasicObject" name="Voter registry interface" id="27522041-7059-497a-8b9c-b6c1c7d88f96" ancestor="863fd22c"/>
-        <element xsi:type="zenta:BasicRelationship" id="c525e299-bfae-4aa6-a213-92fe34aaafab" ancestor="47298669-ab49-4b80-9077-ece3d2663567" source="d008e453-ae49-4ddb-b348-25e5581fb7d1" target="27522041-7059-497a-8b9c-b6c1c7d88f96"/>
         <element xsi:type="zenta:BasicObject" name="Voting interface" id="8c787d7e-f890-47b5-b26c-77a23ef86008" ancestor="863fd22c"/>
-        <element xsi:type="zenta:BasicRelationship" id="da2960c9-e1aa-45b1-9ab6-a6f8000ac442" ancestor="47298669-ab49-4b80-9077-ece3d2663567" source="cbfb477d-7955-4b5e-8823-df351758554e" target="8c787d7e-f890-47b5-b26c-77a23ef86008"/>
         <element xsi:type="zenta:BasicObject" name="Vote registry" id="bec6dbc7-148f-4d17-b26a-c449145e516a" ancestor="a63380eb"/>
         <element xsi:type="zenta:BasicObject" name="Voting engine" id="6d85310a-1719-4ddd-8f76-b2469c95dc9b" ancestor="a63380eb"/>
-        <element xsi:type="zenta:BasicRelationship" id="9ca9dbee-7d11-468a-9e48-fbeac37ae595" ancestor="4de9c1b9" source="bec6dbc7-148f-4d17-b26a-c449145e516a" target="27522041-7059-497a-8b9c-b6c1c7d88f96"/>
-        <element xsi:type="zenta:BasicRelationship" id="1b61d69e-2be7-4a1f-b438-0d7fc2d3f477" ancestor="4de9c1b9" source="6d85310a-1719-4ddd-8f76-b2469c95dc9b" target="8c787d7e-f890-47b5-b26c-77a23ef86008"/>
-        <element xsi:type="zenta:BasicRelationship" id="f84ff874-113e-417e-8f0d-378c3d2d9609" ancestor="fc20932b-9610-4aa4-bde2-b97cfdff061c" source="bec6dbc7-148f-4d17-b26a-c449145e516a" target="0802eae1-5cc5-4b46-8071-cf2c01ad209f"/>
       </folder>
+      <documentation>We ensure privacy by decoupling identities, and making sure that it is hard to deduct the original identity from the derived one.
+To ensure that one real is represented only once, we ensure that there is at most one derived identity is associated to the identity for any purpose. This is ensured by stored identity associations.
+
+The strength of the privacy can be examined by looking at how well the identities are decoupled. 
+The vote recorded in the tally is four steps away from the identity of the person.
+</documentation>
       <element xsi:type="zenta:ZentaDiagramModel" name="Trust model overview" id="c3ae5833-b954-4246-95d1-b12910a17742" connectionRouterType="1">
         <child xsi:type="zenta:DiagramObject" id="403b8c7e-5747-4064-a912-62ce629aa315" targetConnections="d6ff55a4-8dd4-4d2f-af36-777034e49bc5" zentaElement="b326b9e9-14dc-43a8-b238-673d2bff77c4">
           <bounds x="444" y="24" width="-1" height="-1"/>
@@ -1612,38 +1247,18 @@ We store only the one-way hash of personal identifiers</documentation>
       <element xsi:type="zenta:BasicObject" name="App" id="398ffd71-78ce-4d32-9653-6e3dae2faba7" ancestor="99eee886-6771-49ff-9419-0728aefda14f"/>
       <element xsi:type="zenta:BasicObject" name="proxy id" id="e8fc9f93-7724-4616-bf26-44053c78d341" ancestor="99eee886-6771-49ff-9419-0728aefda14f"/>
       <element xsi:type="zenta:BasicObject" name="can_email" id="4e723893-6180-4f8d-99f9-a71e44342805" ancestor="99eee886-6771-49ff-9419-0728aefda14f"/>
-      <element xsi:type="zenta:BasicRelationship" id="a8a383fd-9ccb-44a6-94b8-9093e27083ac" ancestor="585312c2-7173-42c0-9e58-922391b35cc7" source="e9a6e818-8ef0-4c6d-91f1-972a5170de69" target="e8fc9f93-7724-4616-bf26-44053c78d341"/>
-      <element xsi:type="zenta:BasicRelationship" id="d9679651-6ee1-45de-9821-fdf1f2522ea6" ancestor="585312c2-7173-42c0-9e58-922391b35cc7" source="e9a6e818-8ef0-4c6d-91f1-972a5170de69" target="4e723893-6180-4f8d-99f9-a71e44342805"/>
-      <element xsi:type="zenta:BasicRelationship" id="3dbc5cdc-4f77-4778-a1f6-a4ca3ade1e3f" ancestor="585312c2-7173-42c0-9e58-922391b35cc7" source="e9a6e818-8ef0-4c6d-91f1-972a5170de69" target="68a135bd-e2bd-4c3c-8cd2-3673182ffa49"/>
-      <element xsi:type="zenta:BasicRelationship" id="0e6956f9-c1ad-4775-8867-dc62e7ffb631" ancestor="585312c2-7173-42c0-9e58-922391b35cc7" source="e9a6e818-8ef0-4c6d-91f1-972a5170de69" target="398ffd71-78ce-4d32-9653-6e3dae2faba7"/>
       <element xsi:type="zenta:BasicObject" name="Show user" id="58534024-ad15-4677-a6ff-2ed6160b5e5d" ancestor="e90bf406-9842-4801-a9b2-f73b4c44b45d"/>
       <element xsi:type="zenta:BasicObject" name="/v1/users/&lt;user>" id="e6a2d4d8-17b5-46c1-b35e-108323572126" ancestor="863fd22c"/>
-      <element xsi:type="zenta:BasicRelationship" id="ba0fdac9-7f19-4ea9-858b-69d51aba0ae3" ancestor="47298669-ab49-4b80-9077-ece3d2663567" source="58534024-ad15-4677-a6ff-2ed6160b5e5d" target="e6a2d4d8-17b5-46c1-b35e-108323572126"/>
       <element xsi:type="zenta:BasicObject" name="Controller" id="67c16aa9-ebdb-43bc-99e3-eb0f16ba0492" ancestor="a63380eb"/>
       <element xsi:type="zenta:BasicObject" name="doShowUser (userid:str)" id="f5aa06ea-2e00-47f8-8745-1535d6743788" ancestor="863fd22c"/>
-      <element xsi:type="zenta:BasicRelationship" id="053f7fd8-ea78-4335-b7da-58bac3345c23" ancestor="4de9c1b9" source="67c16aa9-ebdb-43bc-99e3-eb0f16ba0492" target="f5aa06ea-2e00-47f8-8745-1535d6743788"/>
       <element xsi:type="zenta:BasicObject" name="main" id="3210b126-58bd-4809-83c0-f796cffb4c12" ancestor="a63380eb"/>
-      <element xsi:type="zenta:BasicRelationship" id="7aa07ce2-24e4-49e1-8747-1cc9131e6e6a" ancestor="4de9c1b9" source="3210b126-58bd-4809-83c0-f796cffb4c12" target="e6a2d4d8-17b5-46c1-b35e-108323572126"/>
-      <element xsi:type="zenta:BasicRelationship" id="6a45760b-473b-4180-84df-ac1f08f427eb" ancestor="ba569cab-1780-4cd0-812b-ae0a49c57d0e" source="e6a2d4d8-17b5-46c1-b35e-108323572126" target="f5aa06ea-2e00-47f8-8745-1535d6743788"/>
       <element xsi:type="zenta:BasicObject" name="shownDataForApp (user, authenticator)" id="19bfa9b6-b9b4-4630-ac9f-4021cd1a3c4c" ancestor="863fd22c"/>
-      <element xsi:type="zenta:BasicRelationship" id="0587f52b-0895-4e02-a7a9-3ad01f6bba6e" ancestor="ba569cab-1780-4cd0-812b-ae0a49c57d0e" source="f5aa06ea-2e00-47f8-8745-1535d6743788" target="19bfa9b6-b9b4-4630-ac9f-4021cd1a3c4c"/>
       <element xsi:type="zenta:BasicObject" name="shownDataForUser (user)" id="09cac44f-63e5-4e94-85e5-b8d0481c720d" ancestor="863fd22c"/>
-      <element xsi:type="zenta:BasicRelationship" id="451f0533-35f7-45a0-926a-82653f46079d" ancestor="ba569cab-1780-4cd0-812b-ae0a49c57d0e" source="f5aa06ea-2e00-47f8-8745-1535d6743788" target="09cac44f-63e5-4e94-85e5-b8d0481c720d"/>
       <element xsi:type="zenta:BasicObject" name="shownDataForAssurer (user)" id="13f6680d-a94a-49db-9a6d-469380c98426" ancestor="863fd22c"/>
-      <element xsi:type="zenta:BasicRelationship" id="70561376-a8b4-49ee-bb6b-1abdf3072103" ancestor="ba569cab-1780-4cd0-812b-ae0a49c57d0e" source="f5aa06ea-2e00-47f8-8745-1535d6743788" target="13f6680d-a94a-49db-9a6d-469380c98426"/>
       <element xsi:type="zenta:BasicObject" name="AppMap" id="feab5c4f-b3e4-4a2b-ac8b-ef5d0d981aa0" ancestor="a63380eb"/>
       <element xsi:type="zenta:BasicObject" name="get (app, user)" id="6fd820bc-7724-479a-8658-95dfc49f06b9" ancestor="863fd22c"/>
-      <element xsi:type="zenta:BasicRelationship" id="a5ecc8b8-9331-4b12-9e7f-c2375f8ab9ea" ancestor="4de9c1b9" source="feab5c4f-b3e4-4a2b-ac8b-ef5d0d981aa0" target="6fd820bc-7724-479a-8658-95dfc49f06b9"/>
-      <element xsi:type="zenta:BasicRelationship" id="2835a5d2-a02b-4aff-8c3d-c1fd73f13a33" ancestor="fc20932b-9610-4aa4-bde2-b97cfdff061c" source="feab5c4f-b3e4-4a2b-ac8b-ef5d0d981aa0" target="e9a6e818-8ef0-4c6d-91f1-972a5170de69"/>
       <element xsi:type="zenta:BasicObject" name="constructor" id="bed876b5-5544-4e89-82f6-581ac7461e24" ancestor="863fd22c"/>
-      <element xsi:type="zenta:BasicRelationship" id="7871f7f5-9c29-4076-aae3-f41c653b31bf" ancestor="4de9c1b9" source="feab5c4f-b3e4-4a2b-ac8b-ef5d0d981aa0" target="bed876b5-5544-4e89-82f6-581ac7461e24"/>
-      <element xsi:type="zenta:BasicRelationship" id="67f32e89-8c84-4033-b33c-2e4799024226" ancestor="ba569cab-1780-4cd0-812b-ae0a49c57d0e" source="19bfa9b6-b9b4-4630-ac9f-4021cd1a3c4c" target="6fd820bc-7724-479a-8658-95dfc49f06b9"/>
-      <element xsi:type="zenta:BasicRelationship" id="3e537e64-df47-47d4-b909-f809d36ea08f" ancestor="ba569cab-1780-4cd0-812b-ae0a49c57d0e" source="6fd820bc-7724-479a-8658-95dfc49f06b9" target="bed876b5-5544-4e89-82f6-581ac7461e24"/>
-      <element xsi:type="zenta:BasicRelationship" id="42df27f8-2fae-4881-8044-e4013df0ce8c" ancestor="fc35e98f" source="67c16aa9-ebdb-43bc-99e3-eb0f16ba0492" target="13f6680d-a94a-49db-9a6d-469380c98426"/>
-      <element xsi:type="zenta:BasicRelationship" id="d97005f0-ee24-4527-941f-45c260888a17" ancestor="fc35e98f" source="67c16aa9-ebdb-43bc-99e3-eb0f16ba0492" target="09cac44f-63e5-4e94-85e5-b8d0481c720d"/>
-      <element xsi:type="zenta:BasicRelationship" id="e51d6e6d-8f2b-4996-8c6f-52c4a6aa6e5a" ancestor="fc35e98f" source="67c16aa9-ebdb-43bc-99e3-eb0f16ba0492" target="19bfa9b6-b9b4-4630-ac9f-4021cd1a3c4c"/>
       <element xsi:type="zenta:BasicObject" name="proxy id is not created deterministically" id="201caa2b-eed6-421d-8aaf-dd0b51b8ab0b" ancestor="0a4ded23-e064-4485-9d8e-3423ba8a836c"/>
-      <element xsi:type="zenta:BasicRelationship" id="1d5a737e-e812-49c0-a3ca-ea57b7c5579b" ancestor="23064c36-37b1-48bd-9d7c-d92ff57a1472" source="201caa2b-eed6-421d-8aaf-dd0b51b8ab0b" target="bed876b5-5544-4e89-82f6-581ac7461e24"/>
     </folder>
     <folder name="hash collision" id="b4440d6d-573a-4a3b-9771-e71a9d5453d8">
       <element xsi:type="zenta:ZentaDiagramModel" name="Hash collision" id="a90eb06a-aaaf-47ea-b35a-fe408ac855fe" connectionRouterType="1">
@@ -1697,7 +1312,6 @@ We store only the one-way hash of personal identifiers</documentation>
 
 </documentation>
       </element>
-      <element xsi:type="zenta:BasicRelationship" id="2988cfd5-616a-4378-8f84-a8d9a20c1b21" ancestor="2875fcb1-8abe-4aa1-aaac-780cd7f843a1" source="ad7bf5af-9ce6-4f59-8cdb-19efb35ab8ca" target="51284629-b111-4529-8311-e0776dea2135"/>
       <element xsi:type="zenta:BasicObject" name="cullision with assured hash" id="06146ece-ab38-410a-8de0-7e7f6b675506" ancestor="0a4ded23-e064-4485-9d8e-3423ba8a836c">
         <documentation>Note that this case cannot happen in normal operating conditions.
 - an email is sent to the other (hand-assured) user
@@ -1724,21 +1338,14 @@ We store only the one-way hash of personal identifiers</documentation>
 - no user gets deleted
 </documentation>
       </element>
-      <element xsi:type="zenta:BasicRelationship" id="cb64f43d-1195-44f3-a96e-90435ffa751e" ancestor="2875fcb1-8abe-4aa1-aaac-780cd7f843a1" source="75d2db5b-2a94-4d2c-8ca3-534fb78f5b7d" target="51284629-b111-4529-8311-e0776dea2135"/>
-      <element xsi:type="zenta:BasicRelationship" id="1edd8b7e-0e94-49be-a2fd-cadd413fcbd8" ancestor="2875fcb1-8abe-4aa1-aaac-780cd7f843a1" source="06146ece-ab38-410a-8de0-7e7f6b675506" target="fa0b2b92-62e5-4b59-a45b-23e791776f94"/>
-      <element xsi:type="zenta:BasicRelationship" id="cc4422d6-e9b2-4613-ad69-0f317f543fc5" ancestor="2875fcb1-8abe-4aa1-aaac-780cd7f843a1" source="299c81b8-f180-429a-82e3-192ac7db0a39" target="fa0b2b92-62e5-4b59-a45b-23e791776f94"/>
       <element xsi:type="zenta:BasicObject" name="updateHash" id="ad4d38fe-37dc-4e10-97f7-c1e0e6412eff" ancestor="863fd22c"/>
       <element xsi:type="zenta:BasicObject" name="register" id="bff7b294-d294-4bbe-a2a0-9094e69a228e" ancestor="863fd22c"/>
       <element xsi:type="zenta:BasicObject" name="add_assurance" id="24c3d831-8084-49ae-8ebd-b1a9d1d1bd15" ancestor="863fd22c"/>
-      <element xsi:type="zenta:BasicRelationship" id="f171da55-222a-48a2-b04c-8d92d35405f0" ancestor="47298669-ab49-4b80-9077-ece3d2663567" source="51284629-b111-4529-8311-e0776dea2135" target="ad4d38fe-37dc-4e10-97f7-c1e0e6412eff"/>
-      <element xsi:type="zenta:BasicRelationship" id="c9fee0ca-3968-47fc-86cf-5ed77d86a611" ancestor="47298669-ab49-4b80-9077-ece3d2663567" source="51284629-b111-4529-8311-e0776dea2135" target="bff7b294-d294-4bbe-a2a0-9094e69a228e"/>
-      <element xsi:type="zenta:BasicRelationship" id="b9151dd6-db6b-462d-85cf-d628576ff2bd" ancestor="47298669-ab49-4b80-9077-ece3d2663567" source="fa0b2b92-62e5-4b59-a45b-23e791776f94" target="24c3d831-8084-49ae-8ebd-b1a9d1d1bd15"/>
       <element xsi:type="zenta:BasicObject" name="checkAndUpdateHash" id="a972a15b-5f29-4665-a0f6-1f9092689d0e" ancestor="dd405fd8"/>
-      <element xsi:type="zenta:BasicRelationship" id="986ef845-7866-4cdd-a3a3-9434e8123e69" ancestor="3b9e6dcd-9d6d-4cf1-9624-798c0f71371a" source="ad4d38fe-37dc-4e10-97f7-c1e0e6412eff" target="a972a15b-5f29-4665-a0f6-1f9092689d0e"/>
-      <element xsi:type="zenta:BasicRelationship" id="27ab700c-0786-45c5-bba5-c955ddbb34d4" ancestor="3b9e6dcd-9d6d-4cf1-9624-798c0f71371a" source="bff7b294-d294-4bbe-a2a0-9094e69a228e" target="a972a15b-5f29-4665-a0f6-1f9092689d0e"/>
     </folder>
   </folder>
   <folder name="0relations" id="412d3b19-1368-4294-b750-93f42389f8b8">
+    <property key="display" value="hidden"/>
     <element xsi:type="zenta:BasicRelationship" id="13b4cc18" ancestor="fabac1e6" source="e45c8fdc" target="8522b66d"/>
     <element xsi:type="zenta:BasicRelationship" id="fdaa88e6" ancestor="fabac1e6" source="cfee45cc" target="8522b66d"/>
     <element xsi:type="zenta:BasicRelationship" id="0ebe0dd5" ancestor="fabac1e6" source="d4b54dfc" target="8522b66d"/>
@@ -1760,5 +1367,426 @@ We store only the one-way hash of personal identifiers</documentation>
     <element xsi:type="zenta:BasicRelationship" id="191aa2d9" ancestor="4de9c1b9" source="a8607a5c" target="f61ebfbf"/>
     <element xsi:type="zenta:BasicRelationship" id="72ce4af7" ancestor="fc35e98f" source="ac1198fd" target="f61ebfbf"/>
     <element xsi:type="zenta:BasicRelationship" id="75c8f1a9" ancestor="4de9c1b9" source="6af03b84" target="5540c87a"/>
+    <element xsi:type="zenta:BasicObject" name="Basic Object" id="basicobject"/>
+    <element xsi:type="zenta:BasicRelationship" name="Basic Relation" id="basicrelation" source="basicobject" target="basicobject"/>
+    <element xsi:type="zenta:BasicRelationship" name="associates" id="f558f236-6adf-4f56-a806-69ada8fdd543" ancestor="basicrelation" source="0ebb7726-b098-4d23-8c03-7fb8cfe214c9" target="35011218">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="SmallEndArrowDecoration DashedLineDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="assures/is assured by" id="47fa0bc7-518f-426d-9092-e32a06265201" ancestor="basicrelation" source="5d47812b-90b0-490c-b4e4-1076bd0cd8a0" target="35011218">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="SmallEndArrowDecoration DiamondTargetDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="certifies" id="93067b26-ef91-4752-8c19-3bc9ba7baf45" ancestor="basicrelation" source="5d47812b-90b0-490c-b4e4-1076bd0cd8a0" target="0ebb7726-b098-4d23-8c03-7fb8cfe214c9">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="BigArrowTargetDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="from/is source of" id="005fc38f-9fe3-4678-b5d2-b61acffa4785" ancestor="basicrelation" source="d3f17f54-4a38-423a-96da-61f7e93b9d4b" target="0ebb7726-b098-4d23-8c03-7fb8cfe214c9">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="DiamondTargetDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="has/belongs to" id="d1bed889-916e-4b76-85c0-4493a0bc865d" ancestor="basicrelation" source="35011218" target="0ebb7726-b098-4d23-8c03-7fb8cfe214c9">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="SmallEndArrowDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="is checked by/checks" id="977c2e70-0664-4a83-b16c-a71d13ddfb74" ancestor="basicrelation" source="0ebb7726-b098-4d23-8c03-7fb8cfe214c9" target="5d47812b-90b0-490c-b4e4-1076bd0cd8a0">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="DottedLineDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="to/is target of" id="ffc5fbee-7ac5-4fca-8d5a-5aafcb28b2e3" ancestor="basicrelation" source="d3f17f54-4a38-423a-96da-61f7e93b9d4b" target="0ebb7726-b098-4d23-8c03-7fb8cfe214c9">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="SmallEndArrowDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="composed of/composes" id="4de9c1b9" ancestor="basicrelation" source="a63380eb" target="863fd22c">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="DiamondSourceDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="conducts" id="9ac9367d-819f-4aaa-9142-ce5418dbc409" ancestor="basicrelation" source="35011218" target="e90bf406-9842-4801-a9b2-f73b4c44b45d">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="contains" id="6854e1c6" ancestor="basicrelation" source="a63380eb" target="a63380eb">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="DiamondSourceDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="contains" id="f59c1337-5d67-46a8-a7cf-d3fce0f2b468" ancestor="basicrelation" source="c8d7de52" target="e90bf406-9842-4801-a9b2-f73b4c44b45d">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="DiamondSourceDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="defines" id="5fa9eaf1" ancestor="basicrelation" source="75ec6c2f" target="2afbef68">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="manipulates" id="467d72ed-0120-41fc-b6ba-c37893e10874" ancestor="basicrelation" source="e90bf406-9842-4801-a9b2-f73b4c44b45d" target="99eee886-6771-49ff-9419-0728aefda14f">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="DottedLineDecoration SmallEndArrowDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="owns" id="fc20932b-9610-4aa4-bde2-b97cfdff061c" ancestor="basicrelation" source="a63380eb" target="99eee886-6771-49ff-9419-0728aefda14f">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="3"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="reads" id="caa48ae1-744c-474e-91ba-27bf1dbf52dd" ancestor="basicrelation" source="a63380eb" target="99eee886-6771-49ff-9419-0728aefda14f">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="SmallStartArrowDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="realizes" id="fabac1e6" ancestor="basicrelation" source="2afbef68" target="c8d7de52">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="DiamondTargetDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="relates to/is related to" id="585312c2-7173-42c0-9e58-922391b35cc7" ancestor="basicrelation" source="99eee886-6771-49ff-9419-0728aefda14f" target="99eee886-6771-49ff-9419-0728aefda14f">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="supports" id="0713000d" ancestor="basicrelation" source="a63380eb" target="2afbef68">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="tests" id="2875fcb1-8abe-4aa1-aaac-780cd7f843a1" ancestor="basicrelation" source="0a4ded23-e064-4485-9d8e-3423ba8a836c" target="e90bf406-9842-4801-a9b2-f73b4c44b45d">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="tests" id="23064c36-37b1-48bd-9d7c-d92ff57a1472" ancestor="basicrelation" source="0a4ded23-e064-4485-9d8e-3423ba8a836c" target="863fd22c">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="uses" id="cf0483aa" ancestor="basicrelation" source="35011218" target="2afbef68">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="uses" id="fc35e98f" ancestor="basicrelation" source="a63380eb" target="863fd22c">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="SmallEndArrowDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="uses" id="47298669-ab49-4b80-9077-ece3d2663567" ancestor="basicrelation" source="e90bf406-9842-4801-a9b2-f73b4c44b45d" target="863fd22c">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="uses" id="ba569cab-1780-4cd0-812b-ae0a49c57d0e" ancestor="basicrelation" source="863fd22c" target="863fd22c">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="SmallEndArrowDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="uses" id="3b9e6dcd-9d6d-4cf1-9624-798c0f71371a" ancestor="basicrelation" source="863fd22c" target="dd405fd8">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="SmallEndArrowDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="can be conducted as/is a way of" id="9c5ce650" ancestor="basicrelation" source="4b73634f" target="cc6698c3">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="SmallEndArrowDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="defines" id="35f04eeb" ancestor="basicrelation" source="4e990e8d" target="f362356f">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="BigArrowTargetDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+      <property key="minOccurs" value="1/1"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="fulfills" id="25052f22" ancestor="basicrelation" source="objectiveID" target="da7d7941">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="SmallEndArrowDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="Influences" id="0f27eeaa" ancestor="basicrelation" source="238bb246" target="objectiveID">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="SmallEndArrowDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+      <property key="minOccurs" value="/1"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="is composed of/is a step of" id="c28de966" ancestor="basicrelation" source="4b73634f" target="b04f4b04">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="SmallEndArrowDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="is materialized as/materializes" id="a2bc5474" ancestor="basicrelation" source="32181c01" target="4b73634f">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="SmallEndArrowDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+      <property key="minOccurs" value="2/-1"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="is mitigated by/mitigates" id="320e48d5" ancestor="basicrelation" source="4b73634f" target="da7d7941">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="DottedLineDecoration SmallEndArrowDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="assures" id="7144c8d3-40c9-4512-9dd9-02bc6871488f" ancestor="basicrelation" source="460ad408-4569-4c3b-b874-02d3b0aedd58" target="5d47812b-90b0-490c-b4e4-1076bd0cd8a0">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="proves/is proven by" id="ca63c862-3042-4808-b1f8-0d976382c91b" ancestor="basicrelation" source="964c049e-5b20-43c5-99c1-e9ff0af4a74b" target="0ebb7726-b098-4d23-8c03-7fb8cfe214c9">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value="SmallEndArrowDecoration DottedLineDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="proves/is proven by" id="dd2f92fe-a724-48ab-bcfa-36ae2b4a82d2" ancestor="basicrelation" source="0ebb7726-b098-4d23-8c03-7fb8cfe214c9" target="99eee886-6771-49ff-9419-0728aefda14f">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration" value=" DottedLineDecoration SmallEndArrowDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" name="recovers" id="ae827c22-0c52-4036-b888-c7671283ab4b" ancestor="basicrelation" source="acbf60db-66e5-46be-9a8f-e3b2de8c28f2" target="964c049e-5b20-43c5-99c1-e9ff0af4a74b">
+      <property key="textPosition" value="1"/>
+      <property key="lineDecoration"/>
+      <property key="lineColor"/>
+      <property key="fontColor"/>
+      <property key="lineWidth" value="1"/>
+      <property key="font"/>
+    </element>
+    <element xsi:type="zenta:BasicRelationship" id="5777ca75-7162-4ebf-9b74-5484911a6ebe" ancestor="d1bed889-916e-4b76-85c0-4493a0bc865d" source="b326b9e9-14dc-43a8-b238-673d2bff77c4" target="9ac1d31f-e9f6-4454-b840-cec86a7bf4d7"/>
+    <element xsi:type="zenta:BasicRelationship" id="907553da-f57c-479b-9d35-511fb336a208" ancestor="f558f236-6adf-4f56-a806-69ada8fdd543" source="9ac1d31f-e9f6-4454-b840-cec86a7bf4d7" target="4b133f6c-ab4a-4671-bbe0-0b8f64410dff"/>
+    <element xsi:type="zenta:BasicRelationship" id="4e74e715-b9ef-41fc-9e72-e33e5d3206a4" ancestor="d1bed889-916e-4b76-85c0-4493a0bc865d" source="4b133f6c-ab4a-4671-bbe0-0b8f64410dff" target="a0eab1f0-1901-4dae-bc29-0279d2c2a894"/>
+    <element xsi:type="zenta:BasicRelationship" id="c8979085-8e68-4e1d-92ca-9169f0b5391c" ancestor="f558f236-6adf-4f56-a806-69ada8fdd543" source="a0eab1f0-1901-4dae-bc29-0279d2c2a894" target="3a6f1a06-ac9c-4ba4-b455-fc2d92cf38f6"/>
+    <element xsi:type="zenta:BasicRelationship" id="5720fab5-27d8-4b08-a136-f764840fd499" ancestor="d1bed889-916e-4b76-85c0-4493a0bc865d" source="3a6f1a06-ac9c-4ba4-b455-fc2d92cf38f6" target="0d67fb09-9413-49a7-9cb5-4c97e8afbb8f"/>
+    <element xsi:type="zenta:BasicRelationship" id="fee9707a-4cf7-416f-a4a1-f60f28f27f79" ancestor="47fa0bc7-518f-426d-9092-e32a06265201" source="167a7e25-0bf0-44c0-aa07-d91f37f358bf" target="b326b9e9-14dc-43a8-b238-673d2bff77c4"/>
+    <element xsi:type="zenta:BasicRelationship" id="85827f51-5472-46fb-88a0-caa3e71487c1" ancestor="93067b26-ef91-4752-8c19-3bc9ba7baf45" source="167a7e25-0bf0-44c0-aa07-d91f37f358bf" target="a0eab1f0-1901-4dae-bc29-0279d2c2a894"/>
+    <element xsi:type="zenta:BasicRelationship" id="7ccae825-1fa8-435f-a821-288e0638a8da" ancestor="47fa0bc7-518f-426d-9092-e32a06265201" source="7d3e3279-36b0-4235-8880-388dfea68dd5" target="4b133f6c-ab4a-4671-bbe0-0b8f64410dff"/>
+    <element xsi:type="zenta:BasicRelationship" id="eeab87be-3054-475c-98aa-ca12925e80dc" ancestor="93067b26-ef91-4752-8c19-3bc9ba7baf45" source="7d3e3279-36b0-4235-8880-388dfea68dd5" target="0d67fb09-9413-49a7-9cb5-4c97e8afbb8f"/>
+    <element xsi:type="zenta:BasicRelationship" id="8f8a15fd-545a-4605-852d-7353e253f35a" ancestor="977c2e70-0664-4a83-b16c-a71d13ddfb74" source="9ac1d31f-e9f6-4454-b840-cec86a7bf4d7" target="167a7e25-0bf0-44c0-aa07-d91f37f358bf"/>
+    <element xsi:type="zenta:BasicRelationship" id="c8de9c70-84ce-4880-a4e9-52c0ad02c587" ancestor="fc20932b-9610-4aa4-bde2-b97cfdff061c" source="ac1198fd" target="f761f870-4675-45a1-9e41-fd257e978643"/>
+    <element xsi:type="zenta:BasicRelationship" id="728100e8-029a-4ce2-89a4-8c0837e04c3f" ancestor="005fc38f-9fe3-4678-b5d2-b61acffa4785" source="f761f870-4675-45a1-9e41-fd257e978643" target="9ac1d31f-e9f6-4454-b840-cec86a7bf4d7"/>
+    <element xsi:type="zenta:BasicRelationship" id="fa7d0a9b-3e73-44f8-b474-82a3fb22b188" ancestor="fc20932b-9610-4aa4-bde2-b97cfdff061c" source="ac1198fd" target="99b1488f-f185-4285-88a5-635f6032b0c6"/>
+    <element xsi:type="zenta:BasicRelationship" id="7e9ace5a-4811-4174-9581-21fd4d102c37" ancestor="005fc38f-9fe3-4678-b5d2-b61acffa4785" source="99b1488f-f185-4285-88a5-635f6032b0c6" target="a0eab1f0-1901-4dae-bc29-0279d2c2a894"/>
+    <element xsi:type="zenta:BasicRelationship" id="0316040d-6db3-4a17-84c9-1b1c10002e0b" ancestor="ffc5fbee-7ac5-4fca-8d5a-5aafcb28b2e3" source="99b1488f-f185-4285-88a5-635f6032b0c6" target="0d67fb09-9413-49a7-9cb5-4c97e8afbb8f"/>
+    <element xsi:type="zenta:BasicRelationship" id="75e70e77-8784-40fd-aabc-3f9e6ca22a36" ancestor="ffc5fbee-7ac5-4fca-8d5a-5aafcb28b2e3" source="f761f870-4675-45a1-9e41-fd257e978643" target="a0eab1f0-1901-4dae-bc29-0279d2c2a894"/>
+    <element xsi:type="zenta:BasicRelationship" id="01350655-79e9-438d-8e16-72b0e0d8d268" ancestor="d1bed889-916e-4b76-85c0-4493a0bc865d" source="4b133f6c-ab4a-4671-bbe0-0b8f64410dff" target="277d401b-772c-4c1b-a9ad-17f8bea76060"/>
+    <element xsi:type="zenta:BasicRelationship" id="793c0791-4fbf-4f48-9f7c-57f6db6d8e8f" ancestor="977c2e70-0664-4a83-b16c-a71d13ddfb74" source="277d401b-772c-4c1b-a9ad-17f8bea76060" target="7d3e3279-36b0-4235-8880-388dfea68dd5"/>
+    <element xsi:type="zenta:BasicRelationship" id="4678ba9e-76ba-43ed-b747-de5620557a49" ancestor="fc20932b-9610-4aa4-bde2-b97cfdff061c" source="ac1198fd" target="6b526d26-f7cb-45dc-8620-f0f8547e1908"/>
+    <element xsi:type="zenta:BasicRelationship" id="0c5d1d09-845a-42c4-b8c0-9aa171459344" ancestor="005fc38f-9fe3-4678-b5d2-b61acffa4785" source="6b526d26-f7cb-45dc-8620-f0f8547e1908" target="277d401b-772c-4c1b-a9ad-17f8bea76060"/>
+    <element xsi:type="zenta:BasicRelationship" id="7e7d2758-110b-4f0d-adc7-218c6013c08a" ancestor="ffc5fbee-7ac5-4fca-8d5a-5aafcb28b2e3" source="6b526d26-f7cb-45dc-8620-f0f8547e1908" target="a0eab1f0-1901-4dae-bc29-0279d2c2a894"/>
+    <element xsi:type="zenta:BasicRelationship" id="7d9bacf3-9e94-4430-9ac7-302a1013a6ab" ancestor="4de9c1b9" source="ac1198fd" target="070234df-8d60-4cf0-83b3-9260a3c60683"/>
+    <element xsi:type="zenta:BasicRelationship" id="2a049883-6f72-47bd-87b7-5551afa87266" ancestor="47298669-ab49-4b80-9077-ece3d2663567" source="167a7e25-0bf0-44c0-aa07-d91f37f358bf" target="070234df-8d60-4cf0-83b3-9260a3c60683"/>
+    <element xsi:type="zenta:BasicRelationship" id="0d261942-27c0-44cc-95d1-610a734f7f39" ancestor="4de9c1b9" source="ac1198fd" target="42e57944-259a-422b-9962-7d3e904ec44b"/>
+    <element xsi:type="zenta:BasicRelationship" id="c45bfcba-c9bd-40e2-9415-9af19686f02e" ancestor="47298669-ab49-4b80-9077-ece3d2663567" source="7d3e3279-36b0-4235-8880-388dfea68dd5" target="42e57944-259a-422b-9962-7d3e904ec44b"/>
+    <element xsi:type="zenta:BasicRelationship" id="41c66ca3-9e38-4a63-aa5b-83fa9ea66a9d" ancestor="ca63c862-3042-4808-b1f8-0d976382c91b" source="dc3a3db4-adde-4096-a6cc-b7426c77748a" target="9ac1d31f-e9f6-4454-b840-cec86a7bf4d7"/>
+    <element xsi:type="zenta:BasicRelationship" id="768277b2-0b38-4818-b32f-97b9fc3114b0" ancestor="ca63c862-3042-4808-b1f8-0d976382c91b" source="3239662f-578a-41b5-bb8b-af22eae7e2e3" target="277d401b-772c-4c1b-a9ad-17f8bea76060"/>
+    <element xsi:type="zenta:BasicRelationship" id="1f4a9f63-95cd-4956-8d31-43d28953cfff" ancestor="ae827c22-0c52-4036-b888-c7671283ab4b" source="f64978d1-550a-486d-aeb5-0d9e448bb87f" target="dc3a3db4-adde-4096-a6cc-b7426c77748a"/>
+    <element xsi:type="zenta:BasicRelationship" id="80ca87ce-60ec-4c46-8504-42a578f0021f" ancestor="ae827c22-0c52-4036-b888-c7671283ab4b" source="962977d7-7f43-495d-8a48-f130d635698a" target="3239662f-578a-41b5-bb8b-af22eae7e2e3"/>
+    <element xsi:type="zenta:BasicRelationship" id="970708b0-5ba3-48e1-b835-20327d696a99" ancestor="d1bed889-916e-4b76-85c0-4493a0bc865d" source="3a6f1a06-ac9c-4ba4-b455-fc2d92cf38f6" target="07712e46-b80c-4680-b72c-cf970b087b7c"/>
+    <element xsi:type="zenta:BasicRelationship" id="3917f02f-61a4-4970-8b27-09999c3927fc" ancestor="47fa0bc7-518f-426d-9092-e32a06265201" source="d008e453-ae49-4ddb-b348-25e5581fb7d1" target="3a6f1a06-ac9c-4ba4-b455-fc2d92cf38f6"/>
+    <element xsi:type="zenta:BasicRelationship" id="ae12efb7-870a-4427-a42a-a3da02d2042e" ancestor="93067b26-ef91-4752-8c19-3bc9ba7baf45" source="d008e453-ae49-4ddb-b348-25e5581fb7d1" target="07712e46-b80c-4680-b72c-cf970b087b7c"/>
+    <element xsi:type="zenta:BasicRelationship" id="0deac5a9-8768-47f6-971a-4b642231b671" ancestor="977c2e70-0664-4a83-b16c-a71d13ddfb74" source="0d67fb09-9413-49a7-9cb5-4c97e8afbb8f" target="d008e453-ae49-4ddb-b348-25e5581fb7d1"/>
+    <element xsi:type="zenta:BasicRelationship" id="1cf798ce-592e-4c18-bd65-814659b8cfed" ancestor="f558f236-6adf-4f56-a806-69ada8fdd543" source="07712e46-b80c-4680-b72c-cf970b087b7c" target="1cc725fc-a755-49a8-9716-0bec4d39a0af"/>
+    <element xsi:type="zenta:BasicRelationship" id="a0bbf33d-449d-4971-8a43-d4b425d45757" ancestor="977c2e70-0664-4a83-b16c-a71d13ddfb74" source="07712e46-b80c-4680-b72c-cf970b087b7c" target="cbfb477d-7955-4b5e-8823-df351758554e"/>
+    <element xsi:type="zenta:BasicRelationship" id="786dfe6c-1832-4bb1-babe-511c5c2879fd" ancestor="d1bed889-916e-4b76-85c0-4493a0bc865d" source="1cc725fc-a755-49a8-9716-0bec4d39a0af" target="1e83eb87-3789-4dda-b86b-b16e445a9ba8"/>
+    <element xsi:type="zenta:BasicRelationship" id="32970a60-7144-4320-86a4-2a670da264b5" ancestor="93067b26-ef91-4752-8c19-3bc9ba7baf45" source="cbfb477d-7955-4b5e-8823-df351758554e" target="1e83eb87-3789-4dda-b86b-b16e445a9ba8"/>
+    <element xsi:type="zenta:BasicRelationship" id="a9100278-9d5f-40d8-9b4e-5a6addf0108c" ancestor="47fa0bc7-518f-426d-9092-e32a06265201" source="cbfb477d-7955-4b5e-8823-df351758554e" target="1cc725fc-a755-49a8-9716-0bec4d39a0af"/>
+    <element xsi:type="zenta:BasicRelationship" id="fbf674a8-e585-41f9-80f4-0b1e84e1f251" ancestor="dd2f92fe-a724-48ab-bcfa-36ae2b4a82d2" source="1e83eb87-3789-4dda-b86b-b16e445a9ba8" target="da53e4f5-8d7b-4c0b-aba5-8f9d6855e868"/>
+    <element xsi:type="zenta:BasicRelationship" id="cba47c7f-d798-4a67-af57-4c7f299904a9" ancestor="005fc38f-9fe3-4678-b5d2-b61acffa4785" source="0802eae1-5cc5-4b46-8071-cf2c01ad209f" target="0d67fb09-9413-49a7-9cb5-4c97e8afbb8f"/>
+    <element xsi:type="zenta:BasicRelationship" id="55599eb2-12ea-4868-a2ce-5e4b37d80108" ancestor="ffc5fbee-7ac5-4fca-8d5a-5aafcb28b2e3" source="0802eae1-5cc5-4b46-8071-cf2c01ad209f" target="07712e46-b80c-4680-b72c-cf970b087b7c"/>
+    <element xsi:type="zenta:BasicRelationship" id="c525e299-bfae-4aa6-a213-92fe34aaafab" ancestor="47298669-ab49-4b80-9077-ece3d2663567" source="d008e453-ae49-4ddb-b348-25e5581fb7d1" target="27522041-7059-497a-8b9c-b6c1c7d88f96"/>
+    <element xsi:type="zenta:BasicRelationship" id="da2960c9-e1aa-45b1-9ab6-a6f8000ac442" ancestor="47298669-ab49-4b80-9077-ece3d2663567" source="cbfb477d-7955-4b5e-8823-df351758554e" target="8c787d7e-f890-47b5-b26c-77a23ef86008"/>
+    <element xsi:type="zenta:BasicRelationship" id="9ca9dbee-7d11-468a-9e48-fbeac37ae595" ancestor="4de9c1b9" source="bec6dbc7-148f-4d17-b26a-c449145e516a" target="27522041-7059-497a-8b9c-b6c1c7d88f96"/>
+    <element xsi:type="zenta:BasicRelationship" id="1b61d69e-2be7-4a1f-b438-0d7fc2d3f477" ancestor="4de9c1b9" source="6d85310a-1719-4ddd-8f76-b2469c95dc9b" target="8c787d7e-f890-47b5-b26c-77a23ef86008"/>
+    <element xsi:type="zenta:BasicRelationship" id="f84ff874-113e-417e-8f0d-378c3d2d9609" ancestor="fc20932b-9610-4aa4-bde2-b97cfdff061c" source="bec6dbc7-148f-4d17-b26a-c449145e516a" target="0802eae1-5cc5-4b46-8071-cf2c01ad209f"/>
+    <element xsi:type="zenta:BasicRelationship" name="creates" id="fdae38dc-7668-4fb4-abca-a6add570d23e" ancestor="467d72ed-0120-41fc-b6ba-c37893e10874" source="87cc8939-bc26-4f14-b446-b8c155326f65" target="74529d3b-2ae6-4cf8-bd52-1e895d854418"/>
+    <element xsi:type="zenta:BasicRelationship" name="reads" id="c424b392-0141-4812-ab53-f197296c882a" ancestor="467d72ed-0120-41fc-b6ba-c37893e10874" source="87cc8939-bc26-4f14-b446-b8c155326f65" target="da53e4f5-8d7b-4c0b-aba5-8f9d6855e868"/>
+    <element xsi:type="zenta:BasicRelationship" name="records" id="2c6ac4e3-2020-43a6-b024-077bf3ba0734" ancestor="467d72ed-0120-41fc-b6ba-c37893e10874" source="cbfb477d-7955-4b5e-8823-df351758554e" target="da53e4f5-8d7b-4c0b-aba5-8f9d6855e868"/>
+    <element xsi:type="zenta:BasicRelationship" id="e4257f27" ancestor="35f04eeb" source="6395d5ce" target="a4e3fe24"/>
+    <element xsi:type="zenta:BasicRelationship" id="66dc5806" ancestor="35f04eeb" source="6395d5ce" target="d6bf51d0"/>
+    <element xsi:type="zenta:BasicRelationship" id="5d868a03" ancestor="35f04eeb" source="6395d5ce" target="154474db"/>
+    <element xsi:type="zenta:BasicRelationship" id="174a972b" ancestor="35f04eeb" source="674bd734" target="df567ba2"/>
+    <element xsi:type="zenta:BasicRelationship" id="eaeeca4b" ancestor="35f04eeb" source="5b7f4355" target="2531fed2"/>
+    <element xsi:type="zenta:BasicRelationship" id="339e32b8" ancestor="35f04eeb" source="674bd734" target="154474db"/>
+    <element xsi:type="zenta:BasicRelationship" id="c4f9fcc2" ancestor="0f27eeaa" source="154474db" target="139edaa0"/>
+    <element xsi:type="zenta:BasicRelationship" id="e997997e" ancestor="0f27eeaa" source="3e669cc9" target="139edaa0"/>
+    <element xsi:type="zenta:BasicRelationship" id="e11239e1" ancestor="a2bc5474" source="3e669cc9" target="c5ee8ee2"/>
+    <element xsi:type="zenta:BasicRelationship" id="faf94e55" ancestor="a2bc5474" source="3e669cc9" target="28bd12d4"/>
+    <element xsi:type="zenta:BasicRelationship" id="73934e39" ancestor="a2bc5474" source="3e669cc9" target="9f97c625"/>
+    <element xsi:type="zenta:BasicRelationship" id="65d2bf56" ancestor="a2bc5474" source="3e669cc9" target="9ff149e6"/>
+    <element xsi:type="zenta:BasicRelationship" id="102c532e" ancestor="9c5ce650" source="c5ee8ee2" target="51da3551"/>
+    <element xsi:type="zenta:BasicRelationship" id="5d05cdd2" ancestor="9c5ce650" source="c5ee8ee2" target="c7f90061"/>
+    <element xsi:type="zenta:BasicRelationship" id="95d34564" ancestor="9c5ce650" source="c5ee8ee2" target="db3711b2"/>
+    <element xsi:type="zenta:BasicRelationship" id="0c9ad65f" ancestor="c28de966" source="db3711b2" target="859a0083"/>
+    <element xsi:type="zenta:BasicRelationship" id="8f0c0ed3" ancestor="c28de966" source="db3711b2" target="bc8ccfe1"/>
+    <element xsi:type="zenta:BasicRelationship" id="cd0d6fe0" ancestor="9c5ce650" source="c7f90061" target="32efa36f"/>
+    <element xsi:type="zenta:BasicRelationship" id="7630fe37" ancestor="9c5ce650" source="c7f90061" target="a05e523f"/>
+    <element xsi:type="zenta:BasicRelationship" id="3b25b63d" ancestor="c28de966" source="a05e523f" target="859a0083"/>
+    <element xsi:type="zenta:BasicRelationship" id="a4b67ec7" ancestor="c28de966" source="a05e523f" target="d60d50bd"/>
+    <element xsi:type="zenta:BasicRelationship" id="01d36b2c" ancestor="9c5ce650" source="859a0083" target="1d34411c"/>
+    <element xsi:type="zenta:BasicRelationship" id="763dc6df" ancestor="9c5ce650" source="859a0083" target="4515193b"/>
+    <element xsi:type="zenta:BasicRelationship" id="7c999c04" ancestor="9c5ce650" source="859a0083" target="47995aa8"/>
+    <element xsi:type="zenta:BasicRelationship" id="f2d57ad2" ancestor="9c5ce650" source="859a0083" target="34aea6a6"/>
+    <element xsi:type="zenta:BasicRelationship" id="43e3e94e" ancestor="9c5ce650" source="859a0083" target="d06e367f"/>
+    <element xsi:type="zenta:BasicRelationship" id="97302094" ancestor="c28de966" source="28bd12d4" target="859a0083"/>
+    <element xsi:type="zenta:BasicRelationship" id="94db1e4e" ancestor="c28de966" source="28bd12d4" target="a567f0e2"/>
+    <element xsi:type="zenta:BasicRelationship" id="1decac7d" ancestor="9c5ce650" source="a567f0e2" target="1b3a797d"/>
+    <element xsi:type="zenta:BasicRelationship" id="367f2b87" ancestor="9c5ce650" source="a567f0e2" target="c54d777c"/>
+    <element xsi:type="zenta:BasicRelationship" id="4720506d" ancestor="c28de966" source="57463031" target="859a0083"/>
+    <element xsi:type="zenta:BasicRelationship" id="92a1737a" ancestor="9c5ce650" source="9b14f04b" target="34aea6a6"/>
+    <element xsi:type="zenta:BasicRelationship" id="6507aa4e" ancestor="c28de966" source="9f97c625" target="133933d1"/>
+    <element xsi:type="zenta:BasicRelationship" id="350385de" ancestor="c28de966" source="9f97c625" target="a567f0e2"/>
+    <element xsi:type="zenta:BasicRelationship" id="832956a5" ancestor="c28de966" source="9f97c625" target="9072452a"/>
+    <element xsi:type="zenta:BasicRelationship" id="786493f7" ancestor="9c5ce650" source="133933d1" target="57463031"/>
+    <element xsi:type="zenta:BasicRelationship" id="7b55cadb" ancestor="9c5ce650" source="133933d1" target="9b14f04b"/>
+    <element xsi:type="zenta:BasicRelationship" id="fff73ee2" ancestor="c28de966" source="9ff149e6" target="223a1eeb"/>
+    <element xsi:type="zenta:BasicRelationship" id="5ad722ab" ancestor="c28de966" source="9ff149e6" target="8756f393"/>
+    <element xsi:type="zenta:BasicRelationship" id="6f4480a5" ancestor="c28de966" source="9ff149e6" target="9072452a"/>
+    <element xsi:type="zenta:BasicRelationship" id="369f63ea" ancestor="9c5ce650" source="8756f393" target="4f77cef7"/>
+    <element xsi:type="zenta:BasicRelationship" id="d7528923" ancestor="9c5ce650" source="8756f393" target="856cb0dd"/>
+    <element xsi:type="zenta:BasicRelationship" id="8b554f48" ancestor="c28de966" source="4f77cef7" target="859a0083"/>
+    <element xsi:type="zenta:BasicRelationship" id="472b5922" ancestor="c28de966" source="4f77cef7" target="a567f0e2"/>
+    <element xsi:type="zenta:BasicRelationship" id="5b5c266b" ancestor="a2bc5474" source="3c001770" target="4ec766b1"/>
+    <element xsi:type="zenta:BasicRelationship" id="a3b1cdbd" ancestor="a2bc5474" source="3c001770" target="58764d96"/>
+    <element xsi:type="zenta:BasicRelationship" id="8d36058d" ancestor="c28de966" source="4ec766b1" target="a76ab32b"/>
+    <element xsi:type="zenta:BasicRelationship" id="e6cc77eb" ancestor="c28de966" source="58764d96" target="a76ab32b"/>
+    <element xsi:type="zenta:BasicRelationship" id="00ce37d6" ancestor="c28de966" source="58764d96" target="b53ce848"/>
+    <element xsi:type="zenta:BasicRelationship" id="7c931aa2" ancestor="c28de966" source="4ec766b1" target="a0a16149"/>
+    <element xsi:type="zenta:BasicRelationship" id="2988cfd5-616a-4378-8f84-a8d9a20c1b21" ancestor="2875fcb1-8abe-4aa1-aaac-780cd7f843a1" source="ad7bf5af-9ce6-4f59-8cdb-19efb35ab8ca" target="51284629-b111-4529-8311-e0776dea2135"/>
+    <element xsi:type="zenta:BasicRelationship" id="cb64f43d-1195-44f3-a96e-90435ffa751e" ancestor="2875fcb1-8abe-4aa1-aaac-780cd7f843a1" source="75d2db5b-2a94-4d2c-8ca3-534fb78f5b7d" target="51284629-b111-4529-8311-e0776dea2135"/>
+    <element xsi:type="zenta:BasicRelationship" id="1edd8b7e-0e94-49be-a2fd-cadd413fcbd8" ancestor="2875fcb1-8abe-4aa1-aaac-780cd7f843a1" source="06146ece-ab38-410a-8de0-7e7f6b675506" target="fa0b2b92-62e5-4b59-a45b-23e791776f94"/>
+    <element xsi:type="zenta:BasicRelationship" id="cc4422d6-e9b2-4613-ad69-0f317f543fc5" ancestor="2875fcb1-8abe-4aa1-aaac-780cd7f843a1" source="299c81b8-f180-429a-82e3-192ac7db0a39" target="fa0b2b92-62e5-4b59-a45b-23e791776f94"/>
+    <element xsi:type="zenta:BasicRelationship" id="f171da55-222a-48a2-b04c-8d92d35405f0" ancestor="47298669-ab49-4b80-9077-ece3d2663567" source="51284629-b111-4529-8311-e0776dea2135" target="ad4d38fe-37dc-4e10-97f7-c1e0e6412eff"/>
+    <element xsi:type="zenta:BasicRelationship" id="c9fee0ca-3968-47fc-86cf-5ed77d86a611" ancestor="47298669-ab49-4b80-9077-ece3d2663567" source="51284629-b111-4529-8311-e0776dea2135" target="bff7b294-d294-4bbe-a2a0-9094e69a228e"/>
+    <element xsi:type="zenta:BasicRelationship" id="b9151dd6-db6b-462d-85cf-d628576ff2bd" ancestor="47298669-ab49-4b80-9077-ece3d2663567" source="fa0b2b92-62e5-4b59-a45b-23e791776f94" target="24c3d831-8084-49ae-8ebd-b1a9d1d1bd15"/>
+    <element xsi:type="zenta:BasicRelationship" id="986ef845-7866-4cdd-a3a3-9434e8123e69" ancestor="3b9e6dcd-9d6d-4cf1-9624-798c0f71371a" source="ad4d38fe-37dc-4e10-97f7-c1e0e6412eff" target="a972a15b-5f29-4665-a0f6-1f9092689d0e"/>
+    <element xsi:type="zenta:BasicRelationship" id="27ab700c-0786-45c5-bba5-c955ddbb34d4" ancestor="3b9e6dcd-9d6d-4cf1-9624-798c0f71371a" source="bff7b294-d294-4bbe-a2a0-9094e69a228e" target="a972a15b-5f29-4665-a0f6-1f9092689d0e"/>
+    <element xsi:type="zenta:BasicRelationship" id="a8a383fd-9ccb-44a6-94b8-9093e27083ac" ancestor="585312c2-7173-42c0-9e58-922391b35cc7" source="e9a6e818-8ef0-4c6d-91f1-972a5170de69" target="e8fc9f93-7724-4616-bf26-44053c78d341"/>
+    <element xsi:type="zenta:BasicRelationship" id="d9679651-6ee1-45de-9821-fdf1f2522ea6" ancestor="585312c2-7173-42c0-9e58-922391b35cc7" source="e9a6e818-8ef0-4c6d-91f1-972a5170de69" target="4e723893-6180-4f8d-99f9-a71e44342805"/>
+    <element xsi:type="zenta:BasicRelationship" id="3dbc5cdc-4f77-4778-a1f6-a4ca3ade1e3f" ancestor="585312c2-7173-42c0-9e58-922391b35cc7" source="e9a6e818-8ef0-4c6d-91f1-972a5170de69" target="68a135bd-e2bd-4c3c-8cd2-3673182ffa49"/>
+    <element xsi:type="zenta:BasicRelationship" id="0e6956f9-c1ad-4775-8867-dc62e7ffb631" ancestor="585312c2-7173-42c0-9e58-922391b35cc7" source="e9a6e818-8ef0-4c6d-91f1-972a5170de69" target="398ffd71-78ce-4d32-9653-6e3dae2faba7"/>
+    <element xsi:type="zenta:BasicRelationship" id="ba0fdac9-7f19-4ea9-858b-69d51aba0ae3" ancestor="47298669-ab49-4b80-9077-ece3d2663567" source="58534024-ad15-4677-a6ff-2ed6160b5e5d" target="e6a2d4d8-17b5-46c1-b35e-108323572126"/>
+    <element xsi:type="zenta:BasicRelationship" id="053f7fd8-ea78-4335-b7da-58bac3345c23" ancestor="4de9c1b9" source="67c16aa9-ebdb-43bc-99e3-eb0f16ba0492" target="f5aa06ea-2e00-47f8-8745-1535d6743788"/>
+    <element xsi:type="zenta:BasicRelationship" id="7aa07ce2-24e4-49e1-8747-1cc9131e6e6a" ancestor="4de9c1b9" source="3210b126-58bd-4809-83c0-f796cffb4c12" target="e6a2d4d8-17b5-46c1-b35e-108323572126"/>
+    <element xsi:type="zenta:BasicRelationship" id="6a45760b-473b-4180-84df-ac1f08f427eb" ancestor="ba569cab-1780-4cd0-812b-ae0a49c57d0e" source="e6a2d4d8-17b5-46c1-b35e-108323572126" target="f5aa06ea-2e00-47f8-8745-1535d6743788"/>
+    <element xsi:type="zenta:BasicRelationship" id="0587f52b-0895-4e02-a7a9-3ad01f6bba6e" ancestor="ba569cab-1780-4cd0-812b-ae0a49c57d0e" source="f5aa06ea-2e00-47f8-8745-1535d6743788" target="19bfa9b6-b9b4-4630-ac9f-4021cd1a3c4c"/>
+    <element xsi:type="zenta:BasicRelationship" id="451f0533-35f7-45a0-926a-82653f46079d" ancestor="ba569cab-1780-4cd0-812b-ae0a49c57d0e" source="f5aa06ea-2e00-47f8-8745-1535d6743788" target="09cac44f-63e5-4e94-85e5-b8d0481c720d"/>
+    <element xsi:type="zenta:BasicRelationship" id="70561376-a8b4-49ee-bb6b-1abdf3072103" ancestor="ba569cab-1780-4cd0-812b-ae0a49c57d0e" source="f5aa06ea-2e00-47f8-8745-1535d6743788" target="13f6680d-a94a-49db-9a6d-469380c98426"/>
+    <element xsi:type="zenta:BasicRelationship" id="a5ecc8b8-9331-4b12-9e7f-c2375f8ab9ea" ancestor="4de9c1b9" source="feab5c4f-b3e4-4a2b-ac8b-ef5d0d981aa0" target="6fd820bc-7724-479a-8658-95dfc49f06b9"/>
+    <element xsi:type="zenta:BasicRelationship" id="2835a5d2-a02b-4aff-8c3d-c1fd73f13a33" ancestor="fc20932b-9610-4aa4-bde2-b97cfdff061c" source="feab5c4f-b3e4-4a2b-ac8b-ef5d0d981aa0" target="e9a6e818-8ef0-4c6d-91f1-972a5170de69"/>
+    <element xsi:type="zenta:BasicRelationship" id="7871f7f5-9c29-4076-aae3-f41c653b31bf" ancestor="4de9c1b9" source="feab5c4f-b3e4-4a2b-ac8b-ef5d0d981aa0" target="bed876b5-5544-4e89-82f6-581ac7461e24"/>
+    <element xsi:type="zenta:BasicRelationship" id="67f32e89-8c84-4033-b33c-2e4799024226" ancestor="ba569cab-1780-4cd0-812b-ae0a49c57d0e" source="19bfa9b6-b9b4-4630-ac9f-4021cd1a3c4c" target="6fd820bc-7724-479a-8658-95dfc49f06b9"/>
+    <element xsi:type="zenta:BasicRelationship" id="3e537e64-df47-47d4-b909-f809d36ea08f" ancestor="ba569cab-1780-4cd0-812b-ae0a49c57d0e" source="6fd820bc-7724-479a-8658-95dfc49f06b9" target="bed876b5-5544-4e89-82f6-581ac7461e24"/>
+    <element xsi:type="zenta:BasicRelationship" id="42df27f8-2fae-4881-8044-e4013df0ce8c" ancestor="fc35e98f" source="67c16aa9-ebdb-43bc-99e3-eb0f16ba0492" target="13f6680d-a94a-49db-9a6d-469380c98426"/>
+    <element xsi:type="zenta:BasicRelationship" id="d97005f0-ee24-4527-941f-45c260888a17" ancestor="fc35e98f" source="67c16aa9-ebdb-43bc-99e3-eb0f16ba0492" target="09cac44f-63e5-4e94-85e5-b8d0481c720d"/>
+    <element xsi:type="zenta:BasicRelationship" id="e51d6e6d-8f2b-4996-8c6f-52c4a6aa6e5a" ancestor="fc35e98f" source="67c16aa9-ebdb-43bc-99e3-eb0f16ba0492" target="19bfa9b6-b9b4-4630-ac9f-4021cd1a3c4c"/>
+    <element xsi:type="zenta:BasicRelationship" id="1d5a737e-e812-49c0-a3ca-ea57b7c5579b" ancestor="23064c36-37b1-48bd-9d7c-d92ff57a1472" source="201caa2b-eed6-421d-8aaf-dd0b51b8ab0b" target="bed876b5-5544-4e89-82f6-581ac7461e24"/>
   </folder>
 </zenta:model>
