@@ -1996,7 +1996,6 @@ The vote recorded in the tally is four steps away from the identity of the perso
         </child>
         <child xsi:type="zenta:DiagramObject" id="5411cf0c-4381-4a31-8519-ac9e084813f5" targetConnections="bfb53af2-68d0-4ceb-8102-092716ea5b1c" zentaElement="24568109-a1e1-4da2-83c1-3232b1b79f1d">
           <bounds x="60" y="262" width="171" height="87"/>
-          <sourceConnection xsi:type="zenta:Connection" id="3f71f068-fa6f-47cb-87a3-e94fb1c2c85f" source="5411cf0c-4381-4a31-8519-ac9e084813f5" target="5a74a0f1-c117-4b58-9d68-ab61677c7e93" relationship="e133b4a2-4ef7-45de-aee4-da0c5ba6a467"/>
           <sourceConnection xsi:type="zenta:Connection" id="21b14554-329a-4924-bfa2-373d1586f760" source="5411cf0c-4381-4a31-8519-ac9e084813f5" target="383ba703-6598-4176-9471-433a51e0f5e7" relationship="4c9260aa-0349-47e0-b221-66b464d8311f"/>
         </child>
         <child xsi:type="zenta:DiagramObject" id="78f056ff-2f79-44b0-9968-ad0da6b3a20e" targetConnections="cbad5d5a-71b0-4598-bdc2-1d23372f3319" zentaElement="4355e891-cbf4-4675-982e-24f5a2bd1f53">
@@ -2004,10 +2003,6 @@ The vote recorded in the tally is four steps away from the identity of the perso
         </child>
         <child xsi:type="zenta:DiagramObject" id="500768ec-17bf-4e88-8d53-a2cf00b8b772" targetConnections="c3d14298-9311-4ce4-a157-24bf855b5659" zentaElement="cc5acf6b-c3cf-4b44-9779-b337151a6636">
           <bounds x="516" y="228" width="-1" height="-1"/>
-        </child>
-        <child xsi:type="zenta:DiagramObject" id="5a74a0f1-c117-4b58-9d68-ab61677c7e93" targetConnections="3f71f068-fa6f-47cb-87a3-e94fb1c2c85f" zentaElement="39070dbf-06cc-4b4e-9539-9d14c2eac9e2">
-          <bounds x="274" y="384" width="201"/>
-          <sourceConnection xsi:type="zenta:Connection" id="428c6c8a-4168-428a-87f7-fe022e766574" source="5a74a0f1-c117-4b58-9d68-ab61677c7e93" target="2dd13243-b7ba-4703-8cc6-494094c60420" relationship="1ec169c4-06db-4829-a1e3-132c775bdd0c"/>
         </child>
         <child xsi:type="zenta:DiagramObject" id="383ba703-6598-4176-9471-433a51e0f5e7" targetConnections="21b14554-329a-4924-bfa2-373d1586f760" zentaElement="fe44093f-4810-4555-a0cd-b170f45acfd9">
           <bounds x="24" y="384" width="193" height="85"/>
@@ -2017,26 +2012,14 @@ The vote recorded in the tally is four steps away from the identity of the perso
           <bounds x="24" y="528" width="-1" height="-1"/>
           <sourceConnection xsi:type="zenta:Connection" id="c5b1d419-eedb-4e20-8876-868e341296fa" source="a51296fc-947f-473c-9661-388a276a9dfc" target="2a7d1b75-b9bc-4a72-9a2d-4040574bc3c0" relationship="01147f5a-7d79-4617-80bf-14a33877f2cf"/>
         </child>
-        <child xsi:type="zenta:DiagramObject" id="2dd13243-b7ba-4703-8cc6-494094c60420" targetConnections="428c6c8a-4168-428a-87f7-fe022e766574" zentaElement="0a112423-d457-49c9-9dd4-f67ac461fe93">
-          <bounds x="406" y="458" width="147" height="95"/>
-          <sourceConnection xsi:type="zenta:Connection" id="f8142087-0491-4597-8dbc-bc9d4806e824" source="2dd13243-b7ba-4703-8cc6-494094c60420" target="1c050f3f-595e-4941-b0f0-0ad9db282b04" relationship="a7195974-5b3e-4fca-8c09-1b32c6016fe4"/>
-        </child>
-        <child xsi:type="zenta:DiagramObject" id="1c050f3f-595e-4941-b0f0-0ad9db282b04" targetConnections="f8142087-0491-4597-8dbc-bc9d4806e824" zentaElement="b0e0bf4d-5bee-46c0-a34b-7df7e6e0e09d">
-          <bounds x="617" y="377" width="-1" height="-1"/>
-        </child>
         <child xsi:type="zenta:DiagramObject" id="2a7d1b75-b9bc-4a72-9a2d-4040574bc3c0" targetConnections="c5b1d419-eedb-4e20-8876-868e341296fa" zentaElement="e9bda73e-31a3-45f0-b728-69470f5c9e78">
           <bounds x="206" y="505" width="155"/>
         </child>
       </element>
-      <element xsi:type="zenta:BasicObject" name="it is possible to register digitally challenged users" id="39070dbf-06cc-4b4e-9539-9d14c2eac9e2" ancestor="4bbc5ab3"/>
-      <element xsi:type="zenta:BasicRelationship" id="e133b4a2-4ef7-45de-aee4-da0c5ba6a467" ancestor="25052f22" source="24568109-a1e1-4da2-83c1-3232b1b79f1d" target="39070dbf-06cc-4b4e-9539-9d14c2eac9e2"/>
       <element xsi:type="zenta:BasicObject" name="digitally challenged users can only receive assurances postfixed with _offline" id="fe44093f-4810-4555-a0cd-b170f45acfd9" ancestor="4bbc5ab3"/>
       <element xsi:type="zenta:BasicRelationship" id="4c9260aa-0349-47e0-b221-66b464d8311f" ancestor="25052f22" source="24568109-a1e1-4da2-83c1-3232b1b79f1d" target="fe44093f-4810-4555-a0cd-b170f45acfd9"/>
       <element xsi:type="zenta:BasicObject" name="for digitally challenged users the _offline suffix is automatically added to the assurance name when an assurance is added" id="e155fa42-a08f-4e38-9491-c076d2ad164c" ancestor="0a4ded23-e064-4485-9d8e-3423ba8a836c"/>
       <element xsi:type="zenta:BasicRelationship" id="64644a92-6309-43cc-b81a-7d14126024c0" ancestor="c4d67e8b-a8db-4d7d-80c0-1386d1726c4a" source="fe44093f-4810-4555-a0cd-b170f45acfd9" target="e155fa42-a08f-4e38-9491-c076d2ad164c"/>
-      <element xsi:type="zenta:BasicObject" name="the registration interface accepts unique email addresses in the digitallychallenged.adatom.hu domain" id="0a112423-d457-49c9-9dd4-f67ac461fe93" ancestor="0a4ded23-e064-4485-9d8e-3423ba8a836c"/>
-      <element xsi:type="zenta:BasicRelationship" id="1ec169c4-06db-4829-a1e3-132c775bdd0c" ancestor="c4d67e8b-a8db-4d7d-80c0-1386d1726c4a" source="39070dbf-06cc-4b4e-9539-9d14c2eac9e2" target="0a112423-d457-49c9-9dd4-f67ac461fe93"/>
-      <element xsi:type="zenta:BasicRelationship" id="a7195974-5b3e-4fca-8c09-1b32c6016fe4" ancestor="23064c36-37b1-48bd-9d7c-d92ff57a1472" source="0a112423-d457-49c9-9dd4-f67ac461fe93" target="b0e0bf4d-5bee-46c0-a34b-7df7e6e0e09d"/>
       <element xsi:type="zenta:BasicRelationship" id="01147f5a-7d79-4617-80bf-14a33877f2cf" ancestor="23064c36-37b1-48bd-9d7c-d92ff57a1472" source="e155fa42-a08f-4e38-9491-c076d2ad164c" target="e9bda73e-31a3-45f0-b728-69470f5c9e78"/>
     </folder>
   </folder>
