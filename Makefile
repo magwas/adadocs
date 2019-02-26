@@ -17,7 +17,7 @@ tmp/static: pdoauth tmp ADA.compiled
 	cp -r pdoauth/html/ pdoauth/static/ ADA engine KDEA tmp/
 
 testenv:
-	docker run --rm -p 5999:5999 -w /adadocs -v $$(pwd):/adadocs -it magwas/edemotest:xslt /bin/bash
+	tools/testenv
 
 zentaworkaround:
 	mkdir -p ~/.zenta/.metadata/.plugins/org.eclipse.e4.workbench/

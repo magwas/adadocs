@@ -4,5 +4,5 @@ python:
   - 2.7
 archive: true
 script:
-- ./bin/script
-- ./bin/publish
+- ./tools/script
+- ./tools/publish

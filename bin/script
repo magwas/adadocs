@@ -1,9 +1,0 @@
-#!/bin/bash
-set -xe
-export DISPLAY=:99.0
-Xvnc :99&
-echo deb http://repos.demokracia.rulez.org/apt/debian/ master main >/etc/apt/sources.list.d/repos.demokracia.rulez.org.list
-apt update
-apt install -y zenta zenta-tools
-make
-
