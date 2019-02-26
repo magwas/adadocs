@@ -1,5 +1,9 @@
 #!/bin/bash
 set -xe
 export DISPLAY=:0
+if [ ! -s /tmp/.X11-unix/X0 ]
+then
+    Xvnc4 -SecurityTypes none :0 &
+fi
 make
 
